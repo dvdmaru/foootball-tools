@@ -43,8 +43,22 @@ def log(msg):
     print(f"[{ts}] {msg}", flush=True)
 
 
+KNOCKOUT_START = datetime.date(2026, 6, 28)  # R32 first match
+
+
 def main():
     log("=== update-fixtures.py start ===")
+
+    # Date guard：group stage 期間（< 6/28）skip knockout fetch
+    # 理由：knockout 場次淘汰賽抽完前都是 placeholder（Winner Group A vs Runner-up Group B），
+    # LLM 每次 fetch 拿到 wording 略有不同的 placeholder text → false-positive diff → 浪費 OpenAI cost + 假 commit。
+    # 6/27 group stage 結束 + 6/28 R32 bracket 確定後，LLM 才會抓回實質 team code，那時才有意義 update。
+    today = datetime.date.today()
+    if today < KNOCKOUT_START:
+        days = (KNOCKOUT_START - today).days
+        log(f"📅 今天 {today} < R32 開始日 {KNOCKOUT_START}（還有 {days} 天），skip knockout fetch")
+        log("=== update-fixtures.py end (group-stage period, no-op) ===")
+        sys.exit(0)
 
     # 0. 確認 working tree clean — 不然 abort（避免覆蓋手動編輯中的檔案）
     r = run(["git", "status", "--porcelain"])
