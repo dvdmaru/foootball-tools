@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.charlie.foootball-tools-update</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Frameworks/Python.framework/Versions/3.13/bin/python3</string>
+        <string>/Users/charlie.chien/Github-Repo/foootball-tools/scripts/update-fixtures.py</string>
+    </array>
+
+    <!-- 每天 13:33 觸發（worldcup-daily 13:03 跑完 ~30 min 後；:33 避開整點分散 OpenAI API 負載）-->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>13</integer>
+        <key>Minute</key>
+        <integer>33</integer>
+    </dict>
+
+    <!-- 日誌 -->
+    <key>StandardOutPath</key>
+    <string>/tmp/foootball-tools-update.stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/foootball-tools-update.stderr.log</string>
+
+    <!-- 工作目錄 -->
+    <key>WorkingDirectory</key>
+    <string>/Users/charlie.chien/Github-Repo/foootball-tools</string>
+</dict>
+</plist>
