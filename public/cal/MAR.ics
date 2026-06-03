@@ -22,7 +22,7 @@ DTSTART;TZID=Asia/Taipei:20260614T060000
 DTEND;TZID=Asia/Taipei:20260614T080000
 SUMMARY:🇧🇷 巴西 vs 🇲🇦 摩洛哥 (Group C)
 LOCATION:MetLife Stadium\, East Rutherford
-DESCRIPTION:Match #7 | Group C | 2026 FIFA World Cup\n開球：2026-06-13 06:00+1 台北時間（18:00 ET）\n場館：MetLife Stadium, East Rutherford
+DESCRIPTION:Match #7 | Group C | 2026 FIFA World Cup\n開球：2026-06-13 06:00+1 台北時間（18:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BRA
 END:VEVENT
 BEGIN:VEVENT
@@ -32,7 +32,7 @@ DTSTART;TZID=Asia/Taipei:20260620T060000
 DTEND;TZID=Asia/Taipei:20260620T080000
 SUMMARY:🇬🇧 蘇格蘭 vs 🇲🇦 摩洛哥 (Group C)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #30 | Group C | 2026 FIFA World Cup\n開球：2026-06-19 06:00+1 台北時間（18:00 ET）\n場館：Gillette Stadium, Foxborough
+DESCRIPTION:Match #30 | Group C | 2026 FIFA World Cup\n開球：2026-06-19 06:00+1 台北時間（18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SCO
 END:VEVENT
 BEGIN:VEVENT
@@ -42,7 +42,7 @@ DTSTART;TZID=Asia/Taipei:20260625T060000
 DTEND;TZID=Asia/Taipei:20260625T080000
 SUMMARY:🇲🇦 摩洛哥 vs 🇭🇹 海地 (Group C)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #50 | Group C | 2026 FIFA World Cup\n開球：2026-06-24 06:00+1 台北時間（18:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta
+DESCRIPTION:Match #50 | Group C | 2026 FIFA World Cup\n開球：2026-06-24 06:00+1 台北時間（18:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/MAR
 END:VEVENT
 END:VCALENDAR

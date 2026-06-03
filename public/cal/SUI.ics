@@ -22,7 +22,7 @@ DTSTART;TZID=Asia/Taipei:20260614T030000
 DTEND;TZID=Asia/Taipei:20260614T050000
 SUMMARY:🇶🇦 卡達 vs 🇨🇭 瑞士 (Group B)
 LOCATION:Levi's Stadium\, Santa Clara
-DESCRIPTION:Match #8 | Group B | 2026 FIFA World Cup\n開球：2026-06-13 03:00+1 台北時間（15:00 ET）\n場館：Levi's Stadium, Santa Clara
+DESCRIPTION:Match #8 | Group B | 2026 FIFA World Cup\n開球：2026-06-13 03:00+1 台北時間（15:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/QAT
 END:VEVENT
 BEGIN:VEVENT
@@ -32,7 +32,7 @@ DTSTART;TZID=Asia/Taipei:20260619T000000
 DTEND;TZID=Asia/Taipei:20260619T020000
 SUMMARY:🇨🇭 瑞士 vs 🇧🇦 波士尼亞 (Group B)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #26 | Group B | 2026 FIFA World Cup\n開球：2026-06-18 00:00+1 台北時間（12:00 ET）\n場館：SoFi Stadium, Inglewood
+DESCRIPTION:Match #26 | Group B | 2026 FIFA World Cup\n開球：2026-06-18 00:00+1 台北時間（12:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SUI
 END:VEVENT
 BEGIN:VEVENT
@@ -42,7 +42,7 @@ DTSTART;TZID=Asia/Taipei:20260625T030000
 DTEND;TZID=Asia/Taipei:20260625T050000
 SUMMARY:🇨🇭 瑞士 vs 🇨🇦 加拿大 (Group B)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #51 | Group B | 2026 FIFA World Cup\n開球：2026-06-24 03:00+1 台北時間（15:00 ET）\n場館：BC Place, Vancouver
+DESCRIPTION:Match #51 | Group B | 2026 FIFA World Cup\n開球：2026-06-24 03:00+1 台北時間（15:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SUI
 END:VEVENT
 END:VCALENDAR

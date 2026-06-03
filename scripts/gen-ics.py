@@ -88,7 +88,11 @@ def build_vevent(match: dict, dtstamp: str) -> str:
     description = (
         f"Match #{match['match_no']} | Group {match['group']} | 2026 FIFA World Cup\\n"
         f"開球：{match['date']} {match['kickoff_taipei']} 台北時間（{match['kickoff_et']} ET）\\n"
-        f"場館：{location}"
+        f"場館：{location}\\n"
+        f"\\n"
+        f"📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\\n"
+        f"🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\\n"
+        f"🌏 海外觀眾請查當地轉播平台"
     )
     uid = f"wc2026-match-{match['match_no']:03d}@foootball.twtools.cc"
     url = f"https://foootball.twtools.cc/teams/{match['home_code']}"

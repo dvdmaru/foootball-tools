@@ -22,7 +22,7 @@ DTSTART;TZID=Asia/Taipei:20260618T010000
 DTEND;TZID=Asia/Taipei:20260618T030000
 SUMMARY:🇵🇹 葡萄牙 vs 🇨🇩 民主剛果 (Group K)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #23 | Group K | 2026 FIFA World Cup\n開球：2026-06-17 01:00+1 台北時間（13:00 ET）\n場館：NRG Stadium, Houston
+DESCRIPTION:Match #23 | Group K | 2026 FIFA World Cup\n開球：2026-06-17 01:00+1 台北時間（13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/POR
 END:VEVENT
 BEGIN:VEVENT
@@ -32,7 +32,7 @@ DTSTART;TZID=Asia/Taipei:20260624T010000
 DTEND;TZID=Asia/Taipei:20260624T030000
 SUMMARY:🇵🇹 葡萄牙 vs 🇺🇿 烏茲別克 (Group K)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #47 | Group K | 2026 FIFA World Cup\n開球：2026-06-23 01:00+1 台北時間（13:00 ET）\n場館：NRG Stadium, Houston
+DESCRIPTION:Match #47 | Group K | 2026 FIFA World Cup\n開球：2026-06-23 01:00+1 台北時間（13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/POR
 END:VEVENT
 BEGIN:VEVENT
@@ -42,7 +42,7 @@ DTSTART;TZID=Asia/Taipei:20260628T073000
 DTEND;TZID=Asia/Taipei:20260628T093000
 SUMMARY:🇨🇴 哥倫比亞 vs 🇵🇹 葡萄牙 (Group K)
 LOCATION:Hard Rock Stadium\, Miami Gardens
-DESCRIPTION:Match #71 | Group K | 2026 FIFA World Cup\n開球：2026-06-27 07:30+1 台北時間（19:30 ET）\n場館：Hard Rock Stadium, Miami Gardens
+DESCRIPTION:Match #71 | Group K | 2026 FIFA World Cup\n開球：2026-06-27 07:30+1 台北時間（19:30 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/COL
 END:VEVENT
 END:VCALENDAR

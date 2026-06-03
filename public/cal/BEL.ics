@@ -22,7 +22,7 @@ DTSTART;TZID=Asia/Taipei:20260616T030000
 DTEND;TZID=Asia/Taipei:20260616T050000
 SUMMARY:🇧🇪 比利時 vs 🇪🇬 埃及 (Group G)
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match #16 | Group G | 2026 FIFA World Cup\n開球：2026-06-15 03:00+1 台北時間（15:00 ET）\n場館：Lumen Field, Seattle
+DESCRIPTION:Match #16 | Group G | 2026 FIFA World Cup\n開球：2026-06-15 03:00+1 台北時間（15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BEL
 END:VEVENT
 BEGIN:VEVENT
@@ -32,7 +32,7 @@ DTSTART;TZID=Asia/Taipei:20260622T030000
 DTEND;TZID=Asia/Taipei:20260622T050000
 SUMMARY:🇧🇪 比利時 vs 🇮🇷 伊朗 (Group G)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #39 | Group G | 2026 FIFA World Cup\n開球：2026-06-21 03:00+1 台北時間（15:00 ET）\n場館：SoFi Stadium, Inglewood
+DESCRIPTION:Match #39 | Group G | 2026 FIFA World Cup\n開球：2026-06-21 03:00+1 台北時間（15:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BEL
 END:VEVENT
 BEGIN:VEVENT
@@ -42,7 +42,7 @@ DTSTART;TZID=Asia/Taipei:20260627T110000
 DTEND;TZID=Asia/Taipei:20260627T130000
 SUMMARY:🇳🇿 紐西蘭 vs 🇧🇪 比利時 (Group G)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #64 | Group G | 2026 FIFA World Cup\n開球：2026-06-26 11:00+1 台北時間（23:00 ET）\n場館：BC Place, Vancouver
+DESCRIPTION:Match #64 | Group G | 2026 FIFA World Cup\n開球：2026-06-26 11:00+1 台北時間（23:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NZL
 END:VEVENT
 END:VCALENDAR

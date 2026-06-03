@@ -22,7 +22,7 @@ DTSTART;TZID=Asia/Taipei:20260616T000000
 DTEND;TZID=Asia/Taipei:20260616T020000
 SUMMARY:🇪🇸 西班牙 vs 🇨🇻 維德角 (Group H)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #14 | Group H | 2026 FIFA World Cup\n開球：2026-06-15 00:00+1 台北時間（12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta
+DESCRIPTION:Match #14 | Group H | 2026 FIFA World Cup\n開球：2026-06-15 00:00+1 台北時間（12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ESP
 END:VEVENT
 BEGIN:VEVENT
@@ -32,7 +32,7 @@ DTSTART;TZID=Asia/Taipei:20260622T060000
 DTEND;TZID=Asia/Taipei:20260622T080000
 SUMMARY:🇺🇾 烏拉圭 vs 🇨🇻 維德角 (Group H)
 LOCATION:Hard Rock Stadium\, Miami Gardens
-DESCRIPTION:Match #37 | Group H | 2026 FIFA World Cup\n開球：2026-06-21 06:00+1 台北時間（18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens
+DESCRIPTION:Match #37 | Group H | 2026 FIFA World Cup\n開球：2026-06-21 06:00+1 台北時間（18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/URU
 END:VEVENT
 BEGIN:VEVENT
@@ -42,7 +42,7 @@ DTSTART;TZID=Asia/Taipei:20260627T080000
 DTEND;TZID=Asia/Taipei:20260627T100000
 SUMMARY:🇨🇻 維德角 vs 🇸🇦 沙烏地阿拉伯 (Group H)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #65 | Group H | 2026 FIFA World Cup\n開球：2026-06-26 08:00+1 台北時間（20:00 ET）\n場館：NRG Stadium, Houston
+DESCRIPTION:Match #65 | Group H | 2026 FIFA World Cup\n開球：2026-06-26 08:00+1 台北時間（20:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CPV
 END:VEVENT
 END:VCALENDAR

@@ -22,7 +22,7 @@ DTSTART;TZID=Asia/Taipei:20260615T100000
 DTEND;TZID=Asia/Taipei:20260615T120000
 SUMMARY:🇸🇪 瑞典 vs 🇹🇳 突尼西亞 (Group F)
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match #12 | Group F | 2026 FIFA World Cup\n開球：2026-06-14 10:00+1 台北時間（22:00 ET）\n場館：Estadio BBVA, Monterrey
+DESCRIPTION:Match #12 | Group F | 2026 FIFA World Cup\n開球：2026-06-14 10:00+1 台北時間（22:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SWE
 END:VEVENT
 BEGIN:VEVENT
@@ -32,7 +32,7 @@ DTSTART;TZID=Asia/Taipei:20260620T120000
 DTEND;TZID=Asia/Taipei:20260620T140000
 SUMMARY:🇹🇳 突尼西亞 vs 🇯🇵 日本 (Group F)
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match #36 | Group F | 2026 FIFA World Cup\n開球：2026-06-20 12:00 台北時間（00:00 ET）\n場館：Estadio BBVA, Monterrey
+DESCRIPTION:Match #36 | Group F | 2026 FIFA World Cup\n開球：2026-06-20 12:00 台北時間（00:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/TUN
 END:VEVENT
 BEGIN:VEVENT
@@ -42,7 +42,7 @@ DTSTART;TZID=Asia/Taipei:20260626T070000
 DTEND;TZID=Asia/Taipei:20260626T090000
 SUMMARY:🇹🇳 突尼西亞 vs 🇳🇱 荷蘭 (Group F)
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match #58 | Group F | 2026 FIFA World Cup\n開球：2026-06-25 07:00+1 台北時間（19:00 ET）\n場館：Arrowhead Stadium, Kansas City
+DESCRIPTION:Match #58 | Group F | 2026 FIFA World Cup\n開球：2026-06-25 07:00+1 台北時間（19:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/TUN
 END:VEVENT
 END:VCALENDAR

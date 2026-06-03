@@ -22,7 +22,7 @@ DTSTART;TZID=Asia/Taipei:20260612T030000
 DTEND;TZID=Asia/Taipei:20260612T050000
 SUMMARY:🇲🇽 墨西哥 vs 🇿🇦 南非 (Group A)
 LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match #1 | Group A | 2026 FIFA World Cup\n開球：2026-06-11 03:00+1 台北時間（15:00 ET）\n場館：Estadio Azteca, Mexico City
+DESCRIPTION:Match #1 | Group A | 2026 FIFA World Cup\n開球：2026-06-11 03:00+1 台北時間（15:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/MEX
 END:VEVENT
 BEGIN:VEVENT
@@ -32,7 +32,7 @@ DTSTART;TZID=Asia/Taipei:20260619T090000
 DTEND;TZID=Asia/Taipei:20260619T110000
 SUMMARY:🇲🇽 墨西哥 vs 🇰🇷 南韓 (Group A)
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match #28 | Group A | 2026 FIFA World Cup\n開球：2026-06-18 09:00+1 台北時間（21:00 ET）\n場館：Estadio Akron, Guadalajara
+DESCRIPTION:Match #28 | Group A | 2026 FIFA World Cup\n開球：2026-06-18 09:00+1 台北時間（21:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/MEX
 END:VEVENT
 BEGIN:VEVENT
@@ -42,7 +42,7 @@ DTSTART;TZID=Asia/Taipei:20260625T090000
 DTEND;TZID=Asia/Taipei:20260625T110000
 SUMMARY:🇨🇿 捷克 vs 🇲🇽 墨西哥 (Group A)
 LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match #53 | Group A | 2026 FIFA World Cup\n開球：2026-06-24 09:00+1 台北時間（21:00 ET）\n場館：Estadio Azteca, Mexico City
+DESCRIPTION:Match #53 | Group A | 2026 FIFA World Cup\n開球：2026-06-24 09:00+1 台北時間（21:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CZE
 END:VEVENT
 END:VCALENDAR
