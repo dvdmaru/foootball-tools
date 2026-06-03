@@ -27,14 +27,54 @@
 ## 開發
 
 ```bash
-# 抓 fixtures (gpt-5 + web_search，~$0.20 / 次)
-python3 scripts/fetch-fixtures.py
+# 抓 group stage fixtures (gpt-5 + web_search，~$0.25 / 次)
+python3 scripts/fetch-fixtures.py group-stage
 
-# 生 48 隊 ICS
+# 抓 knockout placeholder (group stage 結束後對戰才會 fill 上)
+python3 scripts/fetch-fixtures.py knockout
+
+# 生 48 隊 ICS + tournament.ics
 python3 scripts/gen-ics.py
 
 # 本機預覽
 open public/index.html
+```
+
+## 自動 update pipeline (淘汰賽期間 6/28-7/19)
+
+`scripts/update-fixtures.py` 每天 launchd 13:33 自動跑：
+
+```
+13:03  worldcup-daily 跑 daily 戰報
+13:33  foootball-tools update-fixtures.py
+       ├─ date guard: < 2026-06-28 → skip & exit (group stage 期間 placeholder noise)
+       ├─ 6/28+ : fetch-fixtures.py knockout (gpt-5+search)
+       ├─        gen-ics.py 重 regen 48 隊 ICS + tournament.ics
+       ├─        git diff 看有沒有實質變動
+       └─        有 → commit + push origin main → CF Pages auto-deploy
+（用戶端日曆 app 12-24h 內背景 sync 拿到新版 ICS）
+```
+
+每天 ~$0.20-0.30 OpenAI fetch cost（6/28-7/19 共 ~22 天 = ~$5），加 worldcup-daily 已有 $13/月 = 兩個專案 ~$23/月。
+
+### 安裝 launchd
+
+```bash
+cp ~/Github-Repo/foootball-tools/com.charlie.foootball-tools-update.plist \
+   ~/Library/LaunchAgents/
+
+launchctl load ~/Library/LaunchAgents/com.charlie.foootball-tools-update.plist
+launchctl list | grep foootball-tools-update    # 確認 status 0
+```
+
+Logs：
+- stdout: `/tmp/foootball-tools-update.stdout.log`
+- stderr: `/tmp/foootball-tools-update.stderr.log`
+
+手動跑（debug 或 6/28+ 想立刻 trigger 一次）：
+
+```bash
+python3 ~/Github-Repo/foootball-tools/scripts/update-fixtures.py
 ```
 
 ## 部署
