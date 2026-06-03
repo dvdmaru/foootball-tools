@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇧🇷 巴西 世界盃 2026
+X-WR-CALDESC:巴西（BRA）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-007@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260614T060000
+DTEND;TZID=Asia/Taipei:20260614T080000
+SUMMARY:🇧🇷 巴西 vs 🇲🇦 摩洛哥 (Group C)
+LOCATION:MetLife Stadium\, East Rutherford
+DESCRIPTION:Match #7 | Group C | 2026 FIFA World Cup\n開球：2026-06-13 06:00+1 台北時間（18:00 ET）\n場館：MetLife Stadium, East Rutherford
+URL:https://foootball.twtools.cc/teams/BRA
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-029@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260620T083000
+DTEND;TZID=Asia/Taipei:20260620T103000
+SUMMARY:🇧🇷 巴西 vs 🇭🇹 海地 (Group C)
+LOCATION:Lincoln Financial Field\, Philadelphia
+DESCRIPTION:Match #29 | Group C | 2026 FIFA World Cup\n開球：2026-06-19 08:30+1 台北時間（20:30 ET）\n場館：Lincoln Financial Field, Philadelphia
+URL:https://foootball.twtools.cc/teams/BRA
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-049@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260625T060000
+DTEND;TZID=Asia/Taipei:20260625T080000
+SUMMARY:🇬🇧 蘇格蘭 vs 🇧🇷 巴西 (Group C)
+LOCATION:Hard Rock Stadium\, Miami Gardens
+DESCRIPTION:Match #49 | Group C | 2026 FIFA World Cup\n開球：2026-06-24 06:00+1 台北時間（18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens
+URL:https://foootball.twtools.cc/teams/SCO
+END:VEVENT
+END:VCALENDAR

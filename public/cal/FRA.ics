@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇫🇷 法國 世界盃 2026
+X-WR-CALDESC:法國（FRA）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-017@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260617T030000
+DTEND;TZID=Asia/Taipei:20260617T050000
+SUMMARY:🇫🇷 法國 vs 🇸🇳 塞內加爾 (Group I)
+LOCATION:MetLife Stadium\, East Rutherford
+DESCRIPTION:Match #17 | Group I | 2026 FIFA World Cup\n開球：2026-06-16 03:00+1 台北時間（15:00 ET）\n場館：MetLife Stadium, East Rutherford
+URL:https://foootball.twtools.cc/teams/FRA
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-042@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260623T050000
+DTEND;TZID=Asia/Taipei:20260623T070000
+SUMMARY:🇫🇷 法國 vs 🇮🇶 伊拉克 (Group I)
+LOCATION:Lincoln Financial Field\, Philadelphia
+DESCRIPTION:Match #42 | Group I | 2026 FIFA World Cup\n開球：2026-06-22 05:00+1 台北時間（17:00 ET）\n場館：Lincoln Financial Field, Philadelphia
+URL:https://foootball.twtools.cc/teams/FRA
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-061@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260627T030000
+DTEND;TZID=Asia/Taipei:20260627T050000
+SUMMARY:🇳🇴 挪威 vs 🇫🇷 法國 (Group I)
+LOCATION:Gillette Stadium\, Foxborough
+DESCRIPTION:Match #61 | Group I | 2026 FIFA World Cup\n開球：2026-06-26 03:00+1 台北時間（15:00 ET）\n場館：Gillette Stadium, Foxborough
+URL:https://foootball.twtools.cc/teams/NOR
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇧🇪 比利時 世界盃 2026
+X-WR-CALDESC:比利時（BEL）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-016@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260616T030000
+DTEND;TZID=Asia/Taipei:20260616T050000
+SUMMARY:🇧🇪 比利時 vs 🇪🇬 埃及 (Group G)
+LOCATION:Lumen Field\, Seattle
+DESCRIPTION:Match #16 | Group G | 2026 FIFA World Cup\n開球：2026-06-15 03:00+1 台北時間（15:00 ET）\n場館：Lumen Field, Seattle
+URL:https://foootball.twtools.cc/teams/BEL
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-039@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260622T030000
+DTEND;TZID=Asia/Taipei:20260622T050000
+SUMMARY:🇧🇪 比利時 vs 🇮🇷 伊朗 (Group G)
+LOCATION:SoFi Stadium\, Inglewood
+DESCRIPTION:Match #39 | Group G | 2026 FIFA World Cup\n開球：2026-06-21 03:00+1 台北時間（15:00 ET）\n場館：SoFi Stadium, Inglewood
+URL:https://foootball.twtools.cc/teams/BEL
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-064@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260627T110000
+DTEND;TZID=Asia/Taipei:20260627T130000
+SUMMARY:🇳🇿 紐西蘭 vs 🇧🇪 比利時 (Group G)
+LOCATION:BC Place\, Vancouver
+DESCRIPTION:Match #64 | Group G | 2026 FIFA World Cup\n開球：2026-06-26 11:00+1 台北時間（23:00 ET）\n場館：BC Place, Vancouver
+URL:https://foootball.twtools.cc/teams/NZL
+END:VEVENT
+END:VCALENDAR

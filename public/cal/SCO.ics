@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇬🇧 蘇格蘭 世界盃 2026
+X-WR-CALDESC:蘇格蘭（SCO）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-005@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260614T090000
+DTEND;TZID=Asia/Taipei:20260614T110000
+SUMMARY:🇭🇹 海地 vs 🇬🇧 蘇格蘭 (Group C)
+LOCATION:Gillette Stadium\, Foxborough
+DESCRIPTION:Match #5 | Group C | 2026 FIFA World Cup\n開球：2026-06-13 09:00+1 台北時間（21:00 ET）\n場館：Gillette Stadium, Foxborough
+URL:https://foootball.twtools.cc/teams/HAI
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-030@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260620T060000
+DTEND;TZID=Asia/Taipei:20260620T080000
+SUMMARY:🇬🇧 蘇格蘭 vs 🇲🇦 摩洛哥 (Group C)
+LOCATION:Gillette Stadium\, Foxborough
+DESCRIPTION:Match #30 | Group C | 2026 FIFA World Cup\n開球：2026-06-19 06:00+1 台北時間（18:00 ET）\n場館：Gillette Stadium, Foxborough
+URL:https://foootball.twtools.cc/teams/SCO
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-049@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260625T060000
+DTEND;TZID=Asia/Taipei:20260625T080000
+SUMMARY:🇬🇧 蘇格蘭 vs 🇧🇷 巴西 (Group C)
+LOCATION:Hard Rock Stadium\, Miami Gardens
+DESCRIPTION:Match #49 | Group C | 2026 FIFA World Cup\n開球：2026-06-24 06:00+1 台北時間（18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens
+URL:https://foootball.twtools.cc/teams/SCO
+END:VEVENT
+END:VCALENDAR

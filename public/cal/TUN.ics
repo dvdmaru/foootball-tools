@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇹🇳 突尼西亞 世界盃 2026
+X-WR-CALDESC:突尼西亞（TUN）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-012@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260615T100000
+DTEND;TZID=Asia/Taipei:20260615T120000
+SUMMARY:🇸🇪 瑞典 vs 🇹🇳 突尼西亞 (Group F)
+LOCATION:Estadio BBVA\, Monterrey
+DESCRIPTION:Match #12 | Group F | 2026 FIFA World Cup\n開球：2026-06-14 10:00+1 台北時間（22:00 ET）\n場館：Estadio BBVA, Monterrey
+URL:https://foootball.twtools.cc/teams/SWE
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-036@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260620T120000
+DTEND;TZID=Asia/Taipei:20260620T140000
+SUMMARY:🇹🇳 突尼西亞 vs 🇯🇵 日本 (Group F)
+LOCATION:Estadio BBVA\, Monterrey
+DESCRIPTION:Match #36 | Group F | 2026 FIFA World Cup\n開球：2026-06-20 12:00 台北時間（00:00 ET）\n場館：Estadio BBVA, Monterrey
+URL:https://foootball.twtools.cc/teams/TUN
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-058@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260626T070000
+DTEND;TZID=Asia/Taipei:20260626T090000
+SUMMARY:🇹🇳 突尼西亞 vs 🇳🇱 荷蘭 (Group F)
+LOCATION:Arrowhead Stadium\, Kansas City
+DESCRIPTION:Match #58 | Group F | 2026 FIFA World Cup\n開球：2026-06-25 07:00+1 台北時間（19:00 ET）\n場館：Arrowhead Stadium, Kansas City
+URL:https://foootball.twtools.cc/teams/TUN
+END:VEVENT
+END:VCALENDAR

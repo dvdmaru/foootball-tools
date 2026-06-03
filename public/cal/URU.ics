@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇺🇾 烏拉圭 世界盃 2026
+X-WR-CALDESC:烏拉圭（URU）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-013@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260616T060000
+DTEND;TZID=Asia/Taipei:20260616T080000
+SUMMARY:🇸🇦 沙烏地阿拉伯 vs 🇺🇾 烏拉圭 (Group H)
+LOCATION:Hard Rock Stadium\, Miami Gardens
+DESCRIPTION:Match #13 | Group H | 2026 FIFA World Cup\n開球：2026-06-15 06:00+1 台北時間（18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens
+URL:https://foootball.twtools.cc/teams/KSA
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-037@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260622T060000
+DTEND;TZID=Asia/Taipei:20260622T080000
+SUMMARY:🇺🇾 烏拉圭 vs 🇨🇻 維德角 (Group H)
+LOCATION:Hard Rock Stadium\, Miami Gardens
+DESCRIPTION:Match #37 | Group H | 2026 FIFA World Cup\n開球：2026-06-21 06:00+1 台北時間（18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens
+URL:https://foootball.twtools.cc/teams/URU
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-066@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260627T080000
+DTEND;TZID=Asia/Taipei:20260627T100000
+SUMMARY:🇺🇾 烏拉圭 vs 🇪🇸 西班牙 (Group H)
+LOCATION:Estadio Akron\, Guadalajara
+DESCRIPTION:Match #66 | Group H | 2026 FIFA World Cup\n開球：2026-06-26 08:00+1 台北時間（20:00 ET）\n場館：Estadio Akron, Guadalajara
+URL:https://foootball.twtools.cc/teams/URU
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 世界盃賽程 — 訂閱你的球隊行事曆 | @foootball</title>
+<meta name="description" content="2026 美加墨世界盃賽程，台北時間自動換算，48 隊各一條 ICS 訂閱連結，一鍵加進 Apple Calendar / Google Calendar。">
+<meta property="og:title" content="2026 世界盃賽程 — 訂閱你的球隊行事曆">
+<meta property="og:description" content="48 隊 ICS 訂閱 / 下載 / 加入 Google Calendar，台北時間自動換算。">
+<meta property="og:type" content="website">
+<style>
+:root {
+  --bg: #0d2818;
+  --fg: #e8f0e6;
+  --green: #2a7f4f;
+  --green-light: #4ba874;
+  --gold: #d4af37;
+  --gold-light: #f0c850;
+  --card: #143524;
+  --card-hover: #1a4530;
+  --dim: #8a9c8d;
+  --border: #2a5040;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft JhengHei', sans-serif; line-height: 1.6; }
+body { min-height: 100vh; padding: 24px 16px 80px; }
+.container { max-width: 920px; margin: 0 auto; }
+header { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+h1 { font-size: 28px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px; }
+.subtitle { font-size: 15px; color: var(--dim); }
+.brand { font-size: 12px; color: var(--gold-light); letter-spacing: 2px; margin-top: 8px; }
+
+.intro { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; font-size: 14px; color: var(--fg); }
+.intro b { color: var(--gold-light); }
+
+.group-block { margin-bottom: 32px; }
+.group-title { font-size: 18px; color: var(--gold-light); margin-bottom: 12px; padding-left: 8px; border-left: 3px solid var(--gold); font-weight: 600; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+
+.team-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; text-align: center; cursor: pointer; transition: all 0.15s; }
+.team-card:hover { background: var(--card-hover); border-color: var(--green-light); transform: translateY(-2px); }
+.team-card.active { background: var(--green); border-color: var(--gold); }
+.flag { width: 56px; height: 42px; object-fit: cover; border-radius: 4px; margin: 0 auto 8px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+.team-name { font-size: 14px; font-weight: 600; color: var(--fg); }
+.team-code { font-size: 11px; color: var(--dim); letter-spacing: 1px; margin-top: 2px; }
+
+.team-detail { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); border-top: 2px solid var(--gold); padding: 24px 16px 32px; max-height: 70vh; overflow-y: auto; box-shadow: 0 -10px 30px rgba(0,0,0,0.5); transform: translateY(100%); transition: transform 0.25s ease-out; z-index: 100; }
+.team-detail.show { transform: translateY(0); }
+.detail-container { max-width: 720px; margin: 0 auto; }
+.detail-close { position: absolute; top: 12px; right: 16px; background: transparent; border: none; color: var(--dim); font-size: 24px; cursor: pointer; padding: 4px 8px; }
+.detail-close:hover { color: var(--fg); }
+.detail-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.detail-flag { width: 72px; height: 54px; object-fit: cover; border-radius: 4px; }
+.detail-team-name { font-size: 22px; font-weight: 700; color: var(--gold); }
+.detail-group { font-size: 13px; color: var(--dim); margin-top: 2px; }
+
+.match-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.match-row { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+.match-info { font-size: 14px; }
+.match-time { font-weight: 600; color: var(--gold-light); }
+.match-opponent { color: var(--fg); }
+.match-venue { font-size: 12px; color: var(--dim); margin-top: 2px; }
+.match-gcal { background: var(--green); color: white; padding: 6px 10px; border-radius: 6px; font-size: 12px; text-decoration: none; white-space: nowrap; }
+.match-gcal:hover { background: var(--green-light); }
+
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 480px) { .actions { grid-template-columns: 1fr; } }
+.action-btn { display: block; padding: 14px 16px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.15s; }
+.action-subscribe { background: var(--gold); color: var(--bg); }
+.action-subscribe:hover { background: var(--gold-light); }
+.action-download { background: transparent; color: var(--gold-light); border: 1px solid var(--gold); }
+.action-download:hover { background: var(--gold); color: var(--bg); }
+.action-hint { font-size: 12px; color: var(--dim); margin-top: 4px; font-weight: 400; }
+
+footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--dim); }
+footer a { color: var(--gold-light); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>2026 世界盃賽程行事曆</h1>
+  <div class="subtitle">美加墨 FIFA World Cup · 6/11 → 7/19 · 台北時間自動換算</div>
+  <div class="brand">@FOOOTBALL</div>
+</header>
+
+<div class="intro">
+  選你的國家隊 → <b>訂閱</b>（Apple Cal 一鍵 / Google Cal 桌機 paste URL）或 <b>下載 .ics</b>。淘汰賽抽完之後訂閱版會自動 sync 進你的行事曆。
+</div>
+
+<div id="groups-container"></div>
+
+<footer>
+  <div>📅 ICS by <a href="https://medium.com/@foootball" target="_blank">@foootball</a> · 賽程資料 source: FIFA / ESPN / Wikipedia</div>
+  <div style="margin-top: 8px; font-size: 11px;">如需訂閱 <b>全程</b> 104 場：<a href="webcal://foootball.twtools.cc/cal/tournament.ics">webcal://foootball.twtools.cc/cal/tournament.ics</a></div>
+</footer>
+
+</div><!-- container -->
+
+<div class="team-detail" id="team-detail">
+  <div class="detail-container">
+    <button class="detail-close" onclick="closeDetail()">✕</button>
+    <div class="detail-header">
+      <img id="detail-flag" class="detail-flag" src="" alt="">
+      <div>
+        <div id="detail-team-name" class="detail-team-name"></div>
+        <div id="detail-group" class="detail-group"></div>
+      </div>
+    </div>
+
+    <div id="match-list" class="match-list"></div>
+
+    <div class="actions">
+      <a id="action-subscribe" class="action-btn action-subscribe" href="#">
+        📅 訂閱 webcal://
+        <div class="action-hint">Apple Cal 一鍵 / Google Cal 桌機 paste URL</div>
+      </a>
+      <a id="action-download" class="action-btn action-download" href="#" download>
+        ⬇️ 下載 .ics 檔
+        <div class="action-hint">單次匯入，更新要重抓</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="fixtures-data.js"></script>
+<script>
+const HOST = location.hostname === 'localhost' || location.protocol === 'file:'
+  ? location.origin + (location.pathname.replace(/\/[^/]*$/, '/'))
+  : 'https://foootball.twtools.cc/';
+
+let DATA = null;
+
+function load() {
+  // fixtures-data.js 透過 <script> tag 載入時 set window.FIXTURES_DATA
+  // 用 .js wrapper 是為了 file:// 本機預覽不撞 CORS
+  DATA = window.FIXTURES_DATA;
+  if (!DATA) {
+    document.body.innerHTML = '<div style="padding:40px; color:#fff;">⚠️ fixtures-data.js 沒載入</div>';
+    return;
+  }
+  renderGroups();
+}
+
+function flagUrl(iso) {
+  return `https://flagcdn.com/w160/${iso}.png`;
+}
+
+function renderGroups() {
+  const container = document.getElementById('groups-container');
+  const groups = {};
+  for (const t of DATA.teams) {
+    if (!groups[t.group]) groups[t.group] = [];
+    groups[t.group].push(t);
+  }
+  let html = '';
+  for (const g of Object.keys(groups).sort()) {
+    html += `<div class="group-block"><div class="group-title">Group ${g}</div><div class="team-grid">`;
+    for (const t of groups[g]) {
+      html += `<div class="team-card" data-code="${t.code}" onclick="showTeam('${t.code}')">
+        <img class="flag" src="${flagUrl(t.iso)}" alt="${t.name_zh}">
+        <div class="team-name">${t.name_zh}</div>
+        <div class="team-code">${t.code}</div>
+      </div>`;
+    }
+    html += '</div></div>';
+  }
+  container.innerHTML = html;
+}
+
+function showTeam(code) {
+  document.querySelectorAll('.team-card').forEach(c => {
+    c.classList.toggle('active', c.dataset.code === code);
+  });
+  const team = DATA.teams.find(t => t.code === code);
+  if (!team) return;
+
+  document.getElementById('detail-flag').src = flagUrl(team.iso);
+  document.getElementById('detail-team-name').textContent = `${team.name_zh}（${team.code}）`;
+  document.getElementById('detail-group').textContent = `Group ${team.group} · 點選下方按鈕訂閱 / 下載，或點單場 「加入 Google Calendar」`;
+
+  // 該隊全部比賽
+  const myMatches = DATA.matches.filter(m => m.home_code === code || m.away_code === code)
+    .sort((a, b) => (a.date + a.kickoff_taipei).localeCompare(b.date + b.kickoff_taipei));
+
+  let html = '';
+  for (const m of myMatches) {
+    const opponentCode = m.home_code === code ? m.away_code : m.home_code;
+    const opponentZh = DATA.team_zh[opponentCode] || opponentCode;
+    const opponentIso = m.home_code === code ? m.away_iso : m.home_iso;
+    const isHome = m.home_code === code;
+    const venuePosition = isHome ? '(主場)' : '(客場)';
+    const taipeiDateTime = computeTaipeiDateTime(m);
+
+    const gcalLink = buildGCalLink(m, code);
+    html += `<div class="match-row">
+      <div class="match-info">
+        <div class="match-time">${taipeiDateTime}</div>
+        <div class="match-opponent">vs <img src="${flagUrl(opponentIso)}" style="width:20px; vertical-align:middle; border-radius:2px;"> ${opponentZh} <span style="color:var(--dim); font-size:12px;">${venuePosition}</span></div>
+        <div class="match-venue">${m.stadium}, ${m.city}</div>
+      </div>
+      <a class="match-gcal" href="${gcalLink}" target="_blank">📌 加進 GCal</a>
+    </div>`;
+  }
+  document.getElementById('match-list').innerHTML = html;
+
+  const icsUrl = HOST + `cal/${code}.ics`;
+  const webcalUrl = icsUrl.replace(/^https?:/, 'webcal:');
+  document.getElementById('action-subscribe').href = webcalUrl;
+  document.getElementById('action-download').href = icsUrl;
+  document.getElementById('action-download').setAttribute('download', `${code}.ics`);
+
+  document.getElementById('team-detail').classList.add('show');
+}
+
+function closeDetail() {
+  document.getElementById('team-detail').classList.remove('show');
+  document.querySelectorAll('.team-card').forEach(c => c.classList.remove('active'));
+}
+
+function computeTaipeiDateTime(m) {
+  // m.date = "2026-06-17", m.kickoff_taipei = "01:00+1" or "12:00"
+  let offset = 0;
+  let time = m.kickoff_taipei;
+  if (time.includes('+')) {
+    const parts = time.split('+');
+    time = parts[0];
+    offset = parseInt(parts[1]);
+  }
+  const d = new Date(m.date + 'T00:00:00');
+  d.setDate(d.getDate() + offset);
+  const dateStr = `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`;
+  const weekDay = ['日','一','二','三','四','五','六'][d.getDay()];
+  return `${dateStr}（${weekDay}）${time}`;
+}
+
+function buildGCalLink(m, viewerCode) {
+  // ET 時間 → UTC (EDT = UTC-4)
+  const [hh, mm] = m.kickoff_et.split(':').map(Number);
+  const d = new Date(m.date + 'T00:00:00Z');
+  d.setUTCHours(hh + 4, mm); // EDT → UTC
+  const start = d.toISOString().replace(/[-:]|\.\d{3}/g, '');
+  const endDate = new Date(d.getTime() + 2*60*60*1000);
+  const end = endDate.toISOString().replace(/[-:]|\.\d{3}/g, '');
+
+  const homeZh = DATA.team_zh[m.home_code] || m.home_team;
+  const awayZh = DATA.team_zh[m.away_code] || m.away_team;
+  const title = `${homeZh} vs ${awayZh} (Group ${m.group})`;
+  const details = `2026 FIFA 世界盃 Match #${m.match_no} | Group ${m.group}\n台北時間：${computeTaipeiDateTime(m)}\n美加墨當地：${m.date} ${m.kickoff_et} ET`;
+  const location = `${m.stadium}, ${m.city}`;
+
+  const url = new URL('https://calendar.google.com/calendar/render');
+  url.searchParams.set('action', 'TEMPLATE');
+  url.searchParams.set('text', title);
+  url.searchParams.set('dates', `${start}/${end}`);
+  url.searchParams.set('details', details);
+  url.searchParams.set('location', location);
+  return url.toString();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+load();
+</script>
+</body>
+</html>

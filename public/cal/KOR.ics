@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇰🇷 南韓 世界盃 2026
+X-WR-CALDESC:南韓（KOR）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-002@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260612T100000
+DTEND;TZID=Asia/Taipei:20260612T120000
+SUMMARY:🇰🇷 南韓 vs 🇨🇿 捷克 (Group A)
+LOCATION:Estadio Akron\, Guadalajara
+DESCRIPTION:Match #2 | Group A | 2026 FIFA World Cup\n開球：2026-06-11 10:00+1 台北時間（22:00 ET）\n場館：Estadio Akron, Guadalajara
+URL:https://foootball.twtools.cc/teams/KOR
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-028@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260619T090000
+DTEND;TZID=Asia/Taipei:20260619T110000
+SUMMARY:🇲🇽 墨西哥 vs 🇰🇷 南韓 (Group A)
+LOCATION:Estadio Akron\, Guadalajara
+DESCRIPTION:Match #28 | Group A | 2026 FIFA World Cup\n開球：2026-06-18 09:00+1 台北時間（21:00 ET）\n場館：Estadio Akron, Guadalajara
+URL:https://foootball.twtools.cc/teams/MEX
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-054@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260625T090000
+DTEND;TZID=Asia/Taipei:20260625T110000
+SUMMARY:🇿🇦 南非 vs 🇰🇷 南韓 (Group A)
+LOCATION:Estadio BBVA\, Monterrey
+DESCRIPTION:Match #54 | Group A | 2026 FIFA World Cup\n開球：2026-06-24 09:00+1 台北時間（21:00 ET）\n場館：Estadio BBVA, Monterrey
+URL:https://foootball.twtools.cc/teams/RSA
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇳🇿 紐西蘭 世界盃 2026
+X-WR-CALDESC:紐西蘭（NZL）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-015@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260616T090000
+DTEND;TZID=Asia/Taipei:20260616T110000
+SUMMARY:🇮🇷 伊朗 vs 🇳🇿 紐西蘭 (Group G)
+LOCATION:SoFi Stadium\, Inglewood
+DESCRIPTION:Match #15 | Group G | 2026 FIFA World Cup\n開球：2026-06-15 09:00+1 台北時間（21:00 ET）\n場館：SoFi Stadium, Inglewood
+URL:https://foootball.twtools.cc/teams/IRN
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-040@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260622T090000
+DTEND;TZID=Asia/Taipei:20260622T110000
+SUMMARY:🇳🇿 紐西蘭 vs 🇪🇬 埃及 (Group G)
+LOCATION:BC Place\, Vancouver
+DESCRIPTION:Match #40 | Group G | 2026 FIFA World Cup\n開球：2026-06-21 09:00+1 台北時間（21:00 ET）\n場館：BC Place, Vancouver
+URL:https://foootball.twtools.cc/teams/NZL
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-064@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260627T110000
+DTEND;TZID=Asia/Taipei:20260627T130000
+SUMMARY:🇳🇿 紐西蘭 vs 🇧🇪 比利時 (Group G)
+LOCATION:BC Place\, Vancouver
+DESCRIPTION:Match #64 | Group G | 2026 FIFA World Cup\n開球：2026-06-26 11:00+1 台北時間（23:00 ET）\n場館：BC Place, Vancouver
+URL:https://foootball.twtools.cc/teams/NZL
+END:VEVENT
+END:VCALENDAR

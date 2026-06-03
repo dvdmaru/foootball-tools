@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇿🇦 南非 世界盃 2026
+X-WR-CALDESC:南非（RSA）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-001@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260612T030000
+DTEND;TZID=Asia/Taipei:20260612T050000
+SUMMARY:🇲🇽 墨西哥 vs 🇿🇦 南非 (Group A)
+LOCATION:Estadio Azteca\, Mexico City
+DESCRIPTION:Match #1 | Group A | 2026 FIFA World Cup\n開球：2026-06-11 03:00+1 台北時間（15:00 ET）\n場館：Estadio Azteca, Mexico City
+URL:https://foootball.twtools.cc/teams/MEX
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-025@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260619T000000
+DTEND;TZID=Asia/Taipei:20260619T020000
+SUMMARY:🇨🇿 捷克 vs 🇿🇦 南非 (Group A)
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+DESCRIPTION:Match #25 | Group A | 2026 FIFA World Cup\n開球：2026-06-18 00:00+1 台北時間（12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta
+URL:https://foootball.twtools.cc/teams/CZE
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-054@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260625T090000
+DTEND;TZID=Asia/Taipei:20260625T110000
+SUMMARY:🇿🇦 南非 vs 🇰🇷 南韓 (Group A)
+LOCATION:Estadio BBVA\, Monterrey
+DESCRIPTION:Match #54 | Group A | 2026 FIFA World Cup\n開球：2026-06-24 09:00+1 台北時間（21:00 ET）\n場館：Estadio BBVA, Monterrey
+URL:https://foootball.twtools.cc/teams/RSA
+END:VEVENT
+END:VCALENDAR

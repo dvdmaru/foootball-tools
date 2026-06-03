@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇪🇸 西班牙 世界盃 2026
+X-WR-CALDESC:西班牙（ESP）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-014@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260616T000000
+DTEND;TZID=Asia/Taipei:20260616T020000
+SUMMARY:🇪🇸 西班牙 vs 🇨🇻 維德角 (Group H)
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+DESCRIPTION:Match #14 | Group H | 2026 FIFA World Cup\n開球：2026-06-15 00:00+1 台北時間（12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta
+URL:https://foootball.twtools.cc/teams/ESP
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-038@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260622T000000
+DTEND;TZID=Asia/Taipei:20260622T020000
+SUMMARY:🇪🇸 西班牙 vs 🇸🇦 沙烏地阿拉伯 (Group H)
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+DESCRIPTION:Match #38 | Group H | 2026 FIFA World Cup\n開球：2026-06-21 00:00+1 台北時間（12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta
+URL:https://foootball.twtools.cc/teams/ESP
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-066@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260627T080000
+DTEND;TZID=Asia/Taipei:20260627T100000
+SUMMARY:🇺🇾 烏拉圭 vs 🇪🇸 西班牙 (Group H)
+LOCATION:Estadio Akron\, Guadalajara
+DESCRIPTION:Match #66 | Group H | 2026 FIFA World Cup\n開球：2026-06-26 08:00+1 台北時間（20:00 ET）\n場館：Estadio Akron, Guadalajara
+URL:https://foootball.twtools.cc/teams/URU
+END:VEVENT
+END:VCALENDAR

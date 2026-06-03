@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇦🇺 澳洲 世界盃 2026
+X-WR-CALDESC:澳洲（AUS）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-006@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260613T120000
+DTEND;TZID=Asia/Taipei:20260613T140000
+SUMMARY:🇦🇺 澳洲 vs 🇹🇷 土耳其 (Group D)
+LOCATION:BC Place\, Vancouver
+DESCRIPTION:Match #6 | Group D | 2026 FIFA World Cup\n開球：2026-06-13 12:00 台北時間（00:00 ET）\n場館：BC Place, Vancouver
+URL:https://foootball.twtools.cc/teams/AUS
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-032@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260620T030000
+DTEND;TZID=Asia/Taipei:20260620T050000
+SUMMARY:🇺🇸 美國 vs 🇦🇺 澳洲 (Group D)
+LOCATION:Lumen Field\, Seattle
+DESCRIPTION:Match #32 | Group D | 2026 FIFA World Cup\n開球：2026-06-19 03:00+1 台北時間（15:00 ET）\n場館：Lumen Field, Seattle
+URL:https://foootball.twtools.cc/teams/USA
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-060@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260626T100000
+DTEND;TZID=Asia/Taipei:20260626T120000
+SUMMARY:🇵🇾 巴拉圭 vs 🇦🇺 澳洲 (Group D)
+LOCATION:Levi's Stadium\, Santa Clara
+DESCRIPTION:Match #60 | Group D | 2026 FIFA World Cup\n開球：2026-06-25 10:00+1 台北時間（22:00 ET）\n場館：Levi's Stadium, Santa Clara
+URL:https://foootball.twtools.cc/teams/PAR
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇩🇿 阿爾及利亞 世界盃 2026
+X-WR-CALDESC:阿爾及利亞（ALG）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-019@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260617T090000
+DTEND;TZID=Asia/Taipei:20260617T110000
+SUMMARY:🇦🇷 阿根廷 vs 🇩🇿 阿爾及利亞 (Group J)
+LOCATION:Arrowhead Stadium\, Kansas City
+DESCRIPTION:Match #19 | Group J | 2026 FIFA World Cup\n開球：2026-06-16 09:00+1 台北時間（21:00 ET）\n場館：Arrowhead Stadium, Kansas City
+URL:https://foootball.twtools.cc/teams/ARG
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-044@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260623T110000
+DTEND;TZID=Asia/Taipei:20260623T130000
+SUMMARY:🇯🇴 約旦 vs 🇩🇿 阿爾及利亞 (Group J)
+LOCATION:Levi's Stadium\, Santa Clara
+DESCRIPTION:Match #44 | Group J | 2026 FIFA World Cup\n開球：2026-06-22 11:00+1 台北時間（23:00 ET）\n場館：Levi's Stadium, Santa Clara
+URL:https://foootball.twtools.cc/teams/JOR
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-069@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260628T100000
+DTEND;TZID=Asia/Taipei:20260628T120000
+SUMMARY:🇩🇿 阿爾及利亞 vs 🇦🇹 奧地利 (Group J)
+LOCATION:Arrowhead Stadium\, Kansas City
+DESCRIPTION:Match #69 | Group J | 2026 FIFA World Cup\n開球：2026-06-27 10:00+1 台北時間（22:00 ET）\n場館：Arrowhead Stadium, Kansas City
+URL:https://foootball.twtools.cc/teams/ALG
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇹🇷 土耳其 世界盃 2026
+X-WR-CALDESC:土耳其（TUR）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-006@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260613T120000
+DTEND;TZID=Asia/Taipei:20260613T140000
+SUMMARY:🇦🇺 澳洲 vs 🇹🇷 土耳其 (Group D)
+LOCATION:BC Place\, Vancouver
+DESCRIPTION:Match #6 | Group D | 2026 FIFA World Cup\n開球：2026-06-13 12:00 台北時間（00:00 ET）\n場館：BC Place, Vancouver
+URL:https://foootball.twtools.cc/teams/AUS
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-031@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260620T110000
+DTEND;TZID=Asia/Taipei:20260620T130000
+SUMMARY:🇹🇷 土耳其 vs 🇵🇾 巴拉圭 (Group D)
+LOCATION:Levi's Stadium\, Santa Clara
+DESCRIPTION:Match #31 | Group D | 2026 FIFA World Cup\n開球：2026-06-19 11:00+1 台北時間（23:00 ET）\n場館：Levi's Stadium, Santa Clara
+URL:https://foootball.twtools.cc/teams/TUR
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-059@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260626T100000
+DTEND;TZID=Asia/Taipei:20260626T120000
+SUMMARY:🇹🇷 土耳其 vs 🇺🇸 美國 (Group D)
+LOCATION:SoFi Stadium\, Inglewood
+DESCRIPTION:Match #59 | Group D | 2026 FIFA World Cup\n開球：2026-06-25 10:00+1 台北時間（22:00 ET）\n場館：SoFi Stadium, Inglewood
+URL:https://foootball.twtools.cc/teams/TUR
+END:VEVENT
+END:VCALENDAR

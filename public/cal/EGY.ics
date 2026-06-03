@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇪🇬 埃及 世界盃 2026
+X-WR-CALDESC:埃及（EGY）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-016@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260616T030000
+DTEND;TZID=Asia/Taipei:20260616T050000
+SUMMARY:🇧🇪 比利時 vs 🇪🇬 埃及 (Group G)
+LOCATION:Lumen Field\, Seattle
+DESCRIPTION:Match #16 | Group G | 2026 FIFA World Cup\n開球：2026-06-15 03:00+1 台北時間（15:00 ET）\n場館：Lumen Field, Seattle
+URL:https://foootball.twtools.cc/teams/BEL
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-040@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260622T090000
+DTEND;TZID=Asia/Taipei:20260622T110000
+SUMMARY:🇳🇿 紐西蘭 vs 🇪🇬 埃及 (Group G)
+LOCATION:BC Place\, Vancouver
+DESCRIPTION:Match #40 | Group G | 2026 FIFA World Cup\n開球：2026-06-21 09:00+1 台北時間（21:00 ET）\n場館：BC Place, Vancouver
+URL:https://foootball.twtools.cc/teams/NZL
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-063@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260627T110000
+DTEND;TZID=Asia/Taipei:20260627T130000
+SUMMARY:🇪🇬 埃及 vs 🇮🇷 伊朗 (Group G)
+LOCATION:Lumen Field\, Seattle
+DESCRIPTION:Match #63 | Group G | 2026 FIFA World Cup\n開球：2026-06-26 11:00+1 台北時間（23:00 ET）\n場館：Lumen Field, Seattle
+URL:https://foootball.twtools.cc/teams/EGY
+END:VEVENT
+END:VCALENDAR

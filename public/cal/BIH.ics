@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇧🇦 波士尼亞 世界盃 2026
+X-WR-CALDESC:波士尼亞（BIH）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-003@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260613T030000
+DTEND;TZID=Asia/Taipei:20260613T050000
+SUMMARY:🇨🇦 加拿大 vs 🇧🇦 波士尼亞 (Group B)
+LOCATION:BMO Field\, Toronto
+DESCRIPTION:Match #3 | Group B | 2026 FIFA World Cup\n開球：2026-06-12 03:00+1 台北時間（15:00 ET）\n場館：BMO Field, Toronto
+URL:https://foootball.twtools.cc/teams/CAN
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-026@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260619T000000
+DTEND;TZID=Asia/Taipei:20260619T020000
+SUMMARY:🇨🇭 瑞士 vs 🇧🇦 波士尼亞 (Group B)
+LOCATION:SoFi Stadium\, Inglewood
+DESCRIPTION:Match #26 | Group B | 2026 FIFA World Cup\n開球：2026-06-18 00:00+1 台北時間（12:00 ET）\n場館：SoFi Stadium, Inglewood
+URL:https://foootball.twtools.cc/teams/SUI
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-052@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260625T030000
+DTEND;TZID=Asia/Taipei:20260625T050000
+SUMMARY:🇧🇦 波士尼亞 vs 🇶🇦 卡達 (Group B)
+LOCATION:Lumen Field\, Seattle
+DESCRIPTION:Match #52 | Group B | 2026 FIFA World Cup\n開球：2026-06-24 03:00+1 台北時間（15:00 ET）\n場館：Lumen Field, Seattle
+URL:https://foootball.twtools.cc/teams/BIH
+END:VEVENT
+END:VCALENDAR

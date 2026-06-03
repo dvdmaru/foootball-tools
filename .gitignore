@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+node_modules/
+.env
+.env.local
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cf-pages-output/
+
+# OpenAI raw responses — keep locally for audit, don't commit (含 search reasoning trace)
+fixtures/*.raw.json

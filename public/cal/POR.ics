@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//foootball.twtools.cc//World Cup 2026//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:🇵🇹 葡萄牙 世界盃 2026
+X-WR-CALDESC:葡萄牙（POR）在 2026 美加墨 FIFA 世界盃的全部賽程，台北時間自動換算。
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-match-023@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260618T010000
+DTEND;TZID=Asia/Taipei:20260618T030000
+SUMMARY:🇵🇹 葡萄牙 vs 🇨🇩 民主剛果 (Group K)
+LOCATION:NRG Stadium\, Houston
+DESCRIPTION:Match #23 | Group K | 2026 FIFA World Cup\n開球：2026-06-17 01:00+1 台北時間（13:00 ET）\n場館：NRG Stadium, Houston
+URL:https://foootball.twtools.cc/teams/POR
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-047@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260624T010000
+DTEND;TZID=Asia/Taipei:20260624T030000
+SUMMARY:🇵🇹 葡萄牙 vs 🇺🇿 烏茲別克 (Group K)
+LOCATION:NRG Stadium\, Houston
+DESCRIPTION:Match #47 | Group K | 2026 FIFA World Cup\n開球：2026-06-23 01:00+1 台北時間（13:00 ET）\n場館：NRG Stadium, Houston
+URL:https://foootball.twtools.cc/teams/POR
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-071@foootball.twtools.cc
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260628T073000
+DTEND;TZID=Asia/Taipei:20260628T093000
+SUMMARY:🇨🇴 哥倫比亞 vs 🇵🇹 葡萄牙 (Group K)
+LOCATION:Hard Rock Stadium\, Miami Gardens
+DESCRIPTION:Match #71 | Group K | 2026 FIFA World Cup\n開球：2026-06-27 07:30+1 台北時間（19:30 ET）\n場館：Hard Rock Stadium, Miami Gardens
+URL:https://foootball.twtools.cc/teams/COL
+END:VEVENT
+END:VCALENDAR
