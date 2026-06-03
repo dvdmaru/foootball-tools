@@ -180,7 +180,7 @@ function showTeam(code) {
 
   document.getElementById('detail-flag').src = flagUrl(team.iso);
   document.getElementById('detail-team-name').textContent = `${team.name_zh}（${team.code}）`;
-  document.getElementById('detail-group').textContent = `Group ${team.group} · 點選下方按鈕訂閱 / 下載，或點單場 「加入 Google Calendar」`;
+  document.getElementById('detail-group').textContent = `Group ${team.group} · 想追完整賽程（含淘汰賽自動更新）用下方「訂閱」；「加進 GCal」只匯入該場單場、淘汰賽後不會自動更新`;
 
   // 該隊全部比賽
   const myMatches = DATA.matches.filter(m => m.home_code === code || m.away_code === code)
@@ -202,7 +202,7 @@ function showTeam(code) {
         <div class="match-opponent">vs <img src="${flagUrl(opponentIso)}" style="width:20px; vertical-align:middle; border-radius:2px;"> ${opponentZh} <span style="color:var(--dim); font-size:12px;">${venuePosition}</span></div>
         <div class="match-venue">${m.stadium}, ${m.city}</div>
       </div>
-      <a class="match-gcal" href="${gcalLink}" target="_blank">📌 加進 GCal</a>
+      <a class="match-gcal" href="${gcalLink}" target="_blank" title="單場匯入，6/28 淘汰賽抽完不會自動更新；想 set-and-forget 請用下方「訂閱」">📌 加進 GCal（單場）</a>
     </div>`;
   }
   document.getElementById('match-list').innerHTML = html;
