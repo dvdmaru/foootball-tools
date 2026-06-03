@@ -1,0 +1,290 @@
+[
+  {
+    "match": 73,
+    "round": "R32",
+    "date": "2026-06-28",
+    "venue": "Los Angeles Stadium",
+    "city": "Los Angeles",
+    "home_team": "Group A runners-up",
+    "away_team": "Group B runners-up"
+  },
+  {
+    "match": 74,
+    "round": "R32",
+    "date": "2026-06-29",
+    "venue": "Boston Stadium",
+    "city": "Boston",
+    "home_team": "Group E winners",
+    "away_team": "Group A/B/C/D/F third place"
+  },
+  {
+    "match": 75,
+    "round": "R32",
+    "date": "2026-06-29",
+    "venue": "Estadio Monterrey",
+    "city": "Monterrey",
+    "home_team": "Group F winners",
+    "away_team": "Group C runners-up"
+  },
+  {
+    "match": 76,
+    "round": "R32",
+    "date": "2026-06-29",
+    "venue": "Houston Stadium",
+    "city": "Houston",
+    "home_team": "Group C winners",
+    "away_team": "Group F runners-up"
+  },
+  {
+    "match": 77,
+    "round": "R32",
+    "date": "2026-06-30",
+    "venue": "New York New Jersey Stadium",
+    "city": "New York/New Jersey",
+    "home_team": "Group I winners",
+    "away_team": "Group C/D/F/G/H third place"
+  },
+  {
+    "match": 78,
+    "round": "R32",
+    "date": "2026-06-30",
+    "venue": "Dallas Stadium",
+    "city": "Dallas",
+    "home_team": "Group E runners-up",
+    "away_team": "Group I runners-up"
+  },
+  {
+    "match": 79,
+    "round": "R32",
+    "date": "2026-06-30",
+    "venue": "Mexico City Stadium",
+    "city": "Mexico City",
+    "home_team": "Group A winners",
+    "away_team": "Group C/E/F/H/I third place"
+  },
+  {
+    "match": 80,
+    "round": "R32",
+    "date": "2026-07-01",
+    "venue": "Atlanta Stadium",
+    "city": "Atlanta",
+    "home_team": "Group L winners",
+    "away_team": "Group E/H/I/J/K third place"
+  },
+  {
+    "match": 81,
+    "round": "R32",
+    "date": "2026-07-01",
+    "venue": "San Francisco Bay Area Stadium",
+    "city": "San Francisco Bay Area",
+    "home_team": "Group D winners",
+    "away_team": "Group B/E/F/I/J third place"
+  },
+  {
+    "match": 82,
+    "round": "R32",
+    "date": "2026-07-01",
+    "venue": "Seattle Stadium",
+    "city": "Seattle",
+    "home_team": "Group G winners",
+    "away_team": "Group A/E/H/I/J third place"
+  },
+  {
+    "match": 83,
+    "round": "R32",
+    "date": "2026-07-02",
+    "venue": "Toronto Stadium",
+    "city": "Toronto",
+    "home_team": "Group K runners-up",
+    "away_team": "Group L runners-up"
+  },
+  {
+    "match": 84,
+    "round": "R32",
+    "date": "2026-07-02",
+    "venue": "Los Angeles Stadium",
+    "city": "Los Angeles",
+    "home_team": "Group H winners",
+    "away_team": "Group J runners-up"
+  },
+  {
+    "match": 85,
+    "round": "R32",
+    "date": "2026-07-02",
+    "venue": "BC Place Vancouver",
+    "city": "Vancouver",
+    "home_team": "Group B winners",
+    "away_team": "Group E/F/G/I/J third place"
+  },
+  {
+    "match": 86,
+    "round": "R32",
+    "date": "2026-07-03",
+    "venue": "Miami Stadium",
+    "city": "Miami",
+    "home_team": "Group J winners",
+    "away_team": "Group H runners-up"
+  },
+  {
+    "match": 87,
+    "round": "R32",
+    "date": "2026-07-03",
+    "venue": "Kansas City Stadium",
+    "city": "Kansas City",
+    "home_team": "Group K winners",
+    "away_team": "Group D/E/I/J/L third place"
+  },
+  {
+    "match": 88,
+    "round": "R32",
+    "date": "2026-07-03",
+    "venue": "Dallas Stadium",
+    "city": "Dallas",
+    "home_team": "Group D runners-up",
+    "away_team": "Group G runners-up"
+  },
+  {
+    "match": 89,
+    "round": "R16",
+    "date": "2026-07-04",
+    "venue": "Philadelphia Stadium",
+    "city": "Philadelphia",
+    "home_team": "Winner Match 74",
+    "away_team": "Winner Match 77"
+  },
+  {
+    "match": 90,
+    "round": "R16",
+    "date": "2026-07-04",
+    "venue": "Houston Stadium",
+    "city": "Houston",
+    "home_team": "Winner Match 73",
+    "away_team": "Winner Match 75"
+  },
+  {
+    "match": 91,
+    "round": "R16",
+    "date": "2026-07-05",
+    "venue": "New York New Jersey Stadium",
+    "city": "New York/New Jersey",
+    "home_team": "Winner Match 76",
+    "away_team": "Winner Match 78"
+  },
+  {
+    "match": 92,
+    "round": "R16",
+    "date": "2026-07-05",
+    "venue": "Mexico City Stadium",
+    "city": "Mexico City",
+    "home_team": "Winner Match 79",
+    "away_team": "Winner Match 80"
+  },
+  {
+    "match": 93,
+    "round": "R16",
+    "date": "2026-07-06",
+    "venue": "Dallas Stadium",
+    "city": "Dallas",
+    "home_team": "Winner Match 83",
+    "away_team": "Winner Match 84"
+  },
+  {
+    "match": 94,
+    "round": "R16",
+    "date": "2026-07-06",
+    "venue": "Seattle Stadium",
+    "city": "Seattle",
+    "home_team": "Winner Match 81",
+    "away_team": "Winner Match 82"
+  },
+  {
+    "match": 95,
+    "round": "R16",
+    "date": "2026-07-07",
+    "venue": "Atlanta Stadium",
+    "city": "Atlanta",
+    "home_team": "Winner Match 86",
+    "away_team": "Winner Match 88"
+  },
+  {
+    "match": 96,
+    "round": "R16",
+    "date": "2026-07-07",
+    "venue": "BC Place Vancouver",
+    "city": "Vancouver",
+    "home_team": "Winner Match 85",
+    "away_team": "Winner Match 87"
+  },
+  {
+    "match": 97,
+    "round": "QF",
+    "date": "2026-07-09",
+    "venue": "Boston Stadium",
+    "city": "Boston",
+    "home_team": "Winner Match 89",
+    "away_team": "Winner Match 90"
+  },
+  {
+    "match": 98,
+    "round": "QF",
+    "date": "2026-07-10",
+    "venue": "Los Angeles Stadium",
+    "city": "Los Angeles",
+    "home_team": "Winner Match 93",
+    "away_team": "Winner Match 94"
+  },
+  {
+    "match": 99,
+    "round": "QF",
+    "date": "2026-07-11",
+    "venue": "Miami Stadium",
+    "city": "Miami",
+    "home_team": "Winner Match 91",
+    "away_team": "Winner Match 92"
+  },
+  {
+    "match": 100,
+    "round": "QF",
+    "date": "2026-07-11",
+    "venue": "Kansas City Stadium",
+    "city": "Kansas City",
+    "home_team": "Winner Match 95",
+    "away_team": "Winner Match 96"
+  },
+  {
+    "match": 101,
+    "round": "SF",
+    "date": "2026-07-14",
+    "venue": "Dallas Stadium",
+    "city": "Dallas",
+    "home_team": "Winner Match 97",
+    "away_team": "Winner Match 98"
+  },
+  {
+    "match": 102,
+    "round": "SF",
+    "date": "2026-07-15",
+    "venue": "Atlanta Stadium",
+    "city": "Atlanta",
+    "home_team": "Winner Match 99",
+    "away_team": "Winner Match 100"
+  },
+  {
+    "match": 103,
+    "round": "3rd",
+    "date": "2026-07-18",
+    "venue": "Miami Stadium",
+    "city": "Miami",
+    "home_team": "Loser Match 101",
+    "away_team": "Loser Match 102"
+  },
+  {
+    "match": 104,
+    "round": "Final",
+    "date": "2026-07-19",
+    "venue": "New York New Jersey Stadium",
+    "city": "New York/New Jersey",
+    "home_team": "Winner Match 101",
+    "away_team": "Winner Match 102"
+  }
+]

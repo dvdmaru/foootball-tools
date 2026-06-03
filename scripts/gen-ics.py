@@ -150,9 +150,19 @@ def main():
     mtime = fixtures_path.stat().st_mtime
     dtstamp = datetime.datetime.utcfromtimestamp(mtime).strftime("%Y%m%dT%H%M%SZ")
 
+    # 過濾 placeholder 場次（淘汰賽抽完前 home_code/away_code 缺失）
+    renderable = [
+        m for m in all_matches
+        if m.get("home_code") and m.get("away_code")
+        and m.get("kickoff_taipei") and m.get("home_iso") and m.get("away_iso")
+    ]
+    skipped = len(all_matches) - len(renderable)
+    if skipped:
+        print(f"   ⏭️  skip {skipped} placeholder 場次（淘汰賽未抽完 / 缺欄位）")
+
     # 按 team code group matches
     by_team = defaultdict(list)
-    for m in all_matches:
+    for m in renderable:
         by_team[m["home_code"]].append(m)
         by_team[m["away_code"]].append(m)
 
@@ -165,8 +175,8 @@ def main():
         ics_text = build_vcalendar(matches_sorted, calname, caldesc, dtstamp)
         (OUT / f"{code}.ics").write_text(ics_text, encoding="utf-8")
 
-    # 全程 tournament.ics
-    all_sorted = sorted(all_matches, key=lambda x: (x["date"], x["kickoff_taipei"]))
+    # 全程 tournament.ics（只含 renderable 場次，淘汰賽抽完逐輪 fill in）
+    all_sorted = sorted(renderable, key=lambda x: (x["date"], x["kickoff_taipei"]))
     tournament_ics = build_vcalendar(
         all_sorted,
         "2026 美加墨世界盃完整賽程",
