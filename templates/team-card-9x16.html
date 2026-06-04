@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1080px; height:1920px; overflow:hidden; }
+  body {
+    background: linear-gradient(180deg, #0d2818 0%, #163a26 60%, #0d2818 100%);
+    color:#e8e8e8;
+    font-family: 'Noto Sans TC', 'PingFang TC', sans-serif;
+    /* TikTok/IG story 安全區：上 160 / 下 280 — 抓 TikTok caption + UI 蓋區 */
+    padding:160px 70px 260px;
+    display:flex; flex-direction:column;
+    position:relative;
+  }
+  body::before {
+    content:''; position:absolute; top:0; left:0;
+    width:14px; height:380px;
+    background:linear-gradient(180deg, #d4af37 0%, transparent 100%);
+  }
+  body::after {
+    content:''; position:absolute; bottom:0; right:0;
+    width:14px; height:380px;
+    background:linear-gradient(0deg, #d4af37 0%, transparent 100%);
+  }
+
+  .header {
+    text-align:center;
+    padding-bottom:26px;
+    border-bottom:2px solid rgba(212,175,55,0.3);
+  }
+  .flag { font-size:152px; line-height:1; margin-bottom:8px; }
+  .name { font-size:108px; font-weight:900; color:#f0c850; letter-spacing:0.04em; line-height:1.02; }
+  .name-en { font-size:30px; font-weight:500; color:#9aa39c; margin-top:14px; letter-spacing:0.2em; font-family:'JetBrains Mono', monospace; }
+  .group { font-size:30px; font-weight:700; color:#e8e8e8; margin-top:20px; letter-spacing:0.15em;
+           display:inline-block; padding:8px 26px; border:2px solid rgba(212,175,55,0.55); border-radius:8px; }
+
+  .matches {
+    flex:1;
+    display:flex; flex-direction:column; justify-content:space-evenly;
+    padding:14px 0 10px;
+  }
+  .match {
+    display:grid;
+    grid-template-columns: 1fr;
+    row-gap:8px;
+    padding:18px 0;
+  }
+  .match + .match { border-top:1px solid rgba(212,175,55,0.18); }
+
+  .row-top { display:flex; justify-content:space-between; align-items:baseline; }
+  .date { font-size:34px; font-weight:700; color:#f0c850; font-family:'JetBrains Mono', monospace; letter-spacing:0.02em; }
+  .weekday { font-size:28px; color:#9aa39c; margin-left:12px; }
+  .home-tag {
+    font-size:24px; font-weight:700;
+    padding:6px 18px; border-radius:5px;
+    letter-spacing:0.1em;
+  }
+  .home { background:#d4af37; color:#0d2818; }
+  .away { background:transparent; color:#9aa39c; border:1.5px solid #4a5a4e; }
+
+  .row-mid { display:flex; align-items:center; gap:24px; margin-top:4px; }
+  .time { font-size:84px; font-weight:900; color:#fff; font-family:'JetBrains Mono', monospace; letter-spacing:-0.02em; line-height:1; }
+  .tz { font-size:22px; color:#7a857c; font-weight:500; letter-spacing:0.12em; }
+  .vs-block { display:flex; align-items:center; gap:14px; margin-left:auto; }
+  .vs-label { font-size:24px; color:#7a857c; letter-spacing:0.3em; }
+  .opp-flag { font-size:64px; line-height:1; }
+  .opp-name { font-size:52px; font-weight:700; color:#fff; }
+
+  .venue { font-size:28px; color:#cfd5d0; font-weight:500; margin-top:6px; }
+  .venue .city { color:#9aa39c; }
+
+  .footer {
+    border-top:2px solid rgba(212,175,55,0.3);
+    padding-top:22px; margin-top:4px;
+    text-align:center;
+  }
+  .cta { font-size:38px; font-weight:900; color:#f0c850; letter-spacing:0.02em; }
+  .cta-sub { font-size:22px; color:#9aa39c; margin-top:8px; }
+  .url { font-size:30px; font-weight:700; color:#fff; font-family:'JetBrains Mono', monospace; margin-top:16px; }
+  .account { font-size:20px; color:#9aa39c; margin-top:8px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="flag">{{FLAG}}</div>
+    <div class="name">{{NAME_ZH}}</div>
+    <div class="name-en">{{NAME_EN}} · {{CODE}}</div>
+    <div class="group">GROUP {{GROUP}} · 小組賽 3 場</div>
+  </div>
+  <div class="matches">{{MATCHES_HTML}}</div>
+  <div class="footer">
+    <div class="cta">👉 訂閱整季賽程</div>
+    <div class="cta-sub">含淘汰賽自動更新 · Apple Cal / Google Cal / Outlook</div>
+    <div class="url">foootball.twtools.cc</div>
+    <div class="account">@foootball · 2026 美加墨世界盃</div>
+  </div>
+</body>
+</html>
