@@ -39,6 +39,17 @@ OUT = ROOT / "public" / "articles"
 WEEKDAY_ZH = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
 
 
+# ---------- site-wide GA4 (同步 public/index.html) ----------
+GA_SNIPPET = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V12JQHW84K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V12JQHW84K');
+</script>"""
+
+
 # ---------- shared design tokens (與 public/index.html 同步) ----------
 
 SHARED_TOKENS_CSS = """
@@ -323,6 +334,7 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+{GA_SNIPPET}
 <style>
 {SHARED_TOKENS_CSS}
 {THEME_SWITCH_CSS}
@@ -415,6 +427,7 @@ def render_index(articles: list) -> str:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+{GA_SNIPPET}
 <style>
 {SHARED_TOKENS_CSS}
 {THEME_SWITCH_CSS}
