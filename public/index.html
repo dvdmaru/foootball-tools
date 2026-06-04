@@ -392,6 +392,16 @@ const HOST = location.hostname === 'localhost' || location.protocol === 'file:'
   : 'https://foootball.twtools.cc/';
 
 let DATA = null;
+let currentTeam = null;
+
+function gaTeamEvent(name, extra) {
+  if (typeof gtag !== 'function' || !currentTeam) return;
+  gtag('event', name, Object.assign({
+    team_code: currentTeam.code,
+    team_zh: currentTeam.name_zh,
+    team_group: currentTeam.group,
+  }, extra || {}));
+}
 
 function load() {
   DATA = window.FIXTURES_DATA;
@@ -400,6 +410,19 @@ function load() {
     return;
   }
   renderGroups();
+
+  // GA: subscribe / download click
+  document.getElementById('action-subscribe').addEventListener('click', () => {
+    gaTeamEvent('subscribe_webcal');
+  });
+  document.getElementById('action-download').addEventListener('click', () => {
+    gaTeamEvent('download_ics');
+  });
+  // GA: per-match Google Calendar (event delegation, match-list re-renders per team)
+  document.getElementById('match-list').addEventListener('click', (e) => {
+    const a = e.target.closest('a.m-gcal');
+    if (a) gaTeamEvent('gcal_single_match', { match_no: a.dataset.matchNo });
+  });
 }
 
 function flagUrl(iso) {
@@ -441,6 +464,8 @@ function showTeam(code) {
   });
   const team = DATA.teams.find(t => t.code === code);
   if (!team) return;
+  currentTeam = team;
+  gaTeamEvent('select_team');
 
   document.getElementById('detail-flag').src = flagUrl(team.iso);
   document.getElementById('detail-team-name').innerHTML = `${team.name_zh}<span class="code">${team.code}</span>`;
@@ -473,7 +498,7 @@ function showTeam(code) {
         </div>
         <div class="m-venue">${m.stadium}, ${m.city}</div>
       </div>
-      <a class="m-gcal" href="${gcalLink}" target="_blank">Google</a>
+      <a class="m-gcal" href="${gcalLink}" target="_blank" data-match-no="${m.match_no}">Google</a>
     </div>`;
   }
   document.getElementById('match-list').innerHTML = html;
