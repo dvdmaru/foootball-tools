@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-014@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260616T000000
 DTEND;TZID=Asia/Taipei:20260616T020000
 SUMMARY:🇪🇸 西班牙 vs 🇨🇻 維德角 (Group H)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #14 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-16 00:00（北美 2026-06-15 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #14 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-16 00:00（北美 2026-06-15 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ESP
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-038@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260622T000000
 DTEND;TZID=Asia/Taipei:20260622T020000
 SUMMARY:🇪🇸 西班牙 vs 🇸🇦 沙烏地阿拉伯 (Group H)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #38 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-22 00:00（北美 2026-06-21 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #38 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-22 00:00（北美 2026-06-21 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ESP
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-066@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260627T080000
 DTEND;TZID=Asia/Taipei:20260627T100000
 SUMMARY:🇺🇾 烏拉圭 vs 🇪🇸 西班牙 (Group H)
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match #66 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-27 08:00（北美 2026-06-26 20:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #66 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-27 08:00（北美 2026-06-26 20:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/URU
 END:VEVENT
 END:VCALENDAR

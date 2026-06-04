@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-005@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260614T090000
 DTEND;TZID=Asia/Taipei:20260614T110000
 SUMMARY:🇭🇹 海地 vs 🇬🇧 蘇格蘭 (Group C)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #5 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-14 09:00（北美 2026-06-13 21:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #5 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-14 09:00（北美 2026-06-13 21:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/HAI
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-029@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260620T083000
 DTEND;TZID=Asia/Taipei:20260620T103000
 SUMMARY:🇧🇷 巴西 vs 🇭🇹 海地 (Group C)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #29 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-20 08:30（北美 2026-06-19 20:30 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #29 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-20 08:30（北美 2026-06-19 20:30 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BRA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-050@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260625T060000
 DTEND;TZID=Asia/Taipei:20260625T080000
 SUMMARY:🇲🇦 摩洛哥 vs 🇭🇹 海地 (Group C)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #50 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #50 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/MAR
 END:VEVENT
 END:VCALENDAR

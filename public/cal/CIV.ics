@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-009@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260615T070000
 DTEND;TZID=Asia/Taipei:20260615T090000
 SUMMARY:🇨🇮 象牙海岸 vs 🇪🇨 厄瓜多 (Group E)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #9 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-15 07:00（北美 2026-06-14 19:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #9 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-15 07:00（北美 2026-06-14 19:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CIV
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-033@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260621T040000
 DTEND;TZID=Asia/Taipei:20260621T060000
 SUMMARY:🇩🇪 德國 vs 🇨🇮 象牙海岸 (Group E)
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match #33 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-21 04:00（北美 2026-06-20 16:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #33 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-21 04:00（北美 2026-06-20 16:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/GER
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-055@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260626T040000
 DTEND;TZID=Asia/Taipei:20260626T060000
 SUMMARY:🇨🇼 古拉索 vs 🇨🇮 象牙海岸 (Group E)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #55 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-26 04:00（北美 2026-06-25 16:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #55 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-26 04:00（北美 2026-06-25 16:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CUW
 END:VEVENT
 END:VCALENDAR

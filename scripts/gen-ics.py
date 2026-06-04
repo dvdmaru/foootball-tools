@@ -92,7 +92,7 @@ def build_vevent(match: dict, dtstamp: str) -> str:
         f"開球：台北 {taipei_disp}（北美 {et_disp} ET）\\n"
         f"場館：{location}\\n"
         f"\\n"
-        f"📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\\n"
+        f"📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\\n"
         f"🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\\n"
         f"🌏 海外觀眾請查當地轉播平台"
     )

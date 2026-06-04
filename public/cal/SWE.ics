@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-012@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260615T100000
 DTEND;TZID=Asia/Taipei:20260615T120000
 SUMMARY:🇸🇪 瑞典 vs 🇹🇳 突尼西亞 (Group F)
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match #12 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-15 10:00（北美 2026-06-14 22:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #12 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-15 10:00（北美 2026-06-14 22:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SWE
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-035@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260621T010000
 DTEND;TZID=Asia/Taipei:20260621T030000
 SUMMARY:🇳🇱 荷蘭 vs 🇸🇪 瑞典 (Group F)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #35 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-21 01:00（北美 2026-06-20 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #35 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-21 01:00（北美 2026-06-20 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-057@foootball.twtools.cc
-DTSTAMP:20260604T045712Z
+DTSTAMP:20260604T050353Z
 DTSTART;TZID=Asia/Taipei:20260626T070000
 DTEND;TZID=Asia/Taipei:20260626T090000
 SUMMARY:🇯🇵 日本 vs 🇸🇪 瑞典 (Group F)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #57 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-26 07:00（北美 2026-06-25 19:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #57 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-26 07:00（北美 2026-06-25 19:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/JPN
 END:VEVENT
 END:VCALENDAR
