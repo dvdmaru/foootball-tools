@@ -85,9 +85,11 @@ def build_vevent(match: dict, dtstamp: str) -> str:
     away_zh = TEAM_ZH.get(match["away_code"], match["away_team"])
     summary = f"{home_emoji} {home_zh} vs {away_emoji} {away_zh} (Group {match['group']})"
     location = f"{match['stadium']}, {match['city']}"
+    taipei_disp = start.strftime("%Y-%m-%d %H:%M")
+    et_disp = f"{match['date']} {match['kickoff_et']}"
     description = (
         f"Match #{match['match_no']} | Group {match['group']} | 2026 FIFA World Cup\\n"
-        f"開球：{match['date']} {match['kickoff_taipei']} 台北時間（{match['kickoff_et']} ET）\\n"
+        f"開球：台北 {taipei_disp}（北美 {et_disp} ET）\\n"
         f"場館：{location}\\n"
         f"\\n"
         f"📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\\n"

@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-009@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260615T070000
 DTEND;TZID=Asia/Taipei:20260615T090000
 SUMMARY:🇨🇮 象牙海岸 vs 🇪🇨 厄瓜多 (Group E)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #9 | Group E | 2026 FIFA World Cup\n開球：2026-06-14 07:00+1 台北時間（19:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #9 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-15 07:00（北美 2026-06-14 19:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CIV
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-034@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260621T080000
 DTEND;TZID=Asia/Taipei:20260621T100000
 SUMMARY:🇪🇨 厄瓜多 vs 🇨🇼 古拉索 (Group E)
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match #34 | Group E | 2026 FIFA World Cup\n開球：2026-06-20 08:00+1 台北時間（20:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #34 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-21 08:00（北美 2026-06-20 20:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ECU
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-056@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260626T040000
 DTEND;TZID=Asia/Taipei:20260626T060000
 SUMMARY:🇪🇨 厄瓜多 vs 🇩🇪 德國 (Group E)
 LOCATION:MetLife Stadium\, East Rutherford
-DESCRIPTION:Match #56 | Group E | 2026 FIFA World Cup\n開球：2026-06-25 04:00+1 台北時間（16:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #56 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-26 04:00（北美 2026-06-25 16:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ECU
 END:VEVENT
 END:VCALENDAR

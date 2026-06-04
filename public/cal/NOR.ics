@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-018@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260617T060000
 DTEND;TZID=Asia/Taipei:20260617T080000
 SUMMARY:🇮🇶 伊拉克 vs 🇳🇴 挪威 (Group I)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #18 | Group I | 2026 FIFA World Cup\n開球：2026-06-16 06:00+1 台北時間（18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #18 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-17 06:00（北美 2026-06-16 18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/IRQ
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-041@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260623T080000
 DTEND;TZID=Asia/Taipei:20260623T100000
 SUMMARY:🇳🇴 挪威 vs 🇸🇳 塞內加爾 (Group I)
 LOCATION:MetLife Stadium\, East Rutherford
-DESCRIPTION:Match #41 | Group I | 2026 FIFA World Cup\n開球：2026-06-22 08:00+1 台北時間（20:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #41 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-23 08:00（北美 2026-06-22 20:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NOR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-061@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260627T030000
 DTEND;TZID=Asia/Taipei:20260627T050000
 SUMMARY:🇳🇴 挪威 vs 🇫🇷 法國 (Group I)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #61 | Group I | 2026 FIFA World Cup\n開球：2026-06-26 03:00+1 台北時間（15:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #61 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-27 03:00（北美 2026-06-26 15:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NOR
 END:VEVENT
 END:VCALENDAR

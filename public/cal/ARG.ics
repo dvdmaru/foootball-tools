@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-019@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260617T090000
 DTEND;TZID=Asia/Taipei:20260617T110000
 SUMMARY:🇦🇷 阿根廷 vs 🇩🇿 阿爾及利亞 (Group J)
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match #19 | Group J | 2026 FIFA World Cup\n開球：2026-06-16 09:00+1 台北時間（21:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #19 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-17 09:00（北美 2026-06-16 21:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ARG
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-043@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260623T010000
 DTEND;TZID=Asia/Taipei:20260623T030000
 SUMMARY:🇦🇷 阿根廷 vs 🇦🇹 奧地利 (Group J)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #43 | Group J | 2026 FIFA World Cup\n開球：2026-06-22 01:00+1 台北時間（13:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #43 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-23 01:00（北美 2026-06-22 13:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ARG
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-070@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260628T100000
 DTEND;TZID=Asia/Taipei:20260628T120000
 SUMMARY:🇯🇴 約旦 vs 🇦🇷 阿根廷 (Group J)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #70 | Group J | 2026 FIFA World Cup\n開球：2026-06-27 10:00+1 台北時間（22:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #70 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-28 10:00（北美 2026-06-27 22:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/JOR
 END:VEVENT
 END:VCALENDAR

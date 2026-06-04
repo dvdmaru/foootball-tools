@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-003@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260613T030000
 DTEND;TZID=Asia/Taipei:20260613T050000
 SUMMARY:🇨🇦 加拿大 vs 🇧🇦 波士尼亞 (Group B)
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match #3 | Group B | 2026 FIFA World Cup\n開球：2026-06-12 03:00+1 台北時間（15:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #3 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-13 03:00（北美 2026-06-12 15:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CAN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-026@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260619T000000
 DTEND;TZID=Asia/Taipei:20260619T020000
 SUMMARY:🇨🇭 瑞士 vs 🇧🇦 波士尼亞 (Group B)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #26 | Group B | 2026 FIFA World Cup\n開球：2026-06-18 00:00+1 台北時間（12:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #26 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-19 00:00（北美 2026-06-18 12:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SUI
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-052@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260604T045008Z
 DTSTART;TZID=Asia/Taipei:20260625T030000
 DTEND;TZID=Asia/Taipei:20260625T050000
 SUMMARY:🇧🇦 波士尼亞 vs 🇶🇦 卡達 (Group B)
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match #52 | Group B | 2026 FIFA World Cup\n開球：2026-06-24 03:00+1 台北時間（15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #52 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-25 03:00（北美 2026-06-24 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BIH
 END:VEVENT
 END:VCALENDAR
