@@ -194,8 +194,9 @@ SITE_HEADER_CSS = """
 
 
 def site_header_html(active: str) -> str:
-    """active: 'home' | 'articles' | (other ignored)"""
+    """active: 'home' | 'standings' | 'articles' | (other ignored)"""
     a_cls_home = ' class="active"' if active == "home" else ""
+    a_cls_stand = ' class="active"' if active == "standings" else ""
     a_cls_arts = ' class="active"' if active == "articles" else ""
     return f"""
   <header class="site-header">
@@ -205,6 +206,7 @@ def site_header_html(active: str) -> str:
     </div>
     <nav class="site-nav">
       <a href="/"{a_cls_home}>賽程訂閱</a>
+      <a href="/standings/"{a_cls_stand}>戰況</a>
       <a href="/articles/"{a_cls_arts}>文章</a>
       <a href="https://medium.com/@foootball" target="_blank" rel="noopener">Medium ↗</a>
     </nav>

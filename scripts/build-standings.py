@@ -1,0 +1,457 @@
+#!/usr/bin/env python3
+"""戰況中心 build：/standings/index.html
+
+單一 hub 頁，三個 tab：
+  1. 賽程 · 積分  — 12 組 group block（積分榜 + 6 場賽程），SEO/GEO 友善 HTML
+  2. 淘汰賽       — R32→決賽 bracket（6/27 小組賽結束後填真隊；目前 placeholder 對照表）
+  3. 射手榜       — 金靴榜（6/11 開賽後由 fetch-results 填；目前 placeholder）
+
+Data：public/fixtures-data.json（teams / matches / team_zh）+ fixtures/knockout.json
+積分自動填的契約：當 matches[i] 帶 int 的 home_score / away_score 時即納入計算，
+否則該場視為未開賽（[[feedback_pipeline_upstream_output_normalize]] 下游 contract）。
+
+時間顯示一律 normalize，不 leak raw `03:00+1`（[[feedback_internal_token_leak_to_user_display]]）。
+"""
+
+import importlib.util
+import json
+import pathlib
+from datetime import datetime, timedelta
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+PUBLIC = ROOT / "public"
+FIXTURES = ROOT / "fixtures"
+
+# ---- 沿用 build-articles 的共用 design tokens（單一來源，避免 drift）----
+_spec = importlib.util.spec_from_file_location(
+    "build_articles", ROOT / "scripts" / "build-articles.py"
+)
+ba = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(ba)
+
+GA_SNIPPET = ba.GA_SNIPPET
+SHARED_TOKENS_CSS = ba.SHARED_TOKENS_CSS
+THEME_SWITCH_CSS = ba.THEME_SWITCH_CSS
+THEME_SWITCH_HTML = ba.THEME_SWITCH_HTML
+THEME_SWITCH_JS = ba.THEME_SWITCH_JS
+SITE_HEADER_CSS = ba.SITE_HEADER_CSS
+site_header_html = ba.site_header_html
+
+SITE = "https://foootball.twtools.cc"
+WK = ["一", "二", "三", "四", "五", "六", "日"]
+
+
+# ---------------- data ----------------
+
+def load_data():
+    fd = json.loads((PUBLIC / "fixtures-data.json").read_text(encoding="utf-8"))
+    ko = json.loads((FIXTURES / "knockout.json").read_text(encoding="utf-8"))
+    team_zh = fd["team_zh"]
+    iso_by_code = {}
+    for t in fd["teams"]:
+        iso_by_code[t["code"]] = t["iso"]
+    return fd["matches"], ko, team_zh, iso_by_code
+
+
+def taipei_disp(match):
+    """('6/12（五）03:00', '6/11 15:00 ET') — 不 leak raw +1 token"""
+    raw = match["kickoff_taipei"]
+    plus = 0
+    if "+" in raw:
+        raw, p = raw.split("+")
+        plus = int(p)
+    hh, mm = raw.split(":")
+    et_base = datetime.strptime(match["date"], "%Y-%m-%d")
+    tp = et_base + timedelta(days=plus)
+    tp_str = f"{tp.month}/{tp.day}（{WK[tp.weekday()]}）{int(hh):02d}:{mm}"
+    et_str = f"{et_base.month}/{et_base.day} {match['kickoff_et']} ET"
+    return tp_str, et_str
+
+
+def has_score(m):
+    return isinstance(m.get("home_score"), int) and isinstance(m.get("away_score"), int)
+
+
+def compute_standings(matches):
+    """code -> dict(P,W,D,L,GF,GA,GD,Pts). 無比分的場次不計（未開賽=全 0）。"""
+    tbl = {}
+
+    def ensure(code):
+        if code not in tbl:
+            tbl[code] = {"P": 0, "W": 0, "D": 0, "L": 0, "GF": 0, "GA": 0, "Pts": 0}
+        return tbl[code]
+
+    for m in matches:
+        h, a = ensure(m["home_code"]), ensure(m["away_code"])
+        if not has_score(m):
+            continue
+        hs, as_ = m["home_score"], m["away_score"]
+        h["P"] += 1; a["P"] += 1
+        h["GF"] += hs; h["GA"] += as_
+        a["GF"] += as_; a["GA"] += hs
+        if hs > as_:
+            h["W"] += 1; h["Pts"] += 3; a["L"] += 1
+        elif hs < as_:
+            a["W"] += 1; a["Pts"] += 3; h["L"] += 1
+        else:
+            h["D"] += 1; a["D"] += 1; h["Pts"] += 1; a["Pts"] += 1
+    for code, r in tbl.items():
+        r["GD"] = r["GF"] - r["GA"]
+    return tbl
+
+
+# ---------------- render ----------------
+
+def flag(iso):
+    return f'<img class="std-flag" src="https://flagcdn.com/w160/{iso}.png" alt="" loading="lazy">'
+
+
+def gd_str(gd):
+    return f"+{gd}" if gd > 0 else str(gd)
+
+
+def render_group_block(grp, teams, matches, tbl, played_any):
+    """teams: list of code（該組 4 隊）"""
+    # 排序：Pts → GD → GF → code（未開賽全 0 時退化成 code 序，穩定）
+    rows = sorted(
+        teams,
+        key=lambda c: (-tbl[c]["Pts"], -tbl[c]["GD"], -tbl[c]["GF"], c),
+    )
+    body = []
+    for i, code in enumerate(rows):
+        r = tbl[code]
+        rank = i + 1
+        cls = ""
+        badge = ""
+        if played_any:
+            if rank <= 2:
+                cls = " std-adv"  # 直接晉級
+                badge = '<span class="std-q std-q-direct">晉級</span>'
+            elif rank == 3:
+                cls = " std-third"  # 最佳第三可能晉級
+                badge = '<span class="std-q std-q-maybe">第三</span>'
+        body.append(
+            f'<tr class="{cls.strip()}">'
+            f'<td class="std-rank">{rank}</td>'
+            f'<td class="std-team">{flag(ISO[code])}<span class="std-name">{ZH.get(code, code)}</span>{badge}</td>'
+            f'<td>{r["P"]}</td><td>{r["W"]}</td><td>{r["D"]}</td><td>{r["L"]}</td>'
+            f'<td>{r["GF"]}</td><td>{r["GA"]}</td><td class="std-gd">{gd_str(r["GD"])}</td>'
+            f'<td class="std-pts">{r["Pts"]}</td>'
+            f"</tr>"
+        )
+    standings_table = (
+        '<table class="std-table"><thead><tr>'
+        '<th class="std-rank">#</th><th class="std-team-h">球隊</th>'
+        '<th title="出賽">賽</th><th title="勝">勝</th><th title="和">和</th><th title="負">負</th>'
+        '<th title="進球">進</th><th title="失球">失</th><th title="淨勝球">差</th>'
+        '<th class="std-pts" title="積分">分</th>'
+        "</tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+    )
+
+    # 賽程列
+    ml = []
+    for m in matches:
+        tp, et = taipei_disp(m)
+        if has_score(m):
+            score = f'<span class="std-score">{m["home_score"]}<span class="std-dash">-</span>{m["away_score"]}</span>'
+        else:
+            score = '<span class="std-vs">vs</span>'
+        ml.append(
+            '<li class="std-match">'
+            f'<div class="std-when"><span class="std-tp">{tp}</span><span class="std-et">{et}</span></div>'
+            '<div class="std-fixture">'
+            f'<span class="std-side std-home">{ZH.get(m["home_code"], m["home_team"])}{flag(m["home_iso"])}</span>'
+            f"{score}"
+            f'<span class="std-side std-away">{flag(m["away_iso"])}{ZH.get(m["away_code"], m["away_team"])}</span>'
+            "</div>"
+            f'<div class="std-venue">{m["city"]} · {m["stadium"]}</div>'
+            "</li>"
+        )
+    match_list = '<ul class="std-matches">' + "".join(ml) + "</ul>"
+
+    return (
+        f'<section class="std-group" id="group-{grp}">'
+        f'<h3 class="std-group-h"><span class="std-group-tag">Group</span>{grp}</h3>'
+        f"{standings_table}{match_list}"
+        "</section>"
+    )
+
+
+def zh_placeholder(name):
+    """英文 placeholder 隊名 → 中文（避免 raw upstream token leak 到 user-facing）。
+    開賽填真隊後（中文名）原樣回傳。"""
+    import re
+    m = re.match(r"Winner Group ([A-L])$", name)
+    if m:
+        return f"{m.group(1)} 組第一"
+    m = re.match(r"Runner-up Group ([A-L])$", name)
+    if m:
+        return f"{m.group(1)} 組第二"
+    m = re.match(r"Winner Match (\d+)$", name)
+    if m:
+        return f"第 {m.group(1)} 場勝者"
+    m = re.match(r"Loser Match (\d+)$", name)
+    if m:
+        return f"第 {m.group(1)} 場敗者"
+    m = re.match(r"Best 3rd \(Groups ([A-L/]+)\)$", name)
+    if m:
+        return f"最佳第三名（{m.group(1)} 組）"
+    return name
+
+
+def render_bracket(ko):
+    """淘汰賽對照表 — 目前 placeholder 隊名（6/27 後 fetch 真隊）。"""
+    round_label = {
+        "R32": "32 強", "R16": "16 強", "QF": "8 強",
+        "SF": "4 強", "3rd": "季軍戰", "Final": "決賽",
+    }
+    order = ["R32", "R16", "QF", "SF", "3rd", "Final"]
+    by_round = {}
+    for m in ko:
+        by_round.setdefault(m["round"], []).append(m)
+    blocks = []
+    for rnd in order:
+        ms = by_round.get(rnd, [])
+        if not ms:
+            continue
+        rows = []
+        for m in ms:
+            tp = datetime.strptime(m["date"], "%Y-%m-%d")
+            when = f"{tp.month}/{tp.day}（{WK[tp.weekday()]}）"
+            rows.append(
+                '<li class="std-ko-row">'
+                f'<span class="std-ko-when">{when}</span>'
+                f'<span class="std-ko-team">{zh_placeholder(m["home_team"])}</span>'
+                '<span class="std-vs">vs</span>'
+                f'<span class="std-ko-team">{zh_placeholder(m["away_team"])}</span>'
+                f'<span class="std-ko-venue">{m.get("city","")}</span>'
+                "</li>"
+            )
+        blocks.append(
+            f'<section class="std-ko-round"><h3 class="std-group-h">'
+            f'<span class="std-group-tag">Round</span>{round_label.get(rnd, rnd)}</h3>'
+            f'<ul class="std-ko-list">{"".join(rows)}</ul></section>'
+        )
+    return "".join(blocks)
+
+
+def render_page(matches, ko, played_any):
+    tbl = compute_standings(matches)
+    # group → 4 teams（保持 fixture 出現序去重）
+    groups = {}
+    for m in matches:
+        g = m["group"]
+        groups.setdefault(g, {"teams": [], "matches": []})
+        for c in (m["home_code"], m["away_code"]):
+            if c not in groups[g]["teams"]:
+                groups[g]["teams"].append(c)
+        groups[g]["matches"].append(m)
+
+    group_blocks = "".join(
+        render_group_block(g, groups[g]["teams"], groups[g]["matches"], tbl, played_any)
+        for g in sorted(groups)
+    )
+
+    if played_any:
+        banner = ('<div class="std-banner std-live">🔴 小組賽進行中 · 積分與比分每日自動更新'
+                  '（每組前 2 名 <b>晉級</b>，8 個最佳第三名亦晉級 32 強）</div>')
+    else:
+        banner = ('<div class="std-banner">⚽ 小組賽 <b>6/11</b> 開踢 · 比分與積分將在開賽後每日自動更新。'
+                  '下方為完整 72 場賽程（台北時間）。</div>')
+
+    bracket_html = render_bracket(ko)
+    bracket_note = ('<div class="std-banner">🏆 淘汰賽 <b>6/28</b> 開打（48 隊制：32 強 → 16 強 → 8 強 → 4 強 → 決賽）。'
+                    '對戰組合將在 6/27 小組賽全部結束後填入真實球隊，目前顯示賽程框架。</div>')
+    stats_note = ('<div class="std-banner">👟 金靴榜／助攻榜將在 <b>6/11</b> 開賽後每日更新。'
+                  '小組賽期間每場進球都會累積到這裡。</div>'
+                  '<div class="std-stats-empty">⚽<br>開賽後見真章</div>')
+
+    title = "戰況中心"
+    desc = "2026 世界盃完整賽程、12 組積分榜、淘汰賽對照表與射手榜 — 台北時間，每日自動更新。"
+    og_img = f"{SITE}/og-home.png"
+    url = f"{SITE}/standings/"
+
+    return f"""<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}｜2026 世界盃 賽程・積分・淘汰賽・射手榜 @FOOOTBALL</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{url}">
+<meta property="og:title" content="{title}｜2026 世界盃 賽程・積分・射手榜">
+<meta property="og:description" content="{desc}">
+<meta property="og:image" content="{og_img}">
+<meta property="og:site_name" content="@FOOOTBALL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}｜2026 世界盃 賽程・積分・射手榜">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{og_img}">
+{GA_SNIPPET}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+{SHARED_TOKENS_CSS}
+{THEME_SWITCH_CSS}
+{SITE_HEADER_CSS}
+{PAGE_CSS}
+</style>
+</head>
+<body>
+{THEME_SWITCH_HTML}
+<div class="container">
+{site_header_html('standings')}
+  <div class="std-hero">
+    <div class="std-kicker">LIVE · 2026 WORLD CUP</div>
+    <h1 class="std-title">戰況中心</h1>
+    <p class="std-sub">完整賽程 · 12 組積分榜 · 淘汰賽對照 · 射手榜 — 台北時間，開賽後每日自動更新</p>
+  </div>
+
+  <div class="std-tabs" role="tablist">
+    <button class="std-tab active" data-tab="groups" role="tab">賽程 · 積分</button>
+    <button class="std-tab" data-tab="bracket" role="tab">淘汰賽</button>
+    <button class="std-tab" data-tab="stats" role="tab">射手榜</button>
+  </div>
+
+  <div class="std-panel active" id="panel-groups">
+    {banner}
+    <div class="std-groups-grid">{group_blocks}</div>
+  </div>
+
+  <div class="std-panel" id="panel-bracket">
+    {bracket_note}
+    <div class="std-ko-grid">{bracket_html}</div>
+  </div>
+
+  <div class="std-panel" id="panel-stats">
+    {stats_note}
+  </div>
+
+  <footer class="std-footer">
+    <div class="std-foot-cta">👉 訂閱你的球隊賽程，自動同步到行事曆：<a href="/">foootball.twtools.cc</a></div>
+    <div class="std-foot-links">
+      <a href="/">賽程訂閱</a> · <a href="/articles/">每日戰報</a> · <a href="https://medium.com/@foootball" target="_blank" rel="noopener">Medium ↗</a>
+    </div>
+    <div class="std-foot-fine">賽程／比分資料每日更新 · 時間為台北時間（北美場次標註當地 ET）</div>
+  </footer>
+</div>
+<script>
+{THEME_SWITCH_JS}
+(function() {{
+  const tabs = document.querySelectorAll('.std-tab');
+  const panels = document.querySelectorAll('.std-panel');
+  function show(name) {{
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
+    try {{ history.replaceState(null, '', '#' + name); }} catch (e) {{}}
+  }}
+  tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.tab)));
+  const h = (location.hash || '').replace('#', '');
+  if (['groups','bracket','stats'].includes(h)) show(h);
+}})();
+</script>
+</body>
+</html>
+"""
+
+
+PAGE_CSS = """
+.container { max-width: 980px; margin: 0 auto; position: relative; z-index: 1; }
+.std-hero { margin-bottom: 26px; }
+.std-kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 12px; display: inline-flex; align-items: center; gap: 9px; }
+.std-kicker::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
+.std-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(34px, 6vw, 52px); line-height: 1.08; color: var(--fg); letter-spacing: 0.5px; margin-bottom: 12px; }
+.std-sub { font-size: 15.5px; color: var(--fg-soft); line-height: 1.6; max-width: 640px; }
+
+.std-tabs { display: flex; gap: 8px; margin: 28px 0 24px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.std-tab { font-family: var(--font-ui); font-size: 14px; font-weight: 700; color: var(--dim); background: none; border: none; cursor: pointer; padding: 11px 16px; border-bottom: 2.5px solid transparent; margin-bottom: -1px; transition: color .15s, border-color .15s; letter-spacing: .5px; }
+.std-tab:hover { color: var(--fg); }
+.std-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.std-panel { display: none; }
+.std-panel.active { display: block; animation: stdfade .25s ease; }
+@keyframes stdfade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+.std-banner { background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: var(--radius-sm); padding: 13px 18px; font-size: 14px; color: var(--fg-soft); line-height: 1.6; margin-bottom: 26px; }
+.std-banner b { color: var(--accent); font-weight: 800; }
+.std-banner.std-live { background: color-mix(in srgb, #e0392b 12%, transparent); border-color: color-mix(in srgb, #e0392b 40%, transparent); }
+
+.std-groups-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+@media (max-width: 760px) { .std-groups-grid { grid-template-columns: 1fr; } }
+
+.std-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px 8px; box-shadow: 0 4px 16px var(--sheet-shadow); }
+.std-group-h { font-family: var(--font-display); font-weight: 400; font-size: 26px; color: var(--fg); letter-spacing: 1px; display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+.std-group-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--dim); text-transform: uppercase; font-weight: 600; }
+
+.std-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px; }
+.std-table th { font-family: var(--font-mono); font-weight: 600; font-size: 10.5px; letter-spacing: .5px; color: var(--dim); text-transform: uppercase; padding: 6px 5px; text-align: center; border-bottom: 1.5px solid var(--line-2); }
+.std-table th.std-team-h { text-align: left; padding-left: 4px; }
+.std-table td { padding: 7px 5px; text-align: center; color: var(--fg-soft); border-bottom: 1px solid var(--line); }
+.std-table tr:last-child td { border-bottom: none; }
+.std-rank { width: 22px; color: var(--faint); font-family: var(--font-mono); font-size: 12px; }
+.std-team { text-align: left !important; display: flex; align-items: center; gap: 8px; }
+.std-name { color: var(--fg); font-weight: 600; }
+.std-flag { width: 22px; height: 15px; object-fit: cover; border-radius: 2px; box-shadow: 0 0 0 1px var(--line-2); flex-shrink: 0; }
+.std-gd { font-variant-numeric: tabular-nums; }
+.std-pts { color: var(--fg) !important; font-weight: 800; font-variant-numeric: tabular-nums; }
+.std-adv .std-name { color: var(--accent); }
+.std-adv td { background: var(--accent-soft); }
+.std-third td { background: color-mix(in srgb, var(--accent-soft) 50%, transparent); }
+.std-q { font-size: 9px; font-family: var(--font-mono); letter-spacing: .5px; padding: 1px 5px; border-radius: 99px; margin-left: 2px; }
+.std-q-direct { background: var(--accent); color: var(--accent-ink); }
+.std-q-maybe { background: var(--surface-3); color: var(--dim); }
+
+.std-matches { list-style: none; padding: 0; margin: 0; border-top: 1px dashed var(--line-2); }
+.std-match { padding: 9px 2px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr; gap: 4px; }
+.std-match:last-child { border-bottom: none; }
+.std-when { display: flex; align-items: baseline; gap: 8px; }
+.std-tp { font-size: 12.5px; color: var(--fg); font-weight: 600; }
+.std-et { font-family: var(--font-mono); font-size: 10px; color: var(--faint); }
+.std-fixture { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; }
+.std-side { display: flex; align-items: center; gap: 7px; font-size: 13.5px; color: var(--fg); font-weight: 500; }
+.std-home { justify-content: flex-end; text-align: right; }
+.std-away { justify-content: flex-start; text-align: left; }
+.std-vs { font-family: var(--font-mono); font-size: 10px; color: var(--faint); letter-spacing: 1px; }
+.std-score { font-family: var(--font-display); font-size: 17px; color: var(--fg); letter-spacing: 1px; }
+.std-dash { color: var(--faint); margin: 0 2px; }
+.std-venue { font-size: 11px; color: var(--dim); text-align: center; }
+
+.std-ko-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+@media (max-width: 760px) { .std-ko-grid { grid-template-columns: 1fr; } }
+.std-ko-round { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: 0 4px 16px var(--sheet-shadow); }
+.std-ko-list { list-style: none; padding: 0; margin: 0; }
+.std-ko-row { display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.std-ko-row:last-child { border-bottom: none; }
+.std-ko-when { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); }
+.std-ko-team { color: var(--fg-soft); }
+.std-ko-venue { display: none; }
+
+.std-stats-empty { text-align: center; color: var(--faint); font-size: 18px; line-height: 2; padding: 60px 0; font-family: var(--font-display); letter-spacing: 2px; }
+
+.std-footer { margin-top: 56px; padding-top: 26px; border-top: 1px solid var(--line); text-align: center; }
+.std-foot-cta { font-size: 15px; color: var(--fg); margin-bottom: 12px; font-weight: 600; }
+.std-foot-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-line); }
+.std-foot-links { font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; color: var(--dim); margin-bottom: 10px; }
+.std-foot-links a { color: var(--dim); text-decoration: none; }
+.std-foot-links a:hover { color: var(--accent); }
+.std-foot-fine { font-size: 11px; color: var(--faint); line-height: 1.6; }
+"""
+
+
+def build():
+    global ZH, ISO
+    matches, ko, ZH, ISO = load_data()
+    played_any = any(has_score(m) for m in matches)
+    html = render_page(matches, ko, played_any)
+    out = PUBLIC / "standings"
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    state = "進行中（有比分）" if played_any else "未開賽（賽程 only）"
+    print(f"✅ /standings/index.html — {len(matches)} 場賽程 / 12 組 / 狀態：{state}")
+
+
+if __name__ == "__main__":
+    build()
