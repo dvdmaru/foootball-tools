@@ -190,7 +190,16 @@ SITE_HEADER_CSS = """
   .brand-mark { font-size: 24px; }
   .site-nav { gap: 16px; font-size: 11px; }
 }
+.site-disclaimer { font-size: 11px; color: var(--faint); line-height: 1.7; text-align: center; max-width: 600px; margin: 18px auto 0; }
+.site-disclaimer span { opacity: 0.75; }
 """
+
+# 非官方聲明（全 surface footer）— 降低 false-affiliation 商標風險（nominative fair use 硬化）
+DISCLAIMER_HTML = (
+    '<div class="site-disclaimer">本站為非官方球迷資訊站，與 FIFA／國際足總無任何關聯或授權；'
+    '賽程與比分資料整理自公開來源。<br>'
+    '<span>Unofficial fan-made site · Not affiliated with, endorsed by, or sponsored by FIFA.</span></div>'
+)
 
 
 def site_header_html(active: str) -> str:
@@ -538,6 +547,7 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
       <a href="https://medium.com/@foootball" target="_blank">Medium</a>
       <a href="/">賽程訂閱</a>
     </div>
+    {DISCLAIMER_HTML}
   </div>
 </div>
 <script>{THEME_SWITCH_JS}</script>
@@ -640,6 +650,7 @@ def render_index(articles: list) -> str:
   <div class="idx-intro">每日戰報 · 焦點觀察 · 規則解讀 — 全部繁體中文 / 台北時間</div>
 {feature_html}
 {grid_html}
+  <footer style="margin-top:56px;padding-top:26px;border-top:1px solid var(--line);">{DISCLAIMER_HTML}</footer>
 </div>
 <script>{THEME_SWITCH_JS}</script>
 </body>

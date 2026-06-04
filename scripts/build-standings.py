@@ -36,6 +36,7 @@ THEME_SWITCH_HTML = ba.THEME_SWITCH_HTML
 THEME_SWITCH_JS = ba.THEME_SWITCH_JS
 SITE_HEADER_CSS = ba.SITE_HEADER_CSS
 site_header_html = ba.site_header_html
+DISCLAIMER_HTML = ba.DISCLAIMER_HTML
 
 SITE = "https://foootball.twtools.cc"
 WK = ["一", "二", "三", "四", "五", "六", "日"]
@@ -365,6 +366,7 @@ def render_page(matches, ko, played_any, scorers=None, scorers_updated=None):
       <a href="/">賽程訂閱</a> · <a href="/articles/">每日戰報</a> · <a href="https://medium.com/@foootball" target="_blank" rel="noopener">Medium ↗</a>
     </div>
     <div class="std-foot-fine">賽程／比分資料每日更新 · 時間為台北時間（北美場次標註當地 ET）</div>
+    {DISCLAIMER_HTML}
   </footer>
 </div>
 <script>
