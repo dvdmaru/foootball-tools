@@ -99,34 +99,102 @@ body::before {
 }
 
 
-.container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; padding-top: 56px; }
-.idx-header { margin-bottom: 44px; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
-.idx-kicker { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 18px; }
-.idx-kicker::before { content: ''; width: 26px; height: 2px; background: var(--accent); }
+.container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; padding-top: 50px; }
+.idx-header { margin-bottom: 52px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.idx-kicker { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 14px; }
+.idx-kicker::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
 .idx-kicker b { color: var(--accent); font-weight: 600; }
-.idx-h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 7.5vw, 70px); line-height: 0.95; color: var(--fg); letter-spacing: 0.5px; }
-.idx-h1 .tc { font-family: var(--font-ui); font-weight: 900; letter-spacing: -0.5px; }
-.idx-sub { margin-top: 18px; font-size: 14.5px; color: var(--fg-soft); }
+.idx-h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; color: var(--fg); letter-spacing: 0.3px; }
+.idx-h1 .tc { font-family: var(--font-ui); font-weight: 900; letter-spacing: -0.3px; }
+.idx-h1 .yr { color: var(--accent); margin-right: 0.22em; }
+.idx-sub { margin-top: 14px; font-size: 14px; color: var(--fg-soft); }
 .idx-sub a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-.idx-list { display: flex; flex-direction: column; gap: 22px; }
+/* ---- feature article (first / most important) ---- */
+.idx-feature {
+  display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px;
+  align-items: center; margin-bottom: 60px;
+  text-decoration: none; color: inherit;
+}
+.idx-feature-img-wrap { position: relative; overflow: hidden; border-radius: var(--radius); }
+.idx-feature-img {
+  width: 100%; height: 340px; object-fit: cover; display: block;
+  box-shadow: 0 14px 36px var(--sheet-shadow);
+  transition: transform 0.32s cubic-bezier(0.22,1,0.36,1);
+}
+.idx-feature:hover .idx-feature-img { transform: scale(1.03); }
+.idx-feature-body { display: flex; flex-direction: column; gap: 16px; }
+.idx-feature-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: var(--accent-ink);
+  padding: 6px 14px; border-radius: 99px;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700; align-self: flex-start;
+}
+.idx-feature-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(26px, 3.2vw, 36px); line-height: 1.2;
+  color: var(--fg); letter-spacing: 0.3px;
+}
+.idx-feature-excerpt {
+  font-size: 16px; color: var(--fg-soft); line-height: 1.7;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.idx-feature-meta {
+  font-family: var(--font-mono); font-size: 12px; color: var(--dim);
+  letter-spacing: 1px; padding-top: 4px;
+}
+
+/* ---- section label ---- */
+.idx-section-label {
+  display: flex; align-items: center; gap: 13px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px;
+  color: var(--dim); text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.idx-section-label::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
+.idx-section-label .gt-rule { flex: 1; height: 1px; background: var(--line); margin-left: 4px; }
+
+/* ---- 3-col grid ---- */
+.idx-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .idx-card {
-  display: grid; grid-template-columns: 200px 1fr; gap: 26px; align-items: stretch;
+  display: flex; flex-direction: column;
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 18px;
+  border-radius: var(--radius); overflow: hidden;
   text-decoration: none; color: inherit;
   transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.idx-card:hover { transform: translateY(-3px); border-color: var(--line-2); box-shadow: 0 14px 34px var(--sheet-shadow); }
-.idx-cover { width: 100%; height: 130px; object-fit: cover; border-radius: var(--radius-sm); display: block; }
-.idx-body { display: flex; flex-direction: column; padding: 4px 0; }
-.idx-card-kicker { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 9px; }
-.idx-card-title { font-size: 18.5px; font-weight: 700; color: var(--fg); line-height: 1.35; margin-bottom: 7px; }
-.idx-card-sub { font-size: 14px; color: var(--fg-soft); line-height: 1.55; margin-bottom: 10px; flex: 1; }
-.idx-card-meta { font-family: var(--font-mono); font-size: 11.5px; color: var(--dim); letter-spacing: 1px; }
-@media (max-width: 640px) {
-  .idx-card { grid-template-columns: 1fr; gap: 14px; padding: 14px; }
-  .idx-cover { height: 180px; }
+.idx-card:hover { transform: translateY(-4px); border-color: var(--accent-line); box-shadow: 0 14px 32px var(--sheet-shadow); }
+.idx-card-img-wrap { position: relative; overflow: hidden; }
+.idx-card-img { width: 100%; height: 170px; object-fit: cover; display: block; transition: transform 0.32s cubic-bezier(0.22,1,0.36,1); }
+.idx-card:hover .idx-card-img { transform: scale(1.04); }
+.idx-card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.idx-card-kicker {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700; color: var(--accent);
+  align-self: flex-start;
+}
+.idx-card-kicker::before { content: ''; width: 12px; height: 2px; background: var(--accent); }
+.idx-card-title {
+  font-size: 15.5px; font-weight: 700; color: var(--fg); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden; letter-spacing: 0.2px;
+}
+.idx-card-meta { font-family: var(--font-mono); font-size: 11px; color: var(--dim); margin-top: auto; padding-top: 8px; letter-spacing: 1px; }
+
+/* ---- responsive ---- */
+@media (max-width: 900px) {
+  .idx-grid { grid-template-columns: repeat(2, 1fr); }
+  .idx-feature { grid-template-columns: 1fr; gap: 22px; }
+  .idx-feature-img { height: 260px; }
+}
+@media (max-width: 580px) {
+  .container { padding-top: 38px; }
+  .idx-grid { grid-template-columns: 1fr; }
+  .idx-feature-img { height: 200px; }
+  .idx-feature-title { font-size: 24px; }
 }
 
 </style>
@@ -153,46 +221,46 @@ body::before {
   </div>
   <header class="idx-header">
     <div class="idx-kicker">@foootball · <b>文章</b></div>
-    <h1 class="idx-h1"><span class="tc">2026 世界盃</span></h1>
+    <h1 class="idx-h1"><span class="yr">2026</span><span class="tc">世界盃文章</span></h1>
     <div class="idx-sub">每日戰報 · 焦點觀察 · 規則解讀 — 全部繁體中文 / 台北時間</div>
   </header>
-  <div class="idx-list">
-    <a class="idx-card" href="/articles/daily-2026-06-03/">
-      <img class="idx-cover" src="/articles/daily-2026-06-03/cover.png" alt="">
-      <div class="idx-body">
-        <div class="idx-card-kicker">DAILY · VOL. 003</div>
-        <div class="idx-card-title">世界盃倒數：摩洛哥 4-0 暖身，而 2022 那支 4 強之師，現在走到哪了？</div>
-        <div class="idx-card-sub">2026 世界盃每日戰報 Vol. 003</div>
-        <div class="idx-card-meta">2026/06/03 · 週三</div>
-      </div>
-    </a>
-    <a class="idx-card" href="/articles/mouth-covering-red-card/">
-      <img class="idx-cover" src="/articles/mouth-covering-red-card/cover.png" alt="">
-      <div class="idx-body">
-        <div class="idx-card-kicker">FEATURE</div>
-        <div class="idx-card-title">捂嘴就紅牌？這條世界盃新規，真正改寫的不是動作，是「誰該舉證」</div>
-        <div class="idx-card-sub">Vinícius 那場球暴露了什麼，而 IFAB 又改了什麼</div>
-        <div class="idx-card-meta">2026/06/03 · 週三</div>
-      </div>
-    </a>
-    <a class="idx-card" href="/articles/daily-2026-06-02/">
-      <img class="idx-cover" src="/articles/daily-2026-06-02/cover.png" alt="">
-      <div class="idx-body">
-        <div class="idx-card-kicker">DAILY · VOL. 002</div>
-        <div class="idx-card-title">世界盃倒數 10 天：歐洲熱身賽日 + 葡萄牙的「27+1」是怎麼煉成的</div>
-        <div class="idx-card-sub">2026 世界盃每日戰報 Vol. 002</div>
-        <div class="idx-card-meta">2026/06/02 · 週二</div>
-      </div>
-    </a>
-    <a class="idx-card" href="/articles/daily-2026-06-01/">
-      <img class="idx-cover" src="/articles/daily-2026-06-01/cover.png" alt="">
-      <div class="idx-body">
-        <div class="idx-card-kicker">DAILY · VOL. 001</div>
-        <div class="idx-card-title">世界盃倒數 11 天：5/31 全球熱身賽全紀錄 + 6-2 不是 6-2</div>
-        <div class="idx-card-sub">2026 世界盃每日戰報 Vol. 001</div>
-        <div class="idx-card-meta">2026/06/01 · 週一</div>
-      </div>
-    </a>
+
+  <a class="idx-feature" href="/articles/mouth-covering-red-card/">
+    <div class="idx-feature-img-wrap"><img class="idx-feature-img" src="/articles/mouth-covering-red-card/cover.png" alt=""></div>
+    <div class="idx-feature-body">
+      <span class="idx-feature-kicker">FEATURE</span>
+      <h2 class="idx-feature-title">捂嘴就紅牌？這條世界盃新規，真正改寫的不是動作，是「誰該舉證」</h2>
+      <div class="idx-feature-excerpt">2026 年 2 月，里斯本，光明球場。歐冠淘汰附加賽首回合，皇家馬德里作客本菲卡。</div>
+      <div class="idx-feature-meta">2026/06/03 · 週三</div>
+    </div>
+  </a>
+
+  <div class="idx-section-label">更多文章 <span class="gt-rule"></span></div>
+  <div class="idx-grid">
+      <a class="idx-card" href="/articles/daily-2026-06-03/">
+        <div class="idx-card-img-wrap"><img class="idx-card-img" src="/articles/daily-2026-06-03/cover.png" alt=""></div>
+        <div class="idx-card-body">
+          <span class="idx-card-kicker">DAILY · VOL. 003</span>
+          <div class="idx-card-title">世界盃倒數：摩洛哥 4-0 暖身，而 2022 那支 4 強之師，現在走到哪了？</div>
+          <div class="idx-card-meta">2026/06/03 · 週三</div>
+        </div>
+      </a>
+      <a class="idx-card" href="/articles/daily-2026-06-02/">
+        <div class="idx-card-img-wrap"><img class="idx-card-img" src="/articles/daily-2026-06-02/cover.png" alt=""></div>
+        <div class="idx-card-body">
+          <span class="idx-card-kicker">DAILY · VOL. 002</span>
+          <div class="idx-card-title">世界盃倒數 10 天：歐洲熱身賽日 + 葡萄牙的「27+1」是怎麼煉成的</div>
+          <div class="idx-card-meta">2026/06/02 · 週二</div>
+        </div>
+      </a>
+      <a class="idx-card" href="/articles/daily-2026-06-01/">
+        <div class="idx-card-img-wrap"><img class="idx-card-img" src="/articles/daily-2026-06-01/cover.png" alt=""></div>
+        <div class="idx-card-body">
+          <span class="idx-card-kicker">DAILY · VOL. 001</span>
+          <div class="idx-card-title">世界盃倒數 11 天：5/31 全球熱身賽全紀錄 + 6-2 不是 6-2</div>
+          <div class="idx-card-meta">2026/06/01 · 週一</div>
+        </div>
+      </a>
   </div>
 </div>
 <script>

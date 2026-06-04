@@ -215,34 +215,102 @@ ARTICLE_CSS = """
 # ---------- index page CSS ----------
 
 INDEX_CSS = """
-.container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; padding-top: 56px; }
-.idx-header { margin-bottom: 44px; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
-.idx-kicker { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 18px; }
-.idx-kicker::before { content: ''; width: 26px; height: 2px; background: var(--accent); }
+.container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; padding-top: 50px; }
+.idx-header { margin-bottom: 52px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.idx-kicker { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 14px; }
+.idx-kicker::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
 .idx-kicker b { color: var(--accent); font-weight: 600; }
-.idx-h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 7.5vw, 70px); line-height: 0.95; color: var(--fg); letter-spacing: 0.5px; }
-.idx-h1 .tc { font-family: var(--font-ui); font-weight: 900; letter-spacing: -0.5px; }
-.idx-sub { margin-top: 18px; font-size: 14.5px; color: var(--fg-soft); }
+.idx-h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; color: var(--fg); letter-spacing: 0.3px; }
+.idx-h1 .tc { font-family: var(--font-ui); font-weight: 900; letter-spacing: -0.3px; }
+.idx-h1 .yr { color: var(--accent); margin-right: 0.22em; }
+.idx-sub { margin-top: 14px; font-size: 14px; color: var(--fg-soft); }
 .idx-sub a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-.idx-list { display: flex; flex-direction: column; gap: 22px; }
+/* ---- feature article (first / most important) ---- */
+.idx-feature {
+  display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px;
+  align-items: center; margin-bottom: 60px;
+  text-decoration: none; color: inherit;
+}
+.idx-feature-img-wrap { position: relative; overflow: hidden; border-radius: var(--radius); }
+.idx-feature-img {
+  width: 100%; height: 340px; object-fit: cover; display: block;
+  box-shadow: 0 14px 36px var(--sheet-shadow);
+  transition: transform 0.32s cubic-bezier(0.22,1,0.36,1);
+}
+.idx-feature:hover .idx-feature-img { transform: scale(1.03); }
+.idx-feature-body { display: flex; flex-direction: column; gap: 16px; }
+.idx-feature-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: var(--accent-ink);
+  padding: 6px 14px; border-radius: 99px;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700; align-self: flex-start;
+}
+.idx-feature-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(26px, 3.2vw, 36px); line-height: 1.2;
+  color: var(--fg); letter-spacing: 0.3px;
+}
+.idx-feature-excerpt {
+  font-size: 16px; color: var(--fg-soft); line-height: 1.7;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.idx-feature-meta {
+  font-family: var(--font-mono); font-size: 12px; color: var(--dim);
+  letter-spacing: 1px; padding-top: 4px;
+}
+
+/* ---- section label ---- */
+.idx-section-label {
+  display: flex; align-items: center; gap: 13px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px;
+  color: var(--dim); text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.idx-section-label::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
+.idx-section-label .gt-rule { flex: 1; height: 1px; background: var(--line); margin-left: 4px; }
+
+/* ---- 3-col grid ---- */
+.idx-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .idx-card {
-  display: grid; grid-template-columns: 200px 1fr; gap: 26px; align-items: stretch;
+  display: flex; flex-direction: column;
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 18px;
+  border-radius: var(--radius); overflow: hidden;
   text-decoration: none; color: inherit;
   transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.idx-card:hover { transform: translateY(-3px); border-color: var(--line-2); box-shadow: 0 14px 34px var(--sheet-shadow); }
-.idx-cover { width: 100%; height: 130px; object-fit: cover; border-radius: var(--radius-sm); display: block; }
-.idx-body { display: flex; flex-direction: column; padding: 4px 0; }
-.idx-card-kicker { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 9px; }
-.idx-card-title { font-size: 18.5px; font-weight: 700; color: var(--fg); line-height: 1.35; margin-bottom: 7px; }
-.idx-card-sub { font-size: 14px; color: var(--fg-soft); line-height: 1.55; margin-bottom: 10px; flex: 1; }
-.idx-card-meta { font-family: var(--font-mono); font-size: 11.5px; color: var(--dim); letter-spacing: 1px; }
-@media (max-width: 640px) {
-  .idx-card { grid-template-columns: 1fr; gap: 14px; padding: 14px; }
-  .idx-cover { height: 180px; }
+.idx-card:hover { transform: translateY(-4px); border-color: var(--accent-line); box-shadow: 0 14px 32px var(--sheet-shadow); }
+.idx-card-img-wrap { position: relative; overflow: hidden; }
+.idx-card-img { width: 100%; height: 170px; object-fit: cover; display: block; transition: transform 0.32s cubic-bezier(0.22,1,0.36,1); }
+.idx-card:hover .idx-card-img { transform: scale(1.04); }
+.idx-card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.idx-card-kicker {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700; color: var(--accent);
+  align-self: flex-start;
+}
+.idx-card-kicker::before { content: ''; width: 12px; height: 2px; background: var(--accent); }
+.idx-card-title {
+  font-size: 15.5px; font-weight: 700; color: var(--fg); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden; letter-spacing: 0.2px;
+}
+.idx-card-meta { font-family: var(--font-mono); font-size: 11px; color: var(--dim); margin-top: auto; padding-top: 8px; letter-spacing: 1px; }
+
+/* ---- responsive ---- */
+@media (max-width: 900px) {
+  .idx-grid { grid-template-columns: repeat(2, 1fr); }
+  .idx-feature { grid-template-columns: 1fr; gap: 22px; }
+  .idx-feature-img { height: 260px; }
+}
+@media (max-width: 580px) {
+  .container { padding-top: 38px; }
+  .idx-grid { grid-template-columns: 1fr; }
+  .idx-feature-img { height: 200px; }
+  .idx-feature-title { font-size: 24px; }
 }
 """
 
@@ -288,6 +356,29 @@ def inject_inline_images(body: str) -> str:
 def strip_h1(body: str) -> str:
     """Drop the first H1 (we render title via the article header)."""
     return re.sub(r"^# .*\n", "", body, count=1).lstrip("\n")
+
+
+def extract_excerpt(body: str, length: int = 120) -> str:
+    """Pull the first prose paragraph (skip headings, images, blockquotes,
+    horizontal rules) and truncate. Strips inline markdown markers."""
+    for raw in body.split("\n\n"):
+        line = raw.strip()
+        if not line:
+            continue
+        if line.startswith(("#", "!", ">", "---", "```", "|")):
+            continue
+        if line.startswith(("- ", "* ", "1.")):
+            continue
+        # strip inline md: **bold** _em_ `code` [text](url)
+        line = re.sub(r"\*\*(.+?)\*\*", r"\1", line)
+        line = re.sub(r"\*(.+?)\*", r"\1", line)
+        line = re.sub(r"`([^`]+)`", r"\1", line)
+        line = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", line)
+        line = line.replace("\n", " ").strip()
+        if len(line) > length:
+            return line[:length].rstrip() + "…"
+        return line
+    return ""
 
 
 # ---------- render ----------
@@ -375,33 +466,61 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
 """
 
 
+def _kicker_label(meta: dict) -> str:
+    if meta.get("type") == "daily":
+        vol = meta.get("vol", "?")
+        return f"DAILY · VOL. {int(vol):03d}" if isinstance(vol, int) else f"DAILY · VOL. {vol}"
+    return "FEATURE"
+
+
+def _date_disp(date_str: str) -> str:
+    try:
+        d = datetime.date.fromisoformat(date_str)
+        return f"{d.year}/{d.month:02d}/{d.day:02d} · {WEEKDAY_ZH[d.weekday()]}"
+    except Exception:
+        return date_str
+
+
 def render_index(articles: list) -> str:
-    cards_html = ""
-    for a in articles:
-        typ = a["meta"].get("type", "feature")
-        if typ == "daily":
-            vol = a["meta"].get("vol", "?")
-            kicker = f"DAILY · VOL. {int(vol):03d}" if isinstance(vol, int) else f"DAILY · VOL. {vol}"
-        else:
-            kicker = "FEATURE"
-        title = html_lib.escape(a["meta"].get("title", a["slug"]))
-        sub = html_lib.escape(a["meta"].get("subtitle", ""))
-        date_str = str(a["meta"].get("date", ""))
-        try:
-            d = datetime.date.fromisoformat(date_str)
-            date_disp = f"{d.year}/{d.month:02d}/{d.day:02d} · {WEEKDAY_ZH[d.weekday()]}"
-        except Exception:
-            date_disp = date_str
-        cards_html += f"""
-    <a class="idx-card" href="/articles/{a['slug']}/">
-      <img class="idx-cover" src="/articles/{a['slug']}/cover.png" alt="">
-      <div class="idx-body">
-        <div class="idx-card-kicker">{kicker}</div>
-        <div class="idx-card-title">{title}</div>
-        <div class="idx-card-sub">{sub}</div>
-        <div class="idx-card-meta">{date_disp}</div>
-      </div>
-    </a>"""
+    if not articles:
+        feature_html = ""
+        grid_html = ""
+    else:
+        feat = articles[0]
+        feat_kicker = _kicker_label(feat["meta"])
+        feat_title = html_lib.escape(feat["meta"].get("title", feat["slug"]))
+        feat_excerpt = html_lib.escape(feat.get("excerpt") or feat["meta"].get("subtitle", ""))
+        feat_meta = _date_disp(str(feat["meta"].get("date", "")))
+        feature_html = f"""
+  <a class="idx-feature" href="/articles/{feat['slug']}/">
+    <div class="idx-feature-img-wrap"><img class="idx-feature-img" src="/articles/{feat['slug']}/cover.png" alt=""></div>
+    <div class="idx-feature-body">
+      <span class="idx-feature-kicker">{feat_kicker}</span>
+      <h2 class="idx-feature-title">{feat_title}</h2>
+      <div class="idx-feature-excerpt">{feat_excerpt}</div>
+      <div class="idx-feature-meta">{feat_meta}</div>
+    </div>
+  </a>"""
+
+        cards = ""
+        for a in articles[1:]:
+            kicker = _kicker_label(a["meta"])
+            title = html_lib.escape(a["meta"].get("title", a["slug"]))
+            date_disp = _date_disp(str(a["meta"].get("date", "")))
+            cards += f"""
+      <a class="idx-card" href="/articles/{a['slug']}/">
+        <div class="idx-card-img-wrap"><img class="idx-card-img" src="/articles/{a['slug']}/cover.png" alt=""></div>
+        <div class="idx-card-body">
+          <span class="idx-card-kicker">{kicker}</span>
+          <div class="idx-card-title">{title}</div>
+          <div class="idx-card-meta">{date_disp}</div>
+        </div>
+      </a>"""
+
+        grid_html = f"""
+  <div class="idx-section-label">更多文章 <span class="gt-rule"></span></div>
+  <div class="idx-grid">{cards}
+  </div>""" if cards else ""
 
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="grass">
@@ -443,11 +562,11 @@ def render_index(articles: list) -> str:
   </div>
   <header class="idx-header">
     <div class="idx-kicker">@foootball · <b>文章</b></div>
-    <h1 class="idx-h1"><span class="tc">2026 世界盃</span></h1>
+    <h1 class="idx-h1"><span class="yr">2026</span><span class="tc">世界盃文章</span></h1>
     <div class="idx-sub">每日戰報 · 焦點觀察 · 規則解讀 — 全部繁體中文 / 台北時間</div>
   </header>
-  <div class="idx-list">{cards_html}
-  </div>
+{feature_html}
+{grid_html}
 </div>
 <script>{THEME_SWITCH_JS}</script>
 </body>
@@ -479,6 +598,7 @@ def build():
         body = inject_inline_images(body)
         body = strip_h1(body)
 
+        excerpt = extract_excerpt(body)
         body_html = md_lib.markdown(body, extensions=["extra", "sane_lists"])
 
         out_dir = OUT / slug
@@ -489,11 +609,16 @@ def build():
                 shutil.copy2(asset, out_dir / asset.name)
 
         (out_dir / "index.html").write_text(render_article(meta, body_html, slug), encoding="utf-8")
-        articles.append({"slug": slug, "meta": meta})
+        articles.append({"slug": slug, "meta": meta, "excerpt": excerpt})
         print(f"✅ {slug}")
 
-    # index — sort by date desc
-    articles_sorted = sorted(articles, key=lambda a: str(a["meta"].get("date", "")), reverse=True)
+    # index — sort by date desc; feature > daily on tie
+    type_rank = {"feature": 0, "daily": 1}
+    articles_sorted = sorted(
+        articles,
+        key=lambda a: (str(a["meta"].get("date", "")), -type_rank.get(a["meta"].get("type", "daily"), 9)),
+        reverse=True,
+    )
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "index.html").write_text(render_index(articles_sorted), encoding="utf-8")
     print(f"📚 index.html ({len(articles_sorted)} articles) → {OUT}/index.html")
