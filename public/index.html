@@ -113,6 +113,8 @@ h1 .tc { font-family: var(--font-ui); font-weight: 900; letter-spacing: -1px; }
 }
 .chip b { color: var(--fg); font-weight: 700; font-variant-numeric: tabular-nums; }
 .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+a.chip-link { text-decoration: none; color: var(--accent); font-weight: 600; transition: border-color 0.15s ease, color 0.15s ease; }
+a.chip-link:hover { color: var(--accent-bright); border-color: var(--accent-line); background: var(--accent-soft); }
 
 /* ---------- intro ---------- */
 .intro {
@@ -319,6 +321,7 @@ footer .foot-sub a { color: var(--fg-soft); font-family: var(--font-mono); font-
     <span class="chip"><span class="dot"></span><b>48</b> 隊</span>
     <span class="chip"><span class="dot"></span><b>104</b> 場</span>
     <span class="chip"><span class="dot"></span>.ics 一鍵訂閱</span>
+    <a class="chip chip-link" href="/articles/"><span class="dot"></span>每日戰報 + 焦點觀察 →</a>
     <span class="chip">@foootball</span>
   </div>
 </header>
@@ -332,7 +335,7 @@ footer .foot-sub a { color: var(--fg-soft); font-family: var(--font-mono); font-
 
 <footer>
   <div>ICS by <a href="https://medium.com/@foootball" target="_blank">@foootball</a> · 賽程資料 source：FIFA / ESPN / Wikipedia</div>
-  <div class="foot-sub">訂閱全程 104 場：<a href="webcal://foootball.twtools.cc/cal/tournament.ics">webcal://foootball.twtools.cc/cal/tournament.ics</a></div>
+  <div class="foot-sub">每日戰報 + 焦點觀察：<a href="/articles/">/articles/</a> · 訂閱全程 104 場：<a href="webcal://foootball.twtools.cc/cal/tournament.ics">webcal://foootball.twtools.cc/cal/tournament.ics</a></div>
 </footer>
 
 </div><!-- container -->
