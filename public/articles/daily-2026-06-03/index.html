@@ -170,6 +170,33 @@ body::before {
 .prose ul, .prose ol { padding-left: 24px; margin: 0 0 22px; }
 .prose li { margin: 0 0 8px; }
 .prose hr { border: none; height: 1px; background: var(--line); margin: 40px 0; }
+.prose table {
+  width: 100%; border-collapse: collapse; margin: 28px 0;
+  font-size: 14.5px; line-height: 1.55; overflow: hidden;
+  border-radius: var(--radius-sm); box-shadow: 0 4px 16px var(--sheet-shadow);
+}
+.prose thead { background: var(--surface-2); }
+.prose th {
+  padding: 12px 14px; text-align: left; font-weight: 700; color: var(--fg);
+  border-bottom: 2px solid var(--accent-line); letter-spacing: 0.4px; font-size: 13.5px;
+}
+.prose td {
+  padding: 11px 14px; border-bottom: 1px solid var(--line);
+  vertical-align: top; color: var(--fg-soft);
+}
+.prose tbody tr:last-child td { border-bottom: none; }
+.prose tbody tr:hover td { background: var(--surface-2); }
+.prose table strong { color: var(--accent); font-variant-numeric: tabular-nums; }
+/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths */
+.prose table th:nth-child(1), .prose table td:nth-child(1) { width: 24%; }
+.prose table th:nth-child(2), .prose table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
+.prose table th:nth-child(3), .prose table td:nth-child(3) { width: 22%; }
+.prose table th:nth-child(4), .prose table td:nth-child(4) { width: 45%; }
+@media (max-width: 640px) {
+  .prose table { font-size: 13px; }
+  .prose th, .prose td { padding: 9px 10px; }
+  .prose table th:nth-child(3), .prose table td:nth-child(3) { font-size: 12px; }
+}
 .prose code { background: var(--surface-3); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.92em; color: var(--fg); }
 .prose pre { background: var(--surface-3); padding: 14px 16px; border-radius: var(--radius-sm); overflow-x: auto; margin: 20px 0; }
 .prose pre code { background: transparent; padding: 0; }
@@ -229,10 +256,8 @@ body::before {
     <div class="prose">
 <p><strong>2026 世界盃每日戰報 Vol. 003</strong></p>
 <h2>§1 即時比分戰報（6/1–6/2 國際熱身賽窗口）</h2>
-<p><img alt="" src="table-1-即時比分戰報.png" /></p>
 <p>6 場全屬會內賽前的國際熱身賽，已晉級的強隊各自試陣、未晉級的球隊收尾賽季。當日最大比分是摩洛哥主場 4-0 馬達加斯加 — 而這支球隊背後的故事，正是今天 §4 的主菜。</p>
 <h2>§2 排行榜：FIFA 排名亮點 — 摩洛哥世界第 8，非洲與阿拉伯世界最高</h2>
-<p><img alt="" src="table-2-排行榜FIFA排名亮點—摩洛哥世界第8非洲與阿拉伯世界最高.png" /></p>
 <p>接下來進入「首戰前 24 小時可因傷替補」的微調期。</p>
 <h2>§3 賽事摘要</h2>
 <p><strong>🇲🇦 摩洛哥 4 - 0 馬達加斯加</strong>：薩伊巴里（Ismaël Saibari）上半場 4 分鐘、25 分鐘梅開二度奠定基礎，拉希米（Soufiane Rahimi）78 分鐘點球加碼，艾爾卡比（Ayoub El Kaabi）87 分鐘補進第四球。摩洛哥主場攻勢全程壓制，是當日最具說服力的一場勝利（詳見 §4）。</p>

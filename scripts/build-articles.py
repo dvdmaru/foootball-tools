@@ -248,6 +248,33 @@ ARTICLE_CSS = """
 .prose ul, .prose ol { padding-left: 24px; margin: 0 0 22px; }
 .prose li { margin: 0 0 8px; }
 .prose hr { border: none; height: 1px; background: var(--line); margin: 40px 0; }
+.prose table {
+  width: 100%; border-collapse: collapse; margin: 28px 0;
+  font-size: 14.5px; line-height: 1.55; overflow: hidden;
+  border-radius: var(--radius-sm); box-shadow: 0 4px 16px var(--sheet-shadow);
+}
+.prose thead { background: var(--surface-2); }
+.prose th {
+  padding: 12px 14px; text-align: left; font-weight: 700; color: var(--fg);
+  border-bottom: 2px solid var(--accent-line); letter-spacing: 0.4px; font-size: 13.5px;
+}
+.prose td {
+  padding: 11px 14px; border-bottom: 1px solid var(--line);
+  vertical-align: top; color: var(--fg-soft);
+}
+.prose tbody tr:last-child td { border-bottom: none; }
+.prose tbody tr:hover td { background: var(--surface-2); }
+.prose table strong { color: var(--accent); font-variant-numeric: tabular-nums; }
+/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths */
+.prose table th:nth-child(1), .prose table td:nth-child(1) { width: 24%; }
+.prose table th:nth-child(2), .prose table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
+.prose table th:nth-child(3), .prose table td:nth-child(3) { width: 22%; }
+.prose table th:nth-child(4), .prose table td:nth-child(4) { width: 45%; }
+@media (max-width: 640px) {
+  .prose table { font-size: 13px; }
+  .prose th, .prose td { padding: 9px 10px; }
+  .prose table th:nth-child(3), .prose table td:nth-child(3) { font-size: 12px; }
+}
 .prose code { background: var(--surface-3); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.92em; color: var(--fg); }
 .prose pre { background: var(--surface-3); padding: 14px 16px; border-radius: var(--radius-sm); overflow-x: auto; margin: 20px 0; }
 .prose pre code { background: transparent; padding: 0; }
@@ -400,8 +427,11 @@ def strip_medium_guide(body: str) -> str:
 
 
 def inject_inline_images(body: str) -> str:
-    """[📸 插入 PNG: filename] -> ![](filename)"""
-    return re.sub(r"\[📸 插入 PNG: ([^\]]+?)\]", r"![](\1)", body)
+    """Strip [📸 插入 PNG: filename] placeholders. The PNG is a Medium-only
+    artifact — on this site we already render the §1/§2 markdown table /
+    bullet list as HTML, which is both SEO-/GEO-indexable and visually
+    cleaner. Keeping the PNG inline would duplicate the same content twice."""
+    return re.sub(r"\[📸 插入 PNG: [^\]]+?\]\s*\n?", "", body)
 
 
 def strip_h1(body: str) -> str:
