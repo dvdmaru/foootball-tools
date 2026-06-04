@@ -308,7 +308,18 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
 <meta property="og:title" content="{title_safe}">
 <meta property="og:description" content="{subtitle}">
 <meta property="og:image" content="https://foootball.twtools.cc/articles/{slug}/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:type" content="article">
+<meta property="og:url" content="https://foootball.twtools.cc/articles/{slug}/">
+<meta property="og:site_name" content="@foootball">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="{date_str}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title_safe}">
+<meta name="twitter:description" content="{subtitle}">
+<meta name="twitter:image" content="https://foootball.twtools.cc/articles/{slug}/cover.png">
+<link rel="canonical" href="https://foootball.twtools.cc/articles/{slug}/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -390,6 +401,17 @@ def render_index(articles: list) -> str:
 <meta property="og:title" content="文章 — @foootball 世界盃">
 <meta property="og:description" content="每日戰報、規則解讀、焦點觀察。">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://foootball.twtools.cc/articles/">
+<meta property="og:image" content="https://foootball.twtools.cc/og-home.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:site_name" content="@foootball">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="文章 — @foootball 世界盃">
+<meta name="twitter:description" content="每日戰報、規則解讀、焦點觀察。">
+<meta name="twitter:image" content="https://foootball.twtools.cc/og-home.png">
+<link rel="canonical" href="https://foootball.twtools.cc/articles/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
