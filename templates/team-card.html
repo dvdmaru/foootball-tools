@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1080px; height:1350px; overflow:hidden; }
+  body {
+    background: linear-gradient(180deg, #0d2818 0%, #163a26 100%);
+    color:#e8e8e8;
+    font-family: 'Noto Sans TC', 'PingFang TC', sans-serif;
+    padding:60px 70px 50px;
+    display:flex; flex-direction:column;
+    position:relative;
+  }
+  body::before {
+    content:''; position:absolute; top:0; left:0;
+    width:10px; height:280px;
+    background:linear-gradient(180deg, #d4af37 0%, transparent 100%);
+  }
+  body::after {
+    content:''; position:absolute; bottom:0; right:0;
+    width:10px; height:280px;
+    background:linear-gradient(0deg, #d4af37 0%, transparent 100%);
+  }
+
+  .header {
+    text-align:center;
+    padding-bottom:32px;
+    border-bottom:2px solid rgba(212,175,55,0.25);
+  }
+  .flag { font-size:140px; line-height:1; margin-bottom:6px; }
+  .name { font-size:88px; font-weight:900; color:#f0c850; letter-spacing:0.04em; line-height:1.05; }
+  .name-en { font-size:28px; font-weight:500; color:#9aa39c; margin-top:12px; letter-spacing:0.18em; font-family:'JetBrains Mono', monospace; }
+  .group { font-size:26px; font-weight:700; color:#e8e8e8; margin-top:18px; letter-spacing:0.15em;
+           display:inline-block; padding:7px 22px; border:1.5px solid rgba(212,175,55,0.5); border-radius:6px; }
+
+  .matches {
+    flex:1;
+    display:flex; flex-direction:column; justify-content:space-evenly;
+    padding:0;
+  }
+  .match {
+    display:grid;
+    grid-template-columns: 240px 1fr 232px;
+    align-items:center;
+    padding:20px 4px;
+    column-gap:14px;
+  }
+  .match + .match { border-top:1px solid rgba(212,175,55,0.15); }
+
+  .date { font-size:28px; font-weight:700; color:#f0c850; font-family:'JetBrains Mono', monospace; letter-spacing:0.01em; }
+  .weekday { font-size:22px; color:#9aa39c; display:inline-block; margin-left:8px; }
+  .time { font-size:54px; font-weight:900; color:#fff; font-family:'JetBrains Mono', monospace; margin-top:4px; letter-spacing:-0.02em; }
+  .tz { font-size:17px; color:#7a857c; font-weight:500; letter-spacing:0.12em; margin-top:-2px; }
+
+  .vs-col { text-align:center; }
+  .vs-label { font-size:20px; color:#7a857c; letter-spacing:0.4em; font-weight:500; }
+  .opp { display:flex; align-items:center; justify-content:center; gap:14px; margin-top:12px; }
+  .opp-flag { font-size:60px; line-height:1; }
+  .opp-name { font-size:44px; font-weight:700; color:#fff; }
+
+  .venue-col { text-align:right; }
+  .home-tag {
+    font-size:19px; font-weight:700;
+    padding:5px 14px; border-radius:4px;
+    display:inline-block; margin-bottom:8px;
+    letter-spacing:0.1em;
+  }
+  .home { background:#d4af37; color:#0d2818; }
+  .away { background:transparent; color:#9aa39c; border:1px solid #4a5a4e; }
+  .stadium { font-size:23px; color:#e8e8e8; font-weight:700; line-height:1.25; }
+  .city { font-size:19px; color:#9aa39c; margin-top:3px; }
+
+  .footer {
+    border-top:2px solid rgba(212,175,55,0.25);
+    padding-top:24px; margin-top:8px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+  }
+  .cta { font-size:32px; font-weight:900; color:#f0c850; letter-spacing:0.02em; }
+  .cta-sub { font-size:18px; color:#9aa39c; margin-top:6px; }
+  .brand { text-align:right; }
+  .url { font-size:24px; font-weight:700; color:#fff; font-family:'JetBrains Mono', monospace; }
+  .account { font-size:18px; color:#9aa39c; margin-top:6px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="flag">{{FLAG}}</div>
+    <div class="name">{{NAME_ZH}}</div>
+    <div class="name-en">{{NAME_EN}} · {{CODE}}</div>
+    <div class="group">GROUP {{GROUP}} · 小組賽 3 場</div>
+  </div>
+  <div class="matches">{{MATCHES_HTML}}</div>
+  <div class="footer">
+    <div>
+      <div class="cta">👉 訂閱整季賽程</div>
+      <div class="cta-sub">含淘汰賽自動更新 · Apple Cal / Google Cal / Outlook</div>
+    </div>
+    <div class="brand">
+      <div class="url">foootball.twtools.cc</div>
+      <div class="account">@foootball · 2026 美加墨世界盃</div>
+    </div>
+  </div>
+</body>
+</html>
