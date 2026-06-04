@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-005@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260614T090000
 DTEND;TZID=Asia/Taipei:20260614T110000
 SUMMARY:🇭🇹 海地 vs 🇬🇧 蘇格蘭 (Group C)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #5 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-14 09:00（北美 2026-06-13 21:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #5 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-14 09:00（北美 2026-06-13 21:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/HAI
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-030@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260620T060000
 DTEND;TZID=Asia/Taipei:20260620T080000
 SUMMARY:🇬🇧 蘇格蘭 vs 🇲🇦 摩洛哥 (Group C)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #30 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-20 06:00（北美 2026-06-19 18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #30 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-20 06:00（北美 2026-06-19 18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SCO
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-049@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260625T060000
 DTEND;TZID=Asia/Taipei:20260625T080000
 SUMMARY:🇬🇧 蘇格蘭 vs 🇧🇷 巴西 (Group C)
 LOCATION:Hard Rock Stadium\, Miami Gardens
-DESCRIPTION:Match #49 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #49 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SCO
 END:VEVENT
 END:VCALENDAR

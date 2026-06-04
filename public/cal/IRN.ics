@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-015@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260616T090000
 DTEND;TZID=Asia/Taipei:20260616T110000
 SUMMARY:🇮🇷 伊朗 vs 🇳🇿 紐西蘭 (Group G)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #15 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-16 09:00（北美 2026-06-15 21:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #15 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-16 09:00（北美 2026-06-15 21:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/IRN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-039@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260622T030000
 DTEND;TZID=Asia/Taipei:20260622T050000
 SUMMARY:🇧🇪 比利時 vs 🇮🇷 伊朗 (Group G)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #39 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-22 03:00（北美 2026-06-21 15:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #39 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-22 03:00（北美 2026-06-21 15:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BEL
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-063@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260627T110000
 DTEND;TZID=Asia/Taipei:20260627T130000
 SUMMARY:🇪🇬 埃及 vs 🇮🇷 伊朗 (Group G)
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match #63 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-27 11:00（北美 2026-06-26 23:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #63 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-27 11:00（北美 2026-06-26 23:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/EGY
 END:VEVENT
 END:VCALENDAR

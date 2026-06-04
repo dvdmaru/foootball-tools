@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-023@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260618T010000
 DTEND;TZID=Asia/Taipei:20260618T030000
 SUMMARY:🇵🇹 葡萄牙 vs 🇨🇩 民主剛果 (Group K)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #23 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-18 01:00（北美 2026-06-17 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #23 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-18 01:00（北美 2026-06-17 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/POR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-048@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260624T100000
 DTEND;TZID=Asia/Taipei:20260624T120000
 SUMMARY:🇨🇴 哥倫比亞 vs 🇨🇩 民主剛果 (Group K)
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match #48 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-24 10:00（北美 2026-06-23 22:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #48 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-24 10:00（北美 2026-06-23 22:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/COL
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-072@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260628T073000
 DTEND;TZID=Asia/Taipei:20260628T093000
 SUMMARY:🇨🇩 民主剛果 vs 🇺🇿 烏茲別克 (Group K)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #72 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-28 07:30（北美 2026-06-27 19:30 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #72 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-28 07:30（北美 2026-06-27 19:30 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/COD
 END:VEVENT
 END:VCALENDAR

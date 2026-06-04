@@ -17,722 +17,722 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-001@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260612T030000
 DTEND;TZID=Asia/Taipei:20260612T050000
 SUMMARY:🇲🇽 墨西哥 vs 🇿🇦 南非 (Group A)
 LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match #1 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-12 03:00（北美 2026-06-11 15:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #1 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-12 03:00（北美 2026-06-11 15:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/MEX
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-002@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260612T100000
 DTEND;TZID=Asia/Taipei:20260612T120000
 SUMMARY:🇰🇷 南韓 vs 🇨🇿 捷克 (Group A)
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match #2 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-12 10:00（北美 2026-06-11 22:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #2 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-12 10:00（北美 2026-06-11 22:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/KOR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-003@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260613T030000
 DTEND;TZID=Asia/Taipei:20260613T050000
 SUMMARY:🇨🇦 加拿大 vs 🇧🇦 波士尼亞 (Group B)
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match #3 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-13 03:00（北美 2026-06-12 15:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #3 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-13 03:00（北美 2026-06-12 15:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CAN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-004@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260613T090000
 DTEND;TZID=Asia/Taipei:20260613T110000
 SUMMARY:🇺🇸 美國 vs 🇵🇾 巴拉圭 (Group D)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #4 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-13 09:00（北美 2026-06-12 21:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #4 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-13 09:00（北美 2026-06-12 21:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/USA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-008@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260614T030000
 DTEND;TZID=Asia/Taipei:20260614T050000
 SUMMARY:🇶🇦 卡達 vs 🇨🇭 瑞士 (Group B)
 LOCATION:Levi's Stadium\, Santa Clara
-DESCRIPTION:Match #8 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-14 03:00（北美 2026-06-13 15:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #8 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-14 03:00（北美 2026-06-13 15:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/QAT
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-007@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260614T060000
 DTEND;TZID=Asia/Taipei:20260614T080000
 SUMMARY:🇧🇷 巴西 vs 🇲🇦 摩洛哥 (Group C)
 LOCATION:MetLife Stadium\, East Rutherford
-DESCRIPTION:Match #7 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-14 06:00（北美 2026-06-13 18:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #7 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-14 06:00（北美 2026-06-13 18:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BRA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-005@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260614T090000
 DTEND;TZID=Asia/Taipei:20260614T110000
 SUMMARY:🇭🇹 海地 vs 🇬🇧 蘇格蘭 (Group C)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #5 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-14 09:00（北美 2026-06-13 21:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #5 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-14 09:00（北美 2026-06-13 21:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/HAI
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-006@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260613T120000
 DTEND;TZID=Asia/Taipei:20260613T140000
 SUMMARY:🇦🇺 澳洲 vs 🇹🇷 土耳其 (Group D)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #6 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-13 12:00（北美 2026-06-13 00:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #6 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-13 12:00（北美 2026-06-13 00:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/AUS
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-010@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260615T010000
 DTEND;TZID=Asia/Taipei:20260615T030000
 SUMMARY:🇩🇪 德國 vs 🇨🇼 古拉索 (Group E)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #10 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-15 01:00（北美 2026-06-14 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #10 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-15 01:00（北美 2026-06-14 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/GER
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-011@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260615T040000
 DTEND;TZID=Asia/Taipei:20260615T060000
 SUMMARY:🇳🇱 荷蘭 vs 🇯🇵 日本 (Group F)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #11 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-15 04:00（北美 2026-06-14 16:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #11 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-15 04:00（北美 2026-06-14 16:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-009@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260615T070000
 DTEND;TZID=Asia/Taipei:20260615T090000
 SUMMARY:🇨🇮 象牙海岸 vs 🇪🇨 厄瓜多 (Group E)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #9 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-15 07:00（北美 2026-06-14 19:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #9 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-15 07:00（北美 2026-06-14 19:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CIV
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-012@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260615T100000
 DTEND;TZID=Asia/Taipei:20260615T120000
 SUMMARY:🇸🇪 瑞典 vs 🇹🇳 突尼西亞 (Group F)
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match #12 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-15 10:00（北美 2026-06-14 22:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #12 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-15 10:00（北美 2026-06-14 22:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SWE
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-014@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260616T000000
 DTEND;TZID=Asia/Taipei:20260616T020000
 SUMMARY:🇪🇸 西班牙 vs 🇨🇻 維德角 (Group H)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #14 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-16 00:00（北美 2026-06-15 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #14 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-16 00:00（北美 2026-06-15 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ESP
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-016@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260616T030000
 DTEND;TZID=Asia/Taipei:20260616T050000
 SUMMARY:🇧🇪 比利時 vs 🇪🇬 埃及 (Group G)
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match #16 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-16 03:00（北美 2026-06-15 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #16 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-16 03:00（北美 2026-06-15 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BEL
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-013@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260616T060000
 DTEND;TZID=Asia/Taipei:20260616T080000
 SUMMARY:🇸🇦 沙烏地阿拉伯 vs 🇺🇾 烏拉圭 (Group H)
 LOCATION:Hard Rock Stadium\, Miami Gardens
-DESCRIPTION:Match #13 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-16 06:00（北美 2026-06-15 18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #13 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-16 06:00（北美 2026-06-15 18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/KSA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-015@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260616T090000
 DTEND;TZID=Asia/Taipei:20260616T110000
 SUMMARY:🇮🇷 伊朗 vs 🇳🇿 紐西蘭 (Group G)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #15 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-16 09:00（北美 2026-06-15 21:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #15 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-16 09:00（北美 2026-06-15 21:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/IRN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-017@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260617T030000
 DTEND;TZID=Asia/Taipei:20260617T050000
 SUMMARY:🇫🇷 法國 vs 🇸🇳 塞內加爾 (Group I)
 LOCATION:MetLife Stadium\, East Rutherford
-DESCRIPTION:Match #17 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-17 03:00（北美 2026-06-16 15:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #17 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-17 03:00（北美 2026-06-16 15:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/FRA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-018@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260617T060000
 DTEND;TZID=Asia/Taipei:20260617T080000
 SUMMARY:🇮🇶 伊拉克 vs 🇳🇴 挪威 (Group I)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #18 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-17 06:00（北美 2026-06-16 18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #18 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-17 06:00（北美 2026-06-16 18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/IRQ
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-019@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260617T090000
 DTEND;TZID=Asia/Taipei:20260617T110000
 SUMMARY:🇦🇷 阿根廷 vs 🇩🇿 阿爾及利亞 (Group J)
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match #19 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-17 09:00（北美 2026-06-16 21:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #19 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-17 09:00（北美 2026-06-16 21:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ARG
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-020@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260616T120000
 DTEND;TZID=Asia/Taipei:20260616T140000
 SUMMARY:🇦🇹 奧地利 vs 🇯🇴 約旦 (Group J)
 LOCATION:Levi's Stadium\, Santa Clara
-DESCRIPTION:Match #20 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-16 12:00（北美 2026-06-16 00:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #20 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-16 12:00（北美 2026-06-16 00:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/AUT
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-023@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260618T010000
 DTEND;TZID=Asia/Taipei:20260618T030000
 SUMMARY:🇵🇹 葡萄牙 vs 🇨🇩 民主剛果 (Group K)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #23 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-18 01:00（北美 2026-06-17 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #23 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-18 01:00（北美 2026-06-17 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/POR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-022@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260618T040000
 DTEND;TZID=Asia/Taipei:20260618T060000
 SUMMARY:🇬🇧 英格蘭 vs 🇭🇷 克羅埃西亞 (Group L)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #22 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-18 04:00（北美 2026-06-17 16:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #22 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-18 04:00（北美 2026-06-17 16:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ENG
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-021@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260618T070000
 DTEND;TZID=Asia/Taipei:20260618T090000
 SUMMARY:🇬🇭 迦納 vs 🇵🇦 巴拿馬 (Group L)
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match #21 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-18 07:00（北美 2026-06-17 19:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #21 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-18 07:00（北美 2026-06-17 19:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/GHA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-024@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260618T100000
 DTEND;TZID=Asia/Taipei:20260618T120000
 SUMMARY:🇺🇿 烏茲別克 vs 🇨🇴 哥倫比亞 (Group K)
 LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match #24 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-18 10:00（北美 2026-06-17 22:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #24 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-18 10:00（北美 2026-06-17 22:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/UZB
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-025@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260619T000000
 DTEND;TZID=Asia/Taipei:20260619T020000
 SUMMARY:🇨🇿 捷克 vs 🇿🇦 南非 (Group A)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #25 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-19 00:00（北美 2026-06-18 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #25 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-19 00:00（北美 2026-06-18 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CZE
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-026@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260619T000000
 DTEND;TZID=Asia/Taipei:20260619T020000
 SUMMARY:🇨🇭 瑞士 vs 🇧🇦 波士尼亞 (Group B)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #26 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-19 00:00（北美 2026-06-18 12:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #26 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-19 00:00（北美 2026-06-18 12:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SUI
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-027@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260619T060000
 DTEND;TZID=Asia/Taipei:20260619T080000
 SUMMARY:🇨🇦 加拿大 vs 🇶🇦 卡達 (Group B)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #27 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-19 06:00（北美 2026-06-18 18:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #27 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-19 06:00（北美 2026-06-18 18:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CAN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-028@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260619T090000
 DTEND;TZID=Asia/Taipei:20260619T110000
 SUMMARY:🇲🇽 墨西哥 vs 🇰🇷 南韓 (Group A)
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match #28 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-19 09:00（北美 2026-06-18 21:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #28 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-19 09:00（北美 2026-06-18 21:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/MEX
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-032@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260620T030000
 DTEND;TZID=Asia/Taipei:20260620T050000
 SUMMARY:🇺🇸 美國 vs 🇦🇺 澳洲 (Group D)
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match #32 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-20 03:00（北美 2026-06-19 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #32 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-20 03:00（北美 2026-06-19 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/USA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-030@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260620T060000
 DTEND;TZID=Asia/Taipei:20260620T080000
 SUMMARY:🇬🇧 蘇格蘭 vs 🇲🇦 摩洛哥 (Group C)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #30 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-20 06:00（北美 2026-06-19 18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #30 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-20 06:00（北美 2026-06-19 18:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SCO
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-029@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260620T083000
 DTEND;TZID=Asia/Taipei:20260620T103000
 SUMMARY:🇧🇷 巴西 vs 🇭🇹 海地 (Group C)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #29 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-20 08:30（北美 2026-06-19 20:30 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #29 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-20 08:30（北美 2026-06-19 20:30 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BRA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-031@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260620T110000
 DTEND;TZID=Asia/Taipei:20260620T130000
 SUMMARY:🇹🇷 土耳其 vs 🇵🇾 巴拉圭 (Group D)
 LOCATION:Levi's Stadium\, Santa Clara
-DESCRIPTION:Match #31 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-20 11:00（北美 2026-06-19 23:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #31 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-20 11:00（北美 2026-06-19 23:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/TUR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-035@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260621T010000
 DTEND;TZID=Asia/Taipei:20260621T030000
 SUMMARY:🇳🇱 荷蘭 vs 🇸🇪 瑞典 (Group F)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #35 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-21 01:00（北美 2026-06-20 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #35 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-21 01:00（北美 2026-06-20 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-033@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260621T040000
 DTEND;TZID=Asia/Taipei:20260621T060000
 SUMMARY:🇩🇪 德國 vs 🇨🇮 象牙海岸 (Group E)
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match #33 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-21 04:00（北美 2026-06-20 16:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #33 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-21 04:00（北美 2026-06-20 16:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/GER
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-034@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260621T080000
 DTEND;TZID=Asia/Taipei:20260621T100000
 SUMMARY:🇪🇨 厄瓜多 vs 🇨🇼 古拉索 (Group E)
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match #34 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-21 08:00（北美 2026-06-20 20:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #34 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-21 08:00（北美 2026-06-20 20:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ECU
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-036@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260620T120000
 DTEND;TZID=Asia/Taipei:20260620T140000
 SUMMARY:🇹🇳 突尼西亞 vs 🇯🇵 日本 (Group F)
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match #36 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-20 12:00（北美 2026-06-20 00:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #36 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-20 12:00（北美 2026-06-20 00:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/TUN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-038@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260622T000000
 DTEND;TZID=Asia/Taipei:20260622T020000
 SUMMARY:🇪🇸 西班牙 vs 🇸🇦 沙烏地阿拉伯 (Group H)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #38 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-22 00:00（北美 2026-06-21 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #38 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-22 00:00（北美 2026-06-21 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ESP
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-039@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260622T030000
 DTEND;TZID=Asia/Taipei:20260622T050000
 SUMMARY:🇧🇪 比利時 vs 🇮🇷 伊朗 (Group G)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #39 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-22 03:00（北美 2026-06-21 15:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #39 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-22 03:00（北美 2026-06-21 15:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BEL
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-037@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260622T060000
 DTEND;TZID=Asia/Taipei:20260622T080000
 SUMMARY:🇺🇾 烏拉圭 vs 🇨🇻 維德角 (Group H)
 LOCATION:Hard Rock Stadium\, Miami Gardens
-DESCRIPTION:Match #37 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-22 06:00（北美 2026-06-21 18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #37 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-22 06:00（北美 2026-06-21 18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/URU
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-040@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260622T090000
 DTEND;TZID=Asia/Taipei:20260622T110000
 SUMMARY:🇳🇿 紐西蘭 vs 🇪🇬 埃及 (Group G)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #40 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-22 09:00（北美 2026-06-21 21:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #40 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-22 09:00（北美 2026-06-21 21:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NZL
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-043@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260623T010000
 DTEND;TZID=Asia/Taipei:20260623T030000
 SUMMARY:🇦🇷 阿根廷 vs 🇦🇹 奧地利 (Group J)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #43 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-23 01:00（北美 2026-06-22 13:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #43 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-23 01:00（北美 2026-06-22 13:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ARG
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-042@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260623T050000
 DTEND;TZID=Asia/Taipei:20260623T070000
 SUMMARY:🇫🇷 法國 vs 🇮🇶 伊拉克 (Group I)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #42 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-23 05:00（北美 2026-06-22 17:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #42 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-23 05:00（北美 2026-06-22 17:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/FRA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-041@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260623T080000
 DTEND;TZID=Asia/Taipei:20260623T100000
 SUMMARY:🇳🇴 挪威 vs 🇸🇳 塞內加爾 (Group I)
 LOCATION:MetLife Stadium\, East Rutherford
-DESCRIPTION:Match #41 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-23 08:00（北美 2026-06-22 20:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #41 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-23 08:00（北美 2026-06-22 20:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NOR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-044@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260623T110000
 DTEND;TZID=Asia/Taipei:20260623T130000
 SUMMARY:🇯🇴 約旦 vs 🇩🇿 阿爾及利亞 (Group J)
 LOCATION:Levi's Stadium\, Santa Clara
-DESCRIPTION:Match #44 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-23 11:00（北美 2026-06-22 23:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #44 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-23 11:00（北美 2026-06-22 23:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/JOR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-047@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260624T010000
 DTEND;TZID=Asia/Taipei:20260624T030000
 SUMMARY:🇵🇹 葡萄牙 vs 🇺🇿 烏茲別克 (Group K)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #47 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-24 01:00（北美 2026-06-23 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #47 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-24 01:00（北美 2026-06-23 13:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/POR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-045@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260624T040000
 DTEND;TZID=Asia/Taipei:20260624T060000
 SUMMARY:🇬🇧 英格蘭 vs 🇬🇭 迦納 (Group L)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #45 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-24 04:00（北美 2026-06-23 16:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #45 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-24 04:00（北美 2026-06-23 16:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ENG
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-046@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260624T070000
 DTEND;TZID=Asia/Taipei:20260624T090000
 SUMMARY:🇵🇦 巴拿馬 vs 🇭🇷 克羅埃西亞 (Group L)
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match #46 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-24 07:00（北美 2026-06-23 19:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #46 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-24 07:00（北美 2026-06-23 19:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/PAN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-048@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260624T100000
 DTEND;TZID=Asia/Taipei:20260624T120000
 SUMMARY:🇨🇴 哥倫比亞 vs 🇨🇩 民主剛果 (Group K)
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match #48 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-24 10:00（北美 2026-06-23 22:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #48 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-24 10:00（北美 2026-06-23 22:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/COL
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-051@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260625T030000
 DTEND;TZID=Asia/Taipei:20260625T050000
 SUMMARY:🇨🇭 瑞士 vs 🇨🇦 加拿大 (Group B)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #51 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-25 03:00（北美 2026-06-24 15:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #51 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-25 03:00（北美 2026-06-24 15:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SUI
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-052@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260625T030000
 DTEND;TZID=Asia/Taipei:20260625T050000
 SUMMARY:🇧🇦 波士尼亞 vs 🇶🇦 卡達 (Group B)
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match #52 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-25 03:00（北美 2026-06-24 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #52 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-25 03:00（北美 2026-06-24 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BIH
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-049@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260625T060000
 DTEND;TZID=Asia/Taipei:20260625T080000
 SUMMARY:🇬🇧 蘇格蘭 vs 🇧🇷 巴西 (Group C)
 LOCATION:Hard Rock Stadium\, Miami Gardens
-DESCRIPTION:Match #49 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #49 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SCO
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-050@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260625T060000
 DTEND;TZID=Asia/Taipei:20260625T080000
 SUMMARY:🇲🇦 摩洛哥 vs 🇭🇹 海地 (Group C)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #50 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #50 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/MAR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-053@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260625T090000
 DTEND;TZID=Asia/Taipei:20260625T110000
 SUMMARY:🇨🇿 捷克 vs 🇲🇽 墨西哥 (Group A)
 LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match #53 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-25 09:00（北美 2026-06-24 21:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #53 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-25 09:00（北美 2026-06-24 21:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CZE
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-054@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260625T090000
 DTEND;TZID=Asia/Taipei:20260625T110000
 SUMMARY:🇿🇦 南非 vs 🇰🇷 南韓 (Group A)
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match #54 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-25 09:00（北美 2026-06-24 21:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #54 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-25 09:00（北美 2026-06-24 21:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/RSA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-055@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260626T040000
 DTEND;TZID=Asia/Taipei:20260626T060000
 SUMMARY:🇨🇼 古拉索 vs 🇨🇮 象牙海岸 (Group E)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #55 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-26 04:00（北美 2026-06-25 16:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #55 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-26 04:00（北美 2026-06-25 16:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CUW
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-056@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260626T040000
 DTEND;TZID=Asia/Taipei:20260626T060000
 SUMMARY:🇪🇨 厄瓜多 vs 🇩🇪 德國 (Group E)
 LOCATION:MetLife Stadium\, East Rutherford
-DESCRIPTION:Match #56 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-26 04:00（北美 2026-06-25 16:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #56 | Group E | 2026 FIFA World Cup\n開球：台北 2026-06-26 04:00（北美 2026-06-25 16:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ECU
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-057@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260626T070000
 DTEND;TZID=Asia/Taipei:20260626T090000
 SUMMARY:🇯🇵 日本 vs 🇸🇪 瑞典 (Group F)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #57 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-26 07:00（北美 2026-06-25 19:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #57 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-26 07:00（北美 2026-06-25 19:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/JPN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-058@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260626T070000
 DTEND;TZID=Asia/Taipei:20260626T090000
 SUMMARY:🇹🇳 突尼西亞 vs 🇳🇱 荷蘭 (Group F)
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match #58 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-26 07:00（北美 2026-06-25 19:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #58 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-26 07:00（北美 2026-06-25 19:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/TUN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-059@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260626T100000
 DTEND;TZID=Asia/Taipei:20260626T120000
 SUMMARY:🇹🇷 土耳其 vs 🇺🇸 美國 (Group D)
 LOCATION:SoFi Stadium\, Inglewood
-DESCRIPTION:Match #59 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-26 10:00（北美 2026-06-25 22:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #59 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-26 10:00（北美 2026-06-25 22:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/TUR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-060@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260626T100000
 DTEND;TZID=Asia/Taipei:20260626T120000
 SUMMARY:🇵🇾 巴拉圭 vs 🇦🇺 澳洲 (Group D)
 LOCATION:Levi's Stadium\, Santa Clara
-DESCRIPTION:Match #60 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-26 10:00（北美 2026-06-25 22:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #60 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-26 10:00（北美 2026-06-25 22:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/PAR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-061@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260627T030000
 DTEND;TZID=Asia/Taipei:20260627T050000
 SUMMARY:🇳🇴 挪威 vs 🇫🇷 法國 (Group I)
 LOCATION:Gillette Stadium\, Foxborough
-DESCRIPTION:Match #61 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-27 03:00（北美 2026-06-26 15:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #61 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-27 03:00（北美 2026-06-26 15:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NOR
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-062@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260627T030000
 DTEND;TZID=Asia/Taipei:20260627T050000
 SUMMARY:🇸🇳 塞內加爾 vs 🇮🇶 伊拉克 (Group I)
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match #62 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-27 03:00（北美 2026-06-26 15:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #62 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-27 03:00（北美 2026-06-26 15:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SEN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-065@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260627T080000
 DTEND;TZID=Asia/Taipei:20260627T100000
 SUMMARY:🇨🇻 維德角 vs 🇸🇦 沙烏地阿拉伯 (Group H)
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match #65 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-27 08:00（北美 2026-06-26 20:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #65 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-27 08:00（北美 2026-06-26 20:00 ET）\n場館：NRG Stadium, Houston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CPV
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-066@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260627T080000
 DTEND;TZID=Asia/Taipei:20260627T100000
 SUMMARY:🇺🇾 烏拉圭 vs 🇪🇸 西班牙 (Group H)
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match #66 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-27 08:00（北美 2026-06-26 20:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #66 | Group H | 2026 FIFA World Cup\n開球：台北 2026-06-27 08:00（北美 2026-06-26 20:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/URU
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-063@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260627T110000
 DTEND;TZID=Asia/Taipei:20260627T130000
 SUMMARY:🇪🇬 埃及 vs 🇮🇷 伊朗 (Group G)
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match #63 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-27 11:00（北美 2026-06-26 23:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #63 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-27 11:00（北美 2026-06-26 23:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/EGY
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-064@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260627T110000
 DTEND;TZID=Asia/Taipei:20260627T130000
 SUMMARY:🇳🇿 紐西蘭 vs 🇧🇪 比利時 (Group G)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #64 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-27 11:00（北美 2026-06-26 23:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #64 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-27 11:00（北美 2026-06-26 23:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NZL
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-067@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260628T050000
 DTEND;TZID=Asia/Taipei:20260628T070000
 SUMMARY:🇵🇦 巴拿馬 vs 🇬🇧 英格蘭 (Group L)
 LOCATION:MetLife Stadium\, East Rutherford
-DESCRIPTION:Match #67 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-28 05:00（北美 2026-06-27 17:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #67 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-28 05:00（北美 2026-06-27 17:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/PAN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-068@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260628T050000
 DTEND;TZID=Asia/Taipei:20260628T070000
 SUMMARY:🇭🇷 克羅埃西亞 vs 🇬🇭 迦納 (Group L)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #68 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-28 05:00（北美 2026-06-27 17:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #68 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-28 05:00（北美 2026-06-27 17:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CRO
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-071@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260628T073000
 DTEND;TZID=Asia/Taipei:20260628T093000
 SUMMARY:🇨🇴 哥倫比亞 vs 🇵🇹 葡萄牙 (Group K)
 LOCATION:Hard Rock Stadium\, Miami Gardens
-DESCRIPTION:Match #71 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-28 07:30（北美 2026-06-27 19:30 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #71 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-28 07:30（北美 2026-06-27 19:30 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/COL
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-072@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260628T073000
 DTEND;TZID=Asia/Taipei:20260628T093000
 SUMMARY:🇨🇩 民主剛果 vs 🇺🇿 烏茲別克 (Group K)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match #72 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-28 07:30（北美 2026-06-27 19:30 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #72 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-28 07:30（北美 2026-06-27 19:30 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/COD
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-069@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260628T100000
 DTEND;TZID=Asia/Taipei:20260628T120000
 SUMMARY:🇩🇿 阿爾及利亞 vs 🇦🇹 奧地利 (Group J)
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match #69 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-28 10:00（北美 2026-06-27 22:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #69 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-28 10:00（北美 2026-06-27 22:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ALG
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-070@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260628T100000
 DTEND;TZID=Asia/Taipei:20260628T120000
 SUMMARY:🇯🇴 約旦 vs 🇦🇷 阿根廷 (Group J)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #70 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-28 10:00（北美 2026-06-27 22:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #70 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-28 10:00（北美 2026-06-27 22:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/JOR
 END:VEVENT
 END:VCALENDAR

@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-022@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260618T040000
 DTEND;TZID=Asia/Taipei:20260618T060000
 SUMMARY:🇬🇧 英格蘭 vs 🇭🇷 克羅埃西亞 (Group L)
 LOCATION:AT&T Stadium\, Arlington
-DESCRIPTION:Match #22 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-18 04:00（北美 2026-06-17 16:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #22 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-18 04:00（北美 2026-06-17 16:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ENG
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-046@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260624T070000
 DTEND;TZID=Asia/Taipei:20260624T090000
 SUMMARY:🇵🇦 巴拿馬 vs 🇭🇷 克羅埃西亞 (Group L)
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match #46 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-24 07:00（北美 2026-06-23 19:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #46 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-24 07:00（北美 2026-06-23 19:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/PAN
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-068@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260628T050000
 DTEND;TZID=Asia/Taipei:20260628T070000
 SUMMARY:🇭🇷 克羅埃西亞 vs 🇬🇭 迦納 (Group L)
 LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match #68 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-28 05:00（北美 2026-06-27 17:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #68 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-28 05:00（北美 2026-06-27 17:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CRO
 END:VEVENT
 END:VCALENDAR

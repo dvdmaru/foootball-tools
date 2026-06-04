@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-006@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260613T120000
 DTEND;TZID=Asia/Taipei:20260613T140000
 SUMMARY:🇦🇺 澳洲 vs 🇹🇷 土耳其 (Group D)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #6 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-13 12:00（北美 2026-06-13 00:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #6 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-13 12:00（北美 2026-06-13 00:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/AUS
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-032@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260620T030000
 DTEND;TZID=Asia/Taipei:20260620T050000
 SUMMARY:🇺🇸 美國 vs 🇦🇺 澳洲 (Group D)
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match #32 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-20 03:00（北美 2026-06-19 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #32 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-20 03:00（北美 2026-06-19 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/USA
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-060@foootball.twtools.cc
-DTSTAMP:20260604T045008Z
+DTSTAMP:20260604T045712Z
 DTSTART;TZID=Asia/Taipei:20260626T100000
 DTEND;TZID=Asia/Taipei:20260626T120000
 SUMMARY:🇵🇾 巴拉圭 vs 🇦🇺 澳洲 (Group D)
 LOCATION:Levi's Stadium\, Santa Clara
-DESCRIPTION:Match #60 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-26 10:00（北美 2026-06-25 22:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 ELTA.tv（季 $499 / 單場 $199）/ 中華電信 MOD 200-203 / Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #60 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-26 10:00（北美 2026-06-25 22:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/PAR
 END:VEVENT
 END:VCALENDAR
