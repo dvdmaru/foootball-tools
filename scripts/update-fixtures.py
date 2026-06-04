@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 """
-update-fixtures.py — 自動 update 淘汰賽 fixtures + regen ICS + git push
+update-fixtures.py — 戰況數據每日 orchestrator（比分 + 射手榜 + 淘汰賽）+ git push
 
-每天 launchd 13:30 跑（worldcup-daily 13:03 跑完 30 min 後）：
-1. fetch-fixtures.py knockout mode → 覆寫 fixtures/knockout.json + .raw.json
-2. gen-ics.py → 重 regen 48 隊 ICS + tournament.ics
-3. git diff 看 fixtures + public/cal/ 有沒有變動：
-   - 無變動 → reset + exit 0 quiet（避免空 commit）
+每天 launchd 13:33 跑（worldcup-daily 13:03 跑完 ~30 min 後），date-gated 兩段：
+1. fetch-results.py（6/11 起）→ 抓已踢完比分 + 射手榜，寫回 fixtures-data.json + scorers.json
+2. fetch-fixtures.py knockout + gen-ics.py（6/28 起）→ 淘汰賽真隊 + 重生 ICS
+3. build-standings.py → 重生 /standings/（積分自動算 from 比分 + 射手榜 + bracket）
+4. git diff fixtures/ + public/（results.raw.json 已 gitignore）：
+   - 無變動 → reset + restore + exit 0 quiet（避免空 commit）
    - 有變動 → git add + commit + push origin main
-4. CF Pages auto-deploy（~1-3 min）→ 用戶端 12-24h 內背景 sync
+5. CF auto-deploy（~1-3 min）→ 訂閱用戶端 12-24h 內背景 sync
 
-執行條件：
-- 只在「淘汰賽抽完」期間有意義（6/28 R32 開始 - 7/19 決賽）
-- 在 group stage 期間（6/11-6/27）跑也 OK，可能拿到 placeholder bracket
-- A 倒數期 6/1-6/10 launchd 也可載入但無實質 update（idempotent + exit 0）
+執行條件（date guard）：
+- < 6/11 開賽前：整條 no-op exit 0（無資料，省 OpenAI cost）
+- 6/11-6/27 小組賽：跑 results + 射手榜 + standings
+- 6/28-7/19 淘汰賽：加跑 knockout fetch + ICS regen
 
 Logs:
 - stdout / stderr 由 launchd 寫到 /tmp/foootball-tools-update.{stdout,stderr}.log
@@ -43,21 +44,33 @@ def log(msg):
     print(f"[{ts}] {msg}", flush=True)
 
 
-KNOCKOUT_START = datetime.date(2026, 6, 28)  # R32 first match
+GROUP_START = datetime.date(2026, 6, 11)      # 小組賽開賽 → results fetch（比分 + 射手榜）從這天起
+KNOCKOUT_START = datetime.date(2026, 6, 28)   # R32 first match → knockout fetch 從這天起
+
+
+def step(label, cmd, fatal=True):
+    """跑一個 pipeline step，log 結果。fatal=False 時失敗只 warn 不 abort。回 returncode。"""
+    log(f"▶ {label} …")
+    r = run(cmd)
+    if r.stdout.strip():
+        log(r.stdout.strip())
+    if r.returncode != 0:
+        log(f"{'❌' if fatal else '⚠️'} {label} 失敗: {r.stderr.strip()[:500]}")
+        if fatal:
+            sys.exit(1)
+    return r.returncode
 
 
 def main():
     log("=== update-fixtures.py start ===")
 
-    # Date guard：group stage 期間（< 6/28）skip knockout fetch
-    # 理由：knockout 場次淘汰賽抽完前都是 placeholder（Winner Group A vs Runner-up Group B），
-    # LLM 每次 fetch 拿到 wording 略有不同的 placeholder text → false-positive diff → 浪費 OpenAI cost + 假 commit。
-    # 6/27 group stage 結束 + 6/28 R32 bracket 確定後，LLM 才會抓回實質 team code，那時才有意義 update。
+    # Date guard：開賽前（< 6/11）整條 no-op
+    # 理由：開賽前沒有任何比分/射手榜資料，knockout 也是 placeholder；跑也只是浪費 OpenAI cost + 假 commit。
     today = datetime.date.today()
-    if today < KNOCKOUT_START:
-        days = (KNOCKOUT_START - today).days
-        log(f"📅 今天 {today} < R32 開始日 {KNOCKOUT_START}（還有 {days} 天），skip knockout fetch")
-        log("=== update-fixtures.py end (group-stage period, no-op) ===")
+    if today < GROUP_START:
+        days = (GROUP_START - today).days
+        log(f"📅 今天 {today} < 開賽日 {GROUP_START}（還有 {days} 天），skip（no-op）")
+        log("=== update-fixtures.py end (pre-tournament, no-op) ===")
         sys.exit(0)
 
     # 0. 確認 working tree clean — 不然 abort（避免覆蓋手動編輯中的檔案）
@@ -66,43 +79,40 @@ def main():
         log(f"⚠️  working tree dirty, abort:\n{r.stdout}")
         sys.exit(1)
 
-    # 1. fetch knockout fixtures
-    log("📤 fetch-fixtures.py knockout …")
-    r = run(["python3", "scripts/fetch-fixtures.py", "knockout"])
-    log(r.stdout.strip())
-    if r.returncode != 0:
-        log(f"❌ fetch-fixtures.py 失敗: {r.stderr}")
-        sys.exit(1)
+    # 1. fetch results（小組賽比分 + 射手榜）— 6/11 起每天
+    #    fetch-results.py 內部也有 date-guard；fetch 失敗不 abort 整條（仍可用既有資料 rebuild）。
+    step("fetch-results.py（比分 + 射手榜）", ["python3", "scripts/fetch-results.py"], fatal=False)
 
-    # 2. regen ICS
-    log("🛠️  gen-ics.py …")
-    r = run(["python3", "scripts/gen-ics.py"])
-    log(r.stdout.strip())
-    if r.returncode != 0:
-        log(f"❌ gen-ics.py 失敗: {r.stderr}")
-        sys.exit(1)
+    # 2. knockout fetch + ICS regen — 6/28 起（淘汰賽抽完後才有實質真隊）
+    if today >= KNOCKOUT_START:
+        step("fetch-fixtures.py knockout", ["python3", "scripts/fetch-fixtures.py", "knockout"])
+        step("gen-ics.py（重生 ICS）", ["python3", "scripts/gen-ics.py"])
 
-    # 3. diff 看有沒有變動（stage 之後 diff --cached）
-    run(["git", "add", "fixtures/knockout.json", "public/cal/", "public/fixtures-data.js", "public/fixtures-data.json"])
+    # 3. rebuild 戰況中心（積分 from 比分 + 射手榜 + bracket）
+    step("build-standings.py（戰況中心）", ["python3", "scripts/build-standings.py"])
+
+    # 4. diff 看有沒有變動（results.raw.json 已 .gitignore，不進 commit）
+    run(["git", "add", "fixtures/", "public/"])
     r = run(["git", "diff", "--cached", "--quiet"])
     if r.returncode == 0:
-        log("✅ 無變動，reset + exit")
+        log("✅ 無變動，reset + restore + exit")
         run(["git", "reset", "HEAD", "--", "fixtures/", "public/"])
-        # restore working tree（避免本機留下 stale 變動）
-        run(["git", "checkout", "--", "fixtures/knockout.json", "public/cal/", "public/fixtures-data.js", "public/fixtures-data.json"])
+        run(["git", "checkout", "--", "fixtures/", "public/"])
         log("=== update-fixtures.py end (no-op) ===")
         sys.exit(0)
 
-    # 4. 有變動 → commit + push
-    date_str = datetime.date.today().isoformat()
-    commit_msg = f"""chore(auto): update knockout fixtures {date_str}
+    # 5. 有變動 → commit + push
+    date_str = today.isoformat()
+    phase = "knockout + 比分" if today >= KNOCKOUT_START else "小組賽比分 + 射手榜"
+    commit_msg = f"""chore(auto): update {phase} {date_str}
 
-自動 trigger by launchd 13:30 cron (com.charlie.foootball-tools-update.plist).
+自動 trigger by launchd 13:33 cron (com.charlie.foootball-tools-update.plist).
 
-來源：fetch-fixtures.py knockout (OpenAI gpt-5 + web_search)
-ICS regen：gen-ics.py 覆寫 public/cal/*.ics + tournament.ics
+來源：fetch-results.py（比分 + 射手榜，OpenAI gpt-5 + web_search）
+{"+ fetch-fixtures.py knockout + gen-ics.py（ICS regen）" if today >= KNOCKOUT_START else ""}
+戰況中心 rebuild：build-standings.py（積分自動算 + 射手榜 + bracket）
 
-Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
 """
     COMMIT_MSG_TMP.write_text(commit_msg, encoding="utf-8")
 

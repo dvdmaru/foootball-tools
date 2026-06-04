@@ -235,7 +235,38 @@ def render_bracket(ko):
     return "".join(blocks)
 
 
-def render_page(matches, ko, played_any):
+def render_scorers(scorers, updated):
+    """射手榜 table（#4）。scorers: list of dict(rank/player/team_code/goals/assists)。"""
+    if not scorers:
+        return ('<div class="std-banner">👟 金靴榜／助攻榜將在 <b>6/11</b> 開賽後每日更新。'
+                '小組賽期間每場進球都會累積到這裡。</div>'
+                '<div class="std-stats-empty">⚽<br>開賽後見真章</div>')
+    rows = []
+    for s in scorers:
+        code = (s.get("team_code") or "").lower()
+        flag_img = (f'<img class="std-flag" src="https://flagcdn.com/w160/{ISO.get(s["team_code"], code)}.png" alt="" loading="lazy">'
+                    if s.get("team_code") else "")
+        team_zh = ZH.get(s.get("team_code"), s.get("team_code", ""))
+        assists = s.get("assists")
+        a_cell = str(assists) if isinstance(assists, int) else "—"
+        rows.append(
+            '<tr>'
+            f'<td class="std-rank">{s.get("rank","")}</td>'
+            f'<td class="std-scorer">{s["player"]}</td>'
+            f'<td class="std-scorer-team">{flag_img}<span>{team_zh}</span></td>'
+            f'<td class="std-pts">{s["goals"]}</td>'
+            f'<td>{a_cell}</td>'
+            '</tr>'
+        )
+    note = (f'<div class="std-banner std-live">👟 金靴榜更新於 <b>{updated}</b> · 小組賽每場進球即時累積</div>'
+            if updated else '')
+    return (note + '<table class="std-table std-scorers-table"><thead><tr>'
+            '<th class="std-rank">#</th><th class="std-team-h">球員</th><th class="std-team-h">球隊</th>'
+            '<th class="std-pts" title="進球">球</th><th title="助攻">助</th>'
+            '</tr></thead><tbody>' + "".join(rows) + '</tbody></table>')
+
+
+def render_page(matches, ko, played_any, scorers=None, scorers_updated=None):
     tbl = compute_standings(matches)
     # group → 4 teams（保持 fixture 出現序去重）
     groups = {}
@@ -262,9 +293,7 @@ def render_page(matches, ko, played_any):
     bracket_html = render_bracket(ko)
     bracket_note = ('<div class="std-banner">🏆 淘汰賽 <b>6/28</b> 開打（48 隊制：32 強 → 16 強 → 8 強 → 4 強 → 決賽）。'
                     '對戰組合將在 6/27 小組賽全部結束後填入真實球隊，目前顯示賽程框架。</div>')
-    stats_note = ('<div class="std-banner">👟 金靴榜／助攻榜將在 <b>6/11</b> 開賽後每日更新。'
-                  '小組賽期間每場進球都會累積到這裡。</div>'
-                  '<div class="std-stats-empty">⚽<br>開賽後見真章</div>')
+    stats_note = render_scorers(scorers, scorers_updated)
 
     title = "戰況中心"
     desc = "2026 世界盃完整賽程、12 組積分榜、淘汰賽對照表與射手榜 — 台北時間，每日自動更新。"
@@ -430,6 +459,12 @@ PAGE_CSS = """
 .std-ko-venue { display: none; }
 
 .std-stats-empty { text-align: center; color: var(--faint); font-size: 18px; line-height: 2; padding: 60px 0; font-family: var(--font-display); letter-spacing: 2px; }
+.std-scorers-table { max-width: 560px; }
+.std-scorers-table td { padding: 10px 8px; }
+.std-scorer { text-align: left !important; color: var(--fg); font-weight: 700; }
+.std-scorer-team { text-align: left !important; }
+.std-scorer-team span { color: var(--fg-soft); }
+.std-scorer-team .std-flag { display: inline-block; vertical-align: middle; margin-right: 7px; }
 
 .std-footer { margin-top: 56px; padding-top: 26px; border-top: 1px solid var(--line); text-align: center; }
 .std-foot-cta { font-size: 15px; color: var(--fg); margin-bottom: 12px; font-weight: 600; }
@@ -441,16 +476,25 @@ PAGE_CSS = """
 """
 
 
+def load_scorers():
+    p = PUBLIC / "standings" / "scorers.json"
+    if not p.exists():
+        return [], None
+    d = json.loads(p.read_text(encoding="utf-8"))
+    return d.get("scorers", []), d.get("updated")
+
+
 def build():
     global ZH, ISO
     matches, ko, ZH, ISO = load_data()
     played_any = any(has_score(m) for m in matches)
-    html = render_page(matches, ko, played_any)
+    scorers, scorers_updated = load_scorers()
+    html = render_page(matches, ko, played_any, scorers, scorers_updated)
     out = PUBLIC / "standings"
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(html, encoding="utf-8")
     state = "進行中（有比分）" if played_any else "未開賽（賽程 only）"
-    print(f"✅ /standings/index.html — {len(matches)} 場賽程 / 12 組 / 狀態：{state}")
+    print(f"✅ /standings/index.html — {len(matches)} 場賽程 / 12 組 / 射手榜 {len(scorers)} 人 / 狀態：{state}")
 
 
 if __name__ == "__main__":
