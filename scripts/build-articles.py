@@ -152,14 +152,70 @@ function setTheme(t) {
 """
 
 
+# ---------- shared site header (article + index) ----------
+
+SITE_HEADER_CSS = """
+.site-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding: 36px 0 20px; margin-bottom: 44px;
+  border-bottom: 1px solid var(--line);
+  gap: 24px; flex-wrap: wrap;
+}
+.brand-block { display: flex; flex-direction: column; gap: 6px; }
+.brand-mark {
+  font-family: var(--font-display); font-size: 30px; line-height: 1;
+  color: var(--accent); letter-spacing: 1.2px;
+  text-decoration: none; transition: color 0.15s ease;
+}
+.brand-mark:hover { color: var(--accent-bright); }
+.brand-tag {
+  font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: 2.5px; color: var(--dim); text-transform: uppercase;
+}
+.site-nav {
+  display: flex; gap: 22px; align-items: center;
+  font-family: var(--font-mono); font-size: 11.5px;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.site-nav a {
+  color: var(--dim); text-decoration: none;
+  padding: 6px 0; border-bottom: 1.5px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.site-nav a:hover, .site-nav a.active {
+  color: var(--accent); border-bottom-color: var(--accent);
+}
+@media (max-width: 580px) {
+  .site-header { padding-top: 22px; gap: 16px; }
+  .brand-mark { font-size: 24px; }
+  .site-nav { gap: 16px; font-size: 11px; }
+}
+"""
+
+
+def site_header_html(active: str) -> str:
+    """active: 'home' | 'articles' | (other ignored)"""
+    a_cls_home = ' class="active"' if active == "home" else ""
+    a_cls_arts = ' class="active"' if active == "articles" else ""
+    return f"""
+  <header class="site-header">
+    <div class="brand-block">
+      <a href="/" class="brand-mark">@FOOOTBALL</a>
+      <div class="brand-tag">2026 World Cup · 賽程 + 戰報</div>
+    </div>
+    <nav class="site-nav">
+      <a href="/"{a_cls_home}>賽程訂閱</a>
+      <a href="/articles/"{a_cls_arts}>文章</a>
+      <a href="https://medium.com/@foootball" target="_blank" rel="noopener">Medium ↗</a>
+    </nav>
+  </header>
+"""
+
+
 # ---------- article page CSS ----------
 
 ARTICLE_CSS = """
-.container { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; padding-top: 60px; }
-.nav-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 1.5px; }
-.nav-row a { color: var(--dim); text-decoration: none; transition: color 0.15s ease; }
-.nav-row a:hover { color: var(--accent); }
-.nav-row .brand { color: var(--fg); font-weight: 700; letter-spacing: 0.5px; }
+.container { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; padding-top: 0; }
 
 .article-header { margin-bottom: 32px; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
 .article-kicker {
@@ -215,16 +271,11 @@ ARTICLE_CSS = """
 # ---------- index page CSS ----------
 
 INDEX_CSS = """
-.container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; padding-top: 50px; }
-.idx-header { margin-bottom: 52px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
-.idx-kicker { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 14px; }
-.idx-kicker::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
-.idx-kicker b { color: var(--accent); font-weight: 600; }
-.idx-h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; color: var(--fg); letter-spacing: 0.3px; }
-.idx-h1 .tc { font-family: var(--font-ui); font-weight: 900; letter-spacing: -0.3px; }
-.idx-h1 .yr { color: var(--accent); margin-right: 0.22em; }
-.idx-sub { margin-top: 14px; font-size: 14px; color: var(--fg-soft); }
-.idx-sub a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; padding-top: 0; }
+.idx-intro {
+  font-size: 14px; color: var(--fg-soft); letter-spacing: 0.2px;
+  margin-bottom: 44px;
+}
 
 /* ---- feature article (first / most important) ---- */
 .idx-feature {
@@ -429,16 +480,13 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
 <style>
 {SHARED_TOKENS_CSS}
 {THEME_SWITCH_CSS}
+{SITE_HEADER_CSS}
 {ARTICLE_CSS}
 </style>
 </head>
 <body>
 {THEME_SWITCH_HTML}
-<div class="container">
-  <div class="nav-row">
-    <a href="/articles/">← 文章列表</a>
-    <a href="/" class="brand">@foootball · 賽程訂閱</a>
-  </div>
+<div class="container">{site_header_html("articles")}
   <article>
     <header class="article-header">
       <div class="article-kicker">{kicker}</div>
@@ -550,21 +598,14 @@ def render_index(articles: list) -> str:
 <style>
 {SHARED_TOKENS_CSS}
 {THEME_SWITCH_CSS}
+{SITE_HEADER_CSS}
 {INDEX_CSS}
 </style>
 </head>
 <body>
 {THEME_SWITCH_HTML}
-<div class="container">
-  <div class="nav-row" style="margin-bottom: 40px;">
-    <a href="/">← 賽程訂閱站</a>
-    <a href="https://medium.com/@foootball" target="_blank" class="brand">Medium @foootball ↗</a>
-  </div>
-  <header class="idx-header">
-    <div class="idx-kicker">@foootball · <b>文章</b></div>
-    <h1 class="idx-h1"><span class="yr">2026</span><span class="tc">世界盃文章</span></h1>
-    <div class="idx-sub">每日戰報 · 焦點觀察 · 規則解讀 — 全部繁體中文 / 台北時間</div>
-  </header>
+<div class="container">{site_header_html("articles")}
+  <div class="idx-intro">每日戰報 · 焦點觀察 · 規則解讀 — 全部繁體中文 / 台北時間</div>
 {feature_html}
 {grid_html}
 </div>
