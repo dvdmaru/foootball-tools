@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" data-theme="grass">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,94 +8,331 @@
 <meta property="og:title" content="2026 世界盃賽程 — 訂閱你的球隊行事曆">
 <meta property="og:description" content="48 隊 ICS 訂閱 / 下載 / 加入 Google Calendar，台北時間自動換算。">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0d2818;
-  --fg: #e8f0e6;
-  --green: #2a7f4f;
-  --green-light: #4ba874;
-  --gold: #d4af37;
-  --gold-light: #f0c850;
-  --card: #143524;
-  --card-hover: #1a4530;
-  --dim: #8a9c8d;
-  --border: #2a5040;
+  --radius: 16px;
+  --radius-sm: 11px;
+  --font-display: 'Anton', 'Noto Sans TC', sans-serif;
+  --font-ui: 'Archivo', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+  /* shared light neutrals */
+  --surface: #ffffff;
+  --surface-2: #f8faf6;
+  --surface-3: #eef1ec;
+  --fg: #1b211e;
+  --fg-soft: #49534d;
+  --dim: #6f7a73;
+  --faint: #9aa39d;
+  --line: rgba(20,28,24,0.10);
+  --line-2: rgba(20,28,24,0.17);
+  --flag-shadow: rgba(20,28,24,0.20);
+  --sheet-shadow: rgba(20,28,24,0.16);
+  --scrim: rgba(20,28,24,0.34);
 }
+/* ---- color themes (bg tint + accent) ---- */
+:root[data-theme="grass"]    { --bg:#f1f4ed; --bg-glow:#e2efdc; --accent:#1f9d63; --accent-bright:#23b372; --accent-ink:#ffffff; --accent-soft:rgba(31,157,99,0.10);  --accent-line:rgba(31,157,99,0.30);  --accent-glow:rgba(31,157,99,0.26); }
+:root[data-theme="cobalt"]   { --bg:#eef1f7; --bg-glow:#e1e8f7; --accent:#2b5ce0; --accent-bright:#3a6bf0; --accent-ink:#ffffff; --accent-soft:rgba(43,92,224,0.10);  --accent-line:rgba(43,92,224,0.30);  --accent-glow:rgba(43,92,224,0.26); }
+:root[data-theme="tangerine"]{ --bg:#f7f1e9; --bg-glow:#f3e6d4; --accent:#d4622a; --accent-bright:#e8743a; --accent-ink:#ffffff; --accent-soft:rgba(212,98,42,0.10);  --accent-line:rgba(212,98,42,0.30);  --accent-glow:rgba(212,98,42,0.26); }
+:root[data-theme="berry"]    { --bg:#f6eef2; --bg-glow:#f2e1ea; --accent:#c0356f; --accent-bright:#d44a82; --accent-ink:#ffffff; --accent-soft:rgba(192,53,111,0.10); --accent-line:rgba(192,53,111,0.30); --accent-glow:rgba(192,53,111,0.26); }
+:root[data-theme="teal"]     { --bg:#ebf2f1; --bg-glow:#dcecea; --accent:#0f8a8a; --accent-bright:#14a3a0; --accent-ink:#ffffff; --accent-soft:rgba(15,138,138,0.10); --accent-line:rgba(15,138,138,0.30); --accent-glow:rgba(15,138,138,0.26); }
+:root[data-theme="plum"]     { --bg:#f1eef6; --bg-glow:#e6e1f3; --accent:#6c4bd1; --accent-bright:#7d5ee0; --accent-ink:#ffffff; --accent-soft:rgba(108,75,209,0.10); --accent-line:rgba(108,75,209,0.30); --accent-glow:rgba(108,75,209,0.26); }
+/* ---- dark brand theme (forest + gold) ---- */
+:root[data-theme="dark"] {
+  --surface: #143524; --surface-2: #1a4530; --surface-3: #1f4a36;
+  --fg: #e8f0e6; --fg-soft: #b8c5bb; --dim: #8a9c8d; --faint: #6a7a6e;
+  --line: rgba(232,240,230,0.10); --line-2: rgba(232,240,230,0.18);
+  --flag-shadow: rgba(0,0,0,0.45); --sheet-shadow: rgba(0,0,0,0.55); --scrim: rgba(0,0,0,0.55);
+  --bg: #0d2818; --bg-glow: #143a26; --accent: #d4af37; --accent-bright: #f0c850;
+  --accent-ink: #0d2818; --accent-soft: rgba(212,175,55,0.12); --accent-line: rgba(212,175,55,0.35); --accent-glow: rgba(212,175,55,0.30);
+}
+:root[data-theme="dark"] body::before { mix-blend-mode: screen; opacity: 0.22; }
+:root[data-theme="dark"] .flag-wrap,
+:root[data-theme="dark"] .detail-flag,
+:root[data-theme="dark"] .m-flag { outline-color: rgba(232,240,230,0.18); }
+:root[data-theme="dark"] .theme-switch { box-shadow: 0 6px 22px rgba(0,0,0,0.45); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft JhengHei', sans-serif; line-height: 1.6; }
-body { min-height: 100vh; padding: 24px 16px 80px; }
-.container { max-width: 920px; margin: 0 auto; }
-header { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-h1 { font-size: 28px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px; }
-.subtitle { font-size: 15px; color: var(--dim); }
-.brand { font-size: 12px; color: var(--gold-light); letter-spacing: 2px; margin-top: 8px; }
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body {
+  min-height: 100vh;
+  padding: 0 16px 110px;
+  position: relative;
+  background:
+    radial-gradient(130% 72% at 50% -12%, var(--bg-glow) 0%, transparent 56%),
+    var(--bg);
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+.container { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
 
-.intro { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; font-size: 14px; color: var(--fg); }
-.intro b { color: var(--gold-light); }
+/* ---------- header ---------- */
+header { padding: 56px 0 30px; margin-bottom: 30px; border-bottom: 1px solid var(--line); }
+.kicker {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--dim); margin-bottom: 18px;
+}
+.kicker::before { content: ''; width: 26px; height: 2px; background: var(--accent); }
+.kicker b { color: var(--accent); font-weight: 600; }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(46px, 9vw, 88px);
+  line-height: 0.92;
+  letter-spacing: 0.5px;
+  color: var(--fg);
+  text-transform: none;
+}
+h1 .yr { color: var(--accent); display: inline-block; margin-right: 0.28em; }
+h1 .tc { font-family: var(--font-ui); font-weight: 900; letter-spacing: -1px; }
+.sub-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+  margin-top: 22px;
+}
+.sub-line { font-size: 14.5px; color: var(--fg-soft); letter-spacing: 0.2px; }
+.sub-line strong { color: var(--fg); font-weight: 600; }
+.meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--surface-2); border: 1px solid var(--line);
+  padding: 7px 13px; border-radius: 99px;
+  font-size: 12.5px; color: var(--fg-soft); letter-spacing: 0.3px;
+}
+.chip b { color: var(--fg); font-weight: 700; font-variant-numeric: tabular-nums; }
+.chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
-.group-block { margin-bottom: 32px; }
-.group-title { font-size: 18px; color: var(--gold-light); margin-bottom: 12px; padding-left: 8px; border-left: 3px solid var(--gold); font-weight: 600; }
+/* ---------- intro ---------- */
+.intro {
+  display: flex; align-items: flex-start; gap: 13px;
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px; margin-bottom: 44px;
+  font-size: 13.5px; color: var(--fg-soft);
+}
+.intro .num { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 1px; padding-top: 2px; white-space: nowrap; }
+.intro b { color: var(--fg); font-weight: 700; }
+
+/* ---------- group blocks ---------- */
+.group-block { margin-bottom: 40px; }
+.group-title { display: flex; align-items: center; gap: 13px; margin-bottom: 18px; }
+.gt-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; color: var(--dim); text-transform: uppercase; }
+.gt-letter { font-family: var(--font-display); font-size: 26px; line-height: 1; color: var(--accent); }
+.gt-rule { flex: 1; height: 1px; background: var(--line); }
+.gt-count { font-family: var(--font-mono); font-size: 11px; color: var(--faint); letter-spacing: 1px; }
+
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 @media (max-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
 
-.team-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; text-align: center; cursor: pointer; transition: all 0.15s; }
-.team-card:hover { background: var(--card-hover); border-color: var(--green-light); transform: translateY(-2px); }
-.team-card.active { background: var(--green); border-color: var(--gold); }
-.flag { width: 56px; height: 42px; object-fit: cover; border-radius: 4px; margin: 0 auto 8px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-.team-name { font-size: 14px; font-weight: 600; color: var(--fg); }
-.team-code { font-size: 11px; color: var(--dim); letter-spacing: 1px; margin-top: 2px; }
+.team-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 12px 16px;
+  text-align: center; cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), border-color 0.2s ease, background 0.2s ease;
+}
+.team-card::after {
+  content: ''; position: absolute; inset: 0; border-radius: var(--radius);
+  box-shadow: 0 0 0 1px transparent; transition: box-shadow 0.2s ease; pointer-events: none;
+}
+.team-card:hover { transform: translateY(-4px); background: var(--surface-2); border-color: var(--line-2); }
+.team-card:hover::after { box-shadow: 0 0 0 1px var(--accent-line); }
+.team-card.active {
+  background: linear-gradient(180deg, var(--accent-soft), var(--surface-2));
+  border-color: var(--accent);
+}
+.team-card.active::after { box-shadow: 0 0 0 1px var(--accent), 0 14px 30px var(--accent-glow); }
+.team-card.active .team-name { color: var(--accent); }
 
-.team-detail { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); border-top: 2px solid var(--gold); padding: 24px 16px 32px; max-height: 70vh; overflow-y: auto; box-shadow: 0 -10px 30px rgba(0,0,0,0.5); transform: translateY(100%); transition: transform 0.25s ease-out; z-index: 100; }
-.team-detail.show { transform: translateY(0); }
-.detail-container { max-width: 720px; margin: 0 auto; }
-.detail-close { position: absolute; top: 12px; right: 16px; background: transparent; border: none; color: var(--dim); font-size: 24px; cursor: pointer; padding: 4px 8px; }
-.detail-close:hover { color: var(--fg); }
-.detail-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-.detail-flag { width: 72px; height: 54px; object-fit: cover; border-radius: 4px; }
-.detail-team-name { font-size: 22px; font-weight: 700; color: var(--gold); }
-.detail-group { font-size: 13px; color: var(--dim); margin-top: 2px; }
+.flag-wrap {
+  width: 60px; height: 45px; margin: 0 auto 13px; border-radius: 6px;
+  overflow: hidden; box-shadow: 0 3px 9px var(--flag-shadow);
+  outline: 1px solid rgba(20,28,24,0.10); outline-offset: -1px;
+}
+.flag { width: 100%; height: 100%; object-fit: cover; display: block; }
+.team-name { font-size: 15px; font-weight: 700; color: var(--fg); letter-spacing: 0.2px; }
+.team-code { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); letter-spacing: 1.5px; margin-top: 4px; }
 
-.match-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
-.match-row { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
-.match-info { font-size: 14px; }
-.match-time { font-weight: 600; color: var(--gold-light); }
-.match-opponent { color: var(--fg); }
-.match-venue { font-size: 12px; color: var(--dim); margin-top: 2px; }
-.match-gcal { background: var(--green); color: white; padding: 6px 10px; border-radius: 6px; font-size: 12px; text-decoration: none; white-space: nowrap; }
-.match-gcal:hover { background: var(--green-light); }
+/* ---------- footer ---------- */
+footer { margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--line); font-size: 13px; color: var(--dim); text-align: center; }
+footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+footer a:hover { color: var(--accent-bright); }
+footer .foot-sub { margin-top: 9px; font-size: 11.5px; color: var(--faint); }
+footer .foot-sub a { color: var(--fg-soft); font-family: var(--font-mono); font-weight: 500; }
 
-.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* ---------- detail bottom sheet ---------- */
+.team-detail {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border-top: 1px solid var(--accent-line);
+  padding: 18px 16px 40px; max-height: 84vh; overflow-y: auto;
+  box-shadow: 0 -16px 50px var(--sheet-shadow);
+  transform: translateY(101%);
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 100;
+}
+.team-detail::after {
+  content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 2px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+.team-detail.show {
+  transform: translateY(0);
+  box-shadow: 0 -16px 50px var(--sheet-shadow), 0 0 0 100vmax var(--scrim);
+}
+.detail-container { max-width: 740px; margin: 0 auto; }
+.detail-container::before { content: ''; display: block; width: 42px; height: 4px; border-radius: 99px; background: var(--line-2); margin: 2px auto 24px; }
+.detail-close {
+  position: absolute; top: 18px; right: 16px; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-3); border: 1px solid var(--line-2); border-radius: 50%;
+  color: var(--fg-soft); font-size: 16px; line-height: 1; cursor: pointer;
+  transition: transform 0.18s ease, color 0.15s ease, background 0.15s ease;
+}
+.detail-close:hover { color: var(--fg); background: var(--surface-3); transform: rotate(90deg); }
+
+.detail-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.detail-flag { width: 72px; height: 54px; object-fit: cover; border-radius: 7px; box-shadow: 0 5px 14px var(--flag-shadow); outline: 1px solid rgba(20,28,24,0.10); outline-offset: -1px; }
+.detail-team-name { font-family: var(--font-display); font-size: 30px; font-weight: 400; color: var(--fg); letter-spacing: 0.3px; line-height: 1.05; }
+.detail-team-name .code { font-family: var(--font-mono); font-size: 14px; color: var(--accent); margin-left: 8px; letter-spacing: 1px; }
+.detail-group { font-size: 12.5px; color: var(--dim); margin-top: 7px; line-height: 1.5; max-width: 52ch; }
+
+/* ---------- match list ---------- */
+.match-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
+.match-row {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 13px;
+  padding: 13px 15px; display: grid; grid-template-columns: auto 1fr auto;
+  gap: 16px; align-items: center;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+.match-row:hover { border-color: var(--line-2); background: var(--surface-2); }
+.m-when { text-align: center; min-width: 58px; }
+.m-time { font-family: var(--font-display); font-size: 23px; line-height: 1; color: var(--accent); letter-spacing: 0.5px; font-variant-numeric: tabular-nums; }
+.m-date { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); margin-top: 5px; letter-spacing: 0.5px; }
+.m-date span { color: var(--faint); }
+.m-when::after { content: ''; }
+.m-sep { width: 1px; align-self: stretch; background: var(--line); }
+.m-opp { min-width: 0; }
+.m-opp-top { display: flex; align-items: center; gap: 9px; }
+.m-flag { width: 22px; height: 16px; object-fit: cover; border-radius: 3px; outline: 1px solid rgba(20,28,24,0.12); outline-offset: -1px; flex-shrink: 0; }
+.m-opp-vs { font-size: 11px; color: var(--faint); font-family: var(--font-mono); }
+.m-opp-name { font-size: 15.5px; font-weight: 700; color: var(--fg); }
+.m-tag {
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 1px;
+  padding: 2px 7px; border-radius: 5px; border: 1px solid var(--line-2); color: var(--dim);
+}
+.m-tag.home { color: var(--accent); border-color: var(--accent-line); }
+.m-venue { font-size: 12px; color: var(--dim); margin-top: 5px; letter-spacing: 0.2px; }
+.m-gcal {
+  background: var(--surface-3); color: var(--fg-soft); border: 1px solid var(--line-2);
+  padding: 9px 14px; border-radius: 9px; font-size: 12.5px; font-weight: 600;
+  text-decoration: none; white-space: nowrap; transition: transform 0.16s ease, background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease; letter-spacing: 0.3px;
+}
+.m-gcal:hover { background-color: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+/* ---------- actions ---------- */
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 480px) { .actions { grid-template-columns: 1fr; } }
-.action-btn { display: block; padding: 14px 16px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.15s; }
-.action-subscribe { background: var(--gold); color: var(--bg); }
-.action-subscribe:hover { background: var(--gold-light); }
-.action-download { background: transparent; color: var(--gold-light); border: 1px solid var(--gold); }
-.action-download:hover { background: var(--gold); color: var(--bg); }
-.action-hint { font-size: 12px; color: var(--dim); margin-top: 4px; font-weight: 400; }
+.action-cell { display: flex; flex-direction: column; gap: 9px; }
+.action-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 17px 16px; border-radius: 13px; text-align: center; text-decoration: none;
+  font-weight: 800; font-size: 15px; letter-spacing: 0.4px;
+  transition: transform 0.18s cubic-bezier(0.22,1,0.36,1), filter 0.18s ease, color 0.18s ease;
+}
+.action-subscribe {
+  background-color: var(--accent); color: var(--accent-ink);
+  box-shadow: 0 10px 26px var(--accent-glow);
+}
+.action-subscribe:hover { transform: translateY(-2px); background-color: var(--accent-bright); }
+.action-download {
+  background: transparent; color: var(--fg); border: 1px solid var(--line-2);
+}
+.action-download:hover { transform: translateY(-2px); border-color: var(--fg-soft); background-color: var(--surface-3); }
+.action-hint { font-size: 11.5px; color: var(--faint); text-align: center; line-height: 1.5; }
 
-footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--dim); }
-footer a { color: var(--gold-light); text-decoration: none; }
-footer a:hover { color: var(--gold); }
+/* ---------- theme switcher ---------- */
+.theme-switch {
+  position: fixed; top: 14px; right: 16px; z-index: 150;
+  display: flex; align-items: center; gap: 11px;
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  border: 1px solid var(--line); border-radius: 99px;
+  padding: 7px 13px 7px 14px;
+  box-shadow: 0 6px 22px rgba(20,28,24,0.10);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.ts-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.5px; color: var(--dim); text-transform: uppercase; }
+.ts-dots { display: flex; gap: 8px; }
+.ts-dot {
+  width: 19px; height: 19px; border-radius: 50%; padding: 0; cursor: pointer;
+  background: var(--sw); border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--line-2);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.ts-dot:hover { transform: scale(1.14); }
+.ts-dot.active { box-shadow: 0 0 0 2px var(--sw); transform: scale(1.05); }
+@media (max-width: 520px) {
+  .theme-switch { top: 10px; right: 10px; padding: 6px 11px; gap: 9px; }
+  .ts-label { display: none; }
+}
 </style>
 </head>
 <body>
+
+<div class="theme-switch">
+  <span class="ts-label">配色</span>
+  <div class="ts-dots">
+    <button class="ts-dot" data-theme="grass" onclick="setTheme('grass')" style="--sw:#1f9d63" aria-label="草綠"></button>
+    <button class="ts-dot" data-theme="cobalt" onclick="setTheme('cobalt')" style="--sw:#2b5ce0" aria-label="鈷藍"></button>
+    <button class="ts-dot" data-theme="tangerine" onclick="setTheme('tangerine')" style="--sw:#d4622a" aria-label="暖橘"></button>
+    <button class="ts-dot" data-theme="berry" onclick="setTheme('berry')" style="--sw:#c0356f" aria-label="莓紅"></button>
+    <button class="ts-dot" data-theme="teal" onclick="setTheme('teal')" style="--sw:#0f8a8a" aria-label="湖青"></button>
+    <button class="ts-dot" data-theme="plum" onclick="setTheme('plum')" style="--sw:#6c4bd1" aria-label="紫"></button>
+    <button class="ts-dot" data-theme="dark" onclick="setTheme('dark')" style="--sw:#0d2818" aria-label="深綠（brand）"></button>
+  </div>
+</div>
+
 <div class="container">
 
 <header>
-  <h1>2026 世界盃賽程行事曆</h1>
-  <div class="subtitle">美加墨 FIFA World Cup · 6/11 → 7/19 · 台北時間自動換算</div>
-  <div class="brand">@FOOOTBALL</div>
+  <div class="kicker">FIFA World Cup 26 · <b>行事曆訂閱</b></div>
+  <h1><span class="yr">2026</span><span class="tc">世界盃賽程</span></h1>
+  <div class="sub-row">
+    <div class="sub-line">美加墨 · <strong>6/11 → 7/19</strong> · 全程台北時間自動換算</div>
+  </div>
+  <div class="meta-chips">
+    <span class="chip"><span class="dot"></span><b>48</b> 隊</span>
+    <span class="chip"><span class="dot"></span><b>104</b> 場</span>
+    <span class="chip"><span class="dot"></span>.ics 一鍵訂閱</span>
+    <span class="chip">@foootball</span>
+  </div>
 </header>
 
 <div class="intro">
-  選你的國家隊 → <b>訂閱</b>（Apple Cal 一鍵 / Google Cal 桌機 paste URL）或 <b>下載 .ics</b>。淘汰賽抽完之後訂閱版會自動 sync 進你的行事曆。
+  <div class="num">HOW</div>
+  <div>選你的國家隊 → <b>訂閱</b>（Apple Cal 一鍵 / Google Cal 桌機貼上 URL）或 <b>下載 .ics</b>。淘汰賽抽籤完成後，訂閱版會自動 sync 進你的行事曆。</div>
 </div>
 
 <div id="groups-container"></div>
 
 <footer>
-  <div>📅 ICS by <a href="https://medium.com/@foootball" target="_blank">@foootball</a> · 賽程資料 source: FIFA / ESPN / Wikipedia</div>
-  <div style="margin-top: 8px; font-size: 11px;">如需訂閱 <b>全程</b> 104 場：<a href="webcal://foootball.twtools.cc/cal/tournament.ics">webcal://foootball.twtools.cc/cal/tournament.ics</a></div>
+  <div>ICS by <a href="https://medium.com/@foootball" target="_blank">@foootball</a> · 賽程資料 source：FIFA / ESPN / Wikipedia</div>
+  <div class="foot-sub">訂閱全程 104 場：<a href="webcal://foootball.twtools.cc/cal/tournament.ics">webcal://foootball.twtools.cc/cal/tournament.ics</a></div>
 </footer>
 
 </div><!-- container -->
@@ -104,7 +341,7 @@ footer a:hover { color: var(--gold); }
   <div class="detail-container">
     <button class="detail-close" onclick="closeDetail()">✕</button>
     <div class="detail-header">
-      <img id="detail-flag" class="detail-flag" src="" alt="">
+      <img id="detail-flag" class="detail-flag" alt="">
       <div>
         <div id="detail-team-name" class="detail-team-name"></div>
         <div id="detail-group" class="detail-group"></div>
@@ -114,14 +351,14 @@ footer a:hover { color: var(--gold); }
     <div id="match-list" class="match-list"></div>
 
     <div class="actions">
-      <a id="action-subscribe" class="action-btn action-subscribe" href="#">
-        📅 訂閱 webcal://
-        <div class="action-hint">Apple Cal 一鍵 / Google Cal 桌機 paste URL</div>
-      </a>
-      <a id="action-download" class="action-btn action-download" href="#" download>
-        ⬇️ 下載 .ics 檔
-        <div class="action-hint">單次匯入，更新要重抓</div>
-      </a>
+      <div class="action-cell">
+        <a id="action-subscribe" class="action-btn action-subscribe" href="#">訂閱行事曆</a>
+        <div class="action-hint">Apple Cal 一鍵 · Google Cal 桌機貼上 URL</div>
+      </div>
+      <div class="action-cell">
+        <a id="action-download" class="action-btn action-download" href="#" download>下載 .ics 檔</a>
+        <div class="action-hint">單次匯入，更新需重新下載</div>
+      </div>
     </div>
   </div>
 </div>
@@ -135,8 +372,6 @@ const HOST = location.hostname === 'localhost' || location.protocol === 'file:'
 let DATA = null;
 
 function load() {
-  // fixtures-data.js 透過 <script> tag 載入時 set window.FIXTURES_DATA
-  // 用 .js wrapper 是為了 file:// 本機預覽不撞 CORS
   DATA = window.FIXTURES_DATA;
   if (!DATA) {
     document.body.innerHTML = '<div style="padding:40px; color:#fff;">⚠️ fixtures-data.js 沒載入</div>';
@@ -158,15 +393,22 @@ function renderGroups() {
   }
   let html = '';
   for (const g of Object.keys(groups).sort()) {
-    html += `<div class="group-block"><div class="group-title">Group ${g}</div><div class="team-grid">`;
+    html += `<section class="group-block">
+      <div class="group-title">
+        <span class="gt-tag">Group</span>
+        <span class="gt-letter">${g}</span>
+        <span class="gt-rule"></span>
+        <span class="gt-count">${groups[g].length} 隊</span>
+      </div>
+      <div class="team-grid">`;
     for (const t of groups[g]) {
       html += `<div class="team-card" data-code="${t.code}" onclick="showTeam('${t.code}')">
-        <img class="flag" src="${flagUrl(t.iso)}" alt="${t.name_zh}">
+        <div class="flag-wrap"><img class="flag" src="${flagUrl(t.iso)}" alt="${t.name_zh}"></div>
         <div class="team-name">${t.name_zh}</div>
         <div class="team-code">${t.code}</div>
       </div>`;
     }
-    html += '</div></div>';
+    html += '</div></section>';
   }
   container.innerHTML = html;
 }
@@ -179,10 +421,9 @@ function showTeam(code) {
   if (!team) return;
 
   document.getElementById('detail-flag').src = flagUrl(team.iso);
-  document.getElementById('detail-team-name').textContent = `${team.name_zh}（${team.code}）`;
-  document.getElementById('detail-group').textContent = `Group ${team.group} · 想追完整賽程（含淘汰賽自動更新）用下方「訂閱」；「加進 GCal」只匯入該場單場、淘汰賽後不會自動更新`;
+  document.getElementById('detail-team-name').innerHTML = `${team.name_zh}<span class="code">${team.code}</span>`;
+  document.getElementById('detail-group').textContent = `Group ${team.group} · 訂閱 / 下載整季賽程，或點單場「Google」加進 Google Calendar。全部時間已換算為台北時間。`;
 
-  // 該隊全部比賽
   const myMatches = DATA.matches.filter(m => m.home_code === code || m.away_code === code)
     .sort((a, b) => (a.date + a.kickoff_taipei).localeCompare(b.date + b.kickoff_taipei));
 
@@ -192,17 +433,25 @@ function showTeam(code) {
     const opponentZh = DATA.team_zh[opponentCode] || opponentCode;
     const opponentIso = m.home_code === code ? m.away_iso : m.home_iso;
     const isHome = m.home_code === code;
-    const venuePosition = isHome ? '(主場)' : '(客場)';
-    const taipeiDateTime = computeTaipeiDateTime(m);
+    const tag = isHome ? '<span class="m-tag home">主場</span>' : '<span class="m-tag">客場</span>';
+    const p = computeTaipeiParts(m);
 
     const gcalLink = buildGCalLink(m, code);
     html += `<div class="match-row">
-      <div class="match-info">
-        <div class="match-time">${taipeiDateTime}</div>
-        <div class="match-opponent">vs <img src="${flagUrl(opponentIso)}" style="width:20px; vertical-align:middle; border-radius:2px;"> ${opponentZh} <span style="color:var(--dim); font-size:12px;">${venuePosition}</span></div>
-        <div class="match-venue">${m.stadium}, ${m.city}</div>
+      <div class="m-when">
+        <div class="m-time">${p.time}</div>
+        <div class="m-date">${p.md} <span>週${p.dow}</span></div>
       </div>
-      <a class="match-gcal" href="${gcalLink}" target="_blank" title="單場匯入，6/28 淘汰賽抽完不會自動更新；想 set-and-forget 請用下方「訂閱」">📌 加進 GCal（單場）</a>
+      <div class="m-opp">
+        <div class="m-opp-top">
+          <span class="m-opp-vs">VS</span>
+          <img class="m-flag" src="${flagUrl(opponentIso)}" alt="">
+          <span class="m-opp-name">${opponentZh}</span>
+          ${tag}
+        </div>
+        <div class="m-venue">${m.stadium}, ${m.city}</div>
+      </div>
+      <a class="m-gcal" href="${gcalLink}" target="_blank">Google</a>
     </div>`;
   }
   document.getElementById('match-list').innerHTML = html;
@@ -221,8 +470,7 @@ function closeDetail() {
   document.querySelectorAll('.team-card').forEach(c => c.classList.remove('active'));
 }
 
-function computeTaipeiDateTime(m) {
-  // m.date = "2026-06-17", m.kickoff_taipei = "01:00+1" or "12:00"
+function computeTaipeiParts(m) {
   let offset = 0;
   let time = m.kickoff_taipei;
   if (time.includes('+')) {
@@ -232,13 +480,17 @@ function computeTaipeiDateTime(m) {
   }
   const d = new Date(m.date + 'T00:00:00');
   d.setDate(d.getDate() + offset);
-  const dateStr = `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`;
-  const weekDay = ['日','一','二','三','四','五','六'][d.getDay()];
-  return `${dateStr}（${weekDay}）${time}`;
+  const md = `${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`;
+  const dow = ['日','一','二','三','四','五','六'][d.getDay()];
+  return { time, md, dow };
+}
+
+function computeTaipeiDateTime(m) {
+  const p = computeTaipeiParts(m);
+  return `${p.md}（週${p.dow}）${p.time}`;
 }
 
 function buildGCalLink(m, viewerCode) {
-  // ET 時間 → UTC (EDT = UTC-4)
   const [hh, mm] = m.kickoff_et.split(':').map(Number);
   const d = new Date(m.date + 'T00:00:00Z');
   d.setUTCHours(hh + 4, mm); // EDT → UTC
@@ -260,6 +512,19 @@ function buildGCalLink(m, viewerCode) {
   url.searchParams.set('location', location);
   return url.toString();
 }
+
+const THEMES = ['grass','cobalt','tangerine','berry','teal','plum','dark'];
+function setTheme(t) {
+  if (!THEMES.includes(t)) t = 'grass';
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem('wc-theme', t); } catch (e) {}
+  document.querySelectorAll('.ts-dot').forEach(d => d.classList.toggle('active', d.dataset.theme === t));
+}
+(function initTheme() {
+  let t = 'grass';
+  try { t = localStorage.getItem('wc-theme') || 'grass'; } catch (e) {}
+  setTheme(t);
+})();
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 load();
