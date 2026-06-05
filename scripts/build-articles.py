@@ -28,6 +28,7 @@ import re
 import shutil
 import sys
 import datetime
+import json
 import html as html_lib
 
 import markdown as md_lib
@@ -35,6 +36,8 @@ import markdown as md_lib
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SRC = ROOT / "articles"
 OUT = ROOT / "public" / "articles"
+SITE = "https://foootball.twtools.cc"
+ORG_NAME = "@foootball"
 
 WEEKDAY_ZH = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
 
@@ -223,6 +226,75 @@ def site_header_html(active: str) -> str:
 """
 
 
+# ---------- shared JSON-LD helpers (structured data for SEO/GEO/AEO) ----------
+
+def _ld(obj: dict) -> str:
+    """Wrap a schema.org node as a <script type=application/ld+json> block."""
+    payload = obj if "@context" in obj else {"@context": "https://schema.org", **obj}
+    return ('<script type="application/ld+json">'
+            + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+            + "</script>")
+
+
+def graph_ld(nodes: list) -> str:
+    """One @graph block holding several linked nodes (Google merges by @id)."""
+    nodes = [n for n in nodes if n]
+    if not nodes:
+        return ""
+    return _ld({"@context": "https://schema.org", "@graph": nodes})
+
+
+def org_node() -> dict:
+    return {
+        "@type": "Organization",
+        "@id": f"{SITE}/#org",
+        "name": ORG_NAME,
+        "url": f"{SITE}/",
+        "sameAs": ["https://medium.com/@foootball"],
+    }
+
+
+def website_node() -> dict:
+    return {
+        "@type": "WebSite",
+        "@id": f"{SITE}/#website",
+        "name": "@foootball — 2026 世界盃賽程 + 戰報",
+        "url": f"{SITE}/",
+        "inLanguage": "zh-Hant",
+        "publisher": {"@id": f"{SITE}/#org"},
+    }
+
+
+def tournament_node() -> dict:
+    """The 2026 FIFA World Cup as a SportsEvent (host = US/Canada/Mexico)."""
+    return {
+        "@type": "SportsEvent",
+        "@id": f"{SITE}/#worldcup2026",
+        "name": "2026 FIFA 世界盃",
+        "sport": "Soccer",
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": [
+            {"@type": "Country", "name": "United States"},
+            {"@type": "Country", "name": "Canada"},
+            {"@type": "Country", "name": "Mexico"},
+        ],
+        "organizer": {"@type": "Organization", "name": "FIFA", "url": "https://www.fifa.com/"},
+    }
+
+
+def breadcrumb_node(items: list) -> dict:
+    """items: list of (name, url-or-None). Last item usually current page (url ok)."""
+    elements = []
+    for i, (name, url) in enumerate(items):
+        el = {"@type": "ListItem", "position": i + 1, "name": name}
+        if url:
+            el["item"] = url
+        elements.append(el)
+    return {"@type": "BreadcrumbList", "itemListElement": elements}
+
+
 # ---------- article page CSS ----------
 
 ARTICLE_CSS = """
@@ -310,6 +382,11 @@ ARTICLE_CSS = """
 
 INDEX_CSS = """
 .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; padding-top: 0; }
+.idx-h1 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(28px, 4.4vw, 42px); line-height: 1.12;
+  color: var(--fg); letter-spacing: 0.4px; margin-bottom: 10px;
+}
 .idx-intro {
   font-size: 14px; color: var(--fg-soft); letter-spacing: 0.2px;
   margin-bottom: 44px;
@@ -461,6 +538,10 @@ def extract_excerpt(body: str, length: int = 120) -> str:
             continue
         if line.startswith(("- ", "* ", "1.")):
             continue
+        # skip a bold-only standfirst / volume marker line (e.g. **... Vol. 004**)
+        # — it just duplicates the subtitle and makes a useless excerpt.
+        if line.startswith("**") and line.endswith("**") and line.count("**") == 2:
+            continue
         # strip inline md: **bold** _em_ `code` [text](url)
         line = re.sub(r"\*\*(.+?)\*\*", r"\1", line)
         line = re.sub(r"\*(.+?)\*", r"\1", line)
@@ -475,7 +556,7 @@ def extract_excerpt(body: str, length: int = 120) -> str:
 
 # ---------- render ----------
 
-def render_article(meta: dict, body_html: str, slug: str) -> str:
+def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "") -> str:
     typ = meta.get("type", "feature")
     if typ == "daily":
         vol = meta.get("vol", "?")
@@ -484,7 +565,8 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
         kicker = "FEATURE"
     title_raw = meta.get("title", slug)
     title_safe = html_lib.escape(title_raw)
-    subtitle = html_lib.escape(meta.get("subtitle", ""))
+    subtitle_raw = meta.get("subtitle", "")
+    subtitle = html_lib.escape(subtitle_raw)
     date_str = str(meta.get("date", ""))
     try:
         d = datetime.date.fromisoformat(date_str)
@@ -492,15 +574,51 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
     except Exception:
         date_disp = date_str
 
+    # meta description: prefer the subtitle, enrich with the first paragraph when
+    # thin (daily subtitles like "Vol. 00x" are too short to be useful for SEO).
+    desc_raw = subtitle_raw.strip()
+    if len(desc_raw) < 60 and excerpt and excerpt not in desc_raw and desc_raw not in excerpt:
+        desc_raw = f"{desc_raw}　{excerpt}".strip("　 ") if desc_raw else excerpt
+    if not desc_raw:
+        desc_raw = excerpt or title_raw
+    desc_raw = desc_raw[:150].rstrip("　 ·，、")
+    desc_safe = html_lib.escape(desc_raw)
+    cover_alt = html_lib.escape(f"{title_raw}｜封面")
+
+    # structured data: Article + breadcrumb (+ org/website context)
+    art_type = "NewsArticle" if typ == "daily" else "Article"
+    page_url = f"{SITE}/articles/{slug}/"
+    article_ld = {
+        "@type": art_type,
+        "headline": title_raw,
+        "description": desc_raw,
+        "image": f"{SITE}/articles/{slug}/cover.png",
+        "inLanguage": "zh-Hant",
+        "url": page_url,
+        "mainEntityOfPage": page_url,
+        "author": {"@id": f"{SITE}/#org"},
+        "publisher": {"@id": f"{SITE}/#org"},
+        "isPartOf": {"@id": f"{SITE}/#worldcup2026"},
+    }
+    if date_str:
+        article_ld["datePublished"] = date_str
+        article_ld["dateModified"] = date_str
+    crumb = breadcrumb_node([
+        ("首頁", f"{SITE}/"),
+        ("文章", f"{SITE}/articles/"),
+        (title_raw, page_url),
+    ])
+    jsonld = graph_ld([org_node(), website_node(), tournament_node(), article_ld, crumb])
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="grass">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title_safe} | @foootball</title>
-<meta name="description" content="{subtitle}">
+<meta name="description" content="{desc_safe}">
 <meta property="og:title" content="{title_safe}">
-<meta property="og:description" content="{subtitle}">
+<meta property="og:description" content="{desc_safe}">
 <meta property="og:image" content="https://foootball.twtools.cc/articles/{slug}/cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -511,9 +629,10 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
 <meta property="article:published_time" content="{date_str}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title_safe}">
-<meta name="twitter:description" content="{subtitle}">
+<meta name="twitter:description" content="{desc_safe}">
 <meta name="twitter:image" content="https://foootball.twtools.cc/articles/{slug}/cover.png">
 <link rel="canonical" href="https://foootball.twtools.cc/articles/{slug}/">
+{jsonld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -535,7 +654,7 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
       <div class="article-subtitle">{subtitle}</div>
       <div class="article-meta">{date_disp}</div>
     </header>
-    <img class="article-cover" src="cover.png" alt="">
+    <img class="article-cover" src="cover.png" alt="{cover_alt}">
     <div class="prose">
 {body_html}
     </div>
@@ -544,7 +663,7 @@ def render_article(meta: dict, body_html: str, slug: str) -> str:
     <a href="/" class="cta-btn">👉 訂閱你的球隊賽程</a>
     <div class="foot-links">
       <a href="/articles/">所有文章</a>
-      <a href="https://medium.com/@foootball" target="_blank">Medium</a>
+      <a href="https://medium.com/@foootball" target="_blank" rel="noopener">Medium</a>
       <a href="/">賽程訂閱</a>
     </div>
     {DISCLAIMER_HTML}
@@ -583,7 +702,7 @@ def render_index(articles: list) -> str:
         feat_meta = _date_disp(str(feat["meta"].get("date", "")))
         feature_html = f"""
   <a class="idx-feature" href="/articles/{feat['slug']}/">
-    <div class="idx-feature-img-wrap"><img class="idx-feature-img" src="/articles/{feat['slug']}/cover.png" alt=""></div>
+    <div class="idx-feature-img-wrap"><img class="idx-feature-img" src="/articles/{feat['slug']}/cover.png" alt="{feat_title}｜封面"></div>
     <div class="idx-feature-body">
       <span class="idx-feature-kicker">{feat_kicker}</span>
       <h2 class="idx-feature-title">{feat_title}</h2>
@@ -599,7 +718,7 @@ def render_index(articles: list) -> str:
             date_disp = _date_disp(str(a["meta"].get("date", "")))
             cards += f"""
       <a class="idx-card" href="/articles/{a['slug']}/">
-        <div class="idx-card-img-wrap"><img class="idx-card-img" src="/articles/{a['slug']}/cover.png" alt=""></div>
+        <div class="idx-card-img-wrap"><img class="idx-card-img" src="/articles/{a['slug']}/cover.png" alt="{title}｜封面"></div>
         <div class="idx-card-body">
           <span class="idx-card-kicker">{kicker}</span>
           <div class="idx-card-title">{title}</div>
@@ -611,6 +730,28 @@ def render_index(articles: list) -> str:
   <div class="idx-section-label">更多文章 <span class="gt-rule"></span></div>
   <div class="idx-grid">{cards}
   </div>""" if cards else ""
+
+    # structured data: CollectionPage + ItemList of all articles + breadcrumb
+    item_list = {
+        "@type": "ItemList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1,
+             "url": f"{SITE}/articles/{a['slug']}/",
+             "name": a["meta"].get("title", a["slug"])}
+            for i, a in enumerate(articles)
+        ],
+    }
+    collection = {
+        "@type": "CollectionPage",
+        "@id": f"{SITE}/articles/",
+        "url": f"{SITE}/articles/",
+        "name": "文章 — 2026 世界盃每日戰報與焦點觀察",
+        "inLanguage": "zh-Hant",
+        "isPartOf": {"@id": f"{SITE}/#website"},
+        "mainEntity": item_list,
+    }
+    idx_crumb = breadcrumb_node([("首頁", f"{SITE}/"), ("文章", f"{SITE}/articles/")])
+    idx_jsonld = graph_ld([org_node(), website_node(), collection, idx_crumb])
 
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="grass">
@@ -633,6 +774,7 @@ def render_index(articles: list) -> str:
 <meta name="twitter:description" content="每日戰報、規則解讀、焦點觀察。">
 <meta name="twitter:image" content="https://foootball.twtools.cc/og-home.png">
 <link rel="canonical" href="https://foootball.twtools.cc/articles/">
+{idx_jsonld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -647,6 +789,7 @@ def render_index(articles: list) -> str:
 <body>
 {THEME_SWITCH_HTML}
 <div class="container">{site_header_html("articles")}
+  <h1 class="idx-h1">文章 — 2026 世界盃每日戰報與焦點觀察</h1>
   <div class="idx-intro">每日戰報 · 焦點觀察 · 規則解讀 — 全部繁體中文 / 台北時間</div>
 {feature_html}
 {grid_html}
@@ -692,7 +835,7 @@ def build():
             if asset.is_file() and asset.suffix != ".md":
                 shutil.copy2(asset, out_dir / asset.name)
 
-        (out_dir / "index.html").write_text(render_article(meta, body_html, slug), encoding="utf-8")
+        (out_dir / "index.html").write_text(render_article(meta, body_html, slug, excerpt), encoding="utf-8")
         articles.append({"slug": slug, "meta": meta, "excerpt": excerpt})
         print(f"✅ {slug}")
 

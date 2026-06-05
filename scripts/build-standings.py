@@ -37,9 +37,25 @@ THEME_SWITCH_JS = ba.THEME_SWITCH_JS
 SITE_HEADER_CSS = ba.SITE_HEADER_CSS
 site_header_html = ba.site_header_html
 DISCLAIMER_HTML = ba.DISCLAIMER_HTML
+graph_ld = ba.graph_ld
+org_node = ba.org_node
+website_node = ba.website_node
+tournament_node = ba.tournament_node
+breadcrumb_node = ba.breadcrumb_node
 
 SITE = "https://foootball.twtools.cc"
 WK = ["一", "二", "三", "四", "五", "六", "日"]
+
+
+def last_updated_taipei():
+    """('2026-06-12 14:30', '2026-06-12') — 依資料檔 mtime（deterministic per content）。
+    優先用 scorers.json/fixtures-data.json 較新的 mtime。"""
+    cands = [PUBLIC / "fixtures-data.json", PUBLIC / "standings" / "scorers.json"]
+    mtimes = [p.stat().st_mtime for p in cands if p.exists()]
+    if not mtimes:
+        return "", ""
+    tp = datetime.utcfromtimestamp(max(mtimes)) + timedelta(hours=8)
+    return tp.strftime("%Y-%m-%d %H:%M"), tp.strftime("%Y-%m-%d")
 
 
 # ---------------- data ----------------
@@ -301,6 +317,23 @@ def render_page(matches, ko, played_any, scorers=None, scorers_updated=None):
     og_img = f"{SITE}/og-home.png"
     url = f"{SITE}/standings/"
 
+    updated_disp, updated_iso = last_updated_taipei()
+    updated_line = f"最後更新：{updated_disp} 台北時間 · " if updated_disp else ""
+    webpage_ld = {
+        "@type": "WebPage",
+        "@id": url,
+        "url": url,
+        "name": f"{title}｜2026 世界盃",
+        "description": desc,
+        "inLanguage": "zh-Hant",
+        "isPartOf": {"@id": f"{SITE}/#website"},
+        "about": {"@id": f"{SITE}/#worldcup2026"},
+    }
+    if updated_iso:
+        webpage_ld["dateModified"] = updated_iso
+    crumb = breadcrumb_node([("首頁", f"{SITE}/"), ("戰況中心", url)])
+    jsonld = graph_ld([org_node(), website_node(), tournament_node(), webpage_ld, crumb])
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -309,6 +342,7 @@ def render_page(matches, ko, played_any, scorers=None, scorers_updated=None):
 <title>{title}｜2026 世界盃 賽程・積分・淘汰賽・射手榜 @FOOOTBALL</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url}">
+{jsonld}
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url}">
 <meta property="og:title" content="{title}｜2026 世界盃 賽程・積分・射手榜">
@@ -365,7 +399,7 @@ def render_page(matches, ko, played_any, scorers=None, scorers_updated=None):
     <div class="std-foot-links">
       <a href="/">賽程訂閱</a> · <a href="/articles/">每日戰報</a> · <a href="https://medium.com/@foootball" target="_blank" rel="noopener">Medium ↗</a>
     </div>
-    <div class="std-foot-fine">賽程／比分資料每日更新 · 時間為台北時間（北美場次標註當地 ET）</div>
+    <div class="std-foot-fine">{updated_line}賽程／比分資料每日更新 · 時間為台北時間（北美場次標註當地 ET）</div>
     {DISCLAIMER_HTML}
   </footer>
 </div>

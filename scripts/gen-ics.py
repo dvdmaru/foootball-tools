@@ -97,7 +97,7 @@ def build_vevent(match: dict, dtstamp: str) -> str:
         f"🌏 海外觀眾請查當地轉播平台"
     )
     uid = f"wc2026-match-{match['match_no']:03d}@foootball.twtools.cc"
-    url = f"https://foootball.twtools.cc/teams/{match['home_code']}"
+    url = f"https://foootball.twtools.cc/teams/{match['home_code']}/"
 
     return "\r\n".join([
         "BEGIN:VEVENT",

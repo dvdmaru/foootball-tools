@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-015@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260616T090000
 DTEND;TZID=Asia/Taipei:20260616T110000
 SUMMARY:🇮🇷 伊朗 vs 🇳🇿 紐西蘭 (Group G)
 LOCATION:SoFi Stadium\, Inglewood
 DESCRIPTION:Match #15 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-16 09:00（北美 2026-06-15 21:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/IRN
+URL:https://foootball.twtools.cc/teams/IRN/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-040@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260622T090000
 DTEND;TZID=Asia/Taipei:20260622T110000
 SUMMARY:🇳🇿 紐西蘭 vs 🇪🇬 埃及 (Group G)
 LOCATION:BC Place\, Vancouver
 DESCRIPTION:Match #40 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-22 09:00（北美 2026-06-21 21:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/NZL
+URL:https://foootball.twtools.cc/teams/NZL/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-064@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260627T110000
 DTEND;TZID=Asia/Taipei:20260627T130000
 SUMMARY:🇳🇿 紐西蘭 vs 🇧🇪 比利時 (Group G)
 LOCATION:BC Place\, Vancouver
 DESCRIPTION:Match #64 | Group G | 2026 FIFA World Cup\n開球：台北 2026-06-27 11:00（北美 2026-06-26 23:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/NZL
+URL:https://foootball.twtools.cc/teams/NZL/
 END:VEVENT
 END:VCALENDAR

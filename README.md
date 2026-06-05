@@ -8,9 +8,17 @@
 
 | 工具 | 路徑 | 狀態 |
 |---|---|---|
-| **2026 世界盃賽程行事曆** | `/` | Phase 0 雛形（48 隊 ICS + 國旗 grid） |
-| 每日賽程社群圖文 | `/daily-schedule/` | TODO（整合 worldcup-daily pipeline） |
-| 球隊賽程 PNG 對戰表 ×48 | `/teams/` | TODO |
+| **2026 世界盃賽程行事曆** | `/` | 上線（48 隊 ICS + 國旗 grid + 7 主題） |
+| 戰況中心（賽程・積分・淘汰賽・射手榜） | `/standings/` | 上線 |
+| 每日戰報 + 焦點觀察 | `/articles/` | 上線 |
+| 球隊賽程靜態頁 ×48（SEO/AEO） | `/teams/<CODE>/` | 上線（SportsTeam + SportsEvent JSON-LD） |
+
+### SEO / 安全基礎（2026-06-05 稽核後補齊）
+
+- `public/_headers` — CSP / HSTS / X-Frame-Options / X-Content-Type-Options / Referrer-Policy / Permissions-Policy
+- `public/robots.txt` — 開放搜尋 + AI 答案引擎（需在 CF dashboard 關閉 managed Block-AI-bots 才生效）
+- `public/sitemap.xml` — `scripts/gen-sitemap.py` 掃 `public/**/index.html` 自動產生
+- 全站 JSON-LD（Organization / WebSite / SportsEvent / Article / SportsTeam / BreadcrumbList）
 
 ## 用戶 UX：訂閱 / 下載 / 加入 Google Calendar
 

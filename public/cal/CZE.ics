@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-002@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260612T100000
 DTEND;TZID=Asia/Taipei:20260612T120000
 SUMMARY:🇰🇷 南韓 vs 🇨🇿 捷克 (Group A)
 LOCATION:Estadio Akron\, Guadalajara
 DESCRIPTION:Match #2 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-12 10:00（北美 2026-06-11 22:00 ET）\n場館：Estadio Akron, Guadalajara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/KOR
+URL:https://foootball.twtools.cc/teams/KOR/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-025@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260619T000000
 DTEND;TZID=Asia/Taipei:20260619T020000
 SUMMARY:🇨🇿 捷克 vs 🇿🇦 南非 (Group A)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
 DESCRIPTION:Match #25 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-19 00:00（北美 2026-06-18 12:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/CZE
+URL:https://foootball.twtools.cc/teams/CZE/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-053@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260625T090000
 DTEND;TZID=Asia/Taipei:20260625T110000
 SUMMARY:🇨🇿 捷克 vs 🇲🇽 墨西哥 (Group A)
 LOCATION:Estadio Azteca\, Mexico City
 DESCRIPTION:Match #53 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-25 09:00（北美 2026-06-24 21:00 ET）\n場館：Estadio Azteca, Mexico City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/CZE
+URL:https://foootball.twtools.cc/teams/CZE/
 END:VEVENT
 END:VCALENDAR

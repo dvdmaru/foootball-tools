@@ -1,0 +1,13 @@
+# Cloudflare Pages security headers — applies to every route.
+# CSP allows the site's own inline CSS/JS plus the three external origins it
+# actually uses: Google Fonts, GA4 (gtag), and flagcdn flag images.
+# 'unsafe-inline' for script-src is required because the pages rely on inline
+# <script> + inline theme handlers; the JS-side escaping in index.html is the
+# complementary XSS defense.
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://flagcdn.com https://www.googletagmanager.com https://*.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; upgrade-insecure-requests

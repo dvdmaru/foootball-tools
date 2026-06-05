@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-021@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260618T070000
 DTEND;TZID=Asia/Taipei:20260618T090000
 SUMMARY:🇬🇭 迦納 vs 🇵🇦 巴拿馬 (Group L)
 LOCATION:BMO Field\, Toronto
 DESCRIPTION:Match #21 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-18 07:00（北美 2026-06-17 19:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/GHA
+URL:https://foootball.twtools.cc/teams/GHA/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-046@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260624T070000
 DTEND;TZID=Asia/Taipei:20260624T090000
 SUMMARY:🇵🇦 巴拿馬 vs 🇭🇷 克羅埃西亞 (Group L)
 LOCATION:BMO Field\, Toronto
 DESCRIPTION:Match #46 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-24 07:00（北美 2026-06-23 19:00 ET）\n場館：BMO Field, Toronto\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/PAN
+URL:https://foootball.twtools.cc/teams/PAN/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-067@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260628T050000
 DTEND;TZID=Asia/Taipei:20260628T070000
 SUMMARY:🇵🇦 巴拿馬 vs 🇬🇧 英格蘭 (Group L)
 LOCATION:MetLife Stadium\, East Rutherford
 DESCRIPTION:Match #67 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-28 05:00（北美 2026-06-27 17:00 ET）\n場館：MetLife Stadium, East Rutherford\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/PAN
+URL:https://foootball.twtools.cc/teams/PAN/
 END:VEVENT
 END:VCALENDAR

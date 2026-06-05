@@ -17,32 +17,32 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-004@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260613T090000
 DTEND;TZID=Asia/Taipei:20260613T110000
 SUMMARY:🇺🇸 美國 vs 🇵🇾 巴拉圭 (Group D)
 LOCATION:SoFi Stadium\, Inglewood
 DESCRIPTION:Match #4 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-13 09:00（北美 2026-06-12 21:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/USA
+URL:https://foootball.twtools.cc/teams/USA/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-032@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260620T030000
 DTEND;TZID=Asia/Taipei:20260620T050000
 SUMMARY:🇺🇸 美國 vs 🇦🇺 澳洲 (Group D)
 LOCATION:Lumen Field\, Seattle
 DESCRIPTION:Match #32 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-20 03:00（北美 2026-06-19 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/USA
+URL:https://foootball.twtools.cc/teams/USA/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-059@foootball.twtools.cc
-DTSTAMP:20260604T050353Z
+DTSTAMP:20260605T102601Z
 DTSTART;TZID=Asia/Taipei:20260626T100000
 DTEND;TZID=Asia/Taipei:20260626T120000
 SUMMARY:🇹🇷 土耳其 vs 🇺🇸 美國 (Group D)
 LOCATION:SoFi Stadium\, Inglewood
 DESCRIPTION:Match #59 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-26 10:00（北美 2026-06-25 22:00 ET）\n場館：SoFi Stadium, Inglewood\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
-URL:https://foootball.twtools.cc/teams/TUR
+URL:https://foootball.twtools.cc/teams/TUR/
 END:VEVENT
 END:VCALENDAR
