@@ -1,6 +1,4 @@
 # foootball.twtools.cc — 開放給搜尋與 AI 答案引擎（AEO/GEO）
-# 注意：此檔只有在 Cloudflare dashboard 關閉 "Block AI bots / AI Crawl Control"
-# 的 managed robots.txt 後才會生效，否則 zone 端的 managed 版本會覆蓋它。
 User-agent: *
 Allow: /
 
