@@ -1,7 +1,7 @@
 ---
 slug: world-cup-farewell-generation
 type: "feature"
-date: "2026-06-06"
+date: "2026-06-07"
 title: "他們沒有選擇退場方式：2026 世界盃與黃金世代的最後交叉路口"
 subtitle: "2026 世界盃系列收官 — 當主流都在寫「光榮告別」，這篇拆的是名單背後的倖存者偏差與賽制物理"
 ---
