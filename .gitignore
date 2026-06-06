@@ -15,3 +15,9 @@ node_modules/
 
 # OpenAI raw responses — keep locally for audit, don't commit (含 search reasoning trace)
 fixtures/*.raw.json
+
+# 製作 backstage（含模型名/工作稿/workflow）— 不進公開 repo
+editorial/
+
+# 本機 Claude session 狀態（worktrees / local settings）
+.claude/
