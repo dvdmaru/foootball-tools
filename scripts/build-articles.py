@@ -375,6 +375,38 @@ ARTICLE_CSS = """
 .foot-links { display: flex; gap: 22px; font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 1px; }
 .foot-links a { color: var(--dim); text-decoration: none; }
 .foot-links a:hover { color: var(--accent); }
+
+/* ---- series nav: 前一日 / 後一日 + 更多每日戰報 ---- */
+.post-nav { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
+.post-nav-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.post-nav-link {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 15px 18px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface); text-decoration: none;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+.post-nav-link:hover { border-color: var(--accent-line); transform: translateY(-2px); box-shadow: 0 10px 26px var(--sheet-shadow); }
+.post-nav-link.next { text-align: right; align-items: flex-end; }
+.post-nav-link.empty { border: none; background: transparent; pointer-events: none; }
+.pn-dir { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 1.8px; color: var(--accent); text-transform: uppercase; font-weight: 700; }
+.pn-title { font-size: 14.5px; font-weight: 700; color: var(--fg); line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pn-date { font-family: var(--font-mono); font-size: 11px; color: var(--dim); letter-spacing: 1px; }
+.more-dailies { margin-top: 30px; }
+.md-label { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; color: var(--dim); text-transform: uppercase; margin-bottom: 12px; }
+.md-label::before { content: ''; width: 20px; height: 2px; background: var(--accent); }
+.md-list { display: flex; flex-direction: column; }
+.md-list a { display: flex; gap: 14px; align-items: baseline; padding: 12px 4px; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--fg-soft); transition: color 0.15s ease; }
+.md-list a:last-child { border-bottom: none; }
+.md-list a:hover { color: var(--accent); }
+.md-list .md-date { font-family: var(--font-mono); font-size: 11.5px; color: var(--dim); white-space: nowrap; letter-spacing: 0.5px; }
+.md-list .md-ttl { font-size: 14px; font-weight: 600; line-height: 1.4; flex: 1;
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 560px) {
+  .post-nav-pair { grid-template-columns: 1fr; }
+  .post-nav-link.next { text-align: left; align-items: flex-start; }
+  .post-nav-link.empty { display: none; }
+}
 """
 
 
@@ -556,7 +588,8 @@ def extract_excerpt(body: str, length: int = 120) -> str:
 
 # ---------- render ----------
 
-def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "") -> str:
+def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
+                   prev_daily=None, next_daily=None, more_dailies=None) -> str:
     typ = meta.get("type", "feature")
     if typ == "daily":
         vol = meta.get("vol", "?")
@@ -610,6 +643,52 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "") -> 
     ])
     jsonld = graph_ld([org_node(), website_node(), tournament_node(), article_ld, crumb])
 
+    # ----- series nav: 前一日 / 後一日 + 更多每日戰報 (internal linking for SEO/engagement) -----
+    def _dl(a):
+        return (a["slug"],
+                html_lib.escape(str(a["meta"].get("title", a["slug"]))),
+                _date_disp(str(a["meta"].get("date", ""))))
+
+    head_rels = ""
+    if prev_daily:
+        head_rels += f'\n<link rel="prev" href="{SITE}/articles/{prev_daily["slug"]}/">'
+    if next_daily:
+        head_rels += f'\n<link rel="next" href="{SITE}/articles/{next_daily["slug"]}/">'
+
+    if prev_daily:
+        s, t, dt = _dl(prev_daily)
+        prev_link = (f'<a class="post-nav-link prev" href="/articles/{s}/">'
+                     f'<span class="pn-dir">← 前一日戰報</span>'
+                     f'<span class="pn-title">{t}</span><span class="pn-date">{dt}</span></a>')
+    else:
+        prev_link = '<span class="post-nav-link empty"></span>'
+    if next_daily:
+        s, t, dt = _dl(next_daily)
+        next_link = (f'<a class="post-nav-link next" href="/articles/{s}/">'
+                     f'<span class="pn-dir">後一日戰報 →</span>'
+                     f'<span class="pn-title">{t}</span><span class="pn-date">{dt}</span></a>')
+    else:
+        next_link = '<span class="post-nav-link empty"></span>'
+
+    more = more_dailies or []
+    if more:
+        rows = ""
+        for a in more:
+            s, t, dt = _dl(a)
+            rows += (f'<a href="/articles/{s}/"><span class="md-date">{dt}</span>'
+                     f'<span class="md-ttl">{t}</span></a>')
+        more_block = ('<div class="more-dailies"><div class="md-label">更多每日戰報</div>'
+                      f'<div class="md-list">{rows}</div></div>')
+    else:
+        more_block = ""
+
+    if prev_daily or next_daily or more:
+        pair = (f'<div class="post-nav-pair">{prev_link}{next_link}</div>'
+                if (prev_daily or next_daily) else "")
+        series_nav = (f'<nav class="post-nav" aria-label="每日戰報導覽">{pair}{more_block}</nav>')
+    else:
+        series_nav = ""
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="grass">
 <head>
@@ -631,7 +710,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "") -> 
 <meta name="twitter:title" content="{title_safe}">
 <meta name="twitter:description" content="{desc_safe}">
 <meta name="twitter:image" content="https://foootball.twtools.cc/articles/{slug}/cover.png">
-<link rel="canonical" href="https://foootball.twtools.cc/articles/{slug}/">
+<link rel="canonical" href="https://foootball.twtools.cc/articles/{slug}/">{head_rels}
 {jsonld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -659,6 +738,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "") -> 
 {body_html}
     </div>
   </article>
+  {series_nav}
   <div class="article-footer">
     <a href="/" class="cta-btn">👉 訂閱你的球隊賽程</a>
     <div class="foot-links">
@@ -835,9 +915,38 @@ def build():
             if asset.is_file() and asset.suffix != ".md":
                 shutil.copy2(asset, out_dir / asset.name)
 
-        (out_dir / "index.html").write_text(render_article(meta, body_html, slug, excerpt), encoding="utf-8")
-        articles.append({"slug": slug, "meta": meta, "excerpt": excerpt})
-        print(f"✅ {slug}")
+        articles.append({"slug": slug, "meta": meta, "excerpt": excerpt,
+                         "body_html": body_html, "out_dir": out_dir})
+
+    # ----- compute daily-series neighbors + related (for prev/next + 更多每日戰報) -----
+    dailies_asc = sorted(
+        [a for a in articles if a["meta"].get("type") == "daily"],
+        key=lambda a: str(a["meta"].get("date", "")),
+    )
+    n = len(dailies_asc)
+    nav_for = {}  # slug -> (prev_daily, next_daily, more_dailies)
+    for i, a in enumerate(dailies_asc):
+        prev_daily = dailies_asc[i - 1] if i > 0 else None        # older date → 前一日戰報
+        next_daily = dailies_asc[i + 1] if i < n - 1 else None    # newer date → 後一日戰報
+        skip = {a["slug"]}
+        if prev_daily:
+            skip.add(prev_daily["slug"])
+        if next_daily:
+            skip.add(next_daily["slug"])
+        more = [d for d in reversed(dailies_asc) if d["slug"] not in skip][:3]
+        nav_for[a["slug"]] = (prev_daily, next_daily, more)
+    recent_dailies = list(reversed(dailies_asc))[:3]
+    for a in articles:
+        if a["meta"].get("type") != "daily":
+            nav_for[a["slug"]] = (None, None, recent_dailies)
+
+    # ----- render every article now that neighbors are known -----
+    for a in articles:
+        prev_daily, next_daily, more = nav_for.get(a["slug"], (None, None, []))
+        html_out = render_article(a["meta"], a["body_html"], a["slug"], a["excerpt"],
+                                  prev_daily=prev_daily, next_daily=next_daily, more_dailies=more)
+        (a["out_dir"] / "index.html").write_text(html_out, encoding="utf-8")
+        print(f"✅ {a['slug']}")
 
     # index — sort by date desc; feature > daily on tie
     type_rank = {"feature": 0, "daily": 1}
