@@ -388,6 +388,9 @@ ARTICLE_CSS = """
 .post-nav-link:hover { border-color: var(--accent-line); transform: translateY(-2px); box-shadow: 0 10px 26px var(--sheet-shadow); }
 .post-nav-link.next { text-align: right; align-items: flex-end; }
 .post-nav-link.empty { border: none; background: transparent; pointer-events: none; }
+.post-nav-link.fallback { background: var(--surface-2); border-style: dashed; justify-content: center; }
+.post-nav-link.fallback .pn-dir { color: var(--dim); }
+.post-nav-link.fallback .pn-title { color: var(--fg-soft); font-weight: 600; }
 .pn-dir { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 1.8px; color: var(--accent); text-transform: uppercase; font-weight: 700; }
 .pn-title { font-size: 14.5px; font-weight: 700; color: var(--fg); line-height: 1.45;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -589,7 +592,7 @@ def extract_excerpt(body: str, length: int = 120) -> str:
 # ---------- render ----------
 
 def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
-                   prev_daily=None, next_daily=None, more_dailies=None) -> str:
+                   prev_nav=None, next_nav=None, more_dailies=None, nav_kind="daily") -> str:
     typ = meta.get("type", "feature")
     if typ == "daily":
         vol = meta.get("vol", "?")
@@ -643,32 +646,40 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
     ])
     jsonld = graph_ld([org_node(), website_node(), tournament_node(), article_ld, crumb])
 
-    # ----- series nav: 前一日 / 後一日 + 更多每日戰報 (internal linking for SEO/engagement) -----
+    # ----- prev/next nav + 更多每日戰報 (internal linking for SEO/engagement) -----
+    # daily 走「前一日/後一日戰報」(daily 連載)；feature 走「前一篇/後一篇」(feature 之間，
+    # 例如 AI 圓桌三部曲)。邊界缺一側時補「所有文章」連結，不留白。
     def _dl(a):
         return (a["slug"],
                 html_lib.escape(str(a["meta"].get("title", a["slug"]))),
                 _date_disp(str(a["meta"].get("date", ""))))
+    prev_lbl, next_lbl = ("前一篇", "後一篇") if nav_kind == "feature" else ("前一日戰報", "後一日戰報")
+    FALLBACK_TITLE = "瀏覽全部戰報與文章"
 
     head_rels = ""
-    if prev_daily:
-        head_rels += f'\n<link rel="prev" href="{SITE}/articles/{prev_daily["slug"]}/">'
-    if next_daily:
-        head_rels += f'\n<link rel="next" href="{SITE}/articles/{next_daily["slug"]}/">'
+    if prev_nav:
+        head_rels += f'\n<link rel="prev" href="{SITE}/articles/{prev_nav["slug"]}/">'
+    if next_nav:
+        head_rels += f'\n<link rel="next" href="{SITE}/articles/{next_nav["slug"]}/">'
 
-    if prev_daily:
-        s, t, dt = _dl(prev_daily)
+    if prev_nav:
+        s, t, dt = _dl(prev_nav)
         prev_link = (f'<a class="post-nav-link prev" href="/articles/{s}/">'
-                     f'<span class="pn-dir">← 前一日戰報</span>'
+                     f'<span class="pn-dir">← {prev_lbl}</span>'
                      f'<span class="pn-title">{t}</span><span class="pn-date">{dt}</span></a>')
     else:
-        prev_link = '<span class="post-nav-link empty"></span>'
-    if next_daily:
-        s, t, dt = _dl(next_daily)
+        prev_link = ('<a class="post-nav-link prev fallback" href="/articles/">'
+                     '<span class="pn-dir">← 所有文章</span>'
+                     f'<span class="pn-title">{FALLBACK_TITLE}</span></a>')
+    if next_nav:
+        s, t, dt = _dl(next_nav)
         next_link = (f'<a class="post-nav-link next" href="/articles/{s}/">'
-                     f'<span class="pn-dir">後一日戰報 →</span>'
+                     f'<span class="pn-dir">{next_lbl} →</span>'
                      f'<span class="pn-title">{t}</span><span class="pn-date">{dt}</span></a>')
     else:
-        next_link = '<span class="post-nav-link empty"></span>'
+        next_link = ('<a class="post-nav-link next fallback" href="/articles/">'
+                     '<span class="pn-dir">所有文章 →</span>'
+                     f'<span class="pn-title">{FALLBACK_TITLE}</span></a>')
 
     more = more_dailies or []
     if more:
@@ -682,12 +693,9 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
     else:
         more_block = ""
 
-    if prev_daily or next_daily or more:
-        pair = (f'<div class="post-nav-pair">{prev_link}{next_link}</div>'
-                if (prev_daily or next_daily) else "")
-        series_nav = (f'<nav class="post-nav" aria-label="每日戰報導覽">{pair}{more_block}</nav>')
-    else:
-        series_nav = ""
+    series_nav = (f'<nav class="post-nav" aria-label="文章導覽">'
+                  f'<div class="post-nav-pair">{prev_link}{next_link}</div>'
+                  f'{more_block}</nav>')
 
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="grass">
@@ -918,33 +926,43 @@ def build():
         articles.append({"slug": slug, "meta": meta, "excerpt": excerpt,
                          "body_html": body_html, "out_dir": out_dir})
 
-    # ----- compute daily-series neighbors + related (for prev/next + 更多每日戰報) -----
+    # ----- compute prev/next neighbors + related (for prev/next + 更多每日戰報) -----
+    # daily 之間連載；feature 之間連載（AI 圓桌三部曲等）。兩條獨立 rail，互不交叉。
     dailies_asc = sorted(
         [a for a in articles if a["meta"].get("type") == "daily"],
         key=lambda a: str(a["meta"].get("date", "")),
     )
-    n = len(dailies_asc)
-    nav_for = {}  # slug -> (prev_daily, next_daily, more_dailies)
-    for i, a in enumerate(dailies_asc):
-        prev_daily = dailies_asc[i - 1] if i > 0 else None        # older date → 前一日戰報
-        next_daily = dailies_asc[i + 1] if i < n - 1 else None    # newer date → 後一日戰報
-        skip = {a["slug"]}
-        if prev_daily:
-            skip.add(prev_daily["slug"])
-        if next_daily:
-            skip.add(next_daily["slug"])
-        more = [d for d in reversed(dailies_asc) if d["slug"] not in skip][:3]
-        nav_for[a["slug"]] = (prev_daily, next_daily, more)
+    features_asc = sorted(
+        [a for a in articles if a["meta"].get("type") != "daily"],
+        key=lambda a: (str(a["meta"].get("date", "")), a["slug"]),
+    )
     recent_dailies = list(reversed(dailies_asc))[:3]
-    for a in articles:
-        if a["meta"].get("type") != "daily":
-            nav_for[a["slug"]] = (None, None, recent_dailies)
+    nav_for = {}  # slug -> (prev_nav, next_nav, more_dailies, kind)
+
+    n = len(dailies_asc)
+    for i, a in enumerate(dailies_asc):
+        prev_nav = dailies_asc[i - 1] if i > 0 else None        # older date → 前一日戰報
+        next_nav = dailies_asc[i + 1] if i < n - 1 else None    # newer date → 後一日戰報
+        skip = {a["slug"]}
+        if prev_nav:
+            skip.add(prev_nav["slug"])
+        if next_nav:
+            skip.add(next_nav["slug"])
+        more = [d for d in reversed(dailies_asc) if d["slug"] not in skip][:3]
+        nav_for[a["slug"]] = (prev_nav, next_nav, more, "daily")
+
+    m = len(features_asc)
+    for i, a in enumerate(features_asc):
+        prev_nav = features_asc[i - 1] if i > 0 else None        # earlier feature → 前一篇
+        next_nav = features_asc[i + 1] if i < m - 1 else None    # later feature → 後一篇
+        nav_for[a["slug"]] = (prev_nav, next_nav, recent_dailies, "feature")
 
     # ----- render every article now that neighbors are known -----
     for a in articles:
-        prev_daily, next_daily, more = nav_for.get(a["slug"], (None, None, []))
+        prev_nav, next_nav, more, kind = nav_for.get(a["slug"], (None, None, [], "daily"))
         html_out = render_article(a["meta"], a["body_html"], a["slug"], a["excerpt"],
-                                  prev_daily=prev_daily, next_daily=next_daily, more_dailies=more)
+                                  prev_nav=prev_nav, next_nav=next_nav,
+                                  more_dailies=more, nav_kind=kind)
         (a["out_dir"] / "index.html").write_text(html_out, encoding="utf-8")
         print(f"✅ {a['slug']}")
 

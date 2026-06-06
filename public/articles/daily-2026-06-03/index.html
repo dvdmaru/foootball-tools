@@ -232,6 +232,9 @@ body::before {
 .post-nav-link:hover { border-color: var(--accent-line); transform: translateY(-2px); box-shadow: 0 10px 26px var(--sheet-shadow); }
 .post-nav-link.next { text-align: right; align-items: flex-end; }
 .post-nav-link.empty { border: none; background: transparent; pointer-events: none; }
+.post-nav-link.fallback { background: var(--surface-2); border-style: dashed; justify-content: center; }
+.post-nav-link.fallback .pn-dir { color: var(--dim); }
+.post-nav-link.fallback .pn-title { color: var(--fg-soft); font-weight: 600; }
 .pn-dir { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 1.8px; color: var(--accent); text-transform: uppercase; font-weight: 700; }
 .pn-title { font-size: 14.5px; font-weight: 700; color: var(--fg); line-height: 1.45;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -387,7 +390,7 @@ body::before {
 <p><strong>Tags</strong>：世界盃, 摩洛哥, Hakimi, 2026世界盃, AFCON, 足球</p>
     </div>
   </article>
-  <nav class="post-nav" aria-label="每日戰報導覽"><div class="post-nav-pair"><a class="post-nav-link prev" href="/articles/daily-2026-06-02/"><span class="pn-dir">← 前一日戰報</span><span class="pn-title">世界盃倒數 10 天：歐洲熱身賽日 + 葡萄牙的「27+1」是怎麼煉成的</span><span class="pn-date">2026/06/02 · 週二</span></a><a class="post-nav-link next" href="/articles/daily-2026-06-04/"><span class="pn-dir">後一日戰報 →</span><span class="pn-title">世界盃倒數 8 天：荷蘭被阿爾及利亞絕殺，名門狀態還能信嗎？</span><span class="pn-date">2026/06/04 · 週四</span></a></div><div class="more-dailies"><div class="md-label">更多每日戰報</div><div class="md-list"><a href="/articles/daily-2026-06-06/"><span class="md-date">2026/06/06 · 週六</span><span class="md-ttl">亞洲史上最多：9 隊闖進 2026 世界盃——日伊韓領軍，烏茲別克、約旦首次寫歷史</span></a><a href="/articles/daily-2026-06-05/"><span class="md-date">2026/06/05 · 週五</span><span class="md-ttl">世界盃倒數一週：你在電視上看不到 MetLife、SoFi、AT&amp;T——美加墨 16 座球場全導覽</span></a><a href="/articles/daily-2026-06-01/"><span class="md-date">2026/06/01 · 週一</span><span class="md-ttl">世界盃倒數 11 天：5/31 全球熱身賽全紀錄 + 6-2 不是 6-2</span></a></div></div></nav>
+  <nav class="post-nav" aria-label="文章導覽"><div class="post-nav-pair"><a class="post-nav-link prev" href="/articles/daily-2026-06-02/"><span class="pn-dir">← 前一日戰報</span><span class="pn-title">世界盃倒數 10 天：歐洲熱身賽日 + 葡萄牙的「27+1」是怎麼煉成的</span><span class="pn-date">2026/06/02 · 週二</span></a><a class="post-nav-link next" href="/articles/daily-2026-06-04/"><span class="pn-dir">後一日戰報 →</span><span class="pn-title">世界盃倒數 8 天：荷蘭被阿爾及利亞絕殺，名門狀態還能信嗎？</span><span class="pn-date">2026/06/04 · 週四</span></a></div><div class="more-dailies"><div class="md-label">更多每日戰報</div><div class="md-list"><a href="/articles/daily-2026-06-06/"><span class="md-date">2026/06/06 · 週六</span><span class="md-ttl">亞洲史上最多：9 隊闖進 2026 世界盃——日伊韓領軍，烏茲別克、約旦首次寫歷史</span></a><a href="/articles/daily-2026-06-05/"><span class="md-date">2026/06/05 · 週五</span><span class="md-ttl">世界盃倒數一週：你在電視上看不到 MetLife、SoFi、AT&amp;T——美加墨 16 座球場全導覽</span></a><a href="/articles/daily-2026-06-01/"><span class="md-date">2026/06/01 · 週一</span><span class="md-ttl">世界盃倒數 11 天：5/31 全球熱身賽全紀錄 + 6-2 不是 6-2</span></a></div></div></nav>
   <div class="article-footer">
     <a href="/" class="cta-btn">👉 訂閱你的球隊賽程</a>
     <div class="foot-links">
