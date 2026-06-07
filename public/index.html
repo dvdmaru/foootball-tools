@@ -348,6 +348,31 @@ footer .foot-sub a { color: var(--fg-soft); font-family: var(--font-mono); font-
   .theme-switch { top: 10px; right: 10px; padding: 6px 11px; gap: 9px; }
   .ts-label { display: none; }
 }
+
+/* ---------- section heading ---------- */
+.section-h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(22px, 4vw, 30px); line-height: 1.1;
+  color: var(--fg); letter-spacing: 0.3px; margin: 0 0 22px;
+  display: flex; align-items: center; gap: 14px;
+}
+.section-h2::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+/* ---------- FAQ ---------- */
+.faq { margin-top: 60px; }
+.faq-list { display: flex; flex-direction: column; gap: 14px; }
+.faq-item {
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 2px solid var(--accent-line);
+  border-radius: var(--radius); padding: 18px 20px;
+}
+.faq-q {
+  font-family: var(--font-ui); font-weight: 700; font-size: 15.5px;
+  color: var(--fg); letter-spacing: 0.2px; margin: 0 0 8px;
+  display: flex; gap: 10px;
+}
+.faq-q::before { content: 'Q'; color: var(--accent); font-family: var(--font-mono); font-weight: 700; flex-shrink: 0; }
+.faq-a { font-size: 13.5px; color: var(--fg-soft); line-height: 1.7; margin: 0; }
 </style>
 </head>
 <body>
@@ -399,7 +424,34 @@ footer .foot-sub a { color: var(--fg-soft); font-family: var(--font-mono); font-
   <div>選你的國家隊 → <b>訂閱</b>（Apple Cal 一鍵 / Google Cal 桌機貼上 URL）或 <b>下載 .ics</b>。淘汰賽抽籤完成後，訂閱版會自動 sync 進你的行事曆。</div>
 </div>
 
+<h2 class="section-h2">48 強分組賽程</h2>
 <div id="groups-container"></div>
+
+<section class="faq">
+  <h2 class="section-h2">常見問題</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3 class="faq-q">怎麼訂閱我支持球隊的世界盃賽程？</h3>
+      <p class="faq-a">在上方選你的國家隊，點「訂閱行事曆」。Apple Calendar（iPhone / Mac）會一鍵加入；Google Calendar 則在桌機版「其他日曆 → 透過網址新增」貼上該隊的 webcal 連結即可。若只想匯入當下版本，也可改點「下載 .ics 檔」。</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">訂閱後，淘汰賽對戰確定了會自動更新嗎？</h3>
+      <p class="faq-a">會。用「訂閱」（webcal://）加入的行事曆，你的日曆 App 會定期重新抓取本站連結；小組賽出線、16 強之後的對戰與開賽時間定案後會自動同步進你的行事曆，不必重新操作。</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">「訂閱」和「下載 .ics」差在哪？</h3>
+      <p class="faq-a">訂閱是長期連動，賽程一有更新就會自動 sync 進你的行事曆；下載 .ics 則是把當下的賽程複製一份匯入，之後賽程異動不會跟著變，要重新下載最新檔。想一直保持最新就用訂閱。</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">比賽時間是哪個時區？</h3>
+      <p class="faq-a">全部已換算成台北時間（UTC+8），並自動處理跨日，看到的就是你在台灣的開賽時間，不必再自己加減時差。</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">這是 FIFA 官方行事曆嗎？要付費嗎？</h3>
+      <p class="faq-a">不是。本站是非官方球迷整理的免費工具，與 FIFA／國際足總無任何關聯或授權，賽程資料整理自 FIFA、ESPN、Wikipedia 等公開來源；所有訂閱與下載皆免費。</p>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div>ICS by <a href="https://medium.com/@foootball" target="_blank" rel="noopener">@foootball</a> · 賽程資料 source：FIFA / ESPN / Wikipedia</div>
@@ -413,7 +465,7 @@ footer .foot-sub a { color: var(--fg-soft); font-family: var(--font-mono); font-
   <div class="detail-container">
     <button class="detail-close" onclick="closeDetail()">✕</button>
     <div class="detail-header">
-      <img id="detail-flag" class="detail-flag" alt="">
+      <img id="detail-flag" class="detail-flag" alt="球隊國旗">
       <div>
         <div id="detail-team-name" class="detail-team-name"></div>
         <div id="detail-group" class="detail-group"></div>
@@ -535,6 +587,7 @@ function showTeam(code) {
   gaTeamEvent('select_team');
 
   document.getElementById('detail-flag').src = flagUrl(team.iso);
+  document.getElementById('detail-flag').alt = team.name_zh + ' 國旗';
   document.getElementById('detail-team-name').innerHTML = `${esc(team.name_zh)}<span class="code">${esc(team.code)}</span>`;
   document.getElementById('detail-group').textContent = `Group ${team.group} · 訂閱 / 下載整季賽程，或點單場「Google」加進 Google Calendar。全部時間已換算為台北時間。`;
 
@@ -643,5 +696,6 @@ function setTheme(t) {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 load();
 </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://foootball.twtools.cc/#faq","inLanguage":"zh-Hant","isPartOf":{"@id":"https://foootball.twtools.cc/#website"},"mainEntity":[{"@type":"Question","name":"怎麼訂閱我支持球隊的世界盃賽程？","acceptedAnswer":{"@type":"Answer","text":"在上方選你的國家隊，點「訂閱行事曆」。Apple Calendar（iPhone / Mac）會一鍵加入；Google Calendar 則在桌機版「其他日曆 → 透過網址新增」貼上該隊的 webcal 連結即可。若只想匯入當下版本，也可改點「下載 .ics 檔」。"}},{"@type":"Question","name":"訂閱後，淘汰賽對戰確定了會自動更新嗎？","acceptedAnswer":{"@type":"Answer","text":"會。用「訂閱」（webcal://）加入的行事曆，你的日曆 App 會定期重新抓取本站連結；小組賽出線、16 強之後的對戰與開賽時間定案後會自動同步進你的行事曆，不必重新操作。"}},{"@type":"Question","name":"「訂閱」和「下載 .ics」差在哪？","acceptedAnswer":{"@type":"Answer","text":"訂閱是長期連動，賽程一有更新就會自動 sync 進你的行事曆；下載 .ics 則是把當下的賽程複製一份匯入，之後賽程異動不會跟著變，要重新下載最新檔。想一直保持最新就用訂閱。"}},{"@type":"Question","name":"比賽時間是哪個時區？","acceptedAnswer":{"@type":"Answer","text":"全部已換算成台北時間（UTC+8），並自動處理跨日，看到的就是你在台灣的開賽時間，不必再自己加減時差。"}},{"@type":"Question","name":"這是 FIFA 官方行事曆嗎？要付費嗎？","acceptedAnswer":{"@type":"Answer","text":"不是。本站是非官方球迷整理的免費工具，與 FIFA／國際足總無任何關聯或授權，賽程資料整理自 FIFA、ESPN、Wikipedia 等公開來源；所有訂閱與下載皆免費。"}}]}</script>
 </body>
 </html>
