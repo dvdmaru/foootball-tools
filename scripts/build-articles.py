@@ -17,7 +17,21 @@ Frontmatter (per article):
     title: "..."
     subtitle: "..."
     vol: N (daily only)
+    lede: "..."   # optional — 40–80 字直接答案（AEO 短答），render 成「重點速答」盒
+                  #            + 餵進 meta description / Article.description
     ---
+
+AEO FAQ（optional）：在 markdown body 末段寫一個 FAQ 區段，build 會自動產
+FAQPage JSON-LD（可見內容照常 render，schema 文字＝可見文字）：
+
+    ## 常見問題
+    ### 問句一？
+    答案段落一。
+    ### 問句二？
+    答案段落二。
+
+接受的區段標題：`## 常見問題` / `## 常見問答` / `## FAQ`。
+內容務必由人工／pipeline 依已驗事實撰寫，build 端不生成任何 FAQ 文字。
 
 用法：
     python3 scripts/build-articles.py
@@ -313,6 +327,18 @@ ARTICLE_CSS = """
 .article-meta { font-family: var(--font-mono); font-size: 12px; color: var(--dim); margin-top: 16px; letter-spacing: 1px; }
 .article-meta .dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--faint); vertical-align: middle; margin: 0 9px 2px; }
 
+.article-lede {
+  background: var(--surface-2); border-left: 2px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 15px 20px; margin: 0 0 34px;
+}
+.article-lede .lede-label {
+  display: block; font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent);
+  font-weight: 700; margin-bottom: 7px;
+}
+.article-lede p { font-size: 16px; color: var(--fg); line-height: 1.7; margin: 0; }
+
 .article-cover { width: 100%; max-width: 100%; height: auto; border-radius: var(--radius-sm); margin: 0 0 36px; box-shadow: 0 10px 30px var(--sheet-shadow); }
 
 .prose { color: var(--fg-soft); font-size: 16.5px; line-height: 1.85; }
@@ -589,10 +615,66 @@ def extract_excerpt(body: str, length: int = 120) -> str:
     return ""
 
 
+def _strip_inline_md(s: str) -> str:
+    """Drop inline markdown markers so schema text matches the rendered plain text."""
+    s = re.sub(r"\*\*(.+?)\*\*", r"\1", s)
+    s = re.sub(r"\*(.+?)\*", r"\1", s)
+    s = re.sub(r"`([^`]+)`", r"\1", s)
+    s = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", s)
+    return s.strip()
+
+
+FAQ_HEADING_RE = re.compile(r"(?m)^##[ \t]+(?:常見問題|常見問答|FAQ)[ \t]*$")
+
+
+def parse_faq(body: str):
+    """Extract (question, answer) pairs from a '## 常見問題' section so we can emit
+    FAQPage schema. The section itself stays in the body and renders as normal
+    prose (h2 + h3 + p), so the schema text always matches the visible text.
+
+    Convention: each item is a '### 問句？' heading followed by one or more
+    paragraphs of answer, until the next '###' or a new '##' section / EOF.
+    We NEVER synthesise FAQ text here — only mirror what the author wrote.
+    """
+    m = FAQ_HEADING_RE.search(body)
+    if not m:
+        return []
+    section = body[m.end():]
+    nxt = re.search(r"(?m)^##[ \t]+\S", section)  # stop at next level-2 heading
+    if nxt:
+        section = section[:nxt.start()]
+    pairs = []
+    for part in re.split(r"(?m)^###[ \t]+", section)[1:]:
+        head, _, rest = part.partition("\n")
+        q = _strip_inline_md(head.strip())
+        a = _strip_inline_md(" ".join(
+            ln.strip() for ln in rest.splitlines() if ln.strip()))
+        if q and a:
+            pairs.append((q, a))
+    return pairs
+
+
+def faq_node(pairs, page_url: str):
+    """schema.org FAQPage node from (q, a) pairs, or None when empty."""
+    if not pairs:
+        return None
+    return {
+        "@type": "FAQPage",
+        "@id": f"{page_url}#faq",
+        "inLanguage": "zh-Hant",
+        "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in pairs
+        ],
+    }
+
+
 # ---------- render ----------
 
 def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
-                   prev_nav=None, next_nav=None, more_dailies=None, nav_kind="daily") -> str:
+                   prev_nav=None, next_nav=None, more_dailies=None, nav_kind="daily",
+                   faq=None) -> str:
     typ = meta.get("type", "feature")
     if typ == "daily":
         vol = meta.get("vol", "?")
@@ -603,6 +685,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
     title_safe = html_lib.escape(title_raw)
     subtitle_raw = meta.get("subtitle", "")
     subtitle = html_lib.escape(subtitle_raw)
+    lede_raw = str(meta.get("lede", "")).strip()
     date_str = str(meta.get("date", ""))
     try:
         d = datetime.date.fromisoformat(date_str)
@@ -617,6 +700,8 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
         desc_raw = f"{desc_raw}　{excerpt}".strip("　 ") if desc_raw else excerpt
     if not desc_raw:
         desc_raw = excerpt or title_raw
+    if lede_raw:  # purpose-written short answer beats subtitle/excerpt for description
+        desc_raw = lede_raw
     desc_raw = desc_raw[:150].rstrip("　 ·，、")
     desc_safe = html_lib.escape(desc_raw)
     cover_alt = html_lib.escape(f"{title_raw}｜封面")
@@ -644,7 +729,8 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
         ("文章", f"{SITE}/articles/"),
         (title_raw, page_url),
     ])
-    jsonld = graph_ld([org_node(), website_node(), tournament_node(), article_ld, crumb])
+    jsonld = graph_ld([org_node(), website_node(), tournament_node(), article_ld, crumb,
+                       faq_node(faq, page_url)])
 
     # ----- prev/next nav + 更多每日戰報 (internal linking for SEO/engagement) -----
     # daily 走「前一日/後一日戰報」(daily 連載)；feature 走「前一篇/後一篇」(feature 之間，
@@ -697,6 +783,12 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
                   f'<div class="post-nav-pair">{prev_link}{next_link}</div>'
                   f'{more_block}</nav>')
 
+    # ----- short-answer lede (AEO 短答；早於封面、DOM 高位) -----
+    lede_html = ""
+    if lede_raw:
+        lede_html = ('\n    <div class="article-lede"><span class="lede-label">重點速答</span>'
+                     f'<p>{html_lib.escape(lede_raw)}</p></div>')
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="grass">
 <head>
@@ -740,7 +832,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
       <h1 class="article-title">{title_safe}</h1>
       <div class="article-subtitle">{subtitle}</div>
       <div class="article-meta">{date_disp}</div>
-    </header>
+    </header>{lede_html}
     <img class="article-cover" src="cover.png" alt="{cover_alt}">
     <div class="prose">
 {body_html}
@@ -914,6 +1006,7 @@ def build():
         body = strip_h1(body)
 
         excerpt = extract_excerpt(body)
+        faq = parse_faq(body)  # mirror author-written FAQ section into FAQPage schema
         body_html = md_lib.markdown(body, extensions=["extra", "sane_lists"])
 
         out_dir = OUT / slug
@@ -924,7 +1017,7 @@ def build():
                 shutil.copy2(asset, out_dir / asset.name)
 
         articles.append({"slug": slug, "meta": meta, "excerpt": excerpt,
-                         "body_html": body_html, "out_dir": out_dir})
+                         "faq": faq, "body_html": body_html, "out_dir": out_dir})
 
     # ----- compute prev/next neighbors + related (for prev/next + 更多每日戰報) -----
     # daily 之間連載；feature 之間連載（AI 圓桌三部曲等）。兩條獨立 rail，互不交叉。
@@ -962,7 +1055,7 @@ def build():
         prev_nav, next_nav, more, kind = nav_for.get(a["slug"], (None, None, [], "daily"))
         html_out = render_article(a["meta"], a["body_html"], a["slug"], a["excerpt"],
                                   prev_nav=prev_nav, next_nav=next_nav,
-                                  more_dailies=more, nav_kind=kind)
+                                  more_dailies=more, nav_kind=kind, faq=a["faq"])
         (a["out_dir"] / "index.html").write_text(html_out, encoding="utf-8")
         print(f"✅ {a['slug']}")
 
