@@ -60,15 +60,41 @@ def extract_vol(text: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def build_frontmatter(slug: str, date_str: str, title: str, vol: int) -> str:
+def extract_lede(src_dir: pathlib.Path) -> str:
+    """從 draft-v2.md frontmatter 撈 lede（站上 AEO 重點速答盒 + meta description）。
+    medium-publish.md 不帶 frontmatter，lede 的 source of truth 是 draft-v2.md（SOP §13.1）。"""
+    draft = src_dir / "draft-v2.md"
+    if not draft.exists():
+        return ""
+    text = draft.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return ""
+    end = text.find("\n---", 4)
+    if end < 0:
+        return ""
+    fm = text[4:end]
+    m = re.search(r"(?m)^lede:[ \t]*(.+?)[ \t]*$", fm)
+    if not m:
+        return ""
+    val = m.group(1).strip()
+    if len(val) >= 2 and val[0] == val[-1] and val[0] in "\"'":
+        val = val[1:-1]
+    return val.replace('\\"', '"').strip()
+
+
+def build_frontmatter(slug: str, date_str: str, title: str, vol: int, lede: str = "") -> str:
     title_esc = title.replace('"', '\\"')
+    lede_line = ""
+    if lede:
+        lede_esc = lede.replace('"', '\\"')
+        lede_line = f'\nlede: "{lede_esc}"'
     return f"""---
 slug: {slug}
 type: "daily"
 date: "{date_str}"
 title: "{title_esc}"
 subtitle: "2026 世界盃每日戰報 Vol. {vol:03d}"
-vol: {vol}
+vol: {vol}{lede_line}
 ---
 
 """
@@ -110,6 +136,13 @@ def main():
     print(f"   title: {title}")
     print(f"   vol: {vol}")
 
+    # AEO（SOP §13）：lede 從 draft-v2 frontmatter 帶上站；FAQ 走 medium-publish.md body
+    lede = extract_lede(src_dir)
+    if lede:
+        print(f"   lede: {lede[:38]}…")
+    else:
+        print("   ⚠️  draft-v2.md 沒 lede — 站上不會有重點速答盒（補 SOP §13.1）")
+
     # strip 原 frontmatter（若有）
     body = text
     if body.startswith("---"):
@@ -117,11 +150,14 @@ def main():
         if end > 0:
             body = body[end + 4:].lstrip("\n")
 
+    if not re.search(r"(?m)^##[ \t]+(常見問題|常見問答|FAQ)[ \t]*$", body):
+        print("   ⚠️  body 沒有 ## 常見問題 — 站上不會有 FAQPage（SOP §13.2 daily 必附）")
+
     print(f"📁 cp assets → articles/{slug}/")
     cp_assets(src_dir, tgt_dir)
 
     (tgt_dir / "index.md").write_text(
-        build_frontmatter(slug, date_str, title, vol) + body, encoding="utf-8"
+        build_frontmatter(slug, date_str, title, vol, lede) + body, encoding="utf-8"
     )
     print(f"✅ articles/{slug}/index.md")
 
