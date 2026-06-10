@@ -811,6 +811,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
 <meta name="twitter:description" content="{desc_safe}">
 <meta name="twitter:image" content="https://foootball.twtools.cc/articles/{slug}/cover.png">
 <link rel="canonical" href="https://foootball.twtools.cc/articles/{slug}/">{head_rels}
+<link rel="alternate" type="application/rss+xml" title="@foootball 最新文章" href="https://foootball.twtools.cc/feed.xml">
 {jsonld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -954,6 +955,7 @@ def render_index(articles: list) -> str:
 <meta name="twitter:description" content="每日戰報、規則解讀、焦點觀察。">
 <meta name="twitter:image" content="https://foootball.twtools.cc/og-home.png">
 <link rel="canonical" href="https://foootball.twtools.cc/articles/">
+<link rel="alternate" type="application/rss+xml" title="@foootball 最新文章" href="https://foootball.twtools.cc/feed.xml">
 {idx_jsonld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -979,6 +981,66 @@ def render_index(articles: list) -> str:
 </body>
 </html>
 """
+
+
+# ---------- RSS feed ----------
+# RFC-822 date 用固定英文縮寫（build 環境 locale 不定，不靠 strftime("%a")）。
+_RFC822_DAY = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+_RFC822_MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+               "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+FEED_MAX = 30  # feed 只收最近 N 篇
+
+
+def _rfc822(date_str: str) -> str:
+    """YYYY-MM-DD → 'Sun, 08 Jun 2026 08:00:00 +0800'（固定台北早上 8 點）。"""
+    try:
+        d = datetime.date.fromisoformat(date_str)
+    except Exception:
+        return ""
+    return (f"{_RFC822_DAY[d.weekday()]}, {d.day:02d} {_RFC822_MON[d.month - 1]} "
+            f"{d.year} 08:00:00 +0800")
+
+
+def render_feed(articles: list) -> str:
+    """RSS 2.0 feed（public/feed.xml）。收最近 FEED_MAX 篇 daily+feature；
+    description 優先用 lede（重點速答）→ excerpt → subtitle，全為已可見文字。"""
+    items = articles[:FEED_MAX]
+    last_build = _rfc822(str(items[0]["meta"].get("date", ""))) if items else ""
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+        "  <channel>",
+        "    <title>@foootball — 2026 世界盃戰報與專題</title>",
+        f"    <link>{SITE}/articles/</link>",
+        f'    <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml" />',
+        "    <description>2026 FIFA 世界盃每日戰報、規則解析與專題文章。</description>",
+        "    <language>zh-Hant</language>",
+    ]
+    if last_build:
+        lines.append(f"    <lastBuildDate>{last_build}</lastBuildDate>")
+    for a in items:
+        meta = a["meta"]
+        url = f"{SITE}/articles/{a['slug']}/"
+        title = html_lib.escape(str(meta.get("title", a["slug"])))
+        desc_src = (str(meta.get("lede", "")).strip()
+                    or a.get("excerpt") or str(meta.get("subtitle", "")))
+        desc = html_lib.escape(_strip_inline_md(desc_src))
+        cat = "每日戰報" if meta.get("type") == "daily" else "專題"
+        pub = _rfc822(str(meta.get("date", "")))
+        lines.append("    <item>")
+        lines.append(f"      <title>{title}</title>")
+        lines.append(f"      <link>{url}</link>")
+        lines.append(f'      <guid isPermaLink="true">{url}</guid>')
+        if pub:
+            lines.append(f"      <pubDate>{pub}</pubDate>")
+        lines.append(f"      <category>{html_lib.escape(cat)}</category>")
+        lines.append(f"      <description>{desc}</description>")
+        lines.append("    </item>")
+    lines.append("  </channel>")
+    lines.append("</rss>")
+    lines.append("")
+    return "\n".join(lines)
 
 
 # ---------- main build ----------
@@ -1069,6 +1131,11 @@ def build():
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "index.html").write_text(render_index(articles_sorted), encoding="utf-8")
     print(f"📚 index.html ({len(articles_sorted)} articles) → {OUT}/index.html")
+
+    # RSS feed at site root (/feed.xml)
+    feed_path = ROOT / "public" / "feed.xml"
+    feed_path.write_text(render_feed(articles_sorted), encoding="utf-8")
+    print(f"📡 feed.xml ({min(len(articles_sorted), FEED_MAX)} items) → {feed_path}")
 
 
 if __name__ == "__main__":

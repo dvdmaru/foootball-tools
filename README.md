@@ -18,6 +18,7 @@
 - `public/_headers` — CSP / HSTS / X-Frame-Options / X-Content-Type-Options / Referrer-Policy / Permissions-Policy
 - `public/robots.txt` — 開放搜尋 + AI 答案引擎（需在 CF dashboard 關閉 managed Block-AI-bots 才生效）
 - `public/sitemap.xml` — `scripts/gen-sitemap.py` 掃 `public/**/index.html` 自動產生
+- `public/feed.xml` — RSS 2.0；`scripts/build-articles.py` 收最近 30 篇（daily+feature），description 取 `lede`→excerpt→subtitle；各頁 `<head>` 已加 autodiscovery `<link>`
 - 全站 JSON-LD（Organization / WebSite / SportsEvent / Article / SportsTeam / BreadcrumbList）
 
 ## 用戶 UX：訂閱 / 下載 / 加入 Google Calendar
