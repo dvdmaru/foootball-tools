@@ -127,26 +127,75 @@ def gd_str(gd):
     return f"+{gd}" if gd > 0 else str(gd)
 
 
-def render_group_block(grp, teams, matches, tbl, played_any):
-    """teams: list of code（該組 4 隊）"""
-    # 排序：Pts → GD → GF → code（未開賽全 0 時退化成 code 序，穩定）
-    rows = sorted(
-        teams,
-        key=lambda c: (-tbl[c]["Pts"], -tbl[c]["GD"], -tbl[c]["GF"], c),
+def group_sort(codes, tbl):
+    """組內排序：Pts → GD → GF → code（穩定）。"""
+    return sorted(codes, key=lambda c: (-tbl[c]["Pts"], -tbl[c]["GD"], -tbl[c]["GF"], c))
+
+
+def clinched_top2(code, group_codes, tbl):
+    """保守判定 code 是否『數學上鎖定前 2』：最壞情況=自己剩下全輸(停在現有積分)、
+    對手各自剩下全贏。若至多 1 隊『有可能 ≥ 自己現有積分』，則保證至少第 2。
+    永不誤標（tiebreak 不確定時一律算威脅，頂多晚標半步）。每隊小組賽固定 3 場。"""
+    floor = tbl[code]["Pts"]
+    threats = 0
+    for y in group_codes:
+        if y == code:
+            continue
+        y_max = tbl[y]["Pts"] + 3 * (3 - tbl[y]["P"])
+        if y_max >= floor:
+            threats += 1
+    return threats <= 1
+
+
+def compute_qualified(groups, tbl):
+    """回傳 (adv_codes, lead_codes)：
+    - adv_codes：掛實心『晉級』徽章 — 已鎖定前 2（in-progress 用 clinch、整組踢完用最終前 2），
+      以及全 12 組踢完後算出的 8 個最佳第三名。
+    - lead_codes：小組賽進行中『目前居晉級區』的當前前 2（未鎖定），只給淡色 highlight、不放字；
+      未開賽(該組 0 場)的組不給，避免照種子序假標。"""
+    adv, lead = set(), set()
+    all_complete = all(
+        all(has_score(m) for m in groups[g]["matches"]) for g in groups
     )
+    for g in groups:
+        gcodes = groups[g]["teams"]
+        gmatches = groups[g]["matches"]
+        complete = all(has_score(m) for m in gmatches)
+        played = any(has_score(m) for m in gmatches)
+        order = group_sort(gcodes, tbl)
+        if complete:
+            adv.update(order[:2])
+        else:
+            for c in gcodes:
+                if clinched_top2(c, gcodes, tbl):
+                    adv.add(c)
+            if played:
+                for c in order[:2]:
+                    if c not in adv:
+                        lead.add(c)
+    # 8 個最佳第三名：全部小組踢完才算得出
+    if all_complete and groups:
+        thirds = [group_sort(groups[g]["teams"], tbl)[2] for g in groups
+                  if len(groups[g]["teams"]) >= 3]
+        for c in group_sort(thirds, tbl)[:8]:
+            adv.add(c)
+    return adv, lead
+
+
+def render_group_block(grp, teams, matches, tbl, adv_codes, lead_codes):
+    """teams: list of code（該組 4 隊）"""
+    rows = group_sort(teams, tbl)
     body = []
     for i, code in enumerate(rows):
         r = tbl[code]
         rank = i + 1
         cls = ""
         badge = ""
-        if played_any:
-            if rank <= 2:
-                cls = " std-adv"  # 直接晉級
-                badge = '<span class="std-q std-q-direct">晉級</span>'
-            elif rank == 3:
-                cls = " std-third"  # 最佳第三可能晉級
-                badge = '<span class="std-q std-q-maybe">第三</span>'
+        if code in adv_codes:
+            cls = " std-adv"  # 已鎖定晉級（含最佳第三）
+            badge = '<span class="std-q std-q-direct">晉級</span>'
+        elif code in lead_codes:
+            cls = " std-third"  # 目前居晉級區（未鎖定）— 淡色，不放字
         body.append(
             f'<tr class="{cls.strip()}">'
             f'<td class="std-rank">{rank}</td>'
@@ -295,8 +344,9 @@ def render_page(matches, ko, played_any, scorers=None, scorers_updated=None):
                 groups[g]["teams"].append(c)
         groups[g]["matches"].append(m)
 
+    adv_codes, lead_codes = compute_qualified(groups, tbl)
     group_blocks = "".join(
-        render_group_block(g, groups[g]["teams"], groups[g]["matches"], tbl, played_any)
+        render_group_block(g, groups[g]["teams"], groups[g]["matches"], tbl, adv_codes, lead_codes)
         for g in sorted(groups)
     )
 
