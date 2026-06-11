@@ -1,31 +1,40 @@
 #!/usr/bin/env python3
 """fetch-results.py — 抓 2026 世界盃已踢完比分 + 射手榜，寫回站台資料。
 
-每日（小組賽 6/11 起）由 update-fixtures.py 呼叫：
-1. 用 OpenAI gpt-5 + web_search 抓「已踢完」比賽的 final score + 目前射手榜
+每日（小組賽 6/11 起）由 update-fixtures.py 呼叫（6:00 / 12:30 / 14:30 三次增量）：
+1. **主抓 = Claude headless + WebSearch**（走 Max 額度零 API 費；FETCH_BACKEND，預設 claude）
+   抓「已踢完」比賽的 final score + 目前射手榜
 2. LLM 只負責填**我們給的 match_no**（deterministic，不靠隊名 fuzzy match）
 3. normalize 後寫回：
    - public/fixtures-data.json → matches[].home_score / away_score（int；#2 積分 source of truth）
    - public/standings/scorers.json → 射手榜（#4）
    build-standings.py 之後讀這兩份自動算積分 + render 射手榜。
+4. **--cross-check（僅 14:30 那次）**：主抓寫完後，用 OpenAI 獨立複查已填比分，
+   不一致 → 推 LINE 告警 + **保留 Claude 值不覆寫**（人工判斷）。
+
+增量 / 冪等：只填「已踢完且有有效比分」的場次，未踢完拿不到比分一律 skip、不覆寫既有值
+→ 同一天跑幾次都安全，沒新東西就 0 更新（update-fixtures 外層不 commit）。
 
 防 upstream drift（[[feedback_pipeline_upstream_output_normalize]]）：
 - 只接受 int 比分、0..29 sanity range，缺/非數字一律 skip（不覆寫既有值）
 - 只問 date <= today 且非 placeholder 隊（"Winner …" 等）的場次
-- date-guard：today < 2026-06-11 直接 skip exit 0（開賽前無資料，省 OpenAI cost）
+- date-guard：today < 2026-06-11 直接 skip exit 0（開賽前無資料）
 
 用法：
-    python3 fetch-results.py                 # live fetch（預設）
-    python3 fetch-results.py --from-file X   # 從本地 json 注入（測試用，不打 API）
-    python3 fetch-results.py --dry-run       # 只 print 不寫檔
+    python3 fetch-results.py                 # 主抓（FETCH_BACKEND，預設 claude）
+    python3 fetch-results.py --cross-check    # 主抓 + OpenAI 獨立複查（14:30 那次）
+    python3 fetch-results.py --backend openai # 強指定 backend
+    python3 fetch-results.py --from-file X    # 從本地 json 注入（測試，不打 API）
+    python3 fetch-results.py --dry-run        # 只 print 不寫檔（不跑 cross-check）
 
-成本：~$0.10-0.20 / 次（gpt-5 + web_search），latency 3-5 min
+成本：Claude 主抓零 API 費；OpenAI cross-check ~$0.10-0.20 / 次（14:30 一天一次）
 """
 
 import argparse
 import datetime
 import importlib.util
 import json
+import os
 import pathlib
 import re
 import sys
@@ -34,17 +43,31 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 FIXTURES_DATA = PUBLIC / "fixtures-data.json"
 SCORERS_JSON = PUBLIC / "standings" / "scorers.json"
+NOTIFY_PENDING = pathlib.Path(
+    "/Users/charlie.chien/Library/CloudStorage/Dropbox/AI/CoWork/notify-system/pending"
+)
 
 GROUP_START = datetime.date(2026, 6, 11)  # 小組賽開賽，results 從這天起才有意義
 SANITY_MAX = 29                            # 單隊單場進球上限 sanity（史上最高 31:0 是極端，留餘裕）
 PLACEHOLDER_RE = re.compile(r"\b(Winner|Runner-up|Loser|Best 3rd)\b", re.I)
 
-# ---- 借 fetch-fixtures.py 的 load_env + call_openai_responses（單一來源）----
+# ---- 借 fetch-fixtures.py 的 load_env + call_openai_responses（OpenAI = cross-check 用）----
 _spec = importlib.util.spec_from_file_location(
     "fetch_fixtures", ROOT / "scripts" / "fetch-fixtures.py"
 )
 ff = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(ff)
+
+# ---- 主抓 helper：headless Claude + WebSearch（claude_fetch.py，零 API 費）----
+_cf_spec = importlib.util.spec_from_file_location(
+    "claude_fetch", ROOT / "scripts" / "claude_fetch.py"
+)
+cf = importlib.util.module_from_spec(_cf_spec)
+_cf_spec.loader.exec_module(cf)
+
+
+def has_score(m):
+    return isinstance(m.get("home_score"), int) and isinstance(m.get("away_score"), int)
 
 
 # ---------------- prompt ----------------
@@ -160,12 +183,95 @@ def apply_results(fixtures_data, results_map):
     return updated, changed
 
 
+# ---------------- backend fetch + cross-check ----------------
+
+def run_fetch(askable, backend, env, dry_run, save_raw=True):
+    """用指定 backend 抓 askable 場次的比分 + 射手榜，回 parsed payload dict。
+    backend='claude'（主抓，零 API 費）/ 'openai'（cross-check）。"""
+    prompt = build_prompt(askable)
+    if backend == "claude":
+        print(f"📤 Claude headless fetch（sonnet + WebSearch，Max 額度零 API 費）：問 {len(askable)} 場 …")
+        resp = cf.call_claude_headless(prompt)
+    else:
+        print(f"📤 OpenAI {env.get('OPENAI_MODEL', 'gpt-5')} + web_search：問 {len(askable)} 場 …")
+        resp = ff.call_openai_responses(
+            prompt,
+            env.get("OPENAI_MODEL", "gpt-5"),
+            env["OPENAI_API_KEY"],
+            env.get("OPENAI_RESPONSES_ENDPOINT", "https://api.openai.com/v1/responses"),
+        )
+    # 存 raw 供 audit（fixtures/*.raw.json 已 gitignore）；claude 無 raw 物件則略過
+    if save_raw and not dry_run and resp.get("raw") is not None:
+        (ROOT / "fixtures" / "results.raw.json").write_text(
+            json.dumps(resp["raw"], ensure_ascii=False, indent=1), encoding="utf-8"
+        )
+    return extract_json(resp["text"])
+
+
+def notify_line(msg, today):
+    """寫 .txt 到 notify-system/pending/ 觸發 LINE 推播（複用 Daily 通知管線）。"""
+    if not NOTIFY_PENDING.exists():
+        print("⚠️ notify-system pending/ 不存在，跳過 LINE 通知")
+        return
+    ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    out = NOTIFY_PENDING / f"foootball-standings-crosscheck-{today.isoformat()}-{ts}.txt"
+    out.write_text(msg, encoding="utf-8")
+    print(f"📲 cross-check 通知 queued → {out.name}")
+
+
+def cross_check(fixtures_data, env, today):
+    """OpenAI 獨立複查目前『已填比分』場次：不一致 → 推 LINE，**不覆寫**（保留 Claude 主抓值）。
+    OpenAI 缺某場 / key 缺 / 呼叫失敗一律 soft-fail（主抓已上站，cross-check 不影響）。"""
+    matches = fixtures_data["matches"]
+    valid_nos = {m["match_no"] for m in matches}
+    scored = [
+        m for m in matches
+        if has_score(m) and m["date"] <= today.isoformat()
+        and not PLACEHOLDER_RE.search(m["home_team"])
+        and not PLACEHOLDER_RE.search(m["away_team"])
+    ]
+    if not scored:
+        print("🔍 cross-check：目前無已填比分可查，skip")
+        return
+    if not env.get("OPENAI_API_KEY"):
+        print("⚠️ cross-check：OPENAI_API_KEY 找不到，skip（主抓 Claude 已完成，不影響上站）")
+        return
+    print(f"🔍 cross-check：OpenAI 獨立複查 {len(scored)} 場已填比分 …")
+    try:
+        payload = run_fetch(scored, "openai", env, dry_run=True, save_raw=False)
+    except Exception as e:
+        print(f"⚠️ cross-check OpenAI 失敗（soft-fail，不影響上站）：{str(e)[:200]}")
+        return
+    oai = clean_results(payload.get("results"), valid_nos)
+    by_no = {m["match_no"]: m for m in matches}
+    mism = []
+    for mn, (h, a) in oai.items():
+        cur = by_no.get(mn)
+        if cur and has_score(cur) and (cur["home_score"], cur["away_score"]) != (h, a):
+            mism.append((mn, cur["home_team"], cur["away_team"],
+                         (cur["home_score"], cur["away_score"]), (h, a)))
+    if not mism:
+        print(f"✅ cross-check 一致（OpenAI 回 {len(oai)} 場，比對無差異）")
+        return
+    lines = [f"⚠️ 戰況比分 cross-check 不一致（{today.isoformat()}）",
+             "Claude 主抓 vs OpenAI 複查：", ""]
+    for mn, h, a, c, o in mism:
+        lines.append(f"第{mn}場 {h} vs {a}：站上 {c[0]}-{c[1]} ｜ OpenAI {o[0]}-{o[1]}")
+    lines += ["", "站上目前保留 Claude 值（未覆寫），請人工查證後決定是否更正。"]
+    notify_line("\n".join(lines), today)
+    print(f"⚠️ cross-check 抓到 {len(mism)} 場不一致 → 已推 LINE；站上保留 Claude 值不覆寫")
+
+
 # ---------------- main ----------------
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--from-file", help="從本地 json 注入 results/scorers（測試，不打 API）")
-    ap.add_argument("--dry-run", action="store_true", help="不寫檔，只 print")
+    ap.add_argument("--dry-run", action="store_true", help="不寫檔，只 print（不跑 cross-check）")
+    ap.add_argument("--cross-check", action="store_true",
+                    help="主抓寫完後用 OpenAI 獨立複查已填比分（不一致推 LINE，不覆寫）")
+    ap.add_argument("--backend", choices=["claude", "openai"],
+                    help="覆寫主抓 backend；預設 env FETCH_BACKEND 或 claude")
     args = ap.parse_args()
 
     today = datetime.date.today()
@@ -177,8 +283,9 @@ def main():
     fixtures_data = json.loads(FIXTURES_DATA.read_text(encoding="utf-8"))
     matches = fixtures_data["matches"]
     valid_nos = {m["match_no"] for m in matches}
+    env = {} if args.from_file else ff.load_env()
 
-    # 取得 raw payload
+    # 取得 raw payload（主抓）
     if args.from_file:
         payload = json.loads(pathlib.Path(args.from_file).read_text(encoding="utf-8"))
         print(f"🧪 from-file: {args.from_file}")
@@ -193,21 +300,11 @@ def main():
         if not askable:
             print("📭 沒有 date<=today 的可問場次，skip")
             sys.exit(0)
-        print(f"📤 OpenAI fetch：問 {len(askable)} 場（date<=今天）的最終比分 + 射手榜 …")
-        env = ff.load_env()
-        api_key = env.get("OPENAI_API_KEY")
-        model = env.get("OPENAI_MODEL", "gpt-5")
-        endpoint = env.get("OPENAI_RESPONSES_ENDPOINT", "https://api.openai.com/v1/responses")
-        if not api_key:
-            print("❌ OPENAI_API_KEY 找不到（pipeline.env / meeting-tool/.env）")
+        backend = args.backend or os.environ.get("FETCH_BACKEND", "claude")
+        if backend == "openai" and not env.get("OPENAI_API_KEY"):
+            print("❌ backend=openai 但 OPENAI_API_KEY 找不到（meeting-tool/.env）")
             sys.exit(1)
-        resp = ff.call_openai_responses(build_prompt(askable), model, api_key, endpoint)
-        # 存 raw 供 audit（fixtures/*.raw.json 已 gitignore，不進 commit）
-        if not args.dry_run:
-            (ROOT / "fixtures" / "results.raw.json").write_text(
-                json.dumps(resp["raw"], ensure_ascii=False, indent=1), encoding="utf-8"
-            )
-        payload = extract_json(resp["text"])
+        payload = run_fetch(askable, backend, env, args.dry_run)
 
     results_map = clean_results(payload.get("results"), valid_nos)
     scorers = clean_scorers(payload.get("scorers"))
@@ -229,6 +326,10 @@ def main():
         encoding="utf-8",
     )
     print(f"💾 寫回 fixtures-data.json（{updated} 場）+ scorers.json（{len(scorers)} 人）")
+
+    # cross-check（僅 14:30 那次帶 --cross-check）：OpenAI 獨立複查，不一致推 LINE、不覆寫
+    if args.cross_check and not args.from_file:
+        cross_check(fixtures_data, env, today)
 
 
 if __name__ == "__main__":

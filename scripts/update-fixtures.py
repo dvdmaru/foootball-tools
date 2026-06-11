@@ -2,8 +2,9 @@
 """
 update-fixtures.py — 戰況數據每日 orchestrator（比分 + 射手榜 + 淘汰賽）+ git push
 
-每天 launchd 13:33 跑（worldcup-daily 13:03 跑完 ~30 min 後），date-gated 兩段：
-1. fetch-results.py（6/11 起）→ 抓已踢完比分 + 射手榜，寫回 fixtures-data.json + scorers.json
+每天 launchd 6:00 / 12:30 / 14:30 跑（增量；多數日中午前就更新完，中午開球場滑到 14:30），date-gated：
+1. fetch-results.py（6/11 起）→ Claude headless 主抓已踢完比分 + 射手榜（零 API 費），
+   寫回 fixtures-data.json + scorers.json；14:30 那次加 --cross-check（OpenAI 獨立複查、不一致推 LINE）
 2. fetch-fixtures.py knockout + gen-ics.py（6/28 起）→ 淘汰賽真隊 + 重生 ICS
 3. build-standings.py → 重生 /standings/（積分自動算 from 比分 + 射手榜 + bracket）
 4. git diff fixtures/ + public/（results.raw.json 已 gitignore）：
@@ -79,9 +80,13 @@ def main():
         log(f"⚠️  working tree dirty, abort:\n{r.stdout}")
         sys.exit(1)
 
-    # 1. fetch results（小組賽比分 + 射手榜）— 6/11 起每天
+    # 1. fetch results（小組賽比分 + 射手榜）— 6/11 起每天，6:00 / 12:30 / 14:30 增量
+    #    主抓 = Claude headless（零 API 費）；下午那次（hour>=14）加 --cross-check 用 OpenAI 獨立複查。
     #    fetch-results.py 內部也有 date-guard；fetch 失敗不 abort 整條（仍可用既有資料 rebuild）。
-    step("fetch-results.py（比分 + 射手榜）", ["python3", "scripts/fetch-results.py"], fatal=False)
+    cross = datetime.datetime.now().hour >= 14   # 14:30 那次跑 cross-check（6:00 / 12:30 純主抓）
+    fetch_cmd = ["python3", "scripts/fetch-results.py"] + (["--cross-check"] if cross else [])
+    step(f"fetch-results.py（比分 + 射手榜{'｜+OpenAI cross-check' if cross else ''}）",
+         fetch_cmd, fatal=False)
 
     # 2. knockout fetch + ICS regen — 6/28 起（淘汰賽抽完後才有實質真隊）
     if today >= KNOCKOUT_START:
@@ -106,9 +111,9 @@ def main():
     phase = "knockout + 比分" if today >= KNOCKOUT_START else "小組賽比分 + 射手榜"
     commit_msg = f"""chore(auto): update {phase} {date_str}
 
-自動 trigger by launchd 13:33 cron (com.charlie.foootball-tools-update.plist).
+自動 trigger by launchd 6:00/12:30/14:30 cron (com.charlie.foootball-tools-update.plist).
 
-來源：fetch-results.py（比分 + 射手榜，OpenAI gpt-5 + web_search）
+來源：fetch-results.py（比分 + 射手榜，Claude headless 主抓 + WebSearch；14:30 OpenAI cross-check）
 {"+ fetch-fixtures.py knockout + gen-ics.py（ICS regen）" if today >= KNOCKOUT_START else ""}
 戰況中心 rebuild：build-standings.py（積分自動算 + 射手榜 + bracket）
 
