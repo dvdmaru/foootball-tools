@@ -55,7 +55,7 @@ def step(label, cmd, fatal=True):
     if r.stdout.strip():
         log(r.stdout.strip())
     if r.returncode != 0:
-        log(f"{'❌' if fatal else '⚠️'} {label} 失敗: {r.stderr.strip()[:500]}")
+        log(f"{'❌' if fatal else '⚠️'} {label} 失敗: {r.stderr.strip()[:3000]}")
         if fatal:
             sys.exit(1)
     return r.returncode

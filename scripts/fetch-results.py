@@ -219,7 +219,10 @@ def main():
         print(json.dumps({"results": results_map, "scorers": scorers}, ensure_ascii=False, indent=1)[:800])
         return
 
-    FIXTURES_DATA.write_text(json.dumps(fixtures_data, ensure_ascii=False), encoding="utf-8")
+    if updated == 0:
+        print("⏭️ 0 場比分更新——fixtures-data.json 保持原樣不重寫（避免 minify 假 diff；2026-06-11）")
+    else:
+        FIXTURES_DATA.write_text(json.dumps(fixtures_data, ensure_ascii=False, indent=2), encoding="utf-8")
     SCORERS_JSON.parent.mkdir(parents=True, exist_ok=True)
     SCORERS_JSON.write_text(
         json.dumps({"updated": today.isoformat(), "scorers": scorers}, ensure_ascii=False, indent=1),
