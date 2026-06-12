@@ -17,22 +17,22 @@
   },
   {
    "rank": 3,
-   "player": "Ladislav Krejci",
-   "team_code": "CZE",
+   "player": "Hwang In-beom",
+   "team_code": "KOR",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 4,
-   "player": "Hwang In-beom",
+   "player": "Oh Hyeon-gyu",
    "team_code": "KOR",
    "goals": 1,
-   "assists": 1
+   "assists": null
   },
   {
    "rank": 5,
-   "player": "Oh Hyeon-gyu",
-   "team_code": "KOR",
+   "player": "Ladislav Krejci",
+   "team_code": "CZE",
    "goals": 1,
    "assists": null
   }
