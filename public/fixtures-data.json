@@ -370,7 +370,9 @@
       "home_code": "KOR",
       "away_team": "Czechia",
       "away_iso": "cz",
-      "away_code": "CZE"
+      "away_code": "CZE",
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "match_no": 3,
