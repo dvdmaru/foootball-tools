@@ -30,6 +30,7 @@ import sys
 
 REPO = pathlib.Path("/Users/charlie.chien/Github-Repo/foootball-tools")
 COMMIT_MSG_TMP = pathlib.Path("/tmp/foootball-tools-commit-msg.txt")
+PY = sys.executable  # launchd 下裸 "python3" 會掉到沒裝 markdown 的系統 python；用同一支 interpreter spawn 子腳本
 
 
 def run(cmd, **kwargs):
@@ -84,17 +85,17 @@ def main():
     #    主抓 = Claude headless（零 API 費）；下午那次（hour>=14）加 --cross-check 用 OpenAI 獨立複查。
     #    fetch-results.py 內部也有 date-guard；fetch 失敗不 abort 整條（仍可用既有資料 rebuild）。
     cross = datetime.datetime.now().hour >= 14   # 14:30 那次跑 cross-check（6:00 / 12:30 純主抓）
-    fetch_cmd = ["python3", "scripts/fetch-results.py"] + (["--cross-check"] if cross else [])
+    fetch_cmd = [PY, "scripts/fetch-results.py"] + (["--cross-check"] if cross else [])
     step(f"fetch-results.py（比分 + 射手榜{'｜+OpenAI cross-check' if cross else ''}）",
          fetch_cmd, fatal=False)
 
     # 2. knockout fetch + ICS regen — 6/28 起（淘汰賽抽完後才有實質真隊）
     if today >= KNOCKOUT_START:
-        step("fetch-fixtures.py knockout", ["python3", "scripts/fetch-fixtures.py", "knockout"])
-        step("gen-ics.py（重生 ICS）", ["python3", "scripts/gen-ics.py"])
+        step("fetch-fixtures.py knockout", [PY, "scripts/fetch-fixtures.py", "knockout"])
+        step("gen-ics.py（重生 ICS）", [PY, "scripts/gen-ics.py"])
 
     # 3. rebuild 戰況中心（積分 from 比分 + 射手榜 + bracket）
-    step("build-standings.py（戰況中心）", ["python3", "scripts/build-standings.py"])
+    step("build-standings.py（戰況中心）", [PY, "scripts/build-standings.py"])
 
     # 4. diff 看有沒有變動（results.raw.json 已 .gitignore，不進 commit）
     run(["git", "add", "fixtures/", "public/"])

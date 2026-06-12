@@ -164,7 +164,7 @@ def main():
     print()
     print("🔨 build-articles.py …")
     res = subprocess.run(
-        ["python3", str(ROOT / "scripts/build-articles.py")],
+        [sys.executable, str(ROOT / "scripts/build-articles.py")],
         cwd=ROOT, capture_output=True, text=True
     )
     print(res.stdout)
