@@ -11,6 +11,8 @@
    build-standings.py 之後讀這兩份自動算積分 + render 射手榜。
 4. **--cross-check（僅 14:30 那次）**：主抓寫完後，用 OpenAI 獨立複查已填比分，
    不一致 → 推 LINE 告警 + **保留 Claude 值不覆寫**（人工判斷）。
+5. **主抓失敗推 LINE（別無聲）**：claude token 過期 / CLI 異常 / timeout / 回傳非 JSON
+   → 推 LINE + exit 1（站上維持既有比分；下個排程時段自動重試）。「0 場比分」不算失敗。
 
 增量 / 冪等：只填「已踢完且有有效比分」的場次，未踢完拿不到比分一律 skip、不覆寫既有值
 → 同一天跑幾次都安全，沒新東西就 0 更新（update-fixtures 外層不 commit）。
@@ -208,15 +210,16 @@ def run_fetch(askable, backend, env, dry_run, save_raw=True):
     return extract_json(resp["text"])
 
 
-def notify_line(msg, today):
-    """寫 .txt 到 notify-system/pending/ 觸發 LINE 推播（複用 Daily 通知管線）。"""
+def notify_line(msg, today, kind="crosscheck"):
+    """寫 .txt 到 notify-system/pending/ 觸發 LINE 推播（複用 Daily 通知管線）。
+    kind 決定檔名前綴（crosscheck / fetchfail），讓不同告警不互相覆蓋。"""
     if not NOTIFY_PENDING.exists():
         print("⚠️ notify-system pending/ 不存在，跳過 LINE 通知")
         return
     ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    out = NOTIFY_PENDING / f"foootball-standings-crosscheck-{today.isoformat()}-{ts}.txt"
+    out = NOTIFY_PENDING / f"foootball-standings-{kind}-{today.isoformat()}-{ts}.txt"
     out.write_text(msg, encoding="utf-8")
-    print(f"📲 cross-check 通知 queued → {out.name}")
+    print(f"📲 {kind} 通知 queued → {out.name}")
 
 
 def cross_check(fixtures_data, env, today):
@@ -304,7 +307,28 @@ def main():
         if backend == "openai" and not env.get("OPENAI_API_KEY"):
             print("❌ backend=openai 但 OPENAI_API_KEY 找不到（meeting-tool/.env）")
             sys.exit(1)
-        payload = run_fetch(askable, backend, env, args.dry_run)
+        try:
+            payload = run_fetch(askable, backend, env, args.dry_run)
+        except Exception as e:
+            # 主抓掛了（claude token 過期 / CLI 異常 / timeout / 回傳非 JSON）→ 推 LINE 別無聲。
+            # 註：「0 場比分」不會走到這（那是正常 parse，下方處理）；這裡只接「抓取機制壞掉」。
+            err = str(e)[:300]
+            print(f"❌ 主抓失敗（backend={backend}）：{err}")
+            if not args.dry_run:
+                now = datetime.datetime.now().strftime("%H:%M")
+                msg = "\n".join([
+                    f"❌ 戰況中心主抓失敗（{today.isoformat()} {now}）",
+                    f"backend={backend}（主抓 = Claude headless，零 API 費）",
+                    "",
+                    f"錯誤：{err}",
+                    "",
+                    "可能原因：Claude Max 登入 token 過期 / claude CLI 異常 / 回傳非 JSON。",
+                    "影響：本次未更新，站上維持既有比分（不會顯示錯誤資料）。",
+                    "下一個排程時段（6:00 / 12:30 / 14:30）會自動重試。",
+                    "若連續失敗：手動跑 `claude -p hi` 確認登入，或看 /tmp/foootball-tools-update.stdout.log。",
+                ])
+                notify_line(msg, today, kind="fetchfail")
+            sys.exit(1)
 
     results_map = clean_results(payload.get("results"), valid_nos)
     scorers = clean_scorers(payload.get("scorers"))
