@@ -1,0 +1,8 @@
+{
+  "_note": "射手榜中文譯名（curated，台灣媒體/維基慣用為主）。key=fetch 回傳的英文名；查表時 build-standings 會去除變音符號+大小寫不敏感比對。新射手出現時補一行即可，未收錄者站上顯示英文名。",
+  "Julian Quinones": "胡利安·基尼奧內斯",
+  "Raul Jimenez": "勞爾·希門尼斯",
+  "Hwang In-beom": "黃仁範",
+  "Oh Hyeon-gyu": "吳賢揆",
+  "Ladislav Krejci": "拉迪斯拉夫·克雷伊奇"
+}

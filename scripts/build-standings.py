@@ -16,11 +16,32 @@ Data：public/fixtures-data.json（teams / matches / team_zh）+ fixtures/knocko
 import importlib.util
 import json
 import pathlib
+import unicodedata
 from datetime import datetime, timedelta
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PUBLIC = ROOT / "public"
 FIXTURES = ROOT / "fixtures"
+
+
+def _norm_name(s):
+    """去除變音符號 + casefold，讓 'Raúl Jiménez' 與 'Raul Jimenez' 都能對到中文譯名。"""
+    s = unicodedata.normalize("NFKD", s or "")
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return s.casefold().strip()
+
+
+def load_player_zh():
+    """讀 scripts/player-zh.json（curated 射手中文譯名，台媒/維基慣用）。回 normalized-key dict。
+    未收錄者射手榜顯示英文名；新射手出現時補一行即可（fetch 不碰此檔，不會被覆寫）。"""
+    p = ROOT / "scripts" / "player-zh.json"
+    if not p.exists():
+        return {}
+    raw = json.loads(p.read_text(encoding="utf-8"))
+    return {_norm_name(k): v for k, v in raw.items() if not k.startswith("_")}
+
+
+PLAYER_ZH = load_player_zh()
 
 # ---- 沿用 build-articles 的共用 design tokens（單一來源，避免 drift）----
 _spec = importlib.util.spec_from_file_location(
@@ -315,10 +336,13 @@ def render_scorers(scorers, updated):
         team_zh = ZH.get(s.get("team_code"), s.get("team_code", ""))
         assists = s.get("assists")
         a_cell = str(assists) if isinstance(assists, int) else "—"
+        zh = PLAYER_ZH.get(_norm_name(s["player"]))
+        scorer_cell = (f'<span class="sc-en">{s["player"]}</span><span class="sc-zh">{zh}</span>'
+                       if zh else s["player"])
         rows.append(
             '<tr>'
             f'<td class="std-rank">{s.get("rank","")}</td>'
-            f'<td class="std-scorer">{s["player"]}</td>'
+            f'<td class="std-scorer">{scorer_cell}</td>'
             f'<td class="std-scorer-team">{flag_img}<span>{team_zh}</span></td>'
             f'<td class="std-pts">{s["goals"]}</td>'
             f'<td>{a_cell}</td>'
@@ -548,6 +572,8 @@ PAGE_CSS = """
 .std-scorers-table { max-width: 560px; }
 .std-scorers-table td { padding: 10px 8px; }
 .std-scorer { text-align: left !important; color: var(--fg); font-weight: 700; }
+.std-scorer .sc-en { display: block; }
+.std-scorer .sc-zh { display: block; font-size: .82em; font-weight: 500; color: var(--fg-soft); margin-top: 1px; letter-spacing: .3px; }
 .std-scorer-team { text-align: left !important; }
 .std-scorer-team span { color: var(--fg-soft); }
 .std-scorer-team .std-flag { display: inline-block; vertical-align: middle; margin-right: 7px; }
