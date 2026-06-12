@@ -388,7 +388,9 @@
       "home_code": "CAN",
       "away_team": "Bosnia and Herzegovina",
       "away_iso": "ba",
-      "away_code": "BIH"
+      "away_code": "BIH",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "match_no": 4,

@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-12",
+ "updated": "2026-06-13",
  "scorers": [
   {
    "rank": 1,
@@ -17,22 +17,36 @@
   },
   {
    "rank": 3,
+   "player": "Ladislav Krejci",
+   "team_code": "CZE",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 4,
    "player": "Hwang In-beom",
    "team_code": "KOR",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 4,
+   "rank": 5,
    "player": "Oh Hyeon-gyu",
    "team_code": "KOR",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 5,
-   "player": "Ladislav Krejci",
-   "team_code": "CZE",
+   "rank": 6,
+   "player": "Jovo Lukic",
+   "team_code": "BIH",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 7,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
    "goals": 1,
    "assists": null
   }
