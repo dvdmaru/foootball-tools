@@ -38,8 +38,8 @@
   },
   {
    "rank": 6,
-   "player": "Gio Reyna",
-   "team_code": "USA",
+   "player": "Ladislav Krejci",
+   "team_code": "CZE",
    "goals": 1,
    "assists": null
   },
@@ -52,22 +52,15 @@
   },
   {
    "rank": 8,
-   "player": "Ladislav Krejci",
-   "team_code": "CZE",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 9,
    "player": "Jovo Lukic",
    "team_code": "BIH",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 10,
-   "player": "Mauricio",
-   "team_code": "PAR",
+   "rank": 9,
+   "player": "Gio Reyna",
+   "team_code": "USA",
    "goals": 1,
    "assists": null
   }
