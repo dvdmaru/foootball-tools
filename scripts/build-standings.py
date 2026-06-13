@@ -15,6 +15,7 @@ Data：public/fixtures-data.json（teams / matches / team_zh）+ fixtures/knocko
 
 import importlib.util
 import json
+import os
 import pathlib
 import unicodedata
 from datetime import datetime, timedelta
@@ -22,6 +23,14 @@ from datetime import datetime, timedelta
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PUBLIC = ROOT / "public"
 FIXTURES = ROOT / "fixtures"
+
+# 缺中文譯名的射手偵測：每次 render 收集，跑完寫檔 + 印出（launchd 下另推 LINE）。
+# 房規＝每日只補當天實際進球者（不 seed 全部 1248 名球員）；此 list 讓 gap 永不無聲消失。
+NOTIFY_PENDING = pathlib.Path(
+    "/Users/charlie.chien/Library/CloudStorage/Dropbox/AI/CoWork/notify-system/pending"
+)
+MISSING_ZH_FILE = ROOT / "scripts" / "player-zh-missing.txt"
+MISSING_ZH = []  # list of (player, team_code)，render_scorers 填、build() 收
 
 
 def _norm_name(s):
@@ -329,6 +338,7 @@ def render_scorers(scorers, updated):
                 '小組賽期間每場進球都會累積到這裡。</div>'
                 '<div class="std-stats-empty">⚽<br>開賽後見真章</div>')
     rows = []
+    MISSING_ZH.clear()
     for s in scorers:
         code = (s.get("team_code") or "").lower()
         flag_img = (f'<img class="std-flag" src="https://flagcdn.com/w160/{ISO.get(s["team_code"], code)}.png" alt="" loading="lazy">'
@@ -337,6 +347,8 @@ def render_scorers(scorers, updated):
         assists = s.get("assists")
         a_cell = str(assists) if isinstance(assists, int) else "—"
         zh = PLAYER_ZH.get(_norm_name(s["player"]))
+        if not zh:
+            MISSING_ZH.append((s["player"], s.get("team_code") or ""))
         scorer_cell = (f'<span class="sc-en">{s["player"]}</span><span class="sc-zh">{zh}</span>'
                        if zh else s["player"])
         rows.append(
@@ -596,6 +608,38 @@ def load_scorers():
     return d.get("scorers", []), d.get("updated")
 
 
+def _notify_line(msg):
+    """寫 .txt 到 notify-system/pending/ 觸發 LINE 推播（複用 Daily 通知管線）。"""
+    if not NOTIFY_PENDING.exists():
+        print("⚠️ notify-system pending/ 不存在，跳過 LINE 通知")
+        return
+    ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+    out = NOTIFY_PENDING / f"foootball-standings-missingzh-{ts}.txt"
+    out.write_text(msg, encoding="utf-8")
+    print(f"📲 缺譯名通知 queued → {out.name}")
+
+
+def report_missing_zh():
+    """射手榜有查無中文譯名的射手 → 寫 player-zh-missing.txt + 印出；
+    launchd 下（STANDINGS_NOTIFY=1）另推 LINE，提醒當天補名。無缺則清掉舊檔。"""
+    if not MISSING_ZH:
+        if MISSING_ZH_FILE.exists():
+            MISSING_ZH_FILE.unlink()
+        return
+    lines = [f'{p}\t{c}' for p, c in MISSING_ZH]
+    body = ("# 射手榜查無中文譯名（房規：維基全名優先，缺退台媒姓氏）\n"
+            "# 補進 scripts/player-zh.json 後重跑 build-standings.py 即消失\n"
+            + "\n".join(lines) + "\n")
+    MISSING_ZH_FILE.write_text(body, encoding="utf-8")
+    names = "、".join(p for p, _ in MISSING_ZH)
+    print(f"⚠️ {len(MISSING_ZH)} 個射手缺中文譯名（站上暫顯英文）：{names}")
+    print(f"   清單 → {MISSING_ZH_FILE}")
+    if os.environ.get("STANDINGS_NOTIFY") == "1":
+        msg = (f"👟 戰況中心射手榜：{len(MISSING_ZH)} 個新射手缺中文譯名\n"
+               f"{names}\n（站上暫顯英文，補 player-zh.json 即可）")
+        _notify_line(msg)
+
+
 def build():
     global ZH, ISO
     matches, ko, ZH, ISO = load_data()
@@ -605,6 +649,7 @@ def build():
     out = PUBLIC / "standings"
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(html, encoding="utf-8")
+    report_missing_zh()
     state = "進行中（有比分）" if played_any else "未開賽（賽程 only）"
     print(f"✅ /standings/index.html — {len(matches)} 場賽程 / 12 組 / 射手榜 {len(scorers)} 人 / 狀態：{state}")
 

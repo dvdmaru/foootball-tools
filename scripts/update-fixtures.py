@@ -23,6 +23,7 @@ Logs:
 """
 
 import datetime
+import os
 import pathlib
 import shutil
 import subprocess
@@ -95,6 +96,8 @@ def main():
         step("gen-ics.py（重生 ICS）", [PY, "scripts/gen-ics.py"])
 
     # 3. rebuild 戰況中心（積分 from 比分 + 射手榜 + bracket）
+    #    STANDINGS_NOTIFY=1 → 射手榜出現查無中文譯名的新射手時推 LINE（手動跑不設此旗、不擾人）
+    os.environ["STANDINGS_NOTIFY"] = "1"
     step("build-standings.py（戰況中心）", [PY, "scripts/build-standings.py"])
 
     # 4. diff 看有沒有變動（results.raw.json 已 .gitignore，不進 commit）

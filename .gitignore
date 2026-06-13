@@ -16,6 +16,10 @@ node_modules/
 # OpenAI raw responses — keep locally for audit, don't commit (含 search reasoning trace)
 fixtures/*.raw.json
 
+# 射手榜缺中文譯名清單（build-standings 每跑重生的暫態 artifact，不進 commit；
+# 否則下次 update-fixtures.py step 0「working tree clean」guard 會誤判 dirty 而 abort）
+scripts/player-zh-missing.txt
+
 # 製作 backstage（含模型名/工作稿/workflow）— 不進公開 repo
 editorial/
 
