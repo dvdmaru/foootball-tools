@@ -406,7 +406,9 @@
       "home_code": "USA",
       "away_team": "Paraguay",
       "away_iso": "py",
-      "away_code": "PAR"
+      "away_code": "PAR",
+      "home_score": 4,
+      "away_score": 1
     },
     {
       "match_no": 5,

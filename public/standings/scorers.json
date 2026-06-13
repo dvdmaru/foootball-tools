@@ -3,22 +3,22 @@
  "scorers": [
   {
    "rank": 1,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 2,
    "player": "Julian Quinones",
    "team_code": "MEX",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 2,
+   "rank": 3,
    "player": "Raul Jimenez",
    "team_code": "MEX",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 3,
-   "player": "Ladislav Krejci",
-   "team_code": "CZE",
    "goals": 1,
    "assists": null
   },
@@ -38,8 +38,8 @@
   },
   {
    "rank": 6,
-   "player": "Jovo Lukic",
-   "team_code": "BIH",
+   "player": "Gio Reyna",
+   "team_code": "USA",
    "goals": 1,
    "assists": null
   },
@@ -47,6 +47,27 @@
    "rank": 7,
    "player": "Cyle Larin",
    "team_code": "CAN",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 8,
+   "player": "Ladislav Krejci",
+   "team_code": "CZE",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 9,
+   "player": "Jovo Lukic",
+   "team_code": "BIH",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 10,
+   "player": "Mauricio",
+   "team_code": "PAR",
    "goals": 1,
    "assists": null
   }
