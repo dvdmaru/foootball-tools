@@ -31,14 +31,14 @@
   },
   {
    "rank": 5,
-   "player": "Hwang In-beom",
+   "player": "In-Beom Hwang",
    "team_code": "KOR",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 6,
-   "player": "Oh Hyun-gyu",
+   "player": "Hyun-Gyu Oh",
    "team_code": "KOR",
    "goals": 1,
    "assists": null
@@ -59,15 +59,15 @@
   },
   {
    "rank": 9,
-   "player": "Gio Reyna",
-   "team_code": "USA",
+   "player": "Mauricio",
+   "team_code": "PAR",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 10,
-   "player": "Mauricio",
-   "team_code": "PAR",
+   "player": "Gio Reyna",
+   "team_code": "USA",
    "goals": 1,
    "assists": null
   },
@@ -87,36 +87,22 @@
   },
   {
    "rank": 13,
-   "player": "Boualem Khoukhi",
-   "team_code": "QAT",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 14,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 15,
    "player": "Ismael Saibari",
    "team_code": "MAR",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 16,
-   "player": "Nestory Irankunda",
-   "team_code": "AUS",
+   "rank": 14,
+   "player": "Vinicius Jr.",
+   "team_code": "BRA",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 17,
-   "player": "Connor Metcalfe",
-   "team_code": "AUS",
+   "rank": 15,
+   "player": "Boualem Khoukhi",
+   "team_code": "QAT",
    "goals": 1,
    "assists": null
   }
