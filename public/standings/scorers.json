@@ -105,6 +105,20 @@
    "team_code": "MAR",
    "goals": 1,
    "assists": null
+  },
+  {
+   "rank": 16,
+   "player": "Nestory Irankunda",
+   "team_code": "AUS",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 17,
+   "player": "Connor Metcalfe",
+   "team_code": "AUS",
+   "goals": 1,
+   "assists": null
   }
  ]
 }
