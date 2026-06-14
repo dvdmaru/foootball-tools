@@ -24,36 +24,36 @@
   },
   {
    "rank": 4,
-   "player": "Hwang In-beom",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 5,
-   "player": "Oh Hyeon-gyu",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 6,
    "player": "Ladislav Krejci",
    "team_code": "CZE",
    "goals": 1,
    "assists": null
   },
   {
+   "rank": 5,
+   "player": "Hwang In-beom",
+   "team_code": "KOR",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 6,
+   "player": "Oh Hyun-gyu",
+   "team_code": "KOR",
+   "goals": 1,
+   "assists": null
+  },
+  {
    "rank": 7,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
+   "player": "Jovo Lukic",
+   "team_code": "BIH",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 8,
-   "player": "Jovo Lukic",
-   "team_code": "BIH",
+   "player": "Cyle Larin",
+   "team_code": "CAN",
    "goals": 1,
    "assists": null
   },
@@ -66,22 +66,22 @@
   },
   {
    "rank": 10,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
+   "player": "Mauricio",
+   "team_code": "PAR",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 11,
-   "player": "Ismael Saibari",
-   "team_code": "MAR",
+   "player": "Breel Embolo",
+   "team_code": "SUI",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 12,
-   "player": "Breel Embolo",
-   "team_code": "SUI",
+   "player": "John McGinn",
+   "team_code": "SCO",
    "goals": 1,
    "assists": null
   },
@@ -89,6 +89,20 @@
    "rank": 13,
    "player": "Boualem Khoukhi",
    "team_code": "QAT",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 14,
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 15,
+   "player": "Ismael Saibari",
+   "team_code": "MAR",
    "goals": 1,
    "assists": null
   }

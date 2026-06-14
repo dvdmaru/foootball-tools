@@ -424,7 +424,9 @@
       "home_code": "HAI",
       "away_team": "Scotland",
       "away_iso": "gb",
-      "away_code": "SCO"
+      "away_code": "SCO",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "match_no": 6,
@@ -440,7 +442,9 @@
       "home_code": "AUS",
       "away_team": "Turkiye",
       "away_iso": "tr",
-      "away_code": "TUR"
+      "away_code": "TUR",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "match_no": 7,
