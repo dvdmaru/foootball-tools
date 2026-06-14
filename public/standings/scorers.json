@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-14",
+ "updated": "2026-06-15",
  "scorers": [
   {
    "rank": 1,
@@ -10,71 +10,71 @@
   },
   {
    "rank": 2,
+   "player": "Kai Havertz",
+   "team_code": "GER",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 3,
    "player": "Julian Quinones",
    "team_code": "MEX",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 3,
+   "rank": 4,
    "player": "Raul Jimenez",
    "team_code": "MEX",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 4,
-   "player": "Hwang In-beom",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
    "rank": 5,
-   "player": "Oh Hyeon-gyu",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 6,
-   "player": "Ladislav Krejci",
-   "team_code": "CZE",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 7,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 8,
-   "player": "Jovo Lukic",
-   "team_code": "BIH",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 9,
    "player": "Gio Reyna",
    "team_code": "USA",
    "goals": 1,
    "assists": null
   },
   {
+   "rank": 6,
+   "player": "In-Beom Hwang",
+   "team_code": "KOR",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 7,
+   "player": "Hyun-Gyu Oh",
+   "team_code": "KOR",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 8,
+   "player": "Ladislav Krejci",
+   "team_code": "CZE",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 9,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
+   "goals": 1,
+   "assists": null
+  },
+  {
    "rank": 10,
-   "player": "Mauricio",
-   "team_code": "PAR",
+   "player": "Jovo Lukic",
+   "team_code": "BIH",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 11,
-   "player": "Breel Embolo",
-   "team_code": "SUI",
+   "player": "Mauricio",
+   "team_code": "PAR",
    "goals": 1,
    "assists": null
   },
@@ -87,29 +87,22 @@
   },
   {
    "rank": 13,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 14,
-   "player": "Ismael Saibari",
-   "team_code": "MAR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 15,
    "player": "Nestory Irankunda",
    "team_code": "AUS",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 16,
+   "rank": 14,
    "player": "Connor Metcalfe",
    "team_code": "AUS",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 15,
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
    "goals": 1,
    "assists": null
   }

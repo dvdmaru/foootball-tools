@@ -512,7 +512,9 @@
       "home_code": "GER",
       "away_team": "Curaçao",
       "away_iso": "cw",
-      "away_code": "CUW"
+      "away_code": "CUW",
+      "home_score": 7,
+      "away_score": 1
     },
     {
       "match_no": 11,
@@ -528,7 +530,9 @@
       "home_code": "NED",
       "away_team": "Japan",
       "away_iso": "jp",
-      "away_code": "JPN"
+      "away_code": "JPN",
+      "home_score": 2,
+      "away_score": 2
     },
     {
       "match_no": 12,
