@@ -125,8 +125,24 @@ def extract_json(text):
     return json.loads(text[start : end + 1])
 
 
+def kickoff_dt(m):
+    """從 match 的 date + kickoff_taipei（"HH:MM" 或 "HH:MM+1"）算出台北開球 datetime；無法解析回 None。
+    用來擋「未開球場次」的幻覺比分／射手（LLM 偶爾會替還沒踢的場次編結果；2026-06-14 德國 4-0 古拉索整場捏造）。"""
+    mo = re.match(r"\s*(\d{1,2}):(\d{2})(\+1)?\s*$", str(m.get("kickoff_taipei", "")))
+    if not mo:
+        return None
+    try:
+        d = datetime.date.fromisoformat(m["date"])
+    except (KeyError, ValueError):
+        return None
+    if mo.group(3):
+        d += datetime.timedelta(days=1)
+    return datetime.datetime(d.year, d.month, d.day, int(mo.group(1)), int(mo.group(2)))
+
+
 def clean_results(raw_results, valid_match_nos):
-    """normalize results：只留 int 比分 + 在賽程內 + sanity range 的場次。回 dict[match_no -> (h, a)]。"""
+    """normalize results：只留 int 比分 + 在賽程內 + sanity range 的場次。回 dict[match_no -> (h, a)]。
+    注意：valid_match_nos 由呼叫端只放「已開球」場次，未開球的幻覺比分在此被排除。"""
     out = {}
     for r in raw_results or []:
         try:
@@ -143,8 +159,10 @@ def clean_results(raw_results, valid_match_nos):
     return out
 
 
-def clean_scorers(raw_scorers):
-    """normalize 射手榜：rank/goals 為 int、player 非空。"""
+def clean_scorers(raw_scorers, allowed_teams=None):
+    """normalize 射手榜：rank/goals 為 int、player 非空。
+    allowed_teams（已開踢球隊 set）非 None 時，丟棄所屬球隊還沒開踢任何一場的射手
+    （擋幻覺：球隊沒上場過就不可能有人進球；2026-06-14 德國 4 名假射手由此擋下）。"""
     out = []
     for s in raw_scorers or []:
         try:
@@ -154,10 +172,14 @@ def clean_scorers(raw_scorers):
             continue
         if not player or goals < 0 or goals > 60:
             continue
+        team = str(s.get("team_code", "")).strip().upper()[:3]
+        if allowed_teams is not None and team and team not in allowed_teams:
+            print(f"🛑 丟棄幻覺射手：{player}（{team} 尚未開踢）")
+            continue
         out.append({
             "rank": int(s.get("rank", 0)) or None,
             "player": player,
-            "team_code": str(s.get("team_code", "")).strip().upper()[:3],
+            "team_code": team,
             "goals": goals,
             "assists": int(s["assists"]) if isinstance(s.get("assists"), (int, str)) and str(s.get("assists")).isdigit() else None,
         })
@@ -330,8 +352,23 @@ def main():
                 notify_line(msg, today, kind="fetchfail")
             sys.exit(1)
 
-    results_map = clean_results(payload.get("results"), valid_nos)
-    scorers = clean_scorers(payload.get("scorers"))
+    # 未開球 guard：只接受「台北時間已過開球」場次的比分／射手（擋 LLM 替未踢場次編結果）。
+    # 無法解析 kickoff_taipei 的場次保守視為「可接受」（fail-open，不誤殺真實資料）。
+    now = datetime.datetime.now()
+    kicked_nos, played_teams = set(), set()
+    for m in matches:
+        ko = kickoff_dt(m)
+        if ko is None or now >= ko:
+            kicked_nos.add(m["match_no"])
+            played_teams.update(c for c in (m.get("home_code"), m.get("away_code")) if c)
+    raw_result_nos = {int(r["match_no"]) for r in (payload.get("results") or [])
+                      if str(r.get("match_no", "")).strip().lstrip("-").isdigit()}
+    phantom = (raw_result_nos & valid_nos) - kicked_nos
+    if phantom:
+        print(f"🛑 拒收 {len(phantom)} 場未開球的幻覺比分：match {sorted(phantom)}")
+
+    results_map = clean_results(payload.get("results"), valid_nos & kicked_nos)
+    scorers = clean_scorers(payload.get("scorers"), allowed_teams=played_teams)
     updated, changed = apply_results(fixtures_data, results_map)
     print(f"✅ parse：{len(results_map)} 場有效比分（寫入 {updated}）、射手榜 {len(scorers)} 人")
 

@@ -457,8 +457,8 @@
       "away_team": "Morocco",
       "away_iso": "ma",
       "away_code": "MAR",
-      "home_score": 0,
-      "away_score": 0
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "match_no": 8,
@@ -508,9 +508,7 @@
       "home_code": "GER",
       "away_team": "Curaçao",
       "away_iso": "cw",
-      "away_code": "CUW",
-      "home_score": 4,
-      "away_score": 0
+      "away_code": "CUW"
     },
     {
       "match_no": 11,

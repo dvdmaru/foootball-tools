@@ -66,43 +66,29 @@
   },
   {
    "rank": 10,
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 11,
+   "player": "Ismael Saibari",
+   "team_code": "MAR",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 12,
    "player": "Breel Embolo",
    "team_code": "SUI",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 11,
+   "rank": 13,
    "player": "Boualem Khoukhi",
    "team_code": "QAT",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 12,
-   "player": "Nick Woltemade",
-   "team_code": "GER",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 13,
-   "player": "Deniz Undav",
-   "team_code": "GER",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 14,
-   "player": "Florian Wirtz",
-   "team_code": "GER",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 15,
-   "player": "Jamal Musiala",
-   "team_code": "GER",
    "goals": 1,
    "assists": null
   }
