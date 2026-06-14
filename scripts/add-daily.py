@@ -172,12 +172,24 @@ def main():
         print(res.stderr, file=sys.stderr)
         sys.exit(res.returncode)
 
+    # 重生 sitemap（gen-sitemap.py 動態 rglob 全站 index.html）——新文章才會被 Google 發現。
+    # 之前漏接這步：feed.xml 由 build-articles 自動更新、但 sitemap 卡在舊日期漏掉整週新文（2026-06-14 修）。
+    print("🗺️  gen-sitemap.py …")
+    res = subprocess.run(
+        [sys.executable, str(ROOT / "scripts/gen-sitemap.py")],
+        cwd=ROOT, capture_output=True, text=True
+    )
+    print(res.stdout)
+    if res.returncode != 0:
+        print(res.stderr, file=sys.stderr)
+        sys.exit(res.returncode)
+
     print()
     print("📋 git status:")
     subprocess.run(["git", "status", "--short"], cwd=ROOT)
     print()
     print(f"→ 確認 OK 後 commit:")
-    print(f"   git add articles/{slug} public/articles/")
+    print(f"   git add articles/{slug} public/articles/ public/sitemap.xml public/feed.xml")
     print(f'   git commit -m "feat(articles): daily {date_str} Vol. {vol:03d}"')
     print(f"   git push origin main")
 

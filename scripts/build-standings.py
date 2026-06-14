@@ -435,6 +435,7 @@ def render_page(matches, ko, played_any, scorers=None, scorers_updated=None):
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="{og_img}">
 <meta property="og:site_name" content="@FOOOTBALL">
+<meta property="og:locale" content="zh_TW">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}｜2026 世界盃 賽程・積分・射手榜">
 <meta name="twitter:description" content="{desc}">

@@ -115,3 +115,15 @@ vol: 5
 ---
 
 **Tags**：世界盃, 2026 世界盃, 美加墨世界盃, 足球, 世界盃球場, 阿茲特克球場, MetLife
+
+## 常見問題
+
+### 為什麼世界盃轉播看不到 MetLife、SoFi、AT&T 這些球場名字？
+因為 FIFA 的商業規則：賽事期間不能在場館名稱上替非贊助商企業免費打廣告，所以會把冠名贊助球場「去商標化」改用地理名稱。例如 MetLife Stadium 改稱 New York New Jersey Stadium、SoFi Stadium 改稱 Los Angeles Stadium、AT&T Stadium 改稱 Dallas Stadium。
+
+### 2026 世界盃的開幕戰與決賽在哪座球場？
+開幕戰在墨西哥城的阿茲特克球場（FIFA 賽事名 Mexico City Stadium），墨西哥隊將於 6 月 11 日在此對南非；它是全世界唯一辦過三屆男足世界盃的球場（1970、1986、2026）。決賽於 7 月 19 日在紐澤西的 MetLife Stadium（FIFA 賽事名 New York New Jersey Stadium）舉行，FIFA 賽事容量約 7.86 萬人，是 16 座之中最大的一座。
+
+### 2026 世界盃共有幾座球場？分布在哪些國家？
+2026 世界盃共有 16 座球場，分布在美國 11 座、墨西哥 3 座、加拿大 2 座。這屆是史上第一次三國合辦、也是第一次擴軍到 48 隊、104 場比賽，自 6 月 11 日至 7 月 19 日橫跨 39 天。最小的球場是多倫多 Toronto Stadium（BMO Field，FIFA 賽事容量約 44,315）。
+
