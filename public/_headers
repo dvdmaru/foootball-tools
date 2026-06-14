@@ -11,3 +11,10 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://flagcdn.com https://www.googletagmanager.com https://*.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; upgrade-insecure-requests
+
+# ICS 行事曆檔：明確宣告 UTF-8。內容含中文＋國旗 emoji，預設 text/calendar 不帶
+# charset，配上全站 nosniff（禁止 client 猜編碼）會讓嚴格的 Google Calendar importer
+# 解析多位元組失敗 → 訂閱後「您無法存取 …@import.calendar.google.com」。Apple Calendar
+# 較寬鬆故無感。（2026-06-14 Charlie 訂閱日本隊行事曆踩到）
+/cal/*
+  Content-Type: text/calendar; charset=utf-8
