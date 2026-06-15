@@ -496,7 +496,9 @@
       "home_code": "CIV",
       "away_team": "Ecuador",
       "away_iso": "ec",
-      "away_code": "ECU"
+      "away_code": "ECU",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "match_no": 10,
@@ -548,7 +550,9 @@
       "home_code": "SWE",
       "away_team": "Tunisia",
       "away_iso": "tn",
-      "away_code": "TUN"
+      "away_code": "TUN",
+      "home_score": 5,
+      "away_score": 1
     },
     {
       "match_no": 13,

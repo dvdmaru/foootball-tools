@@ -17,92 +17,92 @@
   },
   {
    "rank": 3,
-   "player": "Julian Quinones",
-   "team_code": "MEX",
-   "goals": 1,
+   "player": "Yasin Ayari",
+   "team_code": "SWE",
+   "goals": 2,
    "assists": null
   },
   {
    "rank": 4,
-   "player": "Raul Jimenez",
-   "team_code": "MEX",
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 5,
-   "player": "Gio Reyna",
-   "team_code": "USA",
+   "player": "Jamal Musiala",
+   "team_code": "GER",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 6,
-   "player": "In-Beom Hwang",
-   "team_code": "KOR",
+   "player": "Viktor Gyokeres",
+   "team_code": "SWE",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 7,
-   "player": "Hyun-Gyu Oh",
-   "team_code": "KOR",
+   "player": "Alexander Isak",
+   "team_code": "SWE",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 8,
-   "player": "Ladislav Krejci",
-   "team_code": "CZE",
+   "player": "Virgil van Dijk",
+   "team_code": "NED",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 9,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
+   "player": "Crysencio Summerville",
+   "team_code": "NED",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 10,
-   "player": "Jovo Lukic",
-   "team_code": "BIH",
+   "player": "Daichi Kamada",
+   "team_code": "JPN",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 11,
-   "player": "Mauricio",
-   "team_code": "PAR",
+   "player": "Amad Diallo",
+   "team_code": "CIV",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 12,
-   "player": "John McGinn",
-   "team_code": "SCO",
+   "player": "Giovanni Reyna",
+   "team_code": "USA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 13,
+   "player": "Breel Embolo",
+   "team_code": "SUI",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 14,
    "player": "Nestory Irankunda",
    "team_code": "AUS",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 14,
-   "player": "Connor Metcalfe",
-   "team_code": "AUS",
-   "goals": 1,
-   "assists": null
-  },
-  {
    "rank": 15,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
+   "player": "Ismael Saibari",
+   "team_code": "MAR",
    "goals": 1,
    "assists": null
   }
