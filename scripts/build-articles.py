@@ -374,15 +374,17 @@ ARTICLE_CSS = """
 .prose tbody tr:last-child td { border-bottom: none; }
 .prose tbody tr:hover td { background: var(--surface-2); }
 .prose table strong { color: var(--accent); font-variant-numeric: tabular-nums; }
-/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths */
-.prose table th:nth-child(1), .prose table td:nth-child(1) { width: 24%; }
-.prose table th:nth-child(2), .prose table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
-.prose table th:nth-child(3), .prose table td:nth-child(3) { width: 22%; }
-.prose table th:nth-child(4), .prose table td:nth-child(4) { width: 45%; }
+/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths.
+   只套 daily：feature/preview 的多欄表（5–6 欄）改走 auto 排版，否則第 4 欄吃滿 45%
+   會把後面的欄位擠成一字一行。 */
+.prose--daily table th:nth-child(1), .prose--daily table td:nth-child(1) { width: 24%; }
+.prose--daily table th:nth-child(2), .prose--daily table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
+.prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { width: 22%; }
+.prose--daily table th:nth-child(4), .prose--daily table td:nth-child(4) { width: 45%; }
 @media (max-width: 640px) {
   .prose table { font-size: 13px; }
   .prose th, .prose td { padding: 9px 10px; }
-  .prose table th:nth-child(3), .prose table td:nth-child(3) { font-size: 12px; }
+  .prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { font-size: 12px; }
 }
 .prose code { background: var(--surface-3); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.92em; color: var(--fg); }
 .prose pre { background: var(--surface-3); padding: 14px 16px; border-radius: var(--radius-sm); overflow-x: auto; margin: 20px 0; }
@@ -835,7 +837,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
       <div class="article-meta">{date_disp}</div>
     </header>{lede_html}
     <img class="article-cover" src="cover.png" alt="{cover_alt}">
-    <div class="prose">
+    <div class="prose{' prose--daily' if typ == 'daily' else ''}">
 {body_html}
     </div>
   </article>

@@ -205,15 +205,17 @@ body::before {
 .prose tbody tr:last-child td { border-bottom: none; }
 .prose tbody tr:hover td { background: var(--surface-2); }
 .prose table strong { color: var(--accent); font-variant-numeric: tabular-nums; }
-/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths */
-.prose table th:nth-child(1), .prose table td:nth-child(1) { width: 24%; }
-.prose table th:nth-child(2), .prose table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
-.prose table th:nth-child(3), .prose table td:nth-child(3) { width: 22%; }
-.prose table th:nth-child(4), .prose table td:nth-child(4) { width: 45%; }
+/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths.
+   只套 daily：feature/preview 的多欄表（5–6 欄）改走 auto 排版，否則第 4 欄吃滿 45%
+   會把後面的欄位擠成一字一行。 */
+.prose--daily table th:nth-child(1), .prose--daily table td:nth-child(1) { width: 24%; }
+.prose--daily table th:nth-child(2), .prose--daily table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
+.prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { width: 22%; }
+.prose--daily table th:nth-child(4), .prose--daily table td:nth-child(4) { width: 45%; }
 @media (max-width: 640px) {
   .prose table { font-size: 13px; }
   .prose th, .prose td { padding: 9px 10px; }
-  .prose table th:nth-child(3), .prose table td:nth-child(3) { font-size: 12px; }
+  .prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { font-size: 12px; }
 }
 .prose code { background: var(--surface-3); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.92em; color: var(--fg); }
 .prose pre { background: var(--surface-3); padding: 14px 16px; border-radius: var(--radius-sm); overflow-x: auto; margin: 20px 0; }
@@ -308,7 +310,7 @@ body::before {
     </header>
     <div class="article-lede"><span class="lede-label">重點速答</span><p>常被點名的三支黑馬候選挪威、哥倫比亞、摩洛哥，今天剛好都踢了熱身賽——但他們是三種不同類型的黑馬：挪威 FIFA 僅第 31、睽違 28 年回歸；哥倫比亞第 13、南美實力派；摩洛哥已是第 8、上屆四強的『黑馬天花板』。</p></div>
     <img class="article-cover" src="cover.png" alt="三種黑馬，今天同日出賽：挪威、哥倫比亞、摩洛哥的爆冷劇本｜封面">
-    <div class="prose">
+    <div class="prose prose--daily">
 <p><strong>2026 世界盃每日戰報 Vol. 008</strong></p>
 <h2>§1 即時比分戰報</h2>
 <p>開幕在即，6/7 是相對安靜的賽前熱身日，競技面沒有大比分或冷門爆點。本篇聚焦其中 4 場與世界盃黑馬敘事相關的熱身賽——當天上場的隊伍裡，藏著本屆最常被點名的三支黑馬候選：摩洛哥、挪威、哥倫比亞，正好是 §4 今天要談的主角。比較沉重的一刻發生在歐登塞：丹麥對烏克蘭一戰因艾力臣（Christian Eriksen）場上倒地而中止。以下為這 4 場：</p>

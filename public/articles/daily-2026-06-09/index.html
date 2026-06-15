@@ -205,15 +205,17 @@ body::before {
 .prose tbody tr:last-child td { border-bottom: none; }
 .prose tbody tr:hover td { background: var(--surface-2); }
 .prose table strong { color: var(--accent); font-variant-numeric: tabular-nums; }
-/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths */
-.prose table th:nth-child(1), .prose table td:nth-child(1) { width: 24%; }
-.prose table th:nth-child(2), .prose table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
-.prose table th:nth-child(3), .prose table td:nth-child(3) { width: 22%; }
-.prose table th:nth-child(4), .prose table td:nth-child(4) { width: 45%; }
+/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths.
+   只套 daily：feature/preview 的多欄表（5–6 欄）改走 auto 排版，否則第 4 欄吃滿 45%
+   會把後面的欄位擠成一字一行。 */
+.prose--daily table th:nth-child(1), .prose--daily table td:nth-child(1) { width: 24%; }
+.prose--daily table th:nth-child(2), .prose--daily table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
+.prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { width: 22%; }
+.prose--daily table th:nth-child(4), .prose--daily table td:nth-child(4) { width: 45%; }
 @media (max-width: 640px) {
   .prose table { font-size: 13px; }
   .prose th, .prose td { padding: 9px 10px; }
-  .prose table th:nth-child(3), .prose table td:nth-child(3) { font-size: 12px; }
+  .prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { font-size: 12px; }
 }
 .prose code { background: var(--surface-3); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.92em; color: var(--fg); }
 .prose pre { background: var(--surface-3); padding: 14px 16px; border-radius: var(--radius-sm); overflow-x: auto; margin: 20px 0; }
@@ -308,7 +310,7 @@ body::before {
     </header>
     <div class="article-lede"><span class="lede-label">重點速答</span><p>2026 世界盃 6 月 11 日在墨西哥城阿茲特克球場揭幕，由地主墨西哥對南非——正是 2010 年世界盃開幕戰（當年 1-1）的重演。阿茲特克也將成為史上第一座三度舉辦世界盃、三度承辦開幕戰的球場。</p></div>
     <img class="article-cover" src="cover.png" alt="開幕倒數 2 天：世界盃將在阿茲特克揭幕——史上第一座『三辦』球場｜封面">
-    <div class="prose">
+    <div class="prose prose--daily">
 <p><strong>2026 世界盃每日戰報 Vol. 009</strong></p>
 <h2>§1 即時比分戰報</h2>
 <p>開幕只剩 2 天，6/8 各隊踢完世界盃前最後的熱身賽。沒有冷門，倒是兩位射手包辦版面：法國的 Olise 在里爾上演帽子戲法、為 Deschamps 的主場告別作收，荷蘭的 Gakpo 則用兩記點球在紐約驚險贏球。以下為這 2 場：</p>

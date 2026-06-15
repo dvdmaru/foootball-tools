@@ -205,15 +205,17 @@ body::before {
 .prose tbody tr:last-child td { border-bottom: none; }
 .prose tbody tr:hover td { background: var(--surface-2); }
 .prose table strong { color: var(--accent); font-variant-numeric: tabular-nums; }
-/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths */
-.prose table th:nth-child(1), .prose table td:nth-child(1) { width: 24%; }
-.prose table th:nth-child(2), .prose table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
-.prose table th:nth-child(3), .prose table td:nth-child(3) { width: 22%; }
-.prose table th:nth-child(4), .prose table td:nth-child(4) { width: 45%; }
+/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths.
+   只套 daily：feature/preview 的多欄表（5–6 欄）改走 auto 排版，否則第 4 欄吃滿 45%
+   會把後面的欄位擠成一字一行。 */
+.prose--daily table th:nth-child(1), .prose--daily table td:nth-child(1) { width: 24%; }
+.prose--daily table th:nth-child(2), .prose--daily table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
+.prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { width: 22%; }
+.prose--daily table th:nth-child(4), .prose--daily table td:nth-child(4) { width: 45%; }
 @media (max-width: 640px) {
   .prose table { font-size: 13px; }
   .prose th, .prose td { padding: 9px 10px; }
-  .prose table th:nth-child(3), .prose table td:nth-child(3) { font-size: 12px; }
+  .prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { font-size: 12px; }
 }
 .prose code { background: var(--surface-3); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.92em; color: var(--fg); }
 .prose pre { background: var(--surface-3); padding: 14px 16px; border-radius: var(--radius-sm); overflow-x: auto; margin: 20px 0; }
@@ -308,7 +310,7 @@ body::before {
     </header>
     <div class="article-lede"><span class="lede-label">重點速答</span><p>世界盃開幕日的最後一批熱身賽收齊：梅西在阿根廷 3-0 冰島一戰替補登場、點球破門，替自己的世界盃前準備畫上句點；英格蘭 3-0 完封哥斯大黎加、葡萄牙 2-1 險勝奈及利亞。台北時間 6/12 凌晨 3 點，墨西哥對南非的揭幕戰在阿茲特克開踢——公開熱身結束，正賽開始。</p></div>
     <img class="article-cover" src="cover.png" alt="開幕日：梅西替補破門、英格蘭 3-0 完封——最後一批公開熱身結束，比分開始算真的｜封面">
-    <div class="prose">
+    <div class="prose prose--daily">
 <p><strong>2026 世界盃每日戰報 Vol. 011</strong></p>
 <h2>§1 即時比分戰報</h2>
 <p>本戰報追蹤到 5 場 UTC 6/10 的收官熱身賽——這是 2026 世界盃開打前的最後一批公開國際熱身賽。最大亮點在奧本：梅西第 70 分鐘替補登場、第 72 分鐘主罰 12 碼命中，用一顆進球替自己的賽前準備收尾；英格蘭則在奧蘭多用一場 3-0 完封交出乾淨的收官答卷。以下為這 5 場：</p>

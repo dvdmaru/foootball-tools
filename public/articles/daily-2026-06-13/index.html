@@ -205,15 +205,17 @@ body::before {
 .prose tbody tr:last-child td { border-bottom: none; }
 .prose tbody tr:hover td { background: var(--surface-2); }
 .prose table strong { color: var(--accent); font-variant-numeric: tabular-nums; }
-/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths */
-.prose table th:nth-child(1), .prose table td:nth-child(1) { width: 24%; }
-.prose table th:nth-child(2), .prose table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
-.prose table th:nth-child(3), .prose table td:nth-child(3) { width: 22%; }
-.prose table th:nth-child(4), .prose table td:nth-child(4) { width: 45%; }
+/* daily 戰報 §1 4-column table: 賽事 / 比分 / 場館 / 焦點 — explicit widths.
+   只套 daily：feature/preview 的多欄表（5–6 欄）改走 auto 排版，否則第 4 欄吃滿 45%
+   會把後面的欄位擠成一字一行。 */
+.prose--daily table th:nth-child(1), .prose--daily table td:nth-child(1) { width: 24%; }
+.prose--daily table th:nth-child(2), .prose--daily table td:nth-child(2) { width: 9%; text-align: center; white-space: nowrap; }
+.prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { width: 22%; }
+.prose--daily table th:nth-child(4), .prose--daily table td:nth-child(4) { width: 45%; }
 @media (max-width: 640px) {
   .prose table { font-size: 13px; }
   .prose th, .prose td { padding: 9px 10px; }
-  .prose table th:nth-child(3), .prose table td:nth-child(3) { font-size: 12px; }
+  .prose--daily table th:nth-child(3), .prose--daily table td:nth-child(3) { font-size: 12px; }
 }
 .prose code { background: var(--surface-3); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.92em; color: var(--fg); }
 .prose pre { background: var(--surface-3); padding: 14px 16px; border-radius: var(--radius-sm); overflow-x: auto; margin: 20px 0; }
@@ -308,7 +310,7 @@ body::before {
     </header>
     <div class="article-lede"><span class="lede-label">重點速答</span><p>2026 世界盃台北時間 6/13 迎來另兩個地主開幕：美國在洛杉磯 SoFi Stadium 4-1 大勝巴拉圭，Balogun 梅開二度、Reyna 補時封關，送出三地主目前最強的開幕戰；加拿大則在多倫多主場被波士尼亞與赫塞哥維納（下稱波赫）1-1 逼平。D 組由美國以 3 分領跑，B 組加拿大與波赫各 1 分並列。</p></div>
     <img class="article-cover" src="cover.png" alt="地主第二夜：美國 4-1 巴拉圭、Balogun 梅開二度＋Reyna 補時封關，加拿大主場被波赫逼平｜封面">
-    <div class="prose">
+    <div class="prose prose--daily">
 <p><strong>2026 世界盃每日戰報 Vol. 013</strong></p>
 <h2>§1 即時比分戰報</h2>
 <p>開幕第二夜輪到另外兩個地主登場，氣氛一熱一冷。美國在洛杉磯 SoFi Stadium 4-1 大勝巴拉圭，Folarin Balogun 梅開二度、Giovanni Reyna 補時封關，替三地主送出目前最具說服力的開幕戰；同日加拿大在多倫多 BMO Field 主場開幕，卻被波士尼亞與赫塞哥維納（下稱波赫）1-1 逼平，靠替補 Cyle Larin 第 78 分鐘扳平才搶回一分。三地主到此全部登場，以下是當日兩戰：</p>
