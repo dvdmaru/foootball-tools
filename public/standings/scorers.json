@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-15",
+ "updated": "2026-06-16",
  "scorers": [
   {
    "rank": 1,
@@ -38,71 +38,71 @@
   },
   {
    "rank": 6,
-   "player": "Hwang In-Beom",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 7,
-   "player": "Oh Hyeon-gyu",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 8,
    "player": "Ladislav Krejci",
    "team_code": "CZE",
    "goals": 1,
    "assists": null
   },
   {
+   "rank": 7,
+   "player": "Hwang In-Beom",
+   "team_code": "KOR",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 8,
+   "player": "Oh Hyun-Gyu",
+   "team_code": "KOR",
+   "goals": 1,
+   "assists": null
+  },
+  {
    "rank": 9,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
+   "player": "Jovo Lukic",
+   "team_code": "BIH",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 10,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 11,
+   "player": "Mauricio",
+   "team_code": "PAR",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 12,
    "player": "John McGinn",
    "team_code": "SCO",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 11,
-   "player": "Jamal Musiala",
-   "team_code": "GER",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 12,
-   "player": "Alexander Isak",
-   "team_code": "SWE",
-   "goals": 1,
-   "assists": null
-  },
-  {
    "rank": 13,
-   "player": "Viktor Gyokeres",
-   "team_code": "SWE",
+   "player": "Nestory Irankunda",
+   "team_code": "AUS",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 14,
-   "player": "Daichi Kamada",
-   "team_code": "JPN",
+   "player": "Connor Metcalfe",
+   "team_code": "AUS",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Keito Nakamura",
-   "team_code": "JPN",
+   "player": "Boualem Khoukhi",
+   "team_code": "QAT",
    "goals": 1,
    "assists": null
   }
