@@ -12,6 +12,8 @@ node_modules/
 *.swo
 *~
 .cf-pages-output/
+# wrangler 本機 cache（跑 wrangler 後生成；未忽略會讓 update-fixtures.py step 0 dirty-tree guard 誤判 abort）
+.wrangler/
 
 # OpenAI raw responses — keep locally for audit, don't commit (含 search reasoning trace)
 fixtures/*.raw.json
