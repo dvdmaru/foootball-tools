@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-16",
+ "updated": "2026-06-17",
  "scorers": [
   {
    "rank": 1,
@@ -31,78 +31,78 @@
   },
   {
    "rank": 5,
-   "player": "Julian Quinones",
-   "team_code": "MEX",
-   "goals": 1,
+   "player": "Kylian Mbappe",
+   "team_code": "FRA",
+   "goals": 2,
    "assists": null
   },
   {
    "rank": 6,
-   "player": "Raul Jimenez",
-   "team_code": "MEX",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 7,
-   "player": "Hwang In-beom",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 8,
-   "player": "Oh Hyeon-gyu",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 9,
    "player": "Vinicius Junior",
    "team_code": "BRA",
    "goals": 1,
    "assists": null
   },
   {
+   "rank": 7,
+   "player": "Julian Quinones",
+   "team_code": "MEX",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 8,
+   "player": "Raul Jimenez",
+   "team_code": "MEX",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 9,
+   "player": "Amad Diallo",
+   "team_code": "CIV",
+   "goals": 1,
+   "assists": null
+  },
+  {
    "rank": 10,
-   "player": "Jamal Musiala",
-   "team_code": "GER",
+   "player": "Bradley Barcola",
+   "team_code": "FRA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 11,
-   "player": "Viktor Gyokeres",
-   "team_code": "SWE",
+   "player": "Giovanni Reyna",
+   "team_code": "USA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 12,
-   "player": "Alexander Isak",
-   "team_code": "SWE",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 13,
    "player": "Virgil van Dijk",
    "team_code": "NED",
    "goals": 1,
    "assists": null
   },
   {
+   "rank": 13,
+   "player": "Ismael Saibari",
+   "team_code": "MAR",
+   "goals": 1,
+   "assists": null
+  },
+  {
    "rank": 14,
-   "player": "Nestory Irankunda",
-   "team_code": "AUS",
+   "player": "John McGinn",
+   "team_code": "SCO",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
+   "player": "Maxi Araujo",
+   "team_code": "URU",
    "goals": 1,
    "assists": null
   }
