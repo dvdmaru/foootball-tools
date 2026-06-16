@@ -24,85 +24,85 @@
   },
   {
    "rank": 4,
-   "player": "Julian Quinones",
-   "team_code": "MEX",
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 5,
+   "player": "Virgil van Dijk",
+   "team_code": "NED",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 6,
+   "player": "Alexander Isak",
+   "team_code": "SWE",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 7,
    "player": "Raul Jimenez",
    "team_code": "MEX",
    "goals": 1,
    "assists": null
   },
   {
-   "rank": 6,
-   "player": "Ladislav Krejci",
-   "team_code": "CZE",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 7,
-   "player": "Hwang In-Beom",
-   "team_code": "KOR",
-   "goals": 1,
-   "assists": null
-  },
-  {
    "rank": 8,
-   "player": "Oh Hyun-Gyu",
-   "team_code": "KOR",
+   "player": "Julian Quinones",
+   "team_code": "MEX",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 9,
-   "player": "Jovo Lukic",
-   "team_code": "BIH",
+   "player": "Jamal Musiala",
+   "team_code": "GER",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 10,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
+   "player": "Keito Nakamura",
+   "team_code": "JPN",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 11,
-   "player": "Mauricio",
-   "team_code": "PAR",
+   "player": "Daichi Kamada",
+   "team_code": "JPN",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 12,
-   "player": "John McGinn",
-   "team_code": "SCO",
+   "player": "Ismael Saibari",
+   "team_code": "MAR",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 13,
-   "player": "Nestory Irankunda",
-   "team_code": "AUS",
+   "player": "Crysencio Summerville",
+   "team_code": "NED",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 14,
-   "player": "Connor Metcalfe",
-   "team_code": "AUS",
+   "player": "Felix Nmecha",
+   "team_code": "GER",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Boualem Khoukhi",
-   "team_code": "QAT",
+   "player": "John McGinn",
+   "team_code": "SCO",
    "goals": 1,
    "assists": null
   }

@@ -568,7 +568,9 @@
       "home_code": "KSA",
       "away_team": "Uruguay",
       "away_iso": "uy",
-      "away_code": "URU"
+      "away_code": "URU",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "match_no": 14,
@@ -602,7 +604,9 @@
       "home_code": "IRN",
       "away_team": "New Zealand",
       "away_iso": "nz",
-      "away_code": "NZL"
+      "away_code": "NZL",
+      "home_score": 2,
+      "away_score": 2
     },
     {
       "match_no": 16,
