@@ -728,7 +728,9 @@
       "home_code": "ENG",
       "away_team": "Croatia",
       "away_iso": "hr",
-      "away_code": "CRO"
+      "away_code": "CRO",
+      "home_score": 4,
+      "away_score": 2
     },
     {
       "match_no": 23,
@@ -744,7 +746,9 @@
       "home_code": "POR",
       "away_team": "DR Congo",
       "away_iso": "cd",
-      "away_code": "COD"
+      "away_code": "COD",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "match_no": 24,
