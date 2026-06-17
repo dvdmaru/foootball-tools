@@ -1,6 +1,5 @@
 {
   "_note": "射手榜中文譯名（curated，台灣媒體/維基慣用為主，不靠 LLM 亂譯）。key=fetch 回傳的英文名；build-standings 查表時去變音符號+大小寫不敏感比對（'Raúl Jiménez'≈'Raul Jimenez'）。新射手未收錄時站上顯示英文名（graceful）。部分大牌另加 surname 別名提高命中率。",
-
   "_note_opening": "── 開幕日 A 組實際射手（已上站） ──",
   "Julian Quinones": "胡利安·基尼奧內斯",
   "Raul Jimenez": "勞爾·希門尼斯",
@@ -10,13 +9,11 @@
   "Oh Hyun-gyu": "吳賢揆",
   "Hyun-Gyu Oh": "吳賢揆",
   "Ladislav Krejci": "拉迪斯拉夫·克雷伊奇",
-
   "_note_0613": "── 6/13 新射手（房規：維基全名優先，缺則退台媒姓氏） ──",
   "Cyle Larin": "凱爾·拉林",
   "Larin": "凱爾·拉林",
   "Jovo Lukic": "盧基奇",
   "Lukic": "盧基奇",
-
   "_note_0614": "── 6/14 新射手（房規：維基 zh-tw 全名優先，缺則退台媒姓氏） ──",
   "Folarin Balogun": "福拉金·巴洛根",
   "Balogun": "福拉金·巴洛根",
@@ -31,7 +28,6 @@
   "Woltemade": "尼克·沃爾特馬德",
   "Deniz Undav": "德尼茲·翁達夫",
   "Undav": "德尼茲·翁達夫",
-
   "_note_0614b": "── 6/14 偵測器補抓（McGinn 維基；Mauricio/Saibari 無 wiki/台媒→標準音譯，Saibari 與站上 6/3 文一致）──",
   "John McGinn": "約翰·麥金",
   "McGinn": "約翰·麥金",
@@ -42,7 +38,6 @@
   "Irankunda": "伊蘭昆達",
   "Connor Metcalfe": "梅特卡夫",
   "Metcalfe": "梅特卡夫",
-
   "_note_stars": "── 預先 seed：大牌（JUKSY 台灣 25 星懶人包 + 台媒，verbatim）──",
   "Lionel Messi": "里奧·梅西",
   "Messi": "里奧·梅西",
@@ -85,7 +80,6 @@
   "Rafael Leao": "拉斐爾·萊奧",
   "Leao": "拉斐爾·萊奧",
   "Julian Alvarez": "胡利安·阿爾瓦雷斯",
-
   "_note_asia": "── 預先 seed：亞洲球星（漢字/台媒慣用）──",
   "Son Heung-min": "孫興慜",
   "Kim Min-jae": "金玟哉",
@@ -94,7 +88,6 @@
   "Kubo": "久保建英",
   "Kaoru Mitoma": "三笘薰",
   "Mitoma": "三笘薰",
-
   "_note_0615": "── 6/15 新射手（與當日戰報 Vol.015 譯名一致；房規維基 zh-tw 全名/缺退台媒姓氏。註：Havertz 維基作「哈弗茨」，本站沿用戰報「哈費茨」保持站內一致） ──",
   "Kai Havertz": "凱·哈費茨",
   "Havertz": "凱·哈費茨",
@@ -110,10 +103,12 @@
   "Kamada": "鎌田大地",
   "Keito Nakamura": "中村敬斗",
   "Nakamura": "中村敬斗",
-
   "_note_0616": "── 6/16 補錄（與戰報譯名一致；房規維基 zh-tw 全名/缺退台媒姓氏。van Dijk 為 Vol.015 荷蘭進球者、Just 為 Vol.016 紐西蘭梅開二度，台媒 ETtoday/自由/UDN 一致作「賈斯特」） ──",
   "Virgil van Dijk": "維吉爾·范戴克",
   "van Dijk": "維吉爾·范戴克",
   "Elijah Just": "賈斯特",
-  "Just": "賈斯特"
+  "Just": "賈斯特",
+  "_note_0617": "── 6/17 補錄（房規維基 zh-tw 全名/台媒姓氏；Barcola 為法國 vs 塞內加爾 I 組首戰 82 分鐘進球者，台媒 UDN 作「布拉德利·巴爾科拉」全名/「巴爾科拉」姓氏） ──",
+  "Bradley Barcola": "布拉德利·巴爾科拉",
+  "Barcola": "巴爾科拉"
 }
