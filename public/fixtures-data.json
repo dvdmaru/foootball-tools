@@ -443,8 +443,8 @@
       "away_team": "Turkiye",
       "away_iso": "tr",
       "away_code": "TUR",
-      "home_score": 0,
-      "away_score": 2
+      "home_score": 2,
+      "away_score": 0
     },
     {
       "match_no": 7,
@@ -694,7 +694,9 @@
       "home_code": "AUT",
       "away_team": "Jordan",
       "away_iso": "jo",
-      "away_code": "JOR"
+      "away_code": "JOR",
+      "home_score": 3,
+      "away_score": 1
     },
     {
       "match_no": 21,

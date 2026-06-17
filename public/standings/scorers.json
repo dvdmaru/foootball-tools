@@ -24,22 +24,22 @@
   },
   {
    "rank": 4,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 5,
    "player": "Kai Havertz",
    "team_code": "GER",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 6,
+   "rank": 5,
    "player": "Yasin Ayari",
    "team_code": "SWE",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 6,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
    "goals": 2,
    "assists": null
   },
@@ -52,57 +52,57 @@
   },
   {
    "rank": 8,
-   "player": "Raul Jimenez",
-   "team_code": "MEX",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 9,
    "player": "Julian Quinones",
    "team_code": "MEX",
    "goals": 1,
    "assists": null
   },
   {
+   "rank": 9,
+   "player": "Raul Jimenez",
+   "team_code": "MEX",
+   "goals": 1,
+   "assists": null
+  },
+  {
    "rank": 10,
-   "player": "Ladislav Krejci",
-   "team_code": "CZE",
+   "player": "Bradley Barcola",
+   "team_code": "FRA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 11,
-   "player": "Hwang In-beom",
-   "team_code": "KOR",
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 12,
-   "player": "Oh Hyun-gyu",
-   "team_code": "KOR",
+   "player": "Virgil van Dijk",
+   "team_code": "NED",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 13,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
+   "player": "Leo Ostigard",
+   "team_code": "NOR",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 14,
-   "player": "Jovo Lukic",
-   "team_code": "BIH",
+   "player": "Marko Arnautovic",
+   "team_code": "AUT",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Bradley Barcola",
-   "team_code": "FRA",
+   "player": "Romano Schmid",
+   "team_code": "AUT",
    "goals": 1,
    "assists": null
   }
