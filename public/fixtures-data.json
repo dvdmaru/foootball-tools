@@ -443,8 +443,8 @@
       "away_team": "Turkiye",
       "away_iso": "tr",
       "away_code": "TUR",
-      "home_score": 2,
-      "away_score": 0
+      "home_score": 0,
+      "away_score": 2
     },
     {
       "match_no": 7,
@@ -659,8 +659,8 @@
       "away_team": "Norway",
       "away_iso": "no",
       "away_code": "NOR",
-      "home_score": 0,
-      "away_score": 0
+      "home_score": 1,
+      "away_score": 4
     },
     {
       "match_no": 19,
@@ -676,7 +676,9 @@
       "home_code": "ARG",
       "away_team": "Algeria",
       "away_iso": "dz",
-      "away_code": "ALG"
+      "away_code": "ALG",
+      "home_score": 3,
+      "away_score": 0
     },
     {
       "match_no": 20,

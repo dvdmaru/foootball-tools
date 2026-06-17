@@ -3,51 +3,51 @@
  "scorers": [
   {
    "rank": 1,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
-   "goals": 2,
+   "player": "Lionel Messi",
+   "team_code": "ARG",
+   "goals": 3,
    "assists": null
   },
   {
    "rank": 2,
-   "player": "Kai Havertz",
-   "team_code": "GER",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 3,
-   "player": "Yasin Ayari",
-   "team_code": "SWE",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 4,
-   "player": "Elijah Just",
-   "team_code": "NZL",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 5,
    "player": "Kylian Mbappe",
    "team_code": "FRA",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 3,
+   "player": "Erling Haaland",
+   "team_code": "NOR",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 4,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 5,
+   "player": "Kai Havertz",
+   "team_code": "GER",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 6,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
-   "goals": 1,
+   "player": "Yasin Ayari",
+   "team_code": "SWE",
+   "goals": 2,
    "assists": null
   },
   {
    "rank": 7,
-   "player": "Julian Quinones",
-   "team_code": "MEX",
-   "goals": 1,
+   "player": "Elijah Just",
+   "team_code": "NZL",
+   "goals": 2,
    "assists": null
   },
   {
@@ -59,50 +59,50 @@
   },
   {
    "rank": 9,
-   "player": "Amad Diallo",
-   "team_code": "CIV",
+   "player": "Julian Quinones",
+   "team_code": "MEX",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 10,
-   "player": "Bradley Barcola",
-   "team_code": "FRA",
+   "player": "Ladislav Krejci",
+   "team_code": "CZE",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 11,
-   "player": "Giovanni Reyna",
-   "team_code": "USA",
+   "player": "Hwang In-beom",
+   "team_code": "KOR",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 12,
-   "player": "Virgil van Dijk",
-   "team_code": "NED",
+   "player": "Oh Hyun-gyu",
+   "team_code": "KOR",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 13,
-   "player": "Ismael Saibari",
-   "team_code": "MAR",
+   "player": "Cyle Larin",
+   "team_code": "CAN",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 14,
-   "player": "John McGinn",
-   "team_code": "SCO",
+   "player": "Jovo Lukic",
+   "team_code": "BIH",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Maxi Araujo",
-   "team_code": "URU",
+   "player": "Bradley Barcola",
+   "team_code": "FRA",
    "goals": 1,
    "assists": null
   }
