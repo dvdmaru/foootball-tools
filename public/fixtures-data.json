@@ -784,7 +784,9 @@
       "home_code": "CZE",
       "away_team": "South Africa",
       "away_iso": "za",
-      "away_code": "RSA"
+      "away_code": "RSA",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "match_no": 26,
@@ -800,7 +802,9 @@
       "home_code": "SUI",
       "away_team": "Bosnia and Herzegovina",
       "away_iso": "ba",
-      "away_code": "BIH"
+      "away_code": "BIH",
+      "home_score": 4,
+      "away_score": 1
     },
     {
       "match_no": 27,
@@ -816,7 +820,9 @@
       "home_code": "CAN",
       "away_team": "Qatar",
       "away_iso": "qa",
-      "away_code": "QAT"
+      "away_code": "QAT",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "match_no": 28,
