@@ -10,50 +10,50 @@
   },
   {
    "rank": 2,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
+   "player": "Harry Kane",
+   "team_code": "ENG",
    "goals": 2,
    "assists": null
   },
   {
    "rank": 3,
-   "player": "Kai Havertz",
-   "team_code": "GER",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 4,
-   "player": "Yasin Ayari",
-   "team_code": "SWE",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 5,
-   "player": "Elijah Just",
-   "team_code": "NZL",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 6,
-   "player": "Kylian Mbappé",
-   "team_code": "FRA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 7,
    "player": "Erling Haaland",
    "team_code": "NOR",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 4,
+   "player": "Kylian Mbappe",
+   "team_code": "FRA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 5,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 6,
+   "player": "Kai Havertz",
+   "team_code": "GER",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 7,
+   "player": "Yasin Ayari",
+   "team_code": "SWE",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 8,
-   "player": "Harry Kane",
-   "team_code": "ENG",
+   "player": "Elijah Just",
+   "team_code": "NZL",
    "goals": 2,
    "assists": null
   },
@@ -73,36 +73,36 @@
   },
   {
    "rank": 11,
-   "player": "João Neves",
-   "team_code": "POR",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 12,
-   "player": "Yoane Wissa",
-   "team_code": "COD",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 13,
-   "player": "Luis Díaz",
-   "team_code": "COL",
-   "goals": 1,
-   "assists": 1
-  },
-  {
-   "rank": 14,
    "player": "Jamal Musiala",
    "team_code": "GER",
    "goals": 1,
    "assists": null
   },
   {
+   "rank": 12,
+   "player": "Bradley Barcola",
+   "team_code": "FRA",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 13,
+   "player": "Luis Diaz",
+   "team_code": "COL",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 14,
+   "player": "Kevin Campaz",
+   "team_code": "COL",
+   "goals": 1,
+   "assists": null
+  },
+  {
    "rank": 15,
-   "player": "Vinícius Júnior",
-   "team_code": "BRA",
+   "player": "Daniel Munoz",
+   "team_code": "COL",
    "goals": 1,
    "assists": null
   }
