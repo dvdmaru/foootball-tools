@@ -872,7 +872,9 @@
       "home_code": "SCO",
       "away_team": "Morocco",
       "away_iso": "ma",
-      "away_code": "MAR"
+      "away_code": "MAR",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "match_no": 31,
@@ -904,7 +906,9 @@
       "home_code": "USA",
       "away_team": "Australia",
       "away_iso": "au",
-      "away_code": "AUS"
+      "away_code": "AUS",
+      "home_score": 2,
+      "away_score": 0
     },
     {
       "match_no": 33,
