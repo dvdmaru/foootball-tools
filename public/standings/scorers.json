@@ -17,15 +17,15 @@
   },
   {
    "rank": 3,
-   "player": "Erling Haaland",
-   "team_code": "NOR",
+   "player": "Kylian Mbappe",
+   "team_code": "FRA",
    "goals": 2,
    "assists": null
   },
   {
    "rank": 4,
-   "player": "Kylian Mbappe",
-   "team_code": "FRA",
+   "player": "Erling Haaland",
+   "team_code": "NOR",
    "goals": 2,
    "assists": null
   },
@@ -66,43 +66,43 @@
   },
   {
    "rank": 10,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 11,
-   "player": "Julian Quinones",
-   "team_code": "MEX",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 12,
-   "player": "John McGinn",
-   "team_code": "SCO",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 13,
    "player": "Jude Bellingham",
    "team_code": "ENG",
    "goals": 1,
    "assists": null
   },
   {
+   "rank": 11,
+   "player": "Marcus Rashford",
+   "team_code": "ENG",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 12,
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
+   "goals": 1,
+   "assists": null
+  },
+  {
+   "rank": 13,
+   "player": "Virgil van Dijk",
+   "team_code": "NED",
+   "goals": 1,
+   "assists": null
+  },
+  {
    "rank": 14,
-   "player": "Giovanni Reyna",
-   "team_code": "USA",
+   "player": "Alexander Isak",
+   "team_code": "SWE",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Marcus Rashford",
-   "team_code": "ENG",
+   "player": "Viktor Gyokeres",
+   "team_code": "SWE",
    "goals": 1,
    "assists": null
   }
