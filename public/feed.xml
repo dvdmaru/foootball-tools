@@ -6,7 +6,23 @@
     <atom:link href="https://foootball.twtools.cc/feed.xml" rel="self" type="application/rss+xml" />
     <description>2026 FIFA 世界盃每日戰報、規則解析與專題文章。</description>
     <language>zh-Hant</language>
-    <lastBuildDate>Thu, 18 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <item>
+      <title>地主之夜：大衛的帽子戲法，與加拿大的第一勝</title>
+      <link>https://foootball.twtools.cc/articles/worldcup-special-2026-06-19-canada-david/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/worldcup-special-2026-06-19-canada-david/</guid>
+      <pubDate>Fri, 19 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>2026 世界盃 B 組次輪，地主加拿大在溫哥華 6-0 大勝卡達，拿下隊史在世界盃決賽圈的第一場勝利。前鋒喬納森·大衛（Jonathan David）在第 29、45+、92 分鐘獨進三球，成為史上第一位在世界盃單場完成帽子戲法的加拿大男足球員；這場 6 球大勝也追平了地主球隊在世界盃單場最大勝差的紀錄。這篇特刊，把三顆球、這一夜的多項紀錄，與歡慶背後的那道陰影，逐項拆開來講。</description>
+    </item>
+    <item>
+      <title>加拿大 6-0 卡達寫下隊史世界盃首勝、大衛獨進三球：B 組地主之夜</title>
+      <link>https://foootball.twtools.cc/articles/daily-2026-06-19/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/daily-2026-06-19/</guid>
+      <pubDate>Fri, 19 Jun 2026 08:00:00 +0800</pubDate>
+      <category>每日戰報</category>
+      <description>2026 世界盃 B 組次輪，地主加拿大 6-0 大勝卡達，拿下隊史世界盃決賽圈首勝。喬納森·大衛獨進三球，成為史上第一位在世界盃完成帽子戲法的加拿大男足球員；這場 6 球大勝也追平了地主球隊在世界盃單場最大勝差的紀錄。同組瑞士則靠替補火力後段爆發、4-1 收下波赫，與加拿大同積 4 分領跑 B 組。</description>
+    </item>
     <item>
       <title>凱恩梅開二度追平萊納克紀錄、英格蘭 4-2 收下克羅埃西亞：世界盃 L 組火爆開張</title>
       <link>https://foootball.twtools.cc/articles/daily-2026-06-18/</link>
@@ -230,22 +246,6 @@
       <pubDate>Thu, 04 Jun 2026 08:00:00 +0800</pubDate>
       <category>每日戰報</category>
       <description>7 場熱身賽橫跨歐洲與北美洲。最受關注的是荷蘭主場 0-1 不敵阿爾及利亞——名門在世界盃前 8 天交了一張不好看的成績單，86 分鐘哈吉·穆薩（Anis Hadj Moussa）一腳遠射破門客場絕殺。義大利、海地、直布羅陀同日獲勝；波蘭與…</description>
-    </item>
-    <item>
-      <title>捂嘴就紅牌？這條世界盃新規，真正改寫的不是動作，是「誰該舉證」</title>
-      <link>https://foootball.twtools.cc/articles/mouth-covering-red-card/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/mouth-covering-red-card/</guid>
-      <pubDate>Wed, 03 Jun 2026 08:00:00 +0800</pubDate>
-      <category>專題</category>
-      <description>並非『捂嘴就紅牌』。IFAB 新規限定在『與對手的對抗性衝突』中用手或球衣遮嘴，裁判『可以（may）』出紅牌——是裁量而非自動，要拆的是用捂嘴掩蓋歧視辱罵的那層掩護，不是捂嘴這個動作本身。</description>
-    </item>
-    <item>
-      <title>世界盃倒數：摩洛哥 4-0 暖身，而 2022 那支 4 強之師，現在走到哪了？</title>
-      <link>https://foootball.twtools.cc/articles/daily-2026-06-03/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/daily-2026-06-03/</guid>
-      <pubDate>Wed, 03 Jun 2026 08:00:00 +0800</pubDate>
-      <category>每日戰報</category>
-      <description>6 場全屬會內賽前的國際熱身賽，已晉級的強隊各自試陣、未晉級的球隊收尾賽季。當日最大比分是摩洛哥主場 4-0 馬達加斯加 — 而這支球隊背後的故事，正是今天 §4 的主菜。</description>
     </item>
   </channel>
 </rss>
