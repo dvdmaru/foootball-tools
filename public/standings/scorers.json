@@ -10,43 +10,43 @@
   },
   {
    "rank": 2,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
-   "goals": 2,
+   "player": "Jonathan David",
+   "team_code": "CAN",
+   "goals": 3,
    "assists": null
   },
   {
    "rank": 3,
-   "player": "Kai Havertz",
-   "team_code": "GER",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 4,
    "player": "Erling Haaland",
    "team_code": "NOR",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 5,
-   "player": "Elijah Just",
-   "team_code": "NZL",
+   "rank": 4,
+   "player": "Kylian Mbappe",
+   "team_code": "FRA",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 6,
+   "rank": 5,
    "player": "Harry Kane",
    "team_code": "ENG",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 6,
+   "player": "Elijah Just",
+   "team_code": "NZL",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 7,
-   "player": "Kylian Mbappe",
-   "team_code": "FRA",
+   "player": "Kai Havertz",
+   "team_code": "GER",
    "goals": 2,
    "assists": null
   },
@@ -59,50 +59,50 @@
   },
   {
    "rank": 9,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
-   "goals": 1,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
    "assists": null
   },
   {
    "rank": 10,
-   "player": "Virgil van Dijk",
-   "team_code": "NED",
-   "goals": 1,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
+   "goals": 2,
    "assists": null
   },
   {
    "rank": 11,
-   "player": "Daichi Kamada",
-   "team_code": "JPN",
+   "player": "Julian Quinones",
+   "team_code": "MEX",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 12,
-   "player": "Alexander Isak",
-   "team_code": "SWE",
+   "player": "John McGinn",
+   "team_code": "SCO",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 13,
-   "player": "Viktor Gyokeres",
-   "team_code": "SWE",
+   "player": "Jude Bellingham",
+   "team_code": "ENG",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 14,
-   "player": "Hwang In-Beom",
-   "team_code": "KOR",
+   "player": "Giovanni Reyna",
+   "team_code": "USA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Oh Hyeon-Gyu",
-   "team_code": "KOR",
+   "player": "Marcus Rashford",
+   "team_code": "ENG",
    "goals": 1,
    "assists": null
   }
