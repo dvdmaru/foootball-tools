@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-20",
+ "updated": "2026-06-21",
  "scorers": [
   {
    "rank": 1,
@@ -17,57 +17,57 @@
   },
   {
    "rank": 3,
-   "player": "Kylian Mbappe",
-   "team_code": "FRA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 4,
-   "player": "Erling Haaland",
-   "team_code": "NOR",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 5,
    "player": "Harry Kane",
    "team_code": "ENG",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 6,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
+   "rank": 4,
+   "player": "Kylian Mbappe",
+   "team_code": "FRA",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 7,
+   "rank": 5,
+   "player": "Erling Haaland",
+   "team_code": "NOR",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 6,
    "player": "Kai Havertz",
    "team_code": "GER",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 8,
+   "rank": 7,
    "player": "Yasin Ayari",
    "team_code": "SWE",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 8,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 9,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
+   "player": "Johan Manzambi",
+   "team_code": "SUI",
    "goals": 2,
    "assists": null
   },
   {
    "rank": 10,
-   "player": "Matheus Cunha",
-   "team_code": "BRA",
+   "player": "Cyle Larin",
+   "team_code": "CAN",
    "goals": 2,
    "assists": null
   },
@@ -80,29 +80,29 @@
   },
   {
    "rank": 12,
-   "player": "Johan Manzambi",
-   "team_code": "SUI",
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
    "goals": 2,
    "assists": null
   },
   {
    "rank": 13,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
-   "goals": 2,
-   "assists": null
+   "player": "Alexander Isak",
+   "team_code": "SWE",
+   "goals": 1,
+   "assists": 2
   },
   {
    "rank": 14,
-   "player": "Virgil van Dijk",
-   "team_code": "NED",
+   "player": "Viktor Gyokeres",
+   "team_code": "SWE",
    "goals": 1,
-   "assists": null
+   "assists": 1
   },
   {
    "rank": 15,
-   "player": "Alexander Isak",
-   "team_code": "SWE",
+   "player": "Virgil van Dijk",
+   "team_code": "NED",
    "goals": 1,
    "assists": null
   }

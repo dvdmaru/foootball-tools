@@ -928,7 +928,9 @@
       "home_code": "GER",
       "away_team": "Ivory Coast",
       "away_iso": "ci",
-      "away_code": "CIV"
+      "away_code": "CIV",
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "match_no": 34,
@@ -960,7 +962,9 @@
       "home_code": "NED",
       "away_team": "Sweden",
       "away_iso": "se",
-      "away_code": "SWE"
+      "away_code": "SWE",
+      "home_score": 5,
+      "away_score": 1
     },
     {
       "match_no": 36,
