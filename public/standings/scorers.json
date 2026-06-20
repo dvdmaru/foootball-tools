@@ -38,71 +38,71 @@
   },
   {
    "rank": 6,
-   "player": "Kai Havertz",
-   "team_code": "GER",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 7,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 8,
    "player": "Folarin Balogun",
    "team_code": "USA",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 9,
-   "player": "Elijah Just",
-   "team_code": "NZL",
+   "rank": 7,
+   "player": "Kai Havertz",
+   "team_code": "GER",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 10,
-   "player": "Johan Manzambi",
-   "team_code": "SUI",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 11,
+   "rank": 8,
    "player": "Yasin Ayari",
    "team_code": "SWE",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 9,
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 10,
+   "player": "Matheus Cunha",
+   "team_code": "BRA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 11,
+   "player": "Elijah Just",
+   "team_code": "NZL",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 12,
-   "player": "Alexander Isak",
-   "team_code": "SWE",
-   "goals": 1,
+   "player": "Johan Manzambi",
+   "team_code": "SUI",
+   "goals": 2,
    "assists": null
   },
   {
    "rank": 13,
-   "player": "Jude Bellingham",
-   "team_code": "ENG",
-   "goals": 1,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
+   "goals": 2,
    "assists": null
   },
   {
    "rank": 14,
-   "player": "Vinicius Jr",
-   "team_code": "BRA",
+   "player": "Virgil van Dijk",
+   "team_code": "NED",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Raul Jimenez",
-   "team_code": "MEX",
+   "player": "Alexander Isak",
+   "team_code": "SWE",
    "goals": 1,
    "assists": null
   }
