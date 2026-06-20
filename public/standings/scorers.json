@@ -31,78 +31,78 @@
   },
   {
    "rank": 5,
-   "player": "Kai Havertz",
-   "team_code": "GER",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 6,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 7,
-   "player": "Yasin Ayari",
-   "team_code": "SWE",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 8,
-   "player": "Elijah Just",
-   "team_code": "NZL",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 9,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 10,
    "player": "Harry Kane",
    "team_code": "ENG",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 11,
+   "rank": 6,
+   "player": "Kai Havertz",
+   "team_code": "GER",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 7,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 8,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 9,
+   "player": "Elijah Just",
+   "team_code": "NZL",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 10,
    "player": "Johan Manzambi",
    "team_code": "SUI",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 11,
+   "player": "Yasin Ayari",
+   "team_code": "SWE",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 12,
-   "player": "John McGinn",
-   "team_code": "SCO",
+   "player": "Alexander Isak",
+   "team_code": "SWE",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 13,
-   "player": "Amad Diallo",
-   "team_code": "CIV",
+   "player": "Jude Bellingham",
+   "team_code": "ENG",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 14,
-   "player": "Ismael Saibari",
-   "team_code": "MAR",
+   "player": "Vinicius Jr",
+   "team_code": "BRA",
    "goals": 1,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Alexander Isak",
-   "team_code": "SWE",
+   "player": "Raul Jimenez",
+   "team_code": "MEX",
    "goals": 1,
    "assists": null
   }
