@@ -1,31 +1,31 @@
 {
- "updated": "2026-06-21",
+ "updated": "2026-06-22",
  "scorers": [
   {
    "rank": 1,
+   "player": "Deniz Undav",
+   "team_code": "GER",
+   "goals": 3,
+   "assists": 2
+  },
+  {
+   "rank": 2,
    "player": "Lionel Messi",
    "team_code": "ARG",
    "goals": 3,
    "assists": null
   },
   {
-   "rank": 2,
+   "rank": 3,
    "player": "Jonathan David",
    "team_code": "CAN",
    "goals": 3,
    "assists": null
   },
   {
-   "rank": 3,
-   "player": "Deniz Undav",
-   "team_code": "GER",
-   "goals": 3,
-   "assists": null
-  },
-  {
    "rank": 4,
-   "player": "Cody Gakpo",
-   "team_code": "NED",
+   "player": "Erling Haaland",
+   "team_code": "NOR",
    "goals": 2,
    "assists": null
   },
@@ -38,106 +38,71 @@
   },
   {
    "rank": 6,
-   "player": "Erling Haaland",
-   "team_code": "NOR",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 7,
    "player": "Harry Kane",
    "team_code": "ENG",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 8,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 9,
+   "rank": 7,
    "player": "Folarin Balogun",
    "team_code": "USA",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 10,
+   "rank": 8,
    "player": "Vinicius Junior",
    "team_code": "BRA",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 11,
-   "player": "Matheus Cunha",
-   "team_code": "BRA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 12,
-   "player": "Johan Manzambi",
-   "team_code": "SUI",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 13,
-   "player": "Elijah Just",
-   "team_code": "NZL",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 14,
+   "rank": 9,
    "player": "Kai Havertz",
    "team_code": "GER",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 15,
-   "player": "Daichi Kamada",
-   "team_code": "JPN",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 16,
+   "rank": 10,
    "player": "Ayase Ueda",
    "team_code": "JPN",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 17,
+   "rank": 11,
+   "player": "Cody Gakpo",
+   "team_code": "NED",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 12,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 13,
+   "player": "Matheus Cunha",
+   "team_code": "BRA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 14,
+   "player": "Elijah Just",
+   "team_code": "NZL",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 15,
    "player": "Ismael Saibari",
    "team_code": "MAR",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 18,
-   "player": "Brian Brobbey",
-   "team_code": "NED",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 19,
-   "player": "Crysencio Summerville",
-   "team_code": "NED",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 20,
-   "player": "Yasin Ayari",
-   "team_code": "SWE",
    "goals": 2,
    "assists": null
   }
