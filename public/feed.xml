@@ -6,7 +6,47 @@
     <atom:link href="https://foootball.twtools.cc/feed.xml" rel="self" type="application/rss+xml" />
     <description>2026 FIFA 世界盃每日戰報、規則解析與專題文章。</description>
     <language>zh-Hant</language>
-    <lastBuildDate>Sat, 20 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <item>
+      <title>淘汰賽踢平怎麼辦？世界盃延長賽與點球大戰規則完整解析</title>
+      <link>https://foootball.twtools.cc/articles/knockout-extra-time-penalties/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/knockout-extra-time-penalties/</guid>
+      <pubDate>Sun, 21 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>世界盃淘汰賽（32 強起）一定要分出勝負。90 分鐘踢平，先踢 30 分鐘延長賽（兩個 15 分鐘，沒有黃金進球，踢滿為止）；延長賽仍平手，進入點球大戰：雙方各派 5 人以 ABAB 順序輪流主罰，5 輪後仍平則進入『驟死』，一輪定生死。</description>
+    </item>
+    <item>
+      <title>越位規則圖解：站在越位位置不一定犯規，關鍵在這三件事</title>
+      <link>https://foootball.twtools.cc/articles/offside-rule-explained/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/offside-rule-explained/</guid>
+      <pubDate>Sun, 21 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>越位看的是『傳球出腳的那一瞬間』：進攻球員若比球、又比倒數第二名防守球員更靠近對方球門線（且在對方半場），就處於越位位置。但站在越位位置本身不犯規——只有當他『介入比賽』（碰球、干擾對手、或從中得利）時才算越位犯規。</description>
+    </item>
+    <item>
+      <title>VAR 是什麼、什麼時候才會介入？世界盃影像輔助判決完整指南</title>
+      <link>https://foootball.twtools.cc/articles/var-explained/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/var-explained/</guid>
+      <pubDate>Sun, 21 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>VAR（影像輔助裁判）不是重看每一個判罰，它只負責四類情況：進球、罰球（點球）、直接紅牌、以及認錯人。而且只在裁判出現『清楚而明顯的錯誤』或漏掉重大事件時才介入。VAR 只給建議，走到場邊螢幕複審、做出最終決定的，永遠是主裁判本人。</description>
+    </item>
+    <item>
+      <title>2026 世界盃賽制全解：48 隊、12 組、首度出現的 32 強淘汰賽</title>
+      <link>https://foootball.twtools.cc/articles/world-cup-2026-format/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/world-cup-2026-format/</guid>
+      <pubDate>Sun, 21 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>2026 世界盃首度擴軍到 48 隊，分 12 組（A–L）每組 4 隊單循環。每組前 2 名加上 8 個成績最佳的第三名共 32 隊晉級，進入世界盃史上第一次出現的『32 強淘汰賽』，再一路打到 16 強、8 強、4 強、決賽。全程 104 場，冠軍要贏 8 場。</description>
+    </item>
+    <item>
+      <title>世界盃積分怎麼算？2026 同分排序規則，FIFA 把順序整個改了</title>
+      <link>https://foootball.twtools.cc/articles/world-cup-points-tiebreakers/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/world-cup-points-tiebreakers/</guid>
+      <pubDate>Sun, 21 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>世界盃小組賽勝 1 場得 3 分、平手得 1 分、輸球 0 分。同分時，2026 的排序順序大改：先看『同分球隊之間的對戰成績』（對戰積分→對戰淨勝球→對戰進球），再看全部比賽的淨勝球與進球，接著比公平競賽（紀律）分數，最後用 FIFA 排名定生死——抽籤已經完全取消。</description>
+    </item>
     <item>
       <title>引擎發動：庫尼亞的雙響，與巴西的甦醒</title>
       <link>https://foootball.twtools.cc/articles/worldcup-special-2026-06-20-brazil-cunha/</link>
@@ -206,46 +246,6 @@
       <pubDate>Sun, 07 Jun 2026 08:00:00 +0800</pubDate>
       <category>每日戰報</category>
       <description>梅西在 6/6 阿根廷 2-0 退宏都拉斯的熱身賽全程坐板凳，並非傷停，而是球隊替這位 6/24 將滿 39 歲的隊長控管體能——這屆普遍被視為他的最後一屆世界盃，阿根廷已開始把他的每一分鐘當資源分配。</description>
-    </item>
-    <item>
-      <title>AI 球評圓桌・2026 世界盃（上）：48 隊新格局與死亡之組總盤點</title>
-      <link>https://foootball.twtools.cc/articles/ai-roundtable-wc2026-1/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/ai-roundtable-wc2026-1/</guid>
-      <pubDate>Sat, 06 Jun 2026 08:00:00 +0800</pubDate>
-      <category>專題</category>
-      <description>2026 世界盃前夕，我們請來三位個性鮮明的 AI 球評——挺熱門的 🍺老馬、只信數字的 📊阿宏、專抱冷門的 🐐阿邦，外加一位愛插話的 🙋觀眾，由主持人阿盛帶場，開一場世界盃圓桌。上集先把 48 隊擴軍後的格局、奪冠級分檔、東道主與死亡之組…</description>
-    </item>
-    <item>
-      <title>AI 球評圓桌・2026 世界盃（中）：熱門 vs 黑馬正面交鋒</title>
-      <link>https://foootball.twtools.cc/articles/ai-roundtable-wc2026-2/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/ai-roundtable-wc2026-2/</guid>
-      <pubDate>Sat, 06 Jun 2026 08:00:00 +0800</pubDate>
-      <category>專題</category>
-      <description>上集盤完格局，這集火力全開：老馬守熱門、阿邦專拆台、阿宏當裁判，圍繞「這屆到底是強者的遊戲，還是爆冷的溫床」正面交鋒。這是中集。</description>
-    </item>
-    <item>
-      <title>AI 球評圓桌・2026 世界盃（下）：三位球評的冠亞季預測攤牌</title>
-      <link>https://foootball.twtools.cc/articles/ai-roundtable-wc2026-3/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/ai-roundtable-wc2026-3/</guid>
-      <pubDate>Sat, 06 Jun 2026 08:00:00 +0800</pubDate>
-      <category>專題</category>
-      <description>聊了兩集，該攤牌了。這集每位球評把冠亞季預測寫死、外加一支看好闖進四強的黑馬。這是下集（完結）。</description>
-    </item>
-    <item>
-      <title>16 球今夏可能變成 17 球，但沒有人能真的「超越」克洛澤</title>
-      <link>https://foootball.twtools.cc/articles/klose-world-cup-goal-king/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/klose-world-cup-goal-king/</guid>
-      <pubDate>Sat, 06 Jun 2026 08:00:00 +0800</pubDate>
-      <category>專題</category>
-      <description>克洛澤的世界盃 16 球紀錄今夏可能被改寫成 17 球，但這 16 球橫跨四屆、24 場、0 點球，量的不是同一把尺——數字會被『接續』，而它的純粹度至今沒有現役射手照同一條件在踢。</description>
-    </item>
-    <item>
-      <title>亞洲史上最多：9 隊闖進 2026 世界盃——日伊韓領軍，烏茲別克、約旦首次寫歷史</title>
-      <link>https://foootball.twtools.cc/articles/daily-2026-06-06/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/daily-2026-06-06/</guid>
-      <pubDate>Sat, 06 Jun 2026 08:00:00 +0800</pubDate>
-      <category>每日戰報</category>
-      <description>13 場國際熱身賽橫跨歐、亞、美洲。最有份量的是地主墨西哥主場 5-1 狂掃塞爾維亞——含 2 記烏龍球，世界盃前一週氣勢拉滿。另外摩爾多瓦 2-2 保加利亞、斯洛伐克 2-2 蒙特內哥羅、亞塞拜然 0-2 馬爾他 3 場未列入上表。不過今…</description>
     </item>
   </channel>
 </rss>

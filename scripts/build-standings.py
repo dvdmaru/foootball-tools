@@ -470,6 +470,12 @@ def render_page(matches, ko, played_any, scorers=None, scorers_updated=None):
   <div class="std-panel active" id="panel-groups">
     {banner}
     <div class="std-groups-grid">{group_blocks}</div>
+    <div class="std-rules" style="margin:30px auto 4px;max-width:760px;padding:16px 18px;border:1px solid rgba(212,175,55,.32);border-radius:10px;background:rgba(212,175,55,.06);font-size:14.5px;line-height:1.9;text-align:center">
+      <strong style="color:#d4af37;letter-spacing:1px">規則速查</strong>　看不懂積分排序或晉級門檻？
+      <a href="/articles/world-cup-points-tiebreakers/" style="color:#0d2818;font-weight:700">積分與晉級規則</a> ·
+      <a href="/articles/world-cup-2026-format/" style="color:#0d2818;font-weight:700">賽制全解</a> ·
+      <a href="/articles/knockout-extra-time-penalties/" style="color:#0d2818;font-weight:700">延長賽與點球</a>
+    </div>
   </div>
 
   <div class="std-panel" id="panel-bracket">
