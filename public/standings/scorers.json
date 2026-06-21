@@ -17,8 +17,8 @@
   },
   {
    "rank": 3,
-   "player": "Harry Kane",
-   "team_code": "ENG",
+   "player": "Cody Gakpo",
+   "team_code": "NED",
    "goals": 2,
    "assists": null
   },
@@ -38,71 +38,71 @@
   },
   {
    "rank": 6,
-   "player": "Kai Havertz",
-   "team_code": "GER",
+   "player": "Harry Kane",
+   "team_code": "ENG",
    "goals": 2,
    "assists": null
   },
   {
    "rank": 7,
-   "player": "Yasin Ayari",
-   "team_code": "SWE",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 8,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 9,
-   "player": "Johan Manzambi",
-   "team_code": "SUI",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 10,
    "player": "Cyle Larin",
    "team_code": "CAN",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 11,
+   "rank": 8,
    "player": "Elijah Just",
    "team_code": "NZL",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 12,
+   "rank": 9,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 10,
+   "player": "Johan Manzambi",
+   "team_code": "SUI",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 11,
    "player": "Vinicius Junior",
    "team_code": "BRA",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 12,
+   "player": "Matheus Cunha",
+   "team_code": "BRA",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 13,
-   "player": "Alexander Isak",
-   "team_code": "SWE",
+   "player": "Daichi Kamada",
+   "team_code": "JPN",
    "goals": 1,
-   "assists": 2
+   "assists": null
   },
   {
    "rank": 14,
-   "player": "Viktor Gyokeres",
-   "team_code": "SWE",
+   "player": "Connor Metcalfe",
+   "team_code": "AUS",
    "goals": 1,
-   "assists": 1
+   "assists": null
   },
   {
    "rank": 15,
-   "player": "Virgil van Dijk",
-   "team_code": "NED",
+   "player": "Emam Ashour",
+   "team_code": "EGY",
    "goals": 1,
    "assists": null
   }
