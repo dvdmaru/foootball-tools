@@ -685,6 +685,10 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
         kicker = "FEATURE"
     title_raw = meta.get("title", slug)
     title_safe = html_lib.escape(title_raw)
+    # seo_title overrides ONLY the <title> element (SERP headline / ranking
+    # signal); visible H1, og/twitter title and JSON-LD headline stay on title.
+    seo_title_raw = str(meta.get("seo_title", "")).strip() or title_raw
+    seo_title_safe = html_lib.escape(seo_title_raw)
     subtitle_raw = meta.get("subtitle", "")
     subtitle = html_lib.escape(subtitle_raw)
     lede_raw = str(meta.get("lede", "")).strip()
@@ -796,7 +800,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title_safe} | @foootball</title>
+<title>{seo_title_safe} | @foootball</title>
 <meta name="description" content="{desc_safe}">
 <meta property="og:title" content="{title_safe}">
 <meta property="og:description" content="{desc_safe}">
