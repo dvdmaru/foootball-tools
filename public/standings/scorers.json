@@ -24,85 +24,85 @@
   },
   {
    "rank": 4,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
-   "goals": 2,
-   "assists": 1
-  },
-  {
-   "rank": 5,
-   "player": "Cody Gakpo",
-   "team_code": "NED",
-   "goals": 2,
-   "assists": 1
-  },
-  {
-   "rank": 6,
-   "player": "Crysencio Summerville",
-   "team_code": "NED",
-   "goals": 2,
-   "assists": 1
-  },
-  {
-   "rank": 7,
-   "player": "Harry Kane",
-   "team_code": "ENG",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 8,
-   "player": "Matheus Cunha",
-   "team_code": "BRA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 9,
-   "player": "Erling Haaland",
-   "team_code": "NOR",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 10,
-   "player": "Yasin Ayari",
-   "team_code": "SWE",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 11,
-   "player": "Elijah Just",
-   "team_code": "NZL",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 12,
-   "player": "Kai Havertz",
-   "team_code": "GER",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 13,
    "player": "Kylian Mbappe",
    "team_code": "FRA",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 14,
+   "rank": 5,
+   "player": "Erling Haaland",
+   "team_code": "NOR",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 6,
+   "player": "Harry Kane",
+   "team_code": "ENG",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 7,
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 8,
+   "player": "Kai Havertz",
+   "team_code": "GER",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 9,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 10,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 11,
    "player": "Johan Manzambi",
    "team_code": "SUI",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 12,
+   "player": "Matheus Cunha",
+   "team_code": "BRA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 13,
+   "player": "Ismael Saibari",
+   "team_code": "MAR",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 14,
+   "player": "Elijah Just",
+   "team_code": "NZL",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 15,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
+   "player": "Yasin Ayari",
+   "team_code": "SWE",
    "goals": 2,
    "assists": null
   }
