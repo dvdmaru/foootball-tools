@@ -1000,7 +1000,9 @@
       "home_code": "URU",
       "away_team": "Cape Verde",
       "away_iso": "cv",
-      "away_code": "CPV"
+      "away_code": "CPV",
+      "home_score": 2,
+      "away_score": 2
     },
     {
       "match_no": 38,
@@ -1052,7 +1054,9 @@
       "home_code": "NZL",
       "away_team": "Egypt",
       "away_iso": "eg",
-      "away_code": "EGY"
+      "away_code": "EGY",
+      "home_score": 1,
+      "away_score": 3
     },
     {
       "match_no": 41,
