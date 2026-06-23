@@ -10,17 +10,17 @@
   },
   {
    "rank": 2,
-   "player": "Kylian Mbappé",
-   "team_code": "FRA",
-   "goals": 3,
+   "player": "Erling Haaland",
+   "team_code": "NOR",
+   "goals": 4,
    "assists": null
   },
   {
    "rank": 3,
-   "player": "Deniz Undav",
-   "team_code": "GER",
-   "goals": 3,
-   "assists": 2
+   "player": "Kylian Mbappe",
+   "team_code": "FRA",
+   "goals": 4,
+   "assists": null
   },
   {
    "rank": 4,
@@ -31,43 +31,43 @@
   },
   {
    "rank": 5,
+   "player": "Deniz Undav",
+   "team_code": "GER",
+   "goals": 3,
+   "assists": 2
+  },
+  {
+   "rank": 6,
    "player": "Brian Brobbey",
    "team_code": "NED",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 6,
+   "rank": 7,
    "player": "Cody Gakpo",
    "team_code": "NED",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 7,
+   "rank": 8,
    "player": "Crysencio Summerville",
    "team_code": "NED",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 8,
+   "rank": 9,
    "player": "Cyle Larin",
    "team_code": "CAN",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 9,
+   "rank": 10,
    "player": "Elijah Just",
    "team_code": "NZL",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 10,
-   "player": "Erling Haaland",
-   "team_code": "NOR",
    "goals": 2,
    "assists": null
   },
@@ -101,8 +101,8 @@
   },
   {
    "rank": 15,
-   "player": "Yasin Ayari",
-   "team_code": "SWE",
+   "player": "Vinicius Junior",
+   "team_code": "BRA",
    "goals": 2,
    "assists": null
   }

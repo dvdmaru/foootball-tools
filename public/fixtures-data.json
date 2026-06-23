@@ -1072,7 +1072,9 @@
       "home_code": "NOR",
       "away_team": "Senegal",
       "away_iso": "sn",
-      "away_code": "SEN"
+      "away_code": "SEN",
+      "home_score": 3,
+      "away_score": 2
     },
     {
       "match_no": 42,
@@ -1089,7 +1091,7 @@
       "away_team": "Iraq",
       "away_iso": "iq",
       "away_code": "IRQ",
-      "home_score": 1,
+      "home_score": 3,
       "away_score": 0
     },
     {
@@ -1124,7 +1126,9 @@
       "home_code": "JOR",
       "away_team": "Algeria",
       "away_iso": "dz",
-      "away_code": "ALG"
+      "away_code": "ALG",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "match_no": 45,
