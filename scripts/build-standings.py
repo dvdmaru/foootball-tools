@@ -162,19 +162,37 @@ def group_sort(codes, tbl):
     return sorted(codes, key=lambda c: (-tbl[c]["Pts"], -tbl[c]["GD"], -tbl[c]["GF"], c))
 
 
-def clinched_top2(code, group_codes, tbl):
-    """保守判定 code 是否『數學上鎖定前 2』：最壞情況=自己剩下全輸(停在現有積分)、
-    對手各自剩下全贏。若至多 1 隊『有可能 ≥ 自己現有積分』，則保證至少第 2。
-    永不誤標（tiebreak 不確定時一律算威脅，頂多晚標半步）。每隊小組賽固定 3 場。"""
+def clinched_top2(code, group_codes, gmatches, tbl):
+    """數學上鎖定前 2：列舉該組『剩餘賽程』所有結果（含追兵彼此對戰的零和），
+    在對 code 最不利的情境下（code 剩餘全敗→停在現有積分）仍至多 1 隊積分 ≥ code，
+    即保證至少第 2。會正確處理『兩追兵末輪互踢、不可能同時全勝』而不再高估威脅數。
+    保守：積分相同(tiebreak 未定)一律當威脅；含 code 的剩餘比賽固定為 code 落敗(對手 +3)。"""
+    from itertools import product
     floor = tbl[code]["Pts"]
-    threats = 0
-    for y in group_codes:
-        if y == code:
-            continue
-        y_max = tbl[y]["Pts"] + 3 * (3 - tbl[y]["P"])
-        if y_max >= floor:
-            threats += 1
-    return threats <= 1
+    base = {c: tbl[c]["Pts"] for c in group_codes}
+    remaining = [m for m in gmatches if not has_score(m)
+                 and m["home_code"] in group_codes and m["away_code"] in group_codes]
+    fixed = [m for m in remaining if code in (m["home_code"], m["away_code"])]
+    enum_ms = [m for m in remaining if code not in (m["home_code"], m["away_code"])]
+    worst = 0
+    for combo in product(("H", "D", "A"), repeat=len(enum_ms)):
+        pts = dict(base)
+        for m in fixed:  # code 落敗 → 對手全取 3 分（對 code 最壞）
+            opp = m["away_code"] if m["home_code"] == code else m["home_code"]
+            pts[opp] += 3
+        for m, r in zip(enum_ms, combo):
+            h, a = m["home_code"], m["away_code"]
+            if r == "H":
+                pts[h] += 3
+            elif r == "A":
+                pts[a] += 3
+            else:
+                pts[h] += 1
+                pts[a] += 1
+        cnt = sum(1 for y in group_codes if y != code and pts[y] >= floor)
+        if cnt > worst:
+            worst = cnt
+    return worst <= 1
 
 
 def compute_qualified(groups, tbl):
@@ -197,7 +215,7 @@ def compute_qualified(groups, tbl):
             adv.update(order[:2])
         else:
             for c in gcodes:
-                if clinched_top2(c, gcodes, tbl):
+                if clinched_top2(c, gcodes, gmatches, tbl):
                     adv.add(c)
             if played:
                 for c in order[:2]:
