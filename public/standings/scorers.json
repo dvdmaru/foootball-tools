@@ -1,110 +1,173 @@
 {
- "updated": "2026-06-23",
- "scorers": [
-  {
-   "rank": 1,
-   "player": "Lionel Messi",
-   "team_code": "ARG",
-   "goals": 5,
-   "assists": null
-  },
-  {
-   "rank": 2,
-   "player": "Kylian Mbappe",
-   "team_code": "FRA",
-   "goals": 4,
-   "assists": null
-  },
-  {
-   "rank": 3,
-   "player": "Erling Haaland",
-   "team_code": "NOR",
-   "goals": 4,
-   "assists": null
-  },
-  {
-   "rank": 4,
-   "player": "Deniz Undav",
-   "team_code": "GER",
-   "goals": 3,
-   "assists": 2
-  },
-  {
-   "rank": 5,
-   "player": "Jonathan David",
-   "team_code": "CAN",
-   "goals": 3,
-   "assists": null
-  },
-  {
-   "rank": 6,
-   "player": "Harry Kane",
-   "team_code": "ENG",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 7,
-   "player": "Kai Havertz",
-   "team_code": "GER",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 8,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 9,
-   "player": "Vinicius Junior",
-   "team_code": "BRA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 10,
-   "player": "Ismaila Sarr",
-   "team_code": "SEN",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 11,
-   "player": "Ousmane Dembele",
-   "team_code": "FRA",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 12,
-   "player": "Giovanni Reyna",
-   "team_code": "USA",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 13,
-   "player": "Raul Jimenez",
-   "team_code": "MEX",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 14,
-   "player": "Cyle Larin",
-   "team_code": "CAN",
-   "goals": 1,
-   "assists": null
-  },
-  {
-   "rank": 15,
-   "player": "Julian Quinones",
-   "team_code": "MEX",
-   "goals": 1,
-   "assists": null
-  }
- ]
+  "updated": "2026-06-24",
+  "scorers": [
+    {
+      "rank": 1,
+      "player": "Lionel Messi",
+      "team_code": "ARG",
+      "goals": 5,
+      "assists": null
+    },
+    {
+      "rank": 2,
+      "player": "Kylian Mbappe",
+      "team_code": "FRA",
+      "goals": 4,
+      "assists": null
+    },
+    {
+      "rank": 3,
+      "player": "Erling Haaland",
+      "team_code": "NOR",
+      "goals": 4,
+      "assists": null
+    },
+    {
+      "rank": 4,
+      "player": "Jonathan David",
+      "team_code": "CAN",
+      "goals": 3,
+      "assists": null
+    },
+    {
+      "rank": 5,
+      "player": "Deniz Undav",
+      "team_code": "GER",
+      "goals": 3,
+      "assists": null
+    },
+    {
+      "rank": 6,
+      "player": "Cristiano Ronaldo",
+      "team_code": "POR",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 7,
+      "player": "Ismaila Sarr",
+      "team_code": "SEN",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 8,
+      "player": "Ayase Ueda",
+      "team_code": "JPN",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 9,
+      "player": "Daichi Kamada",
+      "team_code": "JPN",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 10,
+      "player": "Mikel Oyarzabal",
+      "team_code": "ESP",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 11,
+      "player": "Cody Gakpo",
+      "team_code": "NED",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 12,
+      "player": "Brian Brobbey",
+      "team_code": "NED",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 13,
+      "player": "Crysencio Summerville",
+      "team_code": "NED",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 14,
+      "player": "Vinicius Junior",
+      "team_code": "BRA",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 15,
+      "player": "Matheus Cunha",
+      "team_code": "BRA",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 16,
+      "player": "Harry Kane",
+      "team_code": "ENG",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 17,
+      "player": "Kai Havertz",
+      "team_code": "GER",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 18,
+      "player": "Folarin Balogun",
+      "team_code": "USA",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 19,
+      "player": "Cyle Larin",
+      "team_code": "CAN",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 20,
+      "player": "Maxi Araujo",
+      "team_code": "URU",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 21,
+      "player": "Ismael Saibari",
+      "team_code": "MAR",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 22,
+      "player": "Johan Manzambi",
+      "team_code": "SUI",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 23,
+      "player": "Elijah Just",
+      "team_code": "NZL",
+      "goals": 2,
+      "assists": null
+    },
+    {
+      "rank": 24,
+      "player": "Yasin Ayari",
+      "team_code": "SWE",
+      "goals": 2,
+      "assists": null
+    }
+  ]
 }
