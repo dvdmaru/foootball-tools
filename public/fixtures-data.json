@@ -1162,7 +1162,9 @@
       "home_code": "PAN",
       "away_team": "Croatia",
       "away_iso": "hr",
-      "away_code": "CRO"
+      "away_code": "CRO",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "match_no": 47,
@@ -1196,7 +1198,9 @@
       "home_code": "COL",
       "away_team": "DR Congo",
       "away_iso": "cd",
-      "away_code": "COD"
+      "away_code": "COD",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "match_no": 49,
