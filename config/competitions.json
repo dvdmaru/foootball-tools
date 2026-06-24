@@ -1,0 +1,30 @@
+{
+  "_comment": "Competition registry — single source of truth for foootball multi-competition build. Phase 1: wc2026 only. Leagues (epl/j1/k1/saudi/mls) added after API-Football free-key coverage-flag validation. schema_id is FROZEN verbatim for already-indexed competitions (Google entity @id).",
+  "wc2026": {
+    "id": "wc2026",
+    "schema_id": "#worldcup2026",
+    "name_zh": "2026 FIFA 世界盃",
+    "name_en": "2026 FIFA World Cup",
+    "format": "cup-with-groups",
+    "season": "2026",
+    "start_date": "2026-06-11",
+    "end_date": "2026-07-19",
+    "status": "live",
+    "archive_after": "2026-07-19",
+    "home_priority": 0,
+    "cadence": "daily",
+    "data_source": { "type": "static", "fixtures": "fixtures-data.json" },
+    "coverage": { "events": true, "lineups": true, "player_stats": true },
+    "index": { "section_label": "世界盃封存", "landing": "/leagues/wc2026/" },
+    "schema": {
+      "type": "SportsEvent",
+      "sport": "Soccer",
+      "organizer": { "name": "FIFA", "url": "https://www.fifa.com/" },
+      "location": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "Canada" },
+        { "@type": "Country", "name": "Mexico" }
+      ]
+    }
+  }
+}

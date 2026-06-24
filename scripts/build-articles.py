@@ -56,6 +56,37 @@ ORG_NAME = "@foootball"
 WEEKDAY_ZH = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
 
 
+# ---------- competition registry (multi-competition single source of truth) ----------
+# config/competitions.json drives schema.org nodes, cadence, data source and IA per
+# competition. Phase 1 holds only wc2026; tournament_node() is now a thin alias over
+# competition_node(wc2026) and emits byte-identical JSON-LD to the previous hardcode.
+def load_competitions() -> dict:
+    p = ROOT / "config" / "competitions.json"
+    if not p.exists():
+        return {}
+    data = json.loads(p.read_text(encoding="utf-8"))
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
+COMPETITIONS = load_competitions()
+
+
+def effective_status(comp: dict, today: datetime.date = None) -> str:
+    """Resolve display status. `status` is authored intent; once past `archive_after`
+    the competition is treated as archived (drives index/homepage placement). Data-
+    driven so the 2026-07-19 World Cup → archive transition is a no-op rebuild."""
+    if today is None:
+        today = datetime.date.today()
+    aft = comp.get("archive_after")
+    if aft:
+        try:
+            if today > datetime.date.fromisoformat(aft):
+                return "archived"
+        except ValueError:
+            pass
+    return comp.get("status", "live")
+
+
 # ---------- site-wide GA4 (同步 public/index.html) ----------
 GA_SNIPPET = """<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V12JQHW84K"></script>
@@ -279,23 +310,40 @@ def website_node() -> dict:
     }
 
 
-def tournament_node() -> dict:
-    """The 2026 FIFA World Cup as a SportsEvent (host = US/Canada/Mexico)."""
-    return {
-        "@type": "SportsEvent",
-        "@id": f"{SITE}/#worldcup2026",
-        "name": "2026 FIFA 世界盃",
-        "sport": "Soccer",
-        "startDate": "2026-06-11",
-        "endDate": "2026-07-19",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "location": [
-            {"@type": "Country", "name": "United States"},
-            {"@type": "Country", "name": "Canada"},
-            {"@type": "Country", "name": "Mexico"},
-        ],
-        "organizer": {"@type": "Organization", "name": "FIFA", "url": "https://www.fifa.com/"},
+def competition_node(comp: dict) -> dict:
+    """schema.org node for one competition, driven by the registry.
+
+    Cups -> SportsEvent (dated, host countries); leagues -> SportsLeague (season org).
+    Key insertion order is preserved so the wc2026 SportsEvent serializes byte-identical
+    to the previous hardcoded tournament_node() output (json.dumps keeps insertion order).
+    """
+    s = comp["schema"]
+    node = {
+        "@type": s["type"],
+        "@id": f"{SITE}/{comp['schema_id']}",
+        "name": comp["name_zh"],
+        "sport": s.get("sport", "Soccer"),
     }
+    if s["type"] == "SportsEvent":
+        node["startDate"] = comp["start_date"]
+        node["endDate"] = comp["end_date"]
+        node["eventStatus"] = s.get("event_status", "https://schema.org/EventScheduled")
+        if "location" in s:
+            node["location"] = s["location"]
+    else:  # SportsLeague (round-robin / playoff leagues): season-scoped org, no dates
+        node["url"] = f"{SITE}{comp['index']['landing']}"
+    if "organizer" in s:
+        node["organizer"] = {"@type": "Organization", **s["organizer"]}
+    return node
+
+
+def tournament_node() -> dict:
+    """Back-compat alias: the 2026 FIFA World Cup SportsEvent.
+
+    Kept (name + signature) for the whole migration because build-standings.py and
+    gen-team-pages.py re-export it by name via importlib. Now sourced from the registry.
+    """
+    return competition_node(COMPETITIONS["wc2026"])
 
 
 def breadcrumb_node(items: list) -> dict:
@@ -713,6 +761,9 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
     cover_alt = html_lib.escape(f"{title_raw}｜封面")
 
     # structured data: Article + breadcrumb (+ org/website context)
+    # competition the article belongs to (defaults to wc2026 → existing articles
+    # need no frontmatter edit and emit byte-identical JSON-LD).
+    comp = COMPETITIONS.get(meta.get("competition", "wc2026")) or COMPETITIONS.get("wc2026")
     art_type = "NewsArticle" if typ == "daily" else "Article"
     page_url = f"{SITE}/articles/{slug}/"
     article_ld = {
@@ -725,7 +776,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
         "mainEntityOfPage": page_url,
         "author": {"@id": f"{SITE}/#org"},
         "publisher": {"@id": f"{SITE}/#org"},
-        "isPartOf": {"@id": f"{SITE}/#worldcup2026"},
+        "isPartOf": {"@id": f"{SITE}/{comp['schema_id']}"},
     }
     if date_str:
         article_ld["datePublished"] = date_str
@@ -735,7 +786,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
         ("文章", f"{SITE}/articles/"),
         (title_raw, page_url),
     ])
-    jsonld = graph_ld([org_node(), website_node(), tournament_node(), article_ld, crumb,
+    jsonld = graph_ld([org_node(), website_node(), competition_node(comp), article_ld, crumb,
                        faq_node(faq, page_url)])
 
     # ----- prev/next nav + 更多每日戰報 (internal linking for SEO/engagement) -----
@@ -1066,6 +1117,9 @@ def build():
         text = md_path.read_text(encoding="utf-8")
         meta, body = parse_frontmatter(text)
         meta.setdefault("slug", d.name)
+        # zero-touch backfill: existing WC articles have no `competition:` field and
+        # implicitly belong to wc2026. New league articles set it explicitly.
+        meta.setdefault("competition", "wc2026")
         slug = meta["slug"]
 
         if meta.get("type") == "daily":
