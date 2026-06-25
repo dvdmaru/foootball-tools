@@ -93,6 +93,25 @@ SOCCER_SITE = SITES.get("soccer") or {
     "org_name": ORG_NAME,
     "org_same_as": ["https://medium.com/@foootball"],
     "website_name": "@foootball — 2026 世界盃賽程 + 戰報",
+    "brand_mark": "@FOOOTBALL",
+    "brand_tag": "2026 World Cup · 賽程 + 戰報",
+    "title_suffix": "@foootball",
+    "feed_title": "@foootball 最新文章",
+    "feed_channel_title": "@foootball — 2026 世界盃戰報與專題",
+    "feed_channel_desc": "2026 FIFA 世界盃每日戰報、規則解析與專題文章。",
+    "default_theme": "grass",
+    "nav": [
+        {"label": "賽程訂閱", "href": "/", "key": "home"},
+        {"label": "戰況", "href": "/standings/", "key": "standings"},
+        {"label": "文章", "href": "/articles/", "key": "articles"},
+    ],
+    "external_link": {"label": "Medium ↗", "href": "https://medium.com/@foootball"},
+    "footer_cta": {"label": "👉 訂閱你的球隊賽程", "href": "/"},
+    "footer_links": [
+        {"label": "所有文章", "href": "/articles/"},
+        {"label": "Medium", "href": "https://medium.com/@foootball", "external": True},
+        {"label": "賽程訂閱", "href": "/"},
+    ],
 }
 
 
@@ -281,26 +300,108 @@ DISCLAIMER_HTML = (
     '<span>Unofficial fan-made site · Not affiliated with, endorsed by, or sponsored by FIFA.</span></div>'
 )
 
+BASEBALL_DISCLAIMER_HTML = (
+    '<div class="site-disclaimer">本站為非官方棒球資訊站，與 MLB、中華職棒（CPBL）等職業聯盟、'
+    '球團無任何關聯或授權；數據與比分整理自公開官方來源並標註。<br>'
+    '<span>Unofficial fan-made site · Not affiliated with, endorsed by, or sponsored by MLB or CPBL.</span></div>'
+)
 
-def site_header_html(active: str) -> str:
-    """active: 'home' | 'standings' | 'articles' | (other ignored)"""
-    a_cls_home = ' class="active"' if active == "home" else ""
-    a_cls_stand = ' class="active"' if active == "standings" else ""
-    a_cls_arts = ' class="active"' if active == "articles" else ""
+
+def site_header_html(active: str, site: dict = None) -> str:
+    """active: nav key to mark current ('home'|'standings'|'articles'|...).
+    site: per-sport identity (brand_mark/brand_tag/nav/external_link). None -> soccer
+    (reproduces the legacy @FOOOTBALL header byte-for-byte)."""
+    site = site or SOCCER_SITE
+    parts = []
+    for n in site.get("nav", []):
+        cls = ' class="active"' if n.get("key") == active else ""
+        parts.append(f'<a href="{n["href"]}"{cls}>{n["label"]}</a>')
+    ext = site.get("external_link")
+    if ext:
+        parts.append(f'<a href="{ext["href"]}" target="_blank" rel="noopener">{ext["label"]}</a>')
+    links = "\n      ".join(parts)
     return f"""
   <header class="site-header">
     <div class="brand-block">
-      <a href="/" class="brand-mark">@FOOOTBALL</a>
-      <div class="brand-tag">2026 World Cup · 賽程 + 戰報</div>
+      <a href="/" class="brand-mark">{site["brand_mark"]}</a>
+      <div class="brand-tag">{site["brand_tag"]}</div>
     </div>
     <nav class="site-nav">
-      <a href="/"{a_cls_home}>賽程訂閱</a>
-      <a href="/standings/"{a_cls_stand}>戰況</a>
-      <a href="/articles/"{a_cls_arts}>文章</a>
-      <a href="https://medium.com/@foootball" target="_blank" rel="noopener">Medium ↗</a>
+      {links}
     </nav>
   </header>
 """
+
+
+def theme_switch_html(site: dict = None) -> str:
+    """Color switcher. Soccer -> the legacy 7-dot palette (byte-identical). Baseball -> a
+    navy-led palette (navy is the default brand color)."""
+    site = site or SOCCER_SITE
+    if site.get("default_theme", "grass") != "navy":
+        return THEME_SWITCH_HTML
+    dots = [("navy", "#1c3d6e", "海軍藍"), ("cobalt", "#2b5ce0", "鈷藍"),
+            ("teal", "#0f8a8a", "湖青"), ("tangerine", "#d4622a", "暖橘"),
+            ("berry", "#c0356f", "莓紅"), ("plum", "#6c4bd1", "紫"),
+            ("dark", "#0d2818", "深色")]
+    btns = "\n    ".join(
+        f'<button class="ts-dot" data-theme="{t}" onclick="setTheme(\'{t}\')" '
+        f'style="--sw:{c}" aria-label="{lab}"></button>' for t, c, lab in dots)
+    return ('\n<div class="theme-switch">\n  <span class="ts-label">配色</span>\n'
+            f'  <div class="ts-dots">\n    {btns}\n  </div>\n</div>\n')
+
+
+def theme_switch_js(site: dict = None) -> str:
+    """Theme init/persist JS. Soccer -> legacy (default grass). Baseball -> default navy."""
+    site = site or SOCCER_SITE
+    if site.get("default_theme", "grass") != "navy":
+        return THEME_SWITCH_JS
+    return """
+const THEMES = ['navy','cobalt','tangerine','berry','teal','plum','dark'];
+function setTheme(t) {
+  if (!THEMES.includes(t)) t = 'navy';
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem('bb-theme', t); } catch (e) {}
+  document.querySelectorAll('.ts-dot').forEach(d => d.classList.toggle('active', d.dataset.theme === t));
+}
+(function initTheme() {
+  let t = 'navy';
+  try { t = localStorage.getItem('bb-theme') || 'navy'; } catch (e) {}
+  setTheme(t);
+})();
+"""
+
+
+def extra_theme_css(site: dict = None) -> str:
+    """Per-sport extra theme rules injected into the page <style>. Empty for soccer (so the
+    soccer pages are byte-identical); navy theme tokens for baseball (light bg + navy/gold)."""
+    site = site or SOCCER_SITE
+    if site.get("default_theme", "grass") != "navy":
+        return ""
+    return ('\n:root[data-theme="navy"] { --bg:#eef1f6; --bg-glow:#e0e6f0; --accent:#1c3d6e; '
+            '--accent-bright:#274f8a; --accent-ink:#ffffff; --accent-soft:rgba(28,61,110,0.10); '
+            '--accent-line:rgba(28,61,110,0.30); --accent-glow:rgba(28,61,110,0.24); }\n')
+
+
+def site_footer_html(site: dict = None) -> str:
+    """Article-page footer. Soccer -> legacy footer byte-for-byte (CTA + Medium + disclaimer).
+    Baseball -> no sales CTA (editorial no-CTA rule), baseball links + baseball disclaimer."""
+    site = site or SOCCER_SITE
+    cta = site.get("footer_cta")
+    cta_line = f'\n    <a href="{cta["href"]}" class="cta-btn">{cta["label"]}</a>' if cta else ""
+    link_parts = []
+    for l in site.get("footer_links", []):
+        if l.get("external"):
+            link_parts.append(f'<a href="{l["href"]}" target="_blank" rel="noopener">{l["label"]}</a>')
+        else:
+            link_parts.append(f'<a href="{l["href"]}">{l["label"]}</a>')
+    links = "\n      ".join(link_parts)
+    disclaimer = BASEBALL_DISCLAIMER_HTML if site.get("default_theme") == "navy" else DISCLAIMER_HTML
+    return f"""  <div class="article-footer">{cta_line}
+    <div class="foot-links">
+      {links}
+    </div>
+    {disclaimer}
+  </div>"""
 
 
 # ---------- shared JSON-LD helpers (structured data for SEO/GEO/AEO) ----------
@@ -888,43 +989,43 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
                      f'<p>{html_lib.escape(lede_raw)}</p></div>')
 
     return f"""<!DOCTYPE html>
-<html lang="zh-Hant" data-theme="grass">
+<html lang="zh-Hant" data-theme="{site['default_theme']}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{seo_title_safe} | @foootball</title>
+<title>{seo_title_safe} | {site['title_suffix']}</title>
 <meta name="description" content="{desc_safe}">
 <meta property="og:title" content="{title_safe}">
 <meta property="og:description" content="{desc_safe}">
-<meta property="og:image" content="https://foootball.twtools.cc/articles/{slug}/cover.png">
+<meta property="og:image" content="{base}/articles/{slug}/cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://foootball.twtools.cc/articles/{slug}/">
-<meta property="og:site_name" content="@foootball">
+<meta property="og:url" content="{base}/articles/{slug}/">
+<meta property="og:site_name" content="{site['org_name']}">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="{date_str}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title_safe}">
 <meta name="twitter:description" content="{desc_safe}">
-<meta name="twitter:image" content="https://foootball.twtools.cc/articles/{slug}/cover.png">
-<link rel="canonical" href="https://foootball.twtools.cc/articles/{slug}/">{head_rels}
-<link rel="alternate" type="application/rss+xml" title="@foootball 最新文章" href="https://foootball.twtools.cc/feed.xml">
+<meta name="twitter:image" content="{base}/articles/{slug}/cover.png">
+<link rel="canonical" href="{base}/articles/{slug}/">{head_rels}
+<link rel="alternate" type="application/rss+xml" title="{site['feed_title']}" href="{base}/feed.xml">
 {jsonld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 {GA_SNIPPET}
 <style>
-{SHARED_TOKENS_CSS}
+{SHARED_TOKENS_CSS}{extra_theme_css(site)}
 {THEME_SWITCH_CSS}
 {SITE_HEADER_CSS}
 {ARTICLE_CSS}
 </style>
 </head>
 <body>
-{THEME_SWITCH_HTML}
-<div class="container">{site_header_html("articles")}
+{theme_switch_html(site)}
+<div class="container">{site_header_html("articles", site)}
   <article>
     <header class="article-header">
       <div class="article-kicker">{kicker}</div>
@@ -938,17 +1039,9 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
     </div>
   </article>
   {series_nav}
-  <div class="article-footer">
-    <a href="/" class="cta-btn">👉 訂閱你的球隊賽程</a>
-    <div class="foot-links">
-      <a href="/articles/">所有文章</a>
-      <a href="https://medium.com/@foootball" target="_blank" rel="noopener">Medium</a>
-      <a href="/">賽程訂閱</a>
-    </div>
-    {DISCLAIMER_HTML}
-  </div>
+{site_footer_html(site)}
 </div>
-<script>{THEME_SWITCH_JS}</script>
+<script>{theme_switch_js(site)}</script>
 </body>
 </html>
 """
@@ -1099,9 +1192,12 @@ def _rfc822(date_str: str) -> str:
             f"{d.year} 08:00:00 +0800")
 
 
-def render_feed(articles: list) -> str:
-    """RSS 2.0 feed（public/feed.xml）。收最近 FEED_MAX 篇 daily+feature；
-    description 優先用 lede（重點速答）→ excerpt → subtitle，全為已可見文字。"""
+def render_feed(articles: list, site: dict = None) -> str:
+    """RSS 2.0 feed（<site>/feed.xml）。收最近 FEED_MAX 篇 daily+feature；
+    description 優先用 lede（重點速答）→ excerpt → subtitle，全為已可見文字。
+    site=None -> soccer（byte-identical 合約）。"""
+    site = site or SOCCER_SITE
+    base = site["base"]
     items = articles[:FEED_MAX]
     last_build = _rfc822(str(items[0]["meta"].get("date", ""))) if items else ""
 
@@ -1109,17 +1205,17 @@ def render_feed(articles: list) -> str:
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
         "  <channel>",
-        "    <title>@foootball — 2026 世界盃戰報與專題</title>",
-        f"    <link>{SITE}/articles/</link>",
-        f'    <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml" />',
-        "    <description>2026 FIFA 世界盃每日戰報、規則解析與專題文章。</description>",
+        f"    <title>{site['feed_channel_title']}</title>",
+        f"    <link>{base}/articles/</link>",
+        f'    <atom:link href="{base}/feed.xml" rel="self" type="application/rss+xml" />',
+        f"    <description>{site['feed_channel_desc']}</description>",
         "    <language>zh-Hant</language>",
     ]
     if last_build:
         lines.append(f"    <lastBuildDate>{last_build}</lastBuildDate>")
     for a in items:
         meta = a["meta"]
-        url = f"{SITE}/articles/{a['slug']}/"
+        url = f"{base}/articles/{a['slug']}/"
         title = html_lib.escape(str(meta.get("title", a["slug"])))
         desc_src = (str(meta.get("lede", "")).strip()
                     or a.get("excerpt") or str(meta.get("subtitle", "")))
@@ -1272,7 +1368,8 @@ def _build_sport_site(articles: list, sport: str):
     pub.mkdir(parents=True, exist_ok=True)
     (pub / "index.html").write_text(render_sport_index(articles, site, label), encoding="utf-8")
     (pub / "sitemap.xml").write_text(render_sport_sitemap(articles, site), encoding="utf-8")
-    print(f"⚾ {sport} site: index.html + sitemap.xml ({len(articles)} articles) → {pub}/")
+    (pub / "feed.xml").write_text(render_feed(articles, site), encoding="utf-8")
+    print(f"⚾ {sport} site: index + sitemap + feed ({len(articles)} articles) → {pub}/")
 
 
 # ---------- main build ----------

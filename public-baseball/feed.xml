@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>@baseball — 中職 + MLB 數據深度</title>
+    <link>https://baseball.twtools.cc/articles/</link>
+    <atom:link href="https://baseball.twtools.cc/feed.xml" rel="self" type="application/rss+xml" />
+    <description>中華職棒 CPBL 與美國職棒 MLB 的數據深度分析、里程碑特刊與戰績排行。</description>
+    <language>zh-Hant</language>
+    <lastBuildDate>Thu, 25 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <item>
+      <title>投不了球的那一年：大谷翔平 2024，與棒球史上第一個 50-50</title>
+      <link>https://baseball.twtools.cc/articles/mlb-special-ohtani-2024-50-50/</link>
+      <guid isPermaLink="true">https://baseball.twtools.cc/articles/mlb-special-ohtani-2024-50-50/</guid>
+      <pubDate>Thu, 25 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>2024 年的大谷翔平做了一件矛盾的事：整季沒投一顆球（手肘術後復健），卻打出生涯最強的打擊成績單，並締造大聯盟史上首見的單季 50 轟 50 盜。9 月 19 日對馬林魚，他用一場 6 支 6、3 響砲、2 盜、10 打點完成 50-50；年底全票拿下國聯 MVP，同時奪下加盟道奇後的第一座世界大賽冠軍。這篇特刊用七張資料表，從那一夜講到他帶傷打完的十月——數字怎麼來、含金量在哪、代價是什麼，一次講清楚。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,15 +1,51 @@
 {
-  "_comment": "Per-sport site identity — single source of truth for org/website JSON-LD across sports. A competition resolves its site via its top-level `sport` field (see config/competitions.json); competitions with no `sport` (every existing soccer comp) fall back to the `soccer` block here. The `soccer` block MUST stay byte-identical to the legacy SITE/ORG_NAME constants in build-articles.py — the soccer rebuild regression (zero diff on public/) is the contract. `base` has no trailing slash (code appends it).",
+  "_comment": "Per-sport site identity — single source of truth for org/website JSON-LD AND page chrome (header brand/nav, <title> suffix, og/canonical base, default theme) across sports. A competition resolves its site via its top-level `sport` field (see config/competitions.json); competitions with no `sport` (every existing soccer comp) fall back to the `soccer` block here. The `soccer` block MUST stay byte-identical to the legacy hardcoded strings in build-articles.py — the soccer rebuild regression (zero diff on public/) is the contract. `base` has no trailing slash (code appends it).",
   "soccer": {
     "base": "https://foootball.twtools.cc",
     "org_name": "@foootball",
     "org_same_as": ["https://medium.com/@foootball"],
-    "website_name": "@foootball — 2026 世界盃賽程 + 戰報"
+    "website_name": "@foootball — 2026 世界盃賽程 + 戰報",
+    "brand_mark": "@FOOOTBALL",
+    "brand_tag": "2026 World Cup · 賽程 + 戰報",
+    "title_suffix": "@foootball",
+    "feed_title": "@foootball 最新文章",
+    "feed_channel_title": "@foootball — 2026 世界盃戰報與專題",
+    "feed_channel_desc": "2026 FIFA 世界盃每日戰報、規則解析與專題文章。",
+    "default_theme": "grass",
+    "nav": [
+      { "label": "賽程訂閱", "href": "/", "key": "home" },
+      { "label": "戰況", "href": "/standings/", "key": "standings" },
+      { "label": "文章", "href": "/articles/", "key": "articles" }
+    ],
+    "external_link": { "label": "Medium ↗", "href": "https://medium.com/@foootball" },
+    "footer_cta": { "label": "👉 訂閱你的球隊賽程", "href": "/" },
+    "footer_links": [
+      { "label": "所有文章", "href": "/articles/" },
+      { "label": "Medium", "href": "https://medium.com/@foootball", "external": true },
+      { "label": "賽程訂閱", "href": "/" }
+    ]
   },
   "baseball": {
     "base": "https://baseball.twtools.cc",
     "org_name": "@baseball",
     "org_same_as": [],
-    "website_name": "@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報"
+    "website_name": "@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報",
+    "brand_mark": "@BASEBALL",
+    "brand_tag": "中職 + MLB · 數據深度",
+    "title_suffix": "@baseball",
+    "feed_title": "@baseball 最新文章",
+    "feed_channel_title": "@baseball — 中職 + MLB 數據深度",
+    "feed_channel_desc": "中華職棒 CPBL 與美國職棒 MLB 的數據深度分析、里程碑特刊與戰績排行。",
+    "default_theme": "navy",
+    "nav": [
+      { "label": "首頁", "href": "/", "key": "home" },
+      { "label": "文章", "href": "/articles/", "key": "articles" }
+    ],
+    "external_link": null,
+    "footer_cta": null,
+    "footer_links": [
+      { "label": "所有文章", "href": "/articles/" },
+      { "label": "首頁", "href": "/" }
+    ]
   }
 }
