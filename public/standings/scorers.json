@@ -10,8 +10,8 @@
   },
   {
    "rank": 2,
-   "player": "Erling Haaland",
-   "team_code": "NOR",
+   "player": "Vinícius Júnior",
+   "team_code": "BRA",
    "goals": 4,
    "assists": null
   },
@@ -24,8 +24,8 @@
   },
   {
    "rank": 4,
-   "player": "Vinícius Júnior",
-   "team_code": "BRA",
+   "player": "Erling Haaland",
+   "team_code": "NOR",
    "goals": 4,
    "assists": null
   },
@@ -34,74 +34,74 @@
    "player": "Deniz Undav",
    "team_code": "GER",
    "goals": 3,
-   "assists": null
+   "assists": 2
   },
   {
    "rank": 6,
+   "player": "Matheus Cunha",
+   "team_code": "BRA",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "rank": 7,
    "player": "Jonathan David",
    "team_code": "CAN",
    "goals": 3,
    "assists": null
   },
   {
-   "rank": 7,
-   "player": "Cristiano Ronaldo",
-   "team_code": "POR",
-   "goals": 2,
-   "assists": null
-  },
-  {
    "rank": 8,
-   "player": "Folarin Balogun",
-   "team_code": "USA",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 9,
-   "player": "Cody Gakpo",
-   "team_code": "NED",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 10,
-   "player": "Brian Brobbey",
-   "team_code": "NED",
-   "goals": 2,
-   "assists": null
-  },
-  {
-   "rank": 11,
    "player": "Harry Kane",
    "team_code": "ENG",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 12,
-   "player": "Raphinha",
-   "team_code": "BRA",
+   "rank": 9,
+   "player": "Kai Havertz",
+   "team_code": "GER",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 13,
-   "player": "Lamine Yamal",
+   "rank": 10,
+   "player": "Cristiano Ronaldo",
+   "team_code": "POR",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 11,
+   "player": "Folarin Balogun",
+   "team_code": "USA",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 12,
+   "player": "Mikel Oyarzabal",
    "team_code": "ESP",
    "goals": 2,
    "assists": null
   },
   {
+   "rank": 13,
+   "player": "Cody Gakpo",
+   "team_code": "NED",
+   "goals": 2,
+   "assists": null
+  },
+  {
    "rank": 14,
-   "player": "Jude Bellingham",
-   "team_code": "ENG",
+   "player": "Youssef En-Nesyri",
+   "team_code": "MAR",
    "goals": 2,
    "assists": null
   },
   {
    "rank": 15,
-   "player": "Alexander Isak",
+   "player": "Victor Gyökeres",
    "team_code": "SWE",
    "goals": 2,
    "assists": null

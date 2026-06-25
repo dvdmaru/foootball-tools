@@ -1127,8 +1127,8 @@
       "away_team": "Algeria",
       "away_iso": "dz",
       "away_code": "ALG",
-      "home_score": 1,
-      "away_score": 2
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "match_no": 45,
@@ -1253,7 +1253,7 @@
       "away_team": "Canada",
       "away_iso": "ca",
       "away_code": "CAN",
-      "home_score": 2,
+      "home_score": 3,
       "away_score": 1
     },
     {
