@@ -7,8 +7,8 @@
     "stadium": "SoFi Stadium",
     "city": "Los Angeles",
     "country": "USA",
-    "home_team": "Runner-up Group A",
-    "away_team": "Runner-up Group B"
+    "home_team": "南非",
+    "away_team": "加拿大"
   },
   {
     "match_number": 74,
@@ -30,7 +30,7 @@
     "city": "Monterrey",
     "country": "Mexico",
     "home_team": "Winner Group F",
-    "away_team": "Runner-up Group C"
+    "away_team": "摩洛哥"
   },
   {
     "match_number": 76,
@@ -40,7 +40,7 @@
     "stadium": "NRG Stadium",
     "city": "Houston",
     "country": "USA",
-    "home_team": "Winner Group C",
+    "home_team": "巴西",
     "away_team": "Runner-up Group F"
   },
   {
@@ -73,7 +73,7 @@
     "stadium": "Estadio Azteca",
     "city": "Mexico City",
     "country": "Mexico",
-    "home_team": "Winner Group A",
+    "home_team": "墨西哥",
     "away_team": "Best 3rd (Groups C/E/F/H/I)"
   },
   {
@@ -139,7 +139,7 @@
     "stadium": "BC Place",
     "city": "Vancouver",
     "country": "Canada",
-    "home_team": "Winner Group B",
+    "home_team": "瑞士",
     "away_team": "Best 3rd (Groups E/F/G/I/J)"
   },
   {
