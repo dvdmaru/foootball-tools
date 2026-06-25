@@ -1141,6 +1141,140 @@ def render_feed(articles: list) -> str:
     return "\n".join(lines)
 
 
+# ---------- per-sport site routing (multi-site build) ----------
+# A comp's sport decides which static site it builds into. Soccer -> public/ (the existing
+# foootball site, untouched / byte-identical). Non-soccer sports -> public-<sport>/ with their
+# own landing + sitemap and their own base URL (baseball.twtools.cc). render_index/render_feed
+# stay soccer-only so the foootball output never changes.
+PUB_SOCCER = ROOT / "public"
+
+
+def _comp_of(meta: dict) -> dict:
+    return COMPETITIONS.get(meta.get("competition", "wc2026")) or COMPETITIONS["wc2026"]
+
+
+def _sport_of(meta: dict) -> str:
+    comp = _comp_of(meta)
+    return (comp.get("sport") or comp.get("schema", {}).get("sport") or "soccer").lower()
+
+
+def pub_root_for(meta: dict) -> pathlib.Path:
+    sport = _sport_of(meta)
+    return PUB_SOCCER if sport == "soccer" else ROOT / f"public-{sport}"
+
+
+def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
+    """Self-contained landing for a non-soccer site (baseball.twtools.cc). Navy/gold brand to
+    match the cover; lists articles newest-first with cover thumbnails. Kept separate from the
+    soccer render_index so the foootball site is never affected."""
+    base = site["base"]
+    cards = ""
+    for i, a in enumerate(articles):
+        title = html_lib.escape(a["meta"].get("title", a["slug"]))
+        desc = html_lib.escape(a.get("excerpt") or a["meta"].get("subtitle", ""))[:120]
+        date_disp = _date_disp(str(a["meta"].get("date", "")))
+        kicker = _kicker_label(a["meta"])
+        big = " bb-card--lead" if i == 0 else ""
+        cards += f"""
+    <a class="bb-card{big}" href="/articles/{a['slug']}/">
+      <div class="bb-card-img"><img src="/articles/{a['slug']}/cover.png" alt="{title}｜封面" loading="lazy"></div>
+      <div class="bb-card-body">
+        <span class="bb-kicker">{kicker}</span>
+        <div class="bb-card-title">{title}</div>
+        <div class="bb-card-desc">{desc}</div>
+        <div class="bb-card-meta">{date_disp}</div>
+      </div>
+    </a>"""
+
+    item_list = {"@type": "ItemList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "url": f"{base}/articles/{a['slug']}/",
+         "name": a["meta"].get("title", a["slug"])} for i, a in enumerate(articles)]}
+    collection = {"@type": "CollectionPage", "@id": f"{base}/", "url": f"{base}/",
+                  "name": site["website_name"], "inLanguage": "zh-Hant",
+                  "isPartOf": {"@id": f"{base}/#website"}, "mainEntity": item_list}
+    jsonld = graph_ld([org_node(site), website_node(site), collection,
+                       breadcrumb_node([("首頁", f"{base}/")])])
+    return f"""<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{html_lib.escape(site['website_name'])}</title>
+<meta name="description" content="{sport_label}數據深度分析、里程碑特刊、戰績排行——繁體中文 / 台北時間。">
+<meta property="og:title" content="{html_lib.escape(site['website_name'])}">
+<meta property="og:description" content="{sport_label}數據深度分析、里程碑特刊、戰績排行。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{base}/">
+<meta property="og:site_name" content="{html_lib.escape(site['org_name'])}">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{base}/">
+{jsonld}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+{GA_SNIPPET}
+<style>
+*{{margin:0;padding:0;box-sizing:border-box}}
+:root{{--navy:#0a1f3c;--navy2:#061222;--gold:#e8b84b;--cream:#f3efe4;--red:#c8472f;--line:rgba(243,239,228,.14)}}
+body{{font-family:"Noto Sans TC","PingFang TC",sans-serif;color:var(--cream);
+  background:radial-gradient(1200px 760px at 80% -10%,rgba(232,184,75,.10),transparent 60%),
+  linear-gradient(160deg,#0e2547,#0a1f3c 55%,#061222);min-height:100vh}}
+.wrap{{max-width:1040px;margin:0 auto;padding:56px 22px 80px}}
+.brand{{display:flex;align-items:center;gap:14px;margin-bottom:8px}}
+.brand b{{font-size:26px;font-weight:900;letter-spacing:1px;color:var(--gold)}}
+.brand span{{font-size:14px;color:rgba(243,239,228,.6);letter-spacing:2px}}
+.lede{{font-size:17px;color:rgba(243,239,228,.78);margin:14px 0 40px;max-width:680px;line-height:1.7}}
+.bb-card{{display:grid;grid-template-columns:280px 1fr;gap:22px;text-decoration:none;color:inherit;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  margin-bottom:20px;transition:border-color .15s,transform .15s}}
+.bb-card:hover{{border-color:rgba(232,184,75,.5);transform:translateY(-2px)}}
+.bb-card--lead{{grid-template-columns:1fr}}
+.bb-card-img img{{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:1200/630}}
+.bb-card-body{{padding:20px 24px;display:flex;flex-direction:column;justify-content:center}}
+.bb-kicker{{font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:700}}
+.bb-card-title{{font-size:23px;font-weight:900;line-height:1.3;margin:8px 0}}
+.bb-card--lead .bb-card-title{{font-size:30px}}
+.bb-card-desc{{font-size:14px;color:rgba(243,239,228,.66);line-height:1.6}}
+.bb-card-meta{{font-size:12.5px;color:rgba(243,239,228,.45);margin-top:10px;font-variant-numeric:tabular-nums}}
+.foot{{margin-top:54px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:12.5px;color:rgba(243,239,228,.45);line-height:1.8}}
+@media(max-width:640px){{.bb-card{{grid-template-columns:1fr}}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><b>{html_lib.escape(site['org_name'])}</b><span>{sport_label} · 數據深度</span></div>
+  <div class="lede">{sport_label}的數據深度分析、里程碑特刊與戰績排行。繁體中文、台北時間，為看門道的球迷而寫。</div>
+  {cards}
+  <div class="foot">{html_lib.escape(site['org_name'])} · {base.replace('https://','')}<br>
+  本站為獨立內容站，與各職業聯盟、球團無官方關聯；數據引自公開官方來源並標註。</div>
+</div>
+</body>
+</html>
+"""
+
+
+def render_sport_sitemap(articles: list, site: dict) -> str:
+    base = site["base"]
+    urls = [f"{base}/"] + [f"{base}/articles/{a['slug']}/" for a in articles]
+    body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{body}</urlset>\n")
+
+
+def _build_sport_site(articles: list, sport: str):
+    """Render a non-soccer site's landing + sitemap. Articles already rendered to their out_dir
+    by build(). `articles` here are that sport's articles, newest-first."""
+    site = SITES.get(sport, SOCCER_SITE)
+    label = {"baseball": "棒球"}.get(sport, sport)
+    pub = ROOT / f"public-{sport}"
+    pub.mkdir(parents=True, exist_ok=True)
+    (pub / "index.html").write_text(render_sport_index(articles, site, label), encoding="utf-8")
+    (pub / "sitemap.xml").write_text(render_sport_sitemap(articles, site), encoding="utf-8")
+    print(f"⚾ {sport} site: index.html + sitemap.xml ({len(articles)} articles) → {pub}/")
+
+
 # ---------- main build ----------
 
 def build():
@@ -1172,7 +1306,9 @@ def build():
         faq = parse_faq(body)  # mirror author-written FAQ section into FAQPage schema
         body_html = md_lib.markdown(body, extensions=["extra", "sane_lists"])
 
-        out_dir = OUT / slug
+        # route to the comp's sport site: soccer -> public/articles (unchanged),
+        # baseball -> public-baseball/articles. Soccer path == OUT/slug (byte-identical).
+        out_dir = pub_root_for(meta) / "articles" / slug
         out_dir.mkdir(parents=True, exist_ok=True)
         # cp all non-md assets
         for asset in d.iterdir():
@@ -1182,38 +1318,42 @@ def build():
         articles.append({"slug": slug, "meta": meta, "excerpt": excerpt,
                          "faq": faq, "body_html": body_html, "out_dir": out_dir})
 
-    # ----- compute prev/next neighbors + related (for prev/next + 更多每日戰報) -----
-    # daily 之間連載；feature 之間連載（AI 圓桌三部曲等）。兩條獨立 rail，互不交叉。
-    dailies_asc = sorted(
-        [a for a in articles if a["meta"].get("type") == "daily"],
-        key=lambda a: str(a["meta"].get("date", "")),
-    )
-    features_asc = sorted(
-        [a for a in articles if a["meta"].get("type") != "daily"],
-        key=lambda a: (str(a["meta"].get("date", "")), a["slug"]),
-    )
-    recent_dailies = list(reversed(dailies_asc))[:3]
+    # ----- prev/next neighbors computed PER SITE (sport) so each site's daily/feature rails
+    # are independent. Soccer's group == all WC/soccer articles, so its neighbors (and thus
+    # output) stay byte-identical; baseball features never enter soccer's rail. -----
+    groups = {}  # sport -> [article dicts]
+    for a in articles:
+        groups.setdefault(_sport_of(a["meta"]), []).append(a)
+
     nav_for = {}  # slug -> (prev_nav, next_nav, more_dailies, kind)
+    for group in groups.values():
+        dailies_asc = sorted(
+            [a for a in group if a["meta"].get("type") == "daily"],
+            key=lambda a: str(a["meta"].get("date", "")),
+        )
+        features_asc = sorted(
+            [a for a in group if a["meta"].get("type") != "daily"],
+            key=lambda a: (str(a["meta"].get("date", "")), a["slug"]),
+        )
+        recent_dailies = list(reversed(dailies_asc))[:3]
+        n = len(dailies_asc)
+        for i, a in enumerate(dailies_asc):
+            prev_nav = dailies_asc[i - 1] if i > 0 else None        # older date → 前一日戰報
+            next_nav = dailies_asc[i + 1] if i < n - 1 else None    # newer date → 後一日戰報
+            skip = {a["slug"]}
+            if prev_nav:
+                skip.add(prev_nav["slug"])
+            if next_nav:
+                skip.add(next_nav["slug"])
+            more = [d for d in reversed(dailies_asc) if d["slug"] not in skip][:3]
+            nav_for[a["slug"]] = (prev_nav, next_nav, more, "daily")
+        m = len(features_asc)
+        for i, a in enumerate(features_asc):
+            prev_nav = features_asc[i - 1] if i > 0 else None        # earlier feature → 前一篇
+            next_nav = features_asc[i + 1] if i < m - 1 else None    # later feature → 後一篇
+            nav_for[a["slug"]] = (prev_nav, next_nav, recent_dailies, "feature")
 
-    n = len(dailies_asc)
-    for i, a in enumerate(dailies_asc):
-        prev_nav = dailies_asc[i - 1] if i > 0 else None        # older date → 前一日戰報
-        next_nav = dailies_asc[i + 1] if i < n - 1 else None    # newer date → 後一日戰報
-        skip = {a["slug"]}
-        if prev_nav:
-            skip.add(prev_nav["slug"])
-        if next_nav:
-            skip.add(next_nav["slug"])
-        more = [d for d in reversed(dailies_asc) if d["slug"] not in skip][:3]
-        nav_for[a["slug"]] = (prev_nav, next_nav, more, "daily")
-
-    m = len(features_asc)
-    for i, a in enumerate(features_asc):
-        prev_nav = features_asc[i - 1] if i > 0 else None        # earlier feature → 前一篇
-        next_nav = features_asc[i + 1] if i < m - 1 else None    # later feature → 後一篇
-        nav_for[a["slug"]] = (prev_nav, next_nav, recent_dailies, "feature")
-
-    # ----- render every article now that neighbors are known -----
+    # ----- render every article now that neighbors are known (out_dir already per-site) -----
     for a in articles:
         prev_nav, next_nav, more, kind = nav_for.get(a["slug"], (None, None, [], "daily"))
         html_out = render_article(a["meta"], a["body_html"], a["slug"], a["excerpt"],
@@ -1222,21 +1362,27 @@ def build():
         (a["out_dir"] / "index.html").write_text(html_out, encoding="utf-8")
         print(f"✅ {a['slug']}")
 
-    # index — sort by date desc; feature > daily on tie
+    # ----- per-site index / feed / sitemap (sort by date desc; feature > daily on tie) -----
     type_rank = {"feature": 0, "daily": 1}
-    articles_sorted = sorted(
-        articles,
-        key=lambda a: (str(a["meta"].get("date", "")), -type_rank.get(a["meta"].get("type", "daily"), 9)),
-        reverse=True,
-    )
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "index.html").write_text(render_index(articles_sorted), encoding="utf-8")
-    print(f"📚 index.html ({len(articles_sorted)} articles) → {OUT}/index.html")
 
-    # RSS feed at site root (/feed.xml)
+    def _sorted(lst):
+        return sorted(lst, key=lambda a: (str(a["meta"].get("date", "")),
+                      -type_rank.get(a["meta"].get("type", "daily"), 9)), reverse=True)
+
+    # soccer (foootball): unchanged path -> public/ (byte-identical)
+    soccer_sorted = _sorted(groups.get("soccer", []))
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "index.html").write_text(render_index(soccer_sorted), encoding="utf-8")
+    print(f"📚 index.html ({len(soccer_sorted)} articles) → {OUT}/index.html")
     feed_path = ROOT / "public" / "feed.xml"
-    feed_path.write_text(render_feed(articles_sorted), encoding="utf-8")
-    print(f"📡 feed.xml ({min(len(articles_sorted), FEED_MAX)} items) → {feed_path}")
+    feed_path.write_text(render_feed(soccer_sorted), encoding="utf-8")
+    print(f"📡 feed.xml ({min(len(soccer_sorted), FEED_MAX)} items) → {feed_path}")
+
+    # non-soccer sports (baseball.twtools.cc ...): own landing + sitemap under public-<sport>/
+    for sport, group in groups.items():
+        if sport == "soccer":
+            continue
+        _build_sport_site(_sorted(group), sport)
 
 
 if __name__ == "__main__":
