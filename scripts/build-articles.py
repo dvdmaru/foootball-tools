@@ -1319,7 +1319,14 @@ body{{font-family:"Noto Sans TC","PingFang TC",sans-serif;color:var(--cream);
 .brand{{display:flex;align-items:center;gap:14px;margin-bottom:8px}}
 .brand b{{font-size:26px;font-weight:900;letter-spacing:1px;color:var(--gold)}}
 .brand span{{font-size:14px;color:rgba(243,239,228,.6);letter-spacing:2px}}
-.lede{{font-size:17px;color:rgba(243,239,228,.78);margin:14px 0 40px;max-width:680px;line-height:1.7}}
+.lede{{font-size:17px;color:rgba(243,239,228,.78);margin:14px 0 28px;max-width:680px;line-height:1.7}}
+.bb-nav{{display:flex;gap:22px;margin:14px 0 0}}
+.bb-nav a{{color:var(--gold);text-decoration:none;font-size:15px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:2px}}
+.bb-nav a:hover{{border-color:var(--gold)}}
+.bb-teams-cta{{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;background:rgba(232,184,75,.08);border:1px solid rgba(232,184,75,.34);border-radius:12px;padding:16px 20px;margin:0 0 30px;transition:border-color .15s,transform .15s}}
+.bb-teams-cta:hover{{border-color:var(--gold);transform:translateY(-2px)}}
+.bb-teams-cta .t{{font-size:18px;font-weight:800;color:var(--cream)}}
+.bb-teams-cta .d{{font-size:13px;color:rgba(243,239,228,.6)}}
 .bb-card{{display:grid;grid-template-columns:280px 1fr;gap:22px;text-decoration:none;color:inherit;
   background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;overflow:hidden;
   margin-bottom:20px;transition:border-color .15s,transform .15s}}
@@ -1340,7 +1347,9 @@ body{{font-family:"Noto Sans TC","PingFang TC",sans-serif;color:var(--cream);
 <body>
 <div class="wrap">
   <div class="brand"><b>{html_lib.escape(site['org_name'])}</b><span>{sport_label} · 數據深度</span></div>
+  <nav class="bb-nav"><a href="/teams/">球隊資料</a><a href="/articles/">深度文章</a></nav>
   <div class="lede">{sport_label}的數據深度分析、里程碑特刊與戰績排行。繁體中文、台北時間，為看門道的球迷而寫。</div>
+  <a class="bb-teams-cta" href="/teams/"><span class="t">⚾ MLB 30 隊球隊資料</span><span class="d">戰績 · 主客場 · 球員名冊 · 逐隊一頁</span></a>
   {cards}
   <div class="foot">{html_lib.escape(site['org_name'])} · {base.replace('https://','')}<br>
   本站為獨立內容站，與各職業聯盟、球團無官方關聯；數據引自公開官方來源並標註。</div>
