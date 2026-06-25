@@ -3,8 +3,9 @@
 
 Baseball sibling of fetch-league.py. Same api-sports account key (account-level), different
 host (v1.baseball) and response shape: /games (not /fixtures), scores.{home,away}.total (not
-goals), win/lose standings with NO draw and NO goal-difference. Games-behind is computed per
-standings group so CPBL's split-season (上/下半季) segments each get their own GB baseline.
+goals). The /standings endpoint is a DEAD END for baseball (CPBL: results=0; MLB/NPB/KBO: rows
+present but games/win/lose all 0) — so standings are COMPUTED from finished results, the source
+of truth: W/L, winning pct (ties excluded from denominator), games-behind. No draw, no run-diff.
 
 Facts come from structured JSON, never LLM free-recall (the whole point). curl backend
 (framework Python lacks CA certs — [[feedback_framework_python_ssl_cert]]); throttle + 429
@@ -35,6 +36,14 @@ ENV_FILES = [
     pathlib.Path.home() / "Library/CloudStorage/Dropbox/AI/CoWork/worldcup-daily/pipeline.env",
 ]
 FINISHED = {"FT", "AOT"}  # status.short = game complete (incl. extra innings) -> score is real
+# api-baseball mixes the All-Star Game into /games as pseudo-teams ("American League" vs
+# "National League"). They are not clubs -> drop those games so they never pollute standings.
+NON_CLUB = {"american league", "national league", "world", "all stars", "all-stars"}
+
+
+def _is_club(name):
+    n = (name or "").strip().lower()
+    return bool(n) and n not in NON_CLUB and "all-star" not in n and "all star" not in n
 
 
 def load_key():
@@ -103,6 +112,8 @@ def norm_games(raw):
         tm = r.get("teams", {})
         sc = r.get("scores", {})
         home, away = tm.get("home", {}) or {}, tm.get("away", {}) or {}
+        if not (_is_club(home.get("name")) and _is_club(away.get("name"))):
+            continue  # All-Star Game (league-vs-league) — not a real club fixture
         for t in (home, away):
             if t.get("id") is not None:
                 teams[t["id"]] = {"id": t["id"], "name_en": t.get("name", ""),
@@ -130,38 +141,39 @@ def norm_games(raw):
     return out, list(teams.values())
 
 
-def norm_standings(raw):
-    """API /standings -> flat rows. response is a list of group-lists (CPBL split-season:
-    one group per 上/下半季). Games-behind is computed within each group from its own leader.
-    Baseball: win/lose/pct, no draw, no run-difference."""
-    out = []
-    for grp in raw or []:
-        rows = grp if isinstance(grp, list) else [grp]
-        parsed = []
-        for row in rows:
-            games = row.get("games", {}) or {}
-            win = games.get("win", {}) or {}
-            lose = games.get("lose", {}) or {}
-            g = row.get("group")
-            gname = g.get("name", "") if isinstance(g, dict) else (g or "")
-            parsed.append({
-                "rank": row.get("position"),
-                "team_code": str((row.get("team", {}) or {}).get("id", "")),
-                "team_name": (row.get("team", {}) or {}).get("name", ""),
-                "group": gname,
-                "played": games.get("played", 0) or 0,
-                "win": win.get("total", 0) or 0,
-                "lose": lose.get("total", 0) or 0,
-                "pct": str(win.get("percentage") or ""),
-            })
-        if parsed:
-            leader = min(parsed, key=lambda x: x["rank"] if x["rank"] else 999)
-            lw, ll = leader["win"], leader["lose"]
-            for p in parsed:
-                gb = ((lw - p["win"]) + (p["lose"] - ll)) / 2
-                p["games_behind"] = 0.0 if gb <= 0 else round(gb, 1)
-        out.extend(parsed)
-    return out
+def compute_standings(games):
+    """Derive standings from FINISHED game results — the api-baseball /standings endpoint is a
+    dead end (CPBL: results=0; MLB/NPB/KBO: rows present but games/win/lose all 0, ranked by
+    team id). Results are the source of truth. Overall league table: W/L, winning pct (ties
+    excluded from the denominator, per baseball convention — NPB allows ties), games-behind vs
+    the leader. Division/split-season grouping is a later (Phase D) presentation layer."""
+    rec = {}
+    for g in games:
+        if "home_score" not in g or "away_score" not in g:
+            continue
+        hc, ac = g["home_code"], g["away_code"]
+        rec.setdefault(hc, {"team_code": hc, "team_name": g["home_name"], "win": 0, "lose": 0})
+        rec.setdefault(ac, {"team_code": ac, "team_name": g["away_name"], "win": 0, "lose": 0})
+        hs, as_ = g["home_score"], g["away_score"]
+        if hs > as_:
+            rec[hc]["win"] += 1; rec[ac]["lose"] += 1
+        elif as_ > hs:
+            rec[ac]["win"] += 1; rec[hc]["lose"] += 1
+        # tie (NPB 引分): counts as neither a win nor a loss
+    rows = list(rec.values())
+    for r in rows:
+        decided = r["win"] + r["lose"]
+        r["played"] = decided
+        r["group"] = ""
+        r["pct"] = f"{r['win'] / decided:.3f}" if decided else "0.000"
+    rows.sort(key=lambda r: (-r["win"], r["lose"], r["team_name"]))
+    if rows:
+        lw, ll = rows[0]["win"], rows[0]["lose"]
+        for i, r in enumerate(rows):
+            r["rank"] = i + 1
+            gb = ((lw - r["win"]) + (r["lose"] - ll)) / 2
+            r["games_behind"] = 0.0 if gb <= 0 else round(gb, 1)
+    return rows
 
 
 def main():
@@ -181,11 +193,9 @@ def main():
 
     print(f"📡 {args.comp_id} (league_id={league_id}, season={season}) …")
     games_raw = call(f"/games?league={league_id}&season={season}", key).get("response", [])
-    time.sleep(6)
-    standings_raw = call(f"/standings?league={league_id}&season={season}", key).get("response", [])
 
     games, teams = norm_games(games_raw)
-    table = norm_standings(standings_raw)
+    table = compute_standings(games)  # /standings endpoint is empty for baseball — derive from results
     played = sum(1 for m in games if "home_score" in m)
 
     data = {
