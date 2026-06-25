@@ -28,6 +28,15 @@ COVERS = [
     ("mlb-special-ohtani-2024-50-50", "50-50 · 史上第一",
      "投不了球的<br>那一年",
      "大谷翔平 2024　·　54 轟　59 盜　·　全票 MVP"),
+    ("mlb-ohtani-2026-two-way", "二刀流 · 完全體",
+     "投手大谷<br>回來了",
+     "2026　·　8 勝 2 敗　·　防禦率 1.58　·　86 K"),
+    ("mlb-white-sox-2026-turnaround", "從谷底翻身",
+     "41–121<br>之後",
+     "白襪 2024 史上最慘　→　2026 領跑分區"),
+    ("mlb-2026-midseason-report", "球季過半",
+     "2026<br>戰況總覽",
+     "六分區領先　·　全壘打榜　·　防禦率榜"),
 ]
 
 HTML = """<!doctype html><html><head><meta charset="utf-8"><style>
