@@ -6,7 +6,31 @@
     <atom:link href="https://baseball.twtools.cc/feed.xml" rel="self" type="application/rss+xml" />
     <description>中華職棒 CPBL 與美國職棒 MLB 的數據深度分析、里程碑特刊與戰績排行。</description>
     <language>zh-Hant</language>
-    <lastBuildDate>Thu, 25 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <item>
+      <title>長打狂潮：2026 大聯盟全壘打競賽賽季過半檢視</title>
+      <link>https://baseball.twtools.cc/articles/mlb-2026-home-run-race/</link>
+      <guid isPermaLink="true">https://baseball.twtools.cc/articles/mlb-2026-home-run-race/</guid>
+      <pubDate>Fri, 26 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>截至 2026 年 6 月 25 日，費城費城人的凱爾・舒瓦伯（Kyle Schwarber）以 29 支全壘打坐穩大聯盟全壘打榜首，比並列第二的喬丹・阿爾瓦雷斯（Yordan Alvarez）與拜倫・巴克斯頓（Byron Buxton）各多出 4 發。但榜單背後的故事更複雜：舒瓦伯轟數領先，長打率（SLG）與整體攻擊指數（OPS）卻在阿爾瓦雷斯面前俯首稱臣；阿爾瓦雷斯的 OPS 1.069 是全大聯盟前段榜單唯一突破 1.0 的打者。賽季還有大半要走，第一名不等於最終故事。這篇用五張資料表，把 2026 賽季過半的全壘打競賽與長打火力格局，逐格拆開。</description>
+    </item>
+    <item>
+      <title>防禦率 1.45，得失分淨值 +123：密爾瓦基釀酒人 2026 的小市場方程式</title>
+      <link>https://baseball.twtools.cc/articles/mlb-brewers-2026-misiorowski/</link>
+      <guid isPermaLink="true">https://baseball.twtools.cc/articles/mlb-brewers-2026-misiorowski/</guid>
+      <pubDate>Fri, 26 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>2026 年 6 月 25 日，密爾瓦基釀酒人以 49 勝 29 敗坐穩國聯中區第一，領先優勢整整 7 場。這不是大市場球隊靠頂薪轉會買來的戰績——它建立在得失分淨值 +123 的系統性優勢、以及一名防禦率 1.45 的年輕先發投手身上。賽季已過半，小市場球隊的方程式能不能撐過下半段，答案還在寫。</description>
+    </item>
+    <item>
+      <title>1-0 投手戰：金恩七局完封，馬查多一轟定生死，勇士七安打一分未得</title>
+      <link>https://baseball.twtools.cc/articles/mlb-padres-1-0-braves-2026-06-22/</link>
+      <guid isPermaLink="true">https://baseball.twtools.cc/articles/mlb-padres-1-0-braves-2026-06-22/</guid>
+      <pubDate>Fri, 26 Jun 2026 08:00:00 +0800</pubDate>
+      <category>專題</category>
+      <description>七局零分、五次三振、零次四壞——麥可・金恩用這份成績單，在 2026 年 6 月 22 日讓排名國聯東區第一的亞特蘭大勇士全場鴨蛋。牛棚阿德里安・莫雷洪與梅森・米勒（Mason Miller）接力完封，後者拿下賽季第 21 次救援成功。唯一的得分，是曼尼・馬查多在第四局的一棒陽春全壘打。勇士全場七支安打，一分未得；先發格蘭特・霍姆斯（Grant Holmes）四又三分之二局一失分、四次三振，卻只能帶走敗投。聖地牙哥教士以 1-0 完封這支國聯東區領頭羊。</description>
+    </item>
     <item>
       <title>2026 大聯盟球季過半總覽：道奇稱霸全聯盟、白襪意外領跑、分區戰況全盤點</title>
       <link>https://baseball.twtools.cc/articles/mlb-2026-midseason-report/</link>

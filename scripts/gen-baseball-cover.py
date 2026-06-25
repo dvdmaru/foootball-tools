@@ -37,6 +37,15 @@ COVERS = [
     ("mlb-2026-midseason-report", "球季過半",
      "2026<br>戰況總覽",
      "六分區領先　·　全壘打榜　·　防禦率榜"),
+    ("mlb-brewers-2026-misiorowski", "小市場黑馬",
+     "釀酒人<br>領跑",
+     "2026　·　49-29　·　Misiorowski 1.45 ERA"),
+    ("mlb-2026-home-run-race", "長打狂潮",
+     "全壘打<br>競賽",
+     "2026 過半　·　舒瓦伯 29 轟領先"),
+    ("mlb-padres-1-0-braves-2026-06-22", "1-0 投手戰",
+     "一發<br>定生死",
+     "教士完封勇士　·　King 7 局無失分　·　Machado 致勝砲"),
 ]
 
 HTML = """<!doctype html><html><head><meta charset="utf-8"><style>
