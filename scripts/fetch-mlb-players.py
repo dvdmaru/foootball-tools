@@ -107,6 +107,36 @@ def player(person_id, season):
     }
 
 
+DIV_ZH = {200: "美聯西區", 201: "美聯東區", 202: "美聯中區",
+          203: "國聯西區", 204: "國聯東區", 205: "國聯中區"}
+
+
+def team_records(season):
+    """All 30 MLB teams with regular-season record + division + home/away splits + runs,
+    from StatsAPI standings (clean reg-season; not the spring/postseason-inflated api-baseball)."""
+    out = []
+    for league_id in (103, 104):  # AL, NL
+        d = call(f"/standings?leagueId={league_id}&season={season}&standingsTypes=regularSeason")
+        for rec in d.get("records", []):
+            div = rec.get("division", {}).get("id")
+            for t in rec.get("teamRecords", []):
+                sp = {s["type"]: s for s in t.get("records", {}).get("splitRecords", [])}
+                home, away = sp.get("home", {}), sp.get("away", {})
+                out.append({
+                    "team_id": t["team"]["id"], "name": t["team"]["name"],
+                    "league_id": league_id, "division_id": div,
+                    "division_zh": DIV_ZH.get(div, ""),
+                    "wins": t["wins"], "losses": t["losses"], "pct": t.get("winningPercentage", ""),
+                    "division_rank": t.get("divisionRank"), "games_back": t.get("gamesBack", ""),
+                    "streak": (t.get("streak") or {}).get("streakCode", ""),
+                    "runs_scored": t.get("runsScored"), "runs_allowed": t.get("runsAllowed"),
+                    "run_diff": t.get("runDifferential"),
+                    "home_wins": home.get("wins"), "home_losses": home.get("losses"),
+                    "away_wins": away.get("wins"), "away_losses": away.get("losses"),
+                })
+    return out
+
+
 def leaders(category, season, limit=10, group="hitting"):
     d = call(f"/stats/leaders?leaderCategories={category}&season={season}"
              f"&sportId={SPORT_MLB}&statGroup={group}&limit={limit}")

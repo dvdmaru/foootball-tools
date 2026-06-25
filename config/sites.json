@@ -39,6 +39,7 @@
     "default_theme": "navy",
     "nav": [
       { "label": "首頁", "href": "/", "key": "home" },
+      { "label": "球隊", "href": "/teams/", "key": "teams" },
       { "label": "文章", "href": "/articles/", "key": "articles" }
     ],
     "external_link": null,
