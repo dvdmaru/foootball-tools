@@ -14,5 +14,10 @@
   },
   "compatibility_flags": [
     "nodejs_compat"
+  ],
+  // Custom domain — Cloudflare auto-creates the DNS record + cert for baseball.twtools.cc
+  // (twtools.cc must be a zone on this account).
+  "routes": [
+    { "pattern": "baseball.twtools.cc", "custom_domain": true }
   ]
 }
