@@ -1,0 +1,18 @@
+{
+  // baseball.twtools.cc — Cloudflare Workers static-assets deploy for the baseball site.
+  // Mirrors the foootball config (wrangler.jsonc) but serves public-baseball/ instead of public/.
+  // Deploy:  wrangler deploy -c wrangler-baseball.jsonc   (after `wrangler login`)
+  // Then bind the custom domain baseball.twtools.cc in the Cloudflare dashboard (or via routes).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "baseball-tools",
+  "compatibility_date": "2026-06-25",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "public-baseball"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
