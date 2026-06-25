@@ -71,6 +71,38 @@ def load_competitions() -> dict:
 COMPETITIONS = load_competitions()
 
 
+# ---------- per-sport site identity (multi-sport single source of truth) ----------
+# config/sites.json carries org/website identity per sport (base URL, org name, sameAs,
+# website name). A comp resolves its site via its `sport` field; comps without `sport`
+# (every existing soccer comp) fall back to SOCCER_SITE, whose values equal the legacy
+# SITE/ORG_NAME constants -> existing soccer pages emit byte-identical JSON-LD.
+def load_sites() -> dict:
+    p = ROOT / "config" / "sites.json"
+    if not p.exists():
+        return {}
+    data = json.loads(p.read_text(encoding="utf-8"))
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
+SITES = load_sites()
+
+# Hardcoded fallback == legacy constants, so a missing/partial sites.json never changes
+# the soccer output (the regression contract). sites.json["soccer"] must match this.
+SOCCER_SITE = SITES.get("soccer") or {
+    "base": SITE,
+    "org_name": ORG_NAME,
+    "org_same_as": ["https://medium.com/@foootball"],
+    "website_name": "@foootball — 2026 世界盃賽程 + 戰報",
+}
+
+
+def site_for(comp: dict) -> dict:
+    """Resolve a comp to its site-identity dict. Sport read off the comp's top-level
+    `sport` (falls back to the schema block, then soccer). Soccer -> SOCCER_SITE."""
+    sport = (comp.get("sport") or comp.get("schema", {}).get("sport") or "soccer").lower()
+    return SITES.get(sport, SOCCER_SITE)
+
+
 def effective_status(comp: dict, today: datetime.date = None) -> str:
     """Resolve display status. `status` is authored intent; once past `archive_after`
     the competition is treated as archived (drives index/homepage placement). Data-
@@ -289,38 +321,43 @@ def graph_ld(nodes: list) -> str:
     return _ld({"@context": "https://schema.org", "@graph": nodes})
 
 
-def org_node() -> dict:
+def org_node(site: dict = None) -> dict:
+    site = site or SOCCER_SITE
+    base = site["base"]
     return {
         "@type": "Organization",
-        "@id": f"{SITE}/#org",
-        "name": ORG_NAME,
-        "url": f"{SITE}/",
-        "sameAs": ["https://medium.com/@foootball"],
+        "@id": f"{base}/#org",
+        "name": site["org_name"],
+        "url": f"{base}/",
+        "sameAs": site["org_same_as"],
     }
 
 
-def website_node() -> dict:
+def website_node(site: dict = None) -> dict:
+    site = site or SOCCER_SITE
+    base = site["base"]
     return {
         "@type": "WebSite",
-        "@id": f"{SITE}/#website",
-        "name": "@foootball — 2026 世界盃賽程 + 戰報",
-        "url": f"{SITE}/",
+        "@id": f"{base}/#website",
+        "name": site["website_name"],
+        "url": f"{base}/",
         "inLanguage": "zh-Hant",
-        "publisher": {"@id": f"{SITE}/#org"},
+        "publisher": {"@id": f"{base}/#org"},
     }
 
 
-def competition_node(comp: dict) -> dict:
+def competition_node(comp: dict, site: dict = None) -> dict:
     """schema.org node for one competition, driven by the registry.
 
     Cups -> SportsEvent (dated, host countries); leagues -> SportsLeague (season org).
     Key insertion order is preserved so the wc2026 SportsEvent serializes byte-identical
     to the previous hardcoded tournament_node() output (json.dumps keeps insertion order).
     """
+    base = (site or site_for(comp))["base"]
     s = comp["schema"]
     node = {
         "@type": s["type"],
-        "@id": f"{SITE}/{comp['schema_id']}",
+        "@id": f"{base}/{comp['schema_id']}",
         "name": comp["name_zh"],
         "sport": s.get("sport", "Soccer"),
     }
@@ -331,7 +368,7 @@ def competition_node(comp: dict) -> dict:
         if "location" in s:
             node["location"] = s["location"]
     else:  # SportsLeague (round-robin / playoff leagues): season-scoped org, no dates
-        node["url"] = f"{SITE}{comp['index']['landing']}"
+        node["url"] = f"{base}{comp['index']['landing']}"
     if "organizer" in s:
         node["organizer"] = {"@type": "Organization", **s["organizer"]}
     return node
@@ -764,30 +801,34 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
     # competition the article belongs to (defaults to wc2026 → existing articles
     # need no frontmatter edit and emit byte-identical JSON-LD).
     comp = COMPETITIONS.get(meta.get("competition", "wc2026")) or COMPETITIONS.get("wc2026")
+    # site identity follows the comp's sport; soccer comps -> SOCCER_SITE (base == SITE)
+    # so every SITE-derived URL below stays byte-identical for existing articles.
+    site = site_for(comp)
+    base = site["base"]
     art_type = "NewsArticle" if typ == "daily" else "Article"
-    page_url = f"{SITE}/articles/{slug}/"
+    page_url = f"{base}/articles/{slug}/"
     article_ld = {
         "@type": art_type,
         "headline": title_raw,
         "description": desc_raw,
-        "image": f"{SITE}/articles/{slug}/cover.png",
+        "image": f"{base}/articles/{slug}/cover.png",
         "inLanguage": "zh-Hant",
         "url": page_url,
         "mainEntityOfPage": page_url,
-        "author": {"@id": f"{SITE}/#org"},
-        "publisher": {"@id": f"{SITE}/#org"},
-        "isPartOf": {"@id": f"{SITE}/{comp['schema_id']}"},
+        "author": {"@id": f"{base}/#org"},
+        "publisher": {"@id": f"{base}/#org"},
+        "isPartOf": {"@id": f"{base}/{comp['schema_id']}"},
     }
     if date_str:
         article_ld["datePublished"] = date_str
         article_ld["dateModified"] = date_str
     crumb = breadcrumb_node([
-        ("首頁", f"{SITE}/"),
-        ("文章", f"{SITE}/articles/"),
+        ("首頁", f"{base}/"),
+        ("文章", f"{base}/articles/"),
         (title_raw, page_url),
     ])
-    jsonld = graph_ld([org_node(), website_node(), competition_node(comp), article_ld, crumb,
-                       faq_node(faq, page_url)])
+    jsonld = graph_ld([org_node(site), website_node(site), competition_node(comp, site),
+                       article_ld, crumb, faq_node(faq, page_url)])
 
     # ----- prev/next nav + 更多每日戰報 (internal linking for SEO/engagement) -----
     # daily 走「前一日/後一日戰報」(daily 連載)；feature 走「前一篇/後一篇」(feature 之間，
@@ -801,9 +842,9 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
 
     head_rels = ""
     if prev_nav:
-        head_rels += f'\n<link rel="prev" href="{SITE}/articles/{prev_nav["slug"]}/">'
+        head_rels += f'\n<link rel="prev" href="{base}/articles/{prev_nav["slug"]}/">'
     if next_nav:
-        head_rels += f'\n<link rel="next" href="{SITE}/articles/{next_nav["slug"]}/">'
+        head_rels += f'\n<link rel="next" href="{base}/articles/{next_nav["slug"]}/">'
 
     if prev_nav:
         s, t, dt = _dl(prev_nav)

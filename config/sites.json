@@ -1,0 +1,15 @@
+{
+  "_comment": "Per-sport site identity — single source of truth for org/website JSON-LD across sports. A competition resolves its site via its top-level `sport` field (see config/competitions.json); competitions with no `sport` (every existing soccer comp) fall back to the `soccer` block here. The `soccer` block MUST stay byte-identical to the legacy SITE/ORG_NAME constants in build-articles.py — the soccer rebuild regression (zero diff on public/) is the contract. `base` has no trailing slash (code appends it).",
+  "soccer": {
+    "base": "https://foootball.twtools.cc",
+    "org_name": "@foootball",
+    "org_same_as": ["https://medium.com/@foootball"],
+    "website_name": "@foootball — 2026 世界盃賽程 + 戰報"
+  },
+  "baseball": {
+    "base": "https://baseball.twtools.cc",
+    "org_name": "@baseball",
+    "org_same_as": [],
+    "website_name": "@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報"
+  }
+}

@@ -180,5 +180,41 @@
     "coverage": { "events": true, "lineups": true, "player_stats": true, "standings": true, "top_scorers": true },
     "index": { "section_label": "MLS 週報", "landing": "/leagues/mls/" },
     "schema": { "type": "SportsLeague", "sport": "Soccer", "organizer": { "name": "Major League Soccer" }, "location": [{ "@type": "Country", "name": "United States" }] }
+  },
+  "cpbl": {
+    "id": "cpbl",
+    "sport": "baseball",
+    "schema_id": "#league-cpbl",
+    "name_zh": "中華職棒",
+    "name_en": "Chinese Professional Baseball League",
+    "format": "league-split-season",
+    "season": "2024",
+    "start_date": "",
+    "end_date": "",
+    "status": "live",
+    "home_priority": 1,
+    "cadence": "daily",
+    "data_source": { "type": "api-baseball", "league_id": 29, "season": 2024 },
+    "coverage": { "games": true, "standings": true },
+    "index": { "section_label": "中職每日戰報", "landing": "/leagues/cpbl/" },
+    "schema": { "type": "SportsLeague", "sport": "Baseball", "organizer": { "name": "中華職業棒球大聯盟" }, "location": [{ "@type": "Country", "name": "Taiwan" }] }
+  },
+  "mlb": {
+    "id": "mlb",
+    "sport": "baseball",
+    "schema_id": "#league-mlb",
+    "name_zh": "美國職棒大聯盟",
+    "name_en": "Major League Baseball",
+    "format": "league-with-playoffs",
+    "season": "2024",
+    "start_date": "",
+    "end_date": "",
+    "status": "live",
+    "home_priority": 2,
+    "cadence": "weekly",
+    "data_source": { "type": "api-baseball", "league_id": 1, "season": 2024 },
+    "coverage": { "games": true, "standings": true },
+    "index": { "section_label": "MLB 台將／里程碑", "landing": "/leagues/mlb/" },
+    "schema": { "type": "SportsLeague", "sport": "Baseball", "organizer": { "name": "Major League Baseball" }, "location": [{ "@type": "Country", "name": "United States" }] }
   }
 }
