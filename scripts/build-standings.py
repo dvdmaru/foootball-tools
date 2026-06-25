@@ -291,6 +291,39 @@ def render_group_block(grp, teams, matches, tbl, adv_codes, lead_codes):
     )
 
 
+def render_league_table(rows, logos=None):
+    """Single standings table for a round-robin / per-conference league. `rows`: the
+    normalized standings dicts from leagues/<comp>.json (rank/team_name/played/win/draw/
+    lose/gf/ga/gd/points/team_code). Source-agnostic — reuses the WC std-table markup,
+    no groups, no bracket. `logos`: optional team_code -> club-logo url (leagues use club
+    crests, not country flags). Used by the league standings path; WC path is untouched."""
+    logos = logos or {}
+    body = []
+    for r in rows:
+        code = str(r.get("team_code", ""))
+        logo = logos.get(code)
+        crest = f'<img class="std-flag" src="{logo}" alt="" loading="lazy">' if logo else ""
+        body.append(
+            "<tr>"
+            f'<td class="std-rank">{r.get("rank", "")}</td>'
+            f'<td class="std-team">{crest}<span class="std-name">{r.get("team_name", "")}</span></td>'
+            f'<td>{r.get("played", 0)}</td><td>{r.get("win", 0)}</td>'
+            f'<td>{r.get("draw", 0)}</td><td>{r.get("lose", 0)}</td>'
+            f'<td>{r.get("gf", 0)}</td><td>{r.get("ga", 0)}</td>'
+            f'<td class="std-gd">{gd_str(r.get("gd", 0))}</td>'
+            f'<td class="std-pts">{r.get("points", 0)}</td>'
+            "</tr>"
+        )
+    return (
+        '<table class="std-table"><thead><tr>'
+        '<th class="std-rank">#</th><th class="std-team-h">球隊</th>'
+        '<th title="出賽">賽</th><th title="勝">勝</th><th title="和">和</th><th title="負">負</th>'
+        '<th title="進球">進</th><th title="失球">失</th><th title="淨勝球">差</th>'
+        '<th class="std-pts" title="積分">分</th>'
+        "</tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+    )
+
+
 def zh_placeholder(name):
     """英文 placeholder 隊名 → 中文（避免 raw upstream token leak 到 user-facing）。
     開賽填真隊後（中文名）原樣回傳。"""
