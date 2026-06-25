@@ -314,7 +314,15 @@ def zh_placeholder(name):
 
 
 def render_bracket(ko):
-    """淘汰賽對照表 — 目前 placeholder 隊名（6/27 後 fetch 真隊）。"""
+    """淘汰賽對照表 — 已確定的對位填真隊（帶國旗），其餘待小組收官。"""
+    zh2iso = {ZH[c]: ISO[c] for c in ZH if c in ISO}
+
+    def ko_team(name, side):
+        iso = zh2iso.get(name)
+        fl = flag(iso) if iso else ""
+        return (f'<span class="std-ko-team std-ko-{side}">'
+                f'{fl}<span class="std-ko-name">{zh_placeholder(name)}</span></span>')
+
     round_label = {
         "R32": "32 強", "R16": "16 強", "QF": "8 強",
         "SF": "4 強", "3rd": "季軍戰", "Final": "決賽",
@@ -335,9 +343,9 @@ def render_bracket(ko):
             rows.append(
                 '<li class="std-ko-row">'
                 f'<span class="std-ko-when">{when}</span>'
-                f'<span class="std-ko-team">{zh_placeholder(m["home_team"])}</span>'
+                f'{ko_team(m["home_team"], "home")}'
                 '<span class="std-vs">vs</span>'
-                f'<span class="std-ko-team">{zh_placeholder(m["away_team"])}</span>'
+                f'{ko_team(m["away_team"], "away")}'
                 f'<span class="std-ko-venue">{m.get("city","")}</span>'
                 "</li>"
             )
@@ -602,7 +610,10 @@ PAGE_CSS = """
 .std-ko-row { display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
 .std-ko-row:last-child { border-bottom: none; }
 .std-ko-when { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); }
-.std-ko-team { color: var(--fg-soft); }
+.std-ko-team { color: var(--fg-soft); display: flex; align-items: center; gap: 6px; min-width: 0; }
+.std-ko-home { justify-content: flex-end; text-align: right; }
+.std-ko-team .std-flag { margin: 0; }
+.std-ko-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .std-ko-venue { display: none; }
 
 .std-stats-empty { text-align: center; color: var(--faint); font-size: 18px; line-height: 2; padding: 60px 0; font-family: var(--font-display); letter-spacing: 2px; }
