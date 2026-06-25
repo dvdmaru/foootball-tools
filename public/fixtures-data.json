@@ -1216,7 +1216,9 @@
       "home_code": "SCO",
       "away_team": "Brazil",
       "away_iso": "br",
-      "away_code": "BRA"
+      "away_code": "BRA",
+      "home_score": 0,
+      "away_score": 3
     },
     {
       "match_no": 50,
@@ -1232,7 +1234,9 @@
       "home_code": "MAR",
       "away_team": "Haiti",
       "away_iso": "ht",
-      "away_code": "HAI"
+      "away_code": "HAI",
+      "home_score": 4,
+      "away_score": 2
     },
     {
       "match_no": 51,
@@ -1248,7 +1252,9 @@
       "home_code": "SUI",
       "away_team": "Canada",
       "away_iso": "ca",
-      "away_code": "CAN"
+      "away_code": "CAN",
+      "home_score": 3,
+      "away_score": 1
     },
     {
       "match_no": 52,
@@ -1264,7 +1270,9 @@
       "home_code": "BIH",
       "away_team": "Qatar",
       "away_iso": "qa",
-      "away_code": "QAT"
+      "away_code": "QAT",
+      "home_score": 3,
+      "away_score": 1
     },
     {
       "match_no": 53,
@@ -1280,7 +1288,9 @@
       "home_code": "CZE",
       "away_team": "Mexico",
       "away_iso": "mx",
-      "away_code": "MEX"
+      "away_code": "MEX",
+      "home_score": 0,
+      "away_score": 3
     },
     {
       "match_no": 54,
@@ -1296,7 +1306,9 @@
       "home_code": "RSA",
       "away_team": "South Korea",
       "away_iso": "kr",
-      "away_code": "KOR"
+      "away_code": "KOR",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "match_no": 55,
