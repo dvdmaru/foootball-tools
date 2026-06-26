@@ -1361,7 +1361,7 @@ body{{font-family:"Noto Sans TC","PingFang TC",sans-serif;color:var(--cream);
 
 def render_sport_sitemap(articles: list, site: dict) -> str:
     base = site["base"]
-    urls = [f"{base}/"] + [f"{base}/articles/{a['slug']}/" for a in articles]
+    urls = [f"{base}/", f"{base}/articles/"] + [f"{base}/articles/{a['slug']}/" for a in articles]
     body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -1376,6 +1376,9 @@ def _build_sport_site(articles: list, sport: str):
     pub = ROOT / f"public-{sport}"
     pub.mkdir(parents=True, exist_ok=True)
     (pub / "index.html").write_text(render_sport_index(articles, site, label), encoding="utf-8")
+    # 文章列表頁：nav「文章」→ /articles/ 指向此頁（沿用 landing 的全文列表，避免死連結 404）
+    (pub / "articles").mkdir(parents=True, exist_ok=True)
+    (pub / "articles" / "index.html").write_text(render_sport_index(articles, site, label), encoding="utf-8")
     (pub / "sitemap.xml").write_text(render_sport_sitemap(articles, site), encoding="utf-8")
     (pub / "feed.xml").write_text(render_feed(articles, site), encoding="utf-8")
     print(f"⚾ {sport} site: index + sitemap + feed ({len(articles)} articles) → {pub}/")

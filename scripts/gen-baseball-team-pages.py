@@ -10,6 +10,7 @@ SportsTeam JSON-LD(AEO 實體)。版型沿用 build-articles 的共用外殼 + b
 用法:python3 scripts/gen-baseball-team-pages.py [--season 2024]
 """
 import argparse
+import datetime
 import html as html_lib
 import importlib.util
 import pathlib
@@ -60,6 +61,7 @@ TEAM_CSS = """
 .idx-teams a:hover { border-color: var(--accent-line); }
 .idx-teams .z { font-weight:700; }
 .idx-teams .e { color:var(--dim); font-size:12px; }
+.bt-asof { color:var(--dim); font-size:12.5px; line-height:1.6; margin: 26px 0 8px; border-top:1px solid var(--line); padding-top:14px; }
 """
 
 
@@ -106,7 +108,7 @@ def _zh(name):
     return bs.TEAM_ZH.get(bs._norm_name(name), name)
 
 
-def render_team(team, rec, roster):
+def render_team(team, rec, roster, season, asof):
     en = team["name"]
     zh = _zh(en)
     slug = team["abbr"].lower()
@@ -151,16 +153,18 @@ def render_team(team, rec, roster):
     }
     crumb = ba.breadcrumb_node([("首頁", f"{BASE}/"), ("球隊", f"{BASE}/teams/"), (zh, canonical)])
     jsonld = ba.graph_ld([ba.org_node(SITE), ba.website_node(SITE), team_node, crumb])
+    asof_note = (f'<p class="bt-asof">資料來源：MLB 官方 StatsAPI；{season} 賽季例行賽，'
+                 f'截至 {asof}，賽季進行中、戰績與名冊逐日更新。</p>')
     body = (f'<h1 class="bt-h1">{html_lib.escape(zh)}</h1>'
             f'<div class="bt-en">{html_lib.escape(en)}</div>'
-            f'<div class="bt-sub">{rec["division_zh"]} · 例行賽 <b>{w}-{l}</b>'
-            f'（勝率 {rec["pct"]}，分區第 {rec["division_rank"]}）</div>'
-            f'{rec_table}{split_table}{roster_block}')
-    desc = f"{zh}（{en}）MLB 球隊資料：例行賽 {w}-{l}、{rec['division_zh']}、球員名冊與主客場戰績。"
-    return slug, _shell(f"{zh} {en}｜球隊資料", desc, canonical, jsonld, body)
+            f'<div class="bt-sub">{rec["division_zh"]} · {season} 賽季例行賽 <b>{w}-{l}</b>'
+            f'（勝率 {rec["pct"]}，分區第 {rec["division_rank"]}；截至 {asof}）</div>'
+            f'{rec_table}{split_table}{roster_block}{asof_note}')
+    desc = f"{zh}（{en}）MLB 球隊資料：{season} 賽季例行賽 {w}-{l}（截至 {asof}）、{rec['division_zh']}、球員名冊與主客場戰績。"
+    return slug, _shell(f"{zh} {en}｜{season} 球隊資料", desc, canonical, jsonld, body)
 
 
-def render_index(teams):
+def render_index(teams, season, asof):
     by_div = {}
     for t in teams:
         by_div.setdefault(t["_rec"]["division_zh"], []).append(t)
@@ -182,16 +186,20 @@ def render_index(teams):
     jsonld = ba.graph_ld([ba.org_node(SITE), ba.website_node(SITE), coll,
                           ba.breadcrumb_node([("首頁", f"{BASE}/"), ("球隊", canonical)])])
     body = ('<h1 class="bt-h1">MLB 球隊</h1>'
-            '<div class="bt-sub">美國職棒大聯盟 30 隊 · 戰績、名冊與主客場資料（例行賽）。</div>'
-            f'{blocks}')
-    return _shell("MLB 球隊資料", "美國職棒大聯盟 30 隊戰績、球員名冊與主客場資料。",
+            f'<div class="bt-sub">美國職棒大聯盟 30 隊 · {season} 賽季例行賽戰績、名冊與主客場資料（截至 {asof}，賽季進行中）。</div>'
+            f'{blocks}'
+            f'<p class="bt-asof">資料來源：MLB 官方 StatsAPI；{season} 賽季例行賽，截至 {asof}，賽季進行中、數字逐日更新。</p>')
+    return _shell(f"MLB 球隊資料（{season}）", f"美國職棒大聯盟 30 隊 {season} 賽季戰績、球員名冊與主客場資料（截至 {asof}）。",
                   canonical, jsonld, body)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--season", type=int, default=2024)
+    ap.add_argument("--season", type=int, default=2026)
+    ap.add_argument("--asof", default=datetime.date.today().isoformat(),
+                    help="資料截點顯示日（預設今天）")
     args = ap.parse_args()
+    asof = args.asof
 
     print(f"📡 MLB teams {args.season} (StatsAPI) …")
     teams = mp.teams(args.season)
@@ -206,7 +214,7 @@ def main():
             print(f"   ⚠️ no record for {t['name']}"); continue
         roster = mp.roster(t["id"], args.season)
         time.sleep(0.25)
-        slug, html = render_team(t, rec, roster)
+        slug, html = render_team(t, rec, roster, args.season, asof)
         d = out_root / slug
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(html, encoding="utf-8")
@@ -214,7 +222,7 @@ def main():
         rendered.append(t)
         print(f"   ✅ {slug}  {_zh(t['name'])}  {rec['wins']}-{rec['losses']}  名冊 {len(roster)}")
 
-    (out_root / "index.html").write_text(render_index(rendered), encoding="utf-8")
+    (out_root / "index.html").write_text(render_index(rendered, args.season, asof), encoding="utf-8")
     print(f"📚 teams/index.html ({len(rendered)} teams) → {out_root}/")
 
     # merge team URLs into the site sitemap (keep landing + article URLs; replace teams block)
