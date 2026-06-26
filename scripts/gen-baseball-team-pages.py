@@ -225,6 +225,14 @@ def main():
     (out_root / "index.html").write_text(render_index(rendered, args.season, asof), encoding="utf-8")
     print(f"📚 teams/index.html ({len(rendered)} teams) → {out_root}/")
 
+    # 清掉孤兒球隊目錄（隊伍 abbr 跨季變動會留下舊頁，如 OAK→ATH），避免 stale 頁被訪問。
+    live_slugs = {t["abbr"].lower() for t in rendered}
+    import shutil
+    for d in out_root.iterdir():
+        if d.is_dir() and d.name not in live_slugs:
+            shutil.rmtree(d)
+            print(f"   🧹 removed orphan team dir: {d.name}")
+
     # merge team URLs into the site sitemap (keep landing + article URLs; replace teams block)
     sm = ROOT / "public-baseball" / "sitemap.xml"
     keep = [u for u in re.findall(r"<loc>([^<]+)</loc>", sm.read_text(encoding="utf-8"))
