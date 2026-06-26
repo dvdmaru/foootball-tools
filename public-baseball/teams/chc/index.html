@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>芝加哥小熊 Chicago Cubs｜2026 球隊資料 | @baseball</title>
-<meta name="description" content="芝加哥小熊（Chicago Cubs）MLB 球隊資料：2026 賽季例行賽 43-37（截至 2026-06-26）、國聯中區、球員名冊與主客場戰績。">
+<meta name="description" content="芝加哥小熊（Chicago Cubs）MLB 球隊資料：2026 賽季例行賽 44-37（截至 2026-06-26）、國聯中區、球員名冊與主客場戰績。">
 <meta property="og:title" content="芝加哥小熊 Chicago Cubs｜2026 球隊資料">
-<meta property="og:description" content="芝加哥小熊（Chicago Cubs）MLB 球隊資料：2026 賽季例行賽 43-37（截至 2026-06-26）、國聯中區、球員名冊與主客場戰績。">
+<meta property="og:description" content="芝加哥小熊（Chicago Cubs）MLB 球隊資料：2026 賽季例行賽 44-37（截至 2026-06-26）、國聯中區、球員名冊與主客場戰績。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://baseball.twtools.cc/teams/chc/">
 <meta property="og:site_name" content="@baseball">
@@ -68,7 +68,24 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
-:root[data-theme="navy"] { --bg:#eef1f6; --bg-glow:#e0e6f0; --accent:#1c3d6e; --accent-bright:#274f8a; --accent-ink:#ffffff; --accent-soft:rgba(28,61,110,0.10); --accent-line:rgba(28,61,110,0.30); --accent-glow:rgba(28,61,110,0.24); }
+:root[data-theme="navy"] {
+  --surface:#10294a; --surface-2:#16335a; --surface-3:#1b3c69;
+  --fg:#f3efe4; --fg-soft:#c7cfdb; --dim:#94a0b4; --faint:#6c7a92;
+  --line:rgba(243,239,228,0.12); --line-2:rgba(243,239,228,0.20);
+  --sheet-shadow:rgba(0,0,0,0.5); --scrim:rgba(0,0,0,0.5);
+  --bg:#0a1f3c; --bg-glow:#0e2547;
+  --accent:#e8b84b; --accent-bright:#f3c860; --accent-ink:#0a1f3c;
+  --accent-soft:rgba(232,184,75,0.12); --accent-line:rgba(232,184,75,0.36); --accent-glow:rgba(232,184,75,0.30);
+}
+:root[data-theme="navy"] body::before { mix-blend-mode:screen; opacity:0.18; }
+:root[data-theme="navy"] .site-header { position:sticky; top:0; z-index:30; margin-bottom:34px;
+  padding:14px 0; background:rgba(8,24,46,0.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line); }
+:root[data-theme="navy"] .site-nav a { text-transform:none; letter-spacing:1px; font-size:13px;
+  padding:6px 13px; border-radius:999px; border-bottom:none; }
+:root[data-theme="navy"] .site-nav a:hover { color:var(--accent); background:var(--accent-soft); border-bottom:none; }
+:root[data-theme="navy"] .site-nav a.active { color:var(--accent-ink); background:var(--accent); border-bottom:none; }
+:root[data-theme="navy"] .brand-tag { color:var(--dim); }
 
 
 .theme-switch {
@@ -160,19 +177,6 @@ body::before {
 </head>
 <body>
 
-<div class="theme-switch">
-  <span class="ts-label">配色</span>
-  <div class="ts-dots">
-    <button class="ts-dot" data-theme="navy" onclick="setTheme('navy')" style="--sw:#1c3d6e" aria-label="海軍藍"></button>
-    <button class="ts-dot" data-theme="cobalt" onclick="setTheme('cobalt')" style="--sw:#2b5ce0" aria-label="鈷藍"></button>
-    <button class="ts-dot" data-theme="teal" onclick="setTheme('teal')" style="--sw:#0f8a8a" aria-label="湖青"></button>
-    <button class="ts-dot" data-theme="tangerine" onclick="setTheme('tangerine')" style="--sw:#d4622a" aria-label="暖橘"></button>
-    <button class="ts-dot" data-theme="berry" onclick="setTheme('berry')" style="--sw:#c0356f" aria-label="莓紅"></button>
-    <button class="ts-dot" data-theme="plum" onclick="setTheme('plum')" style="--sw:#6c4bd1" aria-label="紫"></button>
-    <button class="ts-dot" data-theme="dark" onclick="setTheme('dark')" style="--sw:#0d2818" aria-label="深色"></button>
-  </div>
-</div>
-
 <div class="container">
   <header class="site-header">
     <div class="brand-block">
@@ -186,7 +190,7 @@ body::before {
     </nav>
   </header>
 
-<h1 class="bt-h1">芝加哥小熊</h1><div class="bt-en">Chicago Cubs</div><div class="bt-sub">國聯中區 · 2026 賽季例行賽 <b>43-37</b>（勝率 .538，分區第 3；截至 2026-06-26）</div><table class="std-table"><thead><tr><th>勝</th><th>敗</th><th>勝率</th><th>分區</th><th>分區排名</th><th>勝差</th><th>近況</th><th>得分</th><th>失分</th><th>淨</th></tr></thead><tbody><tr><td class="std-pts">43</td><td>37</td><td>.538</td><td>國聯中區</td><td>3</td><td>7.0</td><td>W3</td><td>395</td><td>359</td><td>+36</td></tr></tbody></table><div class="bt-sec">主客場拆分</div><table class="std-table"><thead><tr><th class="l">場地</th><th>勝</th><th>敗</th></tr></thead><tbody><tr><td class="l">主場</td><td class="std-pts">23</td><td>17</td></tr><tr><td class="l">客場</td><td class="std-pts">20</td><td>20</td></tr></tbody></table><div class="bt-sec">球員名冊 · 26 人</div><div class="bt-grid"><div class="r"><span class="num">16</span><span class="nm">Matthew Boyd</span><span class="ps">投手</span></div><div class="r"><span class="num">18</span><span class="nm">Shota Imanaga</span><span class="ps">投手</span></div><div class="r"><span class="num">24</span><span class="nm">Caleb Thielbar</span><span class="ps">投手</span></div><div class="r"><span class="num">33</span><span class="nm">Ryan Rolison</span><span class="ps">投手</span></div><div class="r"><span class="num">39</span><span class="nm">Ethan Roberts</span><span class="ps">投手</span></div><div class="r"><span class="num">41</span><span class="nm">Hoby Milner</span><span class="ps">投手</span></div><div class="r"><span class="num">49</span><span class="nm">Trent Thornton</span><span class="ps">投手</span></div><div class="r"><span class="num">53</span><span class="nm">Colin Rea</span><span class="ps">投手</span></div><div class="r"><span class="num">56</span><span class="nm">Vince Velasquez</span><span class="ps">投手</span></div><div class="r"><span class="num">70</span><span class="nm">Jayden Murray</span><span class="ps">投手</span></div><div class="r"><span class="num">71</span><span class="nm">Jacob Webb</span><span class="ps">投手</span></div><div class="r"><span class="num">72</span><span class="nm">Javier Assad</span><span class="ps">投手</span></div><div class="r"><span class="num">88</span><span class="nm">Phil Maton</span><span class="ps">投手</span></div><div class="r"><span class="num">9</span><span class="nm">Miguel Amaya</span><span class="ps">捕手</span></div><div class="r"><span class="num">15</span><span class="nm">Carson Kelly</span><span class="ps">捕手</span></div><div class="r"><span class="num">29</span><span class="nm">Michael Busch</span><span class="ps">一壘手</span></div><div class="r"><span class="num">2</span><span class="nm">Nico Hoerner</span><span class="ps">二壘手</span></div><div class="r"><span class="num">75</span><span class="nm">Pedro Ramírez</span><span class="ps">二壘手</span></div><div class="r"><span class="num">3</span><span class="nm">Alex Bregman</span><span class="ps">三壘手</span></div><div class="r"><span class="num">7</span><span class="nm">Dansby Swanson</span><span class="ps">游擊手</span></div><div class="r"><span class="num">8</span><span class="nm">Ian Happ</span><span class="ps">左外野</span></div><div class="r"><span class="num">1</span><span class="nm">Justin Dean</span><span class="ps">中外野</span></div><div class="r"><span class="num">4</span><span class="nm">Pete Crow-Armstrong</span><span class="ps">中外野</span></div><div class="r"><span class="num">6</span><span class="nm">Matt Shaw</span><span class="ps">右外野</span></div><div class="r"><span class="num">27</span><span class="nm">Seiya Suzuki</span><span class="ps">右外野</span></div><div class="r"><span class="num">20</span><span class="nm">Michael Conforto</span><span class="ps">指定打擊</span></div></div><p class="bt-asof">資料來源：MLB 官方 StatsAPI；2026 賽季例行賽，截至 2026-06-26，賽季進行中、戰績與名冊逐日更新。</p>
+<h1 class="bt-h1">芝加哥小熊</h1><div class="bt-en">Chicago Cubs</div><div class="bt-sub">國聯中區 · 2026 賽季例行賽 <b>44-37</b>（勝率 .543，分區第 2；截至 2026-06-26）</div><table class="std-table"><thead><tr><th>勝</th><th>敗</th><th>勝率</th><th>分區</th><th>分區排名</th><th>勝差</th><th>近況</th><th>得分</th><th>失分</th><th>淨</th></tr></thead><tbody><tr><td class="std-pts">44</td><td>37</td><td>.543</td><td>國聯中區</td><td>2</td><td>6.5</td><td>W4</td><td>399</td><td>362</td><td>+37</td></tr></tbody></table><div class="bt-sec">主客場拆分</div><table class="std-table"><thead><tr><th class="l">場地</th><th>勝</th><th>敗</th></tr></thead><tbody><tr><td class="l">主場</td><td class="std-pts">23</td><td>17</td></tr><tr><td class="l">客場</td><td class="std-pts">21</td><td>20</td></tr></tbody></table><div class="bt-sec">球員名冊 · 26 人</div><div class="bt-grid"><div class="r"><span class="num">16</span><span class="nm">Matthew Boyd</span><span class="ps">投手</span></div><div class="r"><span class="num">18</span><span class="nm">Shota Imanaga</span><span class="ps">投手</span></div><div class="r"><span class="num">24</span><span class="nm">Caleb Thielbar</span><span class="ps">投手</span></div><div class="r"><span class="num">33</span><span class="nm">Ryan Rolison</span><span class="ps">投手</span></div><div class="r"><span class="num">39</span><span class="nm">Ethan Roberts</span><span class="ps">投手</span></div><div class="r"><span class="num">41</span><span class="nm">Hoby Milner</span><span class="ps">投手</span></div><div class="r"><span class="num">49</span><span class="nm">Trent Thornton</span><span class="ps">投手</span></div><div class="r"><span class="num">53</span><span class="nm">Colin Rea</span><span class="ps">投手</span></div><div class="r"><span class="num">56</span><span class="nm">Vince Velasquez</span><span class="ps">投手</span></div><div class="r"><span class="num">70</span><span class="nm">Jayden Murray</span><span class="ps">投手</span></div><div class="r"><span class="num">71</span><span class="nm">Jacob Webb</span><span class="ps">投手</span></div><div class="r"><span class="num">72</span><span class="nm">Javier Assad</span><span class="ps">投手</span></div><div class="r"><span class="num">88</span><span class="nm">Phil Maton</span><span class="ps">投手</span></div><div class="r"><span class="num">9</span><span class="nm">Miguel Amaya</span><span class="ps">捕手</span></div><div class="r"><span class="num">15</span><span class="nm">Carson Kelly</span><span class="ps">捕手</span></div><div class="r"><span class="num">29</span><span class="nm">Michael Busch</span><span class="ps">一壘手</span></div><div class="r"><span class="num">2</span><span class="nm">Nico Hoerner</span><span class="ps">二壘手</span></div><div class="r"><span class="num">75</span><span class="nm">Pedro Ramírez</span><span class="ps">二壘手</span></div><div class="r"><span class="num">3</span><span class="nm">Alex Bregman</span><span class="ps">三壘手</span></div><div class="r"><span class="num">7</span><span class="nm">Dansby Swanson</span><span class="ps">游擊手</span></div><div class="r"><span class="num">8</span><span class="nm">Ian Happ</span><span class="ps">左外野</span></div><div class="r"><span class="num">1</span><span class="nm">Justin Dean</span><span class="ps">中外野</span></div><div class="r"><span class="num">4</span><span class="nm">Pete Crow-Armstrong</span><span class="ps">中外野</span></div><div class="r"><span class="num">6</span><span class="nm">Matt Shaw</span><span class="ps">右外野</span></div><div class="r"><span class="num">27</span><span class="nm">Seiya Suzuki</span><span class="ps">右外野</span></div><div class="r"><span class="num">20</span><span class="nm">Michael Conforto</span><span class="ps">指定打擊</span></div></div><p class="bt-asof">資料來源：MLB 官方 StatsAPI；2026 賽季例行賽，截至 2026-06-26，賽季進行中、戰績與名冊逐日更新。</p>
   <div class="article-footer">
     <div class="foot-links">
       <a href="/articles/">所有文章</a>
@@ -195,19 +199,6 @@ body::before {
     <div class="site-disclaimer">本站為非官方棒球資訊站，與 MLB、中華職棒（CPBL）等職業聯盟、球團無任何關聯或授權；數據與比分整理自公開官方來源並標註。<br><span>Unofficial fan-made site · Not affiliated with, endorsed by, or sponsored by MLB or CPBL.</span></div>
   </div>
 </div>
-<script>
-const THEMES = ['navy','cobalt','tangerine','berry','teal','plum','dark'];
-function setTheme(t) {
-  if (!THEMES.includes(t)) t = 'navy';
-  document.documentElement.dataset.theme = t;
-  try { localStorage.setItem('bb-theme', t); } catch (e) {}
-  document.querySelectorAll('.ts-dot').forEach(d => d.classList.toggle('active', d.dataset.theme === t));
-}
-(function initTheme() {
-  let t = 'navy';
-  try { t = localStorage.getItem('bb-theme') || 'navy'; } catch (e) {}
-  setTheme(t);
-})();
-</script>
+<script></script>
 </body>
 </html>

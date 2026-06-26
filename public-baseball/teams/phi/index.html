@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>費城費城人 Philadelphia Phillies｜2026 球隊資料 | @baseball</title>
-<meta name="description" content="費城費城人（Philadelphia Phillies）MLB 球隊資料：2026 賽季例行賽 44-36（截至 2026-06-26）、國聯東區、球員名冊與主客場戰績。">
+<meta name="description" content="費城費城人（Philadelphia Phillies）MLB 球隊資料：2026 賽季例行賽 45-36（截至 2026-06-26）、國聯東區、球員名冊與主客場戰績。">
 <meta property="og:title" content="費城費城人 Philadelphia Phillies｜2026 球隊資料">
-<meta property="og:description" content="費城費城人（Philadelphia Phillies）MLB 球隊資料：2026 賽季例行賽 44-36（截至 2026-06-26）、國聯東區、球員名冊與主客場戰績。">
+<meta property="og:description" content="費城費城人（Philadelphia Phillies）MLB 球隊資料：2026 賽季例行賽 45-36（截至 2026-06-26）、國聯東區、球員名冊與主客場戰績。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://baseball.twtools.cc/teams/phi/">
 <meta property="og:site_name" content="@baseball">
@@ -68,7 +68,24 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
-:root[data-theme="navy"] { --bg:#eef1f6; --bg-glow:#e0e6f0; --accent:#1c3d6e; --accent-bright:#274f8a; --accent-ink:#ffffff; --accent-soft:rgba(28,61,110,0.10); --accent-line:rgba(28,61,110,0.30); --accent-glow:rgba(28,61,110,0.24); }
+:root[data-theme="navy"] {
+  --surface:#10294a; --surface-2:#16335a; --surface-3:#1b3c69;
+  --fg:#f3efe4; --fg-soft:#c7cfdb; --dim:#94a0b4; --faint:#6c7a92;
+  --line:rgba(243,239,228,0.12); --line-2:rgba(243,239,228,0.20);
+  --sheet-shadow:rgba(0,0,0,0.5); --scrim:rgba(0,0,0,0.5);
+  --bg:#0a1f3c; --bg-glow:#0e2547;
+  --accent:#e8b84b; --accent-bright:#f3c860; --accent-ink:#0a1f3c;
+  --accent-soft:rgba(232,184,75,0.12); --accent-line:rgba(232,184,75,0.36); --accent-glow:rgba(232,184,75,0.30);
+}
+:root[data-theme="navy"] body::before { mix-blend-mode:screen; opacity:0.18; }
+:root[data-theme="navy"] .site-header { position:sticky; top:0; z-index:30; margin-bottom:34px;
+  padding:14px 0; background:rgba(8,24,46,0.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line); }
+:root[data-theme="navy"] .site-nav a { text-transform:none; letter-spacing:1px; font-size:13px;
+  padding:6px 13px; border-radius:999px; border-bottom:none; }
+:root[data-theme="navy"] .site-nav a:hover { color:var(--accent); background:var(--accent-soft); border-bottom:none; }
+:root[data-theme="navy"] .site-nav a.active { color:var(--accent-ink); background:var(--accent); border-bottom:none; }
+:root[data-theme="navy"] .brand-tag { color:var(--dim); }
 
 
 .theme-switch {
@@ -160,19 +177,6 @@ body::before {
 </head>
 <body>
 
-<div class="theme-switch">
-  <span class="ts-label">配色</span>
-  <div class="ts-dots">
-    <button class="ts-dot" data-theme="navy" onclick="setTheme('navy')" style="--sw:#1c3d6e" aria-label="海軍藍"></button>
-    <button class="ts-dot" data-theme="cobalt" onclick="setTheme('cobalt')" style="--sw:#2b5ce0" aria-label="鈷藍"></button>
-    <button class="ts-dot" data-theme="teal" onclick="setTheme('teal')" style="--sw:#0f8a8a" aria-label="湖青"></button>
-    <button class="ts-dot" data-theme="tangerine" onclick="setTheme('tangerine')" style="--sw:#d4622a" aria-label="暖橘"></button>
-    <button class="ts-dot" data-theme="berry" onclick="setTheme('berry')" style="--sw:#c0356f" aria-label="莓紅"></button>
-    <button class="ts-dot" data-theme="plum" onclick="setTheme('plum')" style="--sw:#6c4bd1" aria-label="紫"></button>
-    <button class="ts-dot" data-theme="dark" onclick="setTheme('dark')" style="--sw:#0d2818" aria-label="深色"></button>
-  </div>
-</div>
-
 <div class="container">
   <header class="site-header">
     <div class="brand-block">
@@ -186,7 +190,7 @@ body::before {
     </nav>
   </header>
 
-<h1 class="bt-h1">費城費城人</h1><div class="bt-en">Philadelphia Phillies</div><div class="bt-sub">國聯東區 · 2026 賽季例行賽 <b>44-36</b>（勝率 .550，分區第 2；截至 2026-06-26）</div><table class="std-table"><thead><tr><th>勝</th><th>敗</th><th>勝率</th><th>分區</th><th>分區排名</th><th>勝差</th><th>近況</th><th>得分</th><th>失分</th><th>淨</th></tr></thead><tbody><tr><td class="std-pts">44</td><td>36</td><td>.550</td><td>國聯東區</td><td>2</td><td>4.5</td><td>W2</td><td>349</td><td>350</td><td>-1</td></tr></tbody></table><div class="bt-sec">主客場拆分</div><table class="std-table"><thead><tr><th class="l">場地</th><th>勝</th><th>敗</th></tr></thead><tbody><tr><td class="l">主場</td><td class="std-pts">23</td><td>19</td></tr><tr><td class="l">客場</td><td class="std-pts">21</td><td>17</td></tr></tbody></table><div class="bt-sec">球員名冊 · 26 人</div><div class="bt-grid"><div class="r"><span class="num">19</span><span class="nm">Kyle Backhus</span><span class="ps">投手</span></div><div class="r"><span class="num">27</span><span class="nm">Aaron Nola</span><span class="ps">投手</span></div><div class="r"><span class="num">37</span><span class="nm">Tim Mayza</span><span class="ps">投手</span></div><div class="r"><span class="num">44</span><span class="nm">Jesús Luzardo</span><span class="ps">投手</span></div><div class="r"><span class="num">45</span><span class="nm">Zack Wheeler</span><span class="ps">投手</span></div><div class="r"><span class="num">46</span><span class="nm">José Alvarado</span><span class="ps">投手</span></div><div class="r"><span class="num">50</span><span class="nm">Orion Kerkering</span><span class="ps">投手</span></div><div class="r"><span class="num">51</span><span class="nm">Seth Johnson</span><span class="ps">投手</span></div><div class="r"><span class="num">52</span><span class="nm">Jonathan Bowlan</span><span class="ps">投手</span></div><div class="r"><span class="num">55</span><span class="nm">Chase Shugart</span><span class="ps">投手</span></div><div class="r"><span class="num">57</span><span class="nm">Alan Rangel</span><span class="ps">投手</span></div><div class="r"><span class="num">59</span><span class="nm">Jhoan Duran</span><span class="ps">投手</span></div><div class="r"><span class="num">61</span><span class="nm">Cristopher Sánchez</span><span class="ps">投手</span></div><div class="r"><span class="num">10</span><span class="nm">J.T. Realmuto</span><span class="ps">捕手</span></div><div class="r"><span class="num">13</span><span class="nm">Rafael Marchán</span><span class="ps">捕手</span></div><div class="r"><span class="num">21</span><span class="nm">Garrett Stubbs</span><span class="ps">捕手</span></div><div class="r"><span class="num">3</span><span class="nm">Bryce Harper</span><span class="ps">一壘手</span></div><div class="r"><span class="num">5</span><span class="nm">Bryson Stott</span><span class="ps">二壘手</span></div><div class="r"><span class="num">33</span><span class="nm">Edmundo Sosa</span><span class="ps">二壘手</span></div><div class="r"><span class="num">28</span><span class="nm">Alec Bohm</span><span class="ps">三壘手</span></div><div class="r"><span class="num">7</span><span class="nm">Trea Turner</span><span class="ps">游擊手</span></div><div class="r"><span class="num">16</span><span class="nm">Brandon Marsh</span><span class="ps">左外野</span></div><div class="r"><span class="num">2</span><span class="nm">Justin Crawford</span><span class="ps">中外野</span></div><div class="r"><span class="num">17</span><span class="nm">Gabriel Rincones Jr.</span><span class="ps">右外野</span></div><div class="r"><span class="num">49</span><span class="nm">Derek Hill</span><span class="ps">右外野</span></div><div class="r"><span class="num">12</span><span class="nm">Kyle Schwarber</span><span class="ps">指定打擊</span></div></div><p class="bt-asof">資料來源：MLB 官方 StatsAPI；2026 賽季例行賽，截至 2026-06-26，賽季進行中、戰績與名冊逐日更新。</p>
+<h1 class="bt-h1">費城費城人</h1><div class="bt-en">Philadelphia Phillies</div><div class="bt-sub">國聯東區 · 2026 賽季例行賽 <b>45-36</b>（勝率 .556，分區第 2；截至 2026-06-26）</div><table class="std-table"><thead><tr><th>勝</th><th>敗</th><th>勝率</th><th>分區</th><th>分區排名</th><th>勝差</th><th>近況</th><th>得分</th><th>失分</th><th>淨</th></tr></thead><tbody><tr><td class="std-pts">45</td><td>36</td><td>.556</td><td>國聯東區</td><td>2</td><td>4.0</td><td>W3</td><td>359</td><td>355</td><td>+4</td></tr></tbody></table><div class="bt-sec">主客場拆分</div><table class="std-table"><thead><tr><th class="l">場地</th><th>勝</th><th>敗</th></tr></thead><tbody><tr><td class="l">主場</td><td class="std-pts">23</td><td>19</td></tr><tr><td class="l">客場</td><td class="std-pts">22</td><td>17</td></tr></tbody></table><div class="bt-sec">球員名冊 · 26 人</div><div class="bt-grid"><div class="r"><span class="num">19</span><span class="nm">Kyle Backhus</span><span class="ps">投手</span></div><div class="r"><span class="num">27</span><span class="nm">Aaron Nola</span><span class="ps">投手</span></div><div class="r"><span class="num">37</span><span class="nm">Tim Mayza</span><span class="ps">投手</span></div><div class="r"><span class="num">44</span><span class="nm">Jesús Luzardo</span><span class="ps">投手</span></div><div class="r"><span class="num">45</span><span class="nm">Zack Wheeler</span><span class="ps">投手</span></div><div class="r"><span class="num">46</span><span class="nm">José Alvarado</span><span class="ps">投手</span></div><div class="r"><span class="num">50</span><span class="nm">Orion Kerkering</span><span class="ps">投手</span></div><div class="r"><span class="num">51</span><span class="nm">Seth Johnson</span><span class="ps">投手</span></div><div class="r"><span class="num">52</span><span class="nm">Jonathan Bowlan</span><span class="ps">投手</span></div><div class="r"><span class="num">55</span><span class="nm">Chase Shugart</span><span class="ps">投手</span></div><div class="r"><span class="num">57</span><span class="nm">Alan Rangel</span><span class="ps">投手</span></div><div class="r"><span class="num">59</span><span class="nm">Jhoan Duran</span><span class="ps">投手</span></div><div class="r"><span class="num">61</span><span class="nm">Cristopher Sánchez</span><span class="ps">投手</span></div><div class="r"><span class="num">10</span><span class="nm">J.T. Realmuto</span><span class="ps">捕手</span></div><div class="r"><span class="num">13</span><span class="nm">Rafael Marchán</span><span class="ps">捕手</span></div><div class="r"><span class="num">21</span><span class="nm">Garrett Stubbs</span><span class="ps">捕手</span></div><div class="r"><span class="num">3</span><span class="nm">Bryce Harper</span><span class="ps">一壘手</span></div><div class="r"><span class="num">5</span><span class="nm">Bryson Stott</span><span class="ps">二壘手</span></div><div class="r"><span class="num">33</span><span class="nm">Edmundo Sosa</span><span class="ps">二壘手</span></div><div class="r"><span class="num">28</span><span class="nm">Alec Bohm</span><span class="ps">三壘手</span></div><div class="r"><span class="num">7</span><span class="nm">Trea Turner</span><span class="ps">游擊手</span></div><div class="r"><span class="num">16</span><span class="nm">Brandon Marsh</span><span class="ps">左外野</span></div><div class="r"><span class="num">2</span><span class="nm">Justin Crawford</span><span class="ps">中外野</span></div><div class="r"><span class="num">17</span><span class="nm">Gabriel Rincones Jr.</span><span class="ps">右外野</span></div><div class="r"><span class="num">49</span><span class="nm">Derek Hill</span><span class="ps">右外野</span></div><div class="r"><span class="num">12</span><span class="nm">Kyle Schwarber</span><span class="ps">指定打擊</span></div></div><p class="bt-asof">資料來源：MLB 官方 StatsAPI；2026 賽季例行賽，截至 2026-06-26，賽季進行中、戰績與名冊逐日更新。</p>
   <div class="article-footer">
     <div class="foot-links">
       <a href="/articles/">所有文章</a>
@@ -195,19 +199,6 @@ body::before {
     <div class="site-disclaimer">本站為非官方棒球資訊站，與 MLB、中華職棒（CPBL）等職業聯盟、球團無任何關聯或授權；數據與比分整理自公開官方來源並標註。<br><span>Unofficial fan-made site · Not affiliated with, endorsed by, or sponsored by MLB or CPBL.</span></div>
   </div>
 </div>
-<script>
-const THEMES = ['navy','cobalt','tangerine','berry','teal','plum','dark'];
-function setTheme(t) {
-  if (!THEMES.includes(t)) t = 'navy';
-  document.documentElement.dataset.theme = t;
-  try { localStorage.setItem('bb-theme', t); } catch (e) {}
-  document.querySelectorAll('.ts-dot').forEach(d => d.classList.toggle('active', d.dataset.theme === t));
-}
-(function initTheme() {
-  let t = 'navy';
-  try { t = localStorage.getItem('bb-theme') || 'navy'; } catch (e) {}
-  setTheme(t);
-})();
-</script>
+<script></script>
 </body>
 </html>

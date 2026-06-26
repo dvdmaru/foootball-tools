@@ -334,52 +334,52 @@ def site_header_html(active: str, site: dict = None) -> str:
 
 
 def theme_switch_html(site: dict = None) -> str:
-    """Color switcher. Soccer -> the legacy 7-dot palette (byte-identical). Baseball -> a
-    navy-led palette (navy is the default brand color)."""
+    """Color switcher. Soccer -> the legacy 7-dot palette (byte-identical). Baseball -> none:
+    @baseball commits to a single dark navy/gold brand (a switcher to light themes would
+    undercut it); the dark theme applies via <html data-theme="navy">, no JS needed."""
     site = site or SOCCER_SITE
     if site.get("default_theme", "grass") != "navy":
         return THEME_SWITCH_HTML
-    dots = [("navy", "#1c3d6e", "海軍藍"), ("cobalt", "#2b5ce0", "鈷藍"),
-            ("teal", "#0f8a8a", "湖青"), ("tangerine", "#d4622a", "暖橘"),
-            ("berry", "#c0356f", "莓紅"), ("plum", "#6c4bd1", "紫"),
-            ("dark", "#0d2818", "深色")]
-    btns = "\n    ".join(
-        f'<button class="ts-dot" data-theme="{t}" onclick="setTheme(\'{t}\')" '
-        f'style="--sw:{c}" aria-label="{lab}"></button>' for t, c, lab in dots)
-    return ('\n<div class="theme-switch">\n  <span class="ts-label">配色</span>\n'
-            f'  <div class="ts-dots">\n    {btns}\n  </div>\n</div>\n')
+    return ""
 
 
 def theme_switch_js(site: dict = None) -> str:
-    """Theme init/persist JS. Soccer -> legacy (default grass). Baseball -> default navy."""
+    """Theme init/persist JS. Soccer -> legacy (default grass). Baseball -> none (fixed navy)."""
     site = site or SOCCER_SITE
     if site.get("default_theme", "grass") != "navy":
         return THEME_SWITCH_JS
-    return """
-const THEMES = ['navy','cobalt','tangerine','berry','teal','plum','dark'];
-function setTheme(t) {
-  if (!THEMES.includes(t)) t = 'navy';
-  document.documentElement.dataset.theme = t;
-  try { localStorage.setItem('bb-theme', t); } catch (e) {}
-  document.querySelectorAll('.ts-dot').forEach(d => d.classList.toggle('active', d.dataset.theme === t));
-}
-(function initTheme() {
-  let t = 'navy';
-  try { t = localStorage.getItem('bb-theme') || 'navy'; } catch (e) {}
-  setTheme(t);
-})();
-"""
+    return ""
 
 
 def extra_theme_css(site: dict = None) -> str:
     """Per-sport extra theme rules injected into the page <style>. Empty for soccer (so the
-    soccer pages are byte-identical); navy theme tokens for baseball (light bg + navy/gold)."""
+    soccer pages are byte-identical). Baseball = DARK navy/gold: deep navy bg + cream text +
+    gold accent — one coherent dark brand across landing / articles / teams / article body
+    (matches the dark text-only covers; mirrors the built-in `dark` theme but navy not green).
+    All article/team CSS is var-driven, so this single override flips the whole baseball site."""
     site = site or SOCCER_SITE
     if site.get("default_theme", "grass") != "navy":
         return ""
-    return ('\n:root[data-theme="navy"] { --bg:#eef1f6; --bg-glow:#e0e6f0; --accent:#1c3d6e; '
-            '--accent-bright:#274f8a; --accent-ink:#ffffff; --accent-soft:rgba(28,61,110,0.10); '
-            '--accent-line:rgba(28,61,110,0.30); --accent-glow:rgba(28,61,110,0.24); }\n')
+    return """
+:root[data-theme="navy"] {
+  --surface:#10294a; --surface-2:#16335a; --surface-3:#1b3c69;
+  --fg:#f3efe4; --fg-soft:#c7cfdb; --dim:#94a0b4; --faint:#6c7a92;
+  --line:rgba(243,239,228,0.12); --line-2:rgba(243,239,228,0.20);
+  --sheet-shadow:rgba(0,0,0,0.5); --scrim:rgba(0,0,0,0.5);
+  --bg:#0a1f3c; --bg-glow:#0e2547;
+  --accent:#e8b84b; --accent-bright:#f3c860; --accent-ink:#0a1f3c;
+  --accent-soft:rgba(232,184,75,0.12); --accent-line:rgba(232,184,75,0.36); --accent-glow:rgba(232,184,75,0.30);
+}
+:root[data-theme="navy"] body::before { mix-blend-mode:screen; opacity:0.18; }
+:root[data-theme="navy"] .site-header { position:sticky; top:0; z-index:30; margin-bottom:34px;
+  padding:14px 0; background:rgba(8,24,46,0.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line); }
+:root[data-theme="navy"] .site-nav a { text-transform:none; letter-spacing:1px; font-size:13px;
+  padding:6px 13px; border-radius:999px; border-bottom:none; }
+:root[data-theme="navy"] .site-nav a:hover { color:var(--accent); background:var(--accent-soft); border-bottom:none; }
+:root[data-theme="navy"] .site-nav a.active { color:var(--accent-ink); background:var(--accent); border-bottom:none; }
+:root[data-theme="navy"] .brand-tag { color:var(--dim); }
+"""
 
 
 def site_footer_html(site: dict = None) -> str:
@@ -1259,29 +1259,110 @@ def pub_root_for(meta: dict) -> pathlib.Path:
     return PUB_SOCCER if sport == "soccer" else ROOT / f"public-{sport}"
 
 
-def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
-    """Self-contained landing for a non-soccer site (baseball.twtools.cc). Navy/gold brand to
-    match the cover; lists articles newest-first with cover thumbnails. Kept separate from the
-    soccer render_index so the foootball site is never affected."""
-    base = site["base"]
-    cards = ""
-    for i, a in enumerate(articles):
-        title = html_lib.escape(a["meta"].get("title", a["slug"]))
-        desc = html_lib.escape(a.get("excerpt") or a["meta"].get("subtitle", ""))[:120]
-        date_disp = _date_disp(str(a["meta"].get("date", "")))
-        kicker = _kicker_label(a["meta"])
-        big = " bb-card--lead" if i == 0 else ""
-        cards += f"""
-    <a class="bb-card{big}" href="/articles/{a['slug']}/">
-      <div class="bb-card-img"><img src="/articles/{a['slug']}/cover.png" alt="{title}｜封面" loading="lazy"></div>
-      <div class="bb-card-body">
-        <span class="bb-kicker">{kicker}</span>
-        <div class="bb-card-title">{title}</div>
-        <div class="bb-card-desc">{desc}</div>
-        <div class="bb-card-meta">{date_disp}</div>
-      </div>
-    </a>"""
+# Landing + article-index card CSS for non-soccer sites. Var-driven → inherits the dark navy
+# tokens from extra_theme_css(navy), so the landing/list match the article & team pages exactly.
+BB_LANDING_CSS = """
+.bb-shell{max-width:1060px;margin:0 auto}
+.bb-hero{padding:30px 2px 26px}
+.bb-hero h1{font-family:var(--font-display);font-size:clamp(30px,5vw,48px);line-height:1.08;letter-spacing:.5px;color:var(--fg)}
+.bb-hero p{font-size:16.5px;color:var(--fg-soft);line-height:1.75;max-width:64ch;margin-top:14px}
+.bb-sec{display:flex;align-items:baseline;gap:12px;margin:36px 2px 16px}
+.bb-sec h2{font-family:var(--font-mono);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);font-weight:700}
+.bb-sec .ln{flex:1;height:1px;background:var(--line)}
+.bb-teams{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;
+  background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:var(--radius-sm);
+  padding:16px 22px;margin:8px 0 4px;transition:border-color .15s,transform .15s}
+.bb-teams:hover{border-color:var(--accent);transform:translateY(-2px)}
+.bb-teams .ic{font-size:26px}
+.bb-teams .t{font-size:17px;font-weight:800;color:var(--fg)}
+.bb-teams .d{font-size:12.5px;color:var(--dim);margin-top:2px}
+.bb-teams .go{margin-left:auto;color:var(--accent);font-weight:800;font-size:14px}
+.cov{position:relative;overflow:hidden;background:var(--surface-2)}
+.cov img{display:block;width:100%;height:100%;object-fit:cover}
+.card-lead{display:block;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:6px;transition:border-color .15s,transform .15s}
+.card-lead:hover{border-color:var(--accent-line);transform:translateY(-2px)}
+.card-lead .cov{aspect-ratio:1200/470}
+.card-lead .body{padding:22px 26px}
+.card-lead .kk{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;color:var(--accent);font-weight:700;text-transform:uppercase}
+.card-lead .tt{font-size:27px;font-weight:900;line-height:1.3;margin:9px 0;color:var(--fg)}
+.card-lead .dd{font-size:14.5px;color:var(--fg-soft);line-height:1.65;max-width:62ch}
+.card-lead .mm{font-size:12.5px;color:var(--faint);margin-top:12px;font-variant-numeric:tabular-nums}
+.bb-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.card{display:grid;grid-template-columns:165px 1fr;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent-line);transform:translateY(-2px)}
+.card .body{padding:15px 17px;display:flex;flex-direction:column;justify-content:center}
+.card .kk{font-family:var(--font-mono);font-size:10.5px;letter-spacing:1.5px;color:var(--accent);font-weight:700;text-transform:uppercase}
+.card .tt{font-size:16px;font-weight:900;line-height:1.36;margin:6px 0 0;color:var(--fg)}
+.card .mm{font-size:11.5px;color:var(--faint);margin-top:9px;font-variant-numeric:tabular-nums}
+.bb-foot{margin-top:52px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--faint);line-height:1.85}
+@media(max-width:680px){.bb-grid{grid-template-columns:1fr}.card{grid-template-columns:120px 1fr}}
+"""
 
+
+def _bb_lead_card(a: dict) -> str:
+    title = html_lib.escape(a["meta"].get("title", a["slug"]))
+    desc = html_lib.escape(a.get("excerpt") or a["meta"].get("subtitle", ""))[:150]
+    return f"""<a class="card-lead" href="/articles/{a['slug']}/">
+    <div class="cov"><img src="/articles/{a['slug']}/cover.png" alt="{title}｜封面" loading="lazy"></div>
+    <div class="body"><span class="kk">{_kicker_label(a['meta'])} · {_date_disp(str(a['meta'].get('date','')))}</span>
+      <div class="tt">{title}</div><div class="dd">{desc}</div></div></a>"""
+
+
+def _bb_grid_card(a: dict) -> str:
+    title = html_lib.escape(a["meta"].get("title", a["slug"]))
+    return f"""<a class="card" href="/articles/{a['slug']}/">
+      <div class="cov"><img src="/articles/{a['slug']}/cover.png" alt="{title}｜封面" loading="lazy"></div>
+      <div class="body"><span class="kk">{_kicker_label(a['meta'])}</span>
+        <div class="tt">{title}</div><div class="mm">{_date_disp(str(a['meta'].get('date','')))}</div></div></a>"""
+
+
+def _bb_head(site: dict, title: str, desc: str, url: str, jsonld: str) -> str:
+    return f"""<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="{site['default_theme']}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{html_lib.escape(title)}</title>
+<meta name="description" content="{html_lib.escape(desc)}">
+<meta property="og:title" content="{html_lib.escape(title)}">
+<meta property="og:description" content="{html_lib.escape(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{url}">
+<meta property="og:site_name" content="{html_lib.escape(site['org_name'])}">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{url}">
+<link rel="alternate" type="application/rss+xml" title="{site['feed_title']}" href="{site['base']}/feed.xml">
+{jsonld}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+{GA_SNIPPET}
+<style>
+{SHARED_TOKENS_CSS}{extra_theme_css(site)}
+{SITE_HEADER_CSS}
+{BB_LANDING_CSS}
+</style>
+</head>"""
+
+
+def _bb_footer(site: dict) -> str:
+    return (f'  <footer class="bb-foot">{html_lib.escape(site["org_name"])} · '
+            f'{site["base"].replace("https://","")}<br>'
+            '本站為獨立內容站，與 MLB、中華職棒（CPBL）等職業聯盟、球團無官方關聯；'
+            '數據引自公開官方來源並標註。</footer>')
+
+
+def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
+    """Dark navy/gold landing for a non-soccer site (baseball.twtools.cc): unified site header,
+    hero, teams entry, featured lead article + recent grid. Shares the SHARED_TOKENS_CSS system
+    (dark navy via extra_theme_css) so landing / articles index / article body / team pages are
+    one coherent design. Kept separate from soccer render_index (soccer stays byte-identical)."""
+    base = site["base"]
+    lead = _bb_lead_card(articles[0]) if articles else ""
+    grid = "\n      ".join(_bb_grid_card(a) for a in articles[1:]) if len(articles) > 1 else ""
     item_list = {"@type": "ItemList", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "url": f"{base}/articles/{a['slug']}/",
          "name": a["meta"].get("title", a["slug"])} for i, a in enumerate(articles)]}
@@ -1290,69 +1371,52 @@ def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
                   "isPartOf": {"@id": f"{base}/#website"}, "mainEntity": item_list}
     jsonld = graph_ld([org_node(site), website_node(site), collection,
                        breadcrumb_node([("首頁", f"{base}/")])])
-    return f"""<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{html_lib.escape(site['website_name'])}</title>
-<meta name="description" content="{sport_label}數據深度分析、里程碑特刊、戰績排行——繁體中文 / 台北時間。">
-<meta property="og:title" content="{html_lib.escape(site['website_name'])}">
-<meta property="og:description" content="{sport_label}數據深度分析、里程碑特刊、戰績排行。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{base}/">
-<meta property="og:site_name" content="{html_lib.escape(site['org_name'])}">
-<meta property="og:locale" content="zh_TW">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="{base}/">
-{jsonld}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-{GA_SNIPPET}
-<style>
-*{{margin:0;padding:0;box-sizing:border-box}}
-:root{{--navy:#0a1f3c;--navy2:#061222;--gold:#e8b84b;--cream:#f3efe4;--red:#c8472f;--line:rgba(243,239,228,.14)}}
-body{{font-family:"Noto Sans TC","PingFang TC",sans-serif;color:var(--cream);
-  background:radial-gradient(1200px 760px at 80% -10%,rgba(232,184,75,.10),transparent 60%),
-  linear-gradient(160deg,#0e2547,#0a1f3c 55%,#061222);min-height:100vh}}
-.wrap{{max-width:1040px;margin:0 auto;padding:56px 22px 80px}}
-.brand{{display:flex;align-items:center;gap:14px;margin-bottom:8px}}
-.brand b{{font-size:26px;font-weight:900;letter-spacing:1px;color:var(--gold)}}
-.brand span{{font-size:14px;color:rgba(243,239,228,.6);letter-spacing:2px}}
-.lede{{font-size:17px;color:rgba(243,239,228,.78);margin:14px 0 28px;max-width:680px;line-height:1.7}}
-.bb-nav{{display:flex;gap:22px;margin:14px 0 0}}
-.bb-nav a{{color:var(--gold);text-decoration:none;font-size:15px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:2px}}
-.bb-nav a:hover{{border-color:var(--gold)}}
-.bb-teams-cta{{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;background:rgba(232,184,75,.08);border:1px solid rgba(232,184,75,.34);border-radius:12px;padding:16px 20px;margin:0 0 30px;transition:border-color .15s,transform .15s}}
-.bb-teams-cta:hover{{border-color:var(--gold);transform:translateY(-2px)}}
-.bb-teams-cta .t{{font-size:18px;font-weight:800;color:var(--cream)}}
-.bb-teams-cta .d{{font-size:13px;color:rgba(243,239,228,.6)}}
-.bb-card{{display:grid;grid-template-columns:280px 1fr;gap:22px;text-decoration:none;color:inherit;
-  background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  margin-bottom:20px;transition:border-color .15s,transform .15s}}
-.bb-card:hover{{border-color:rgba(232,184,75,.5);transform:translateY(-2px)}}
-.bb-card--lead{{grid-template-columns:1fr}}
-.bb-card-img img{{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:1200/630}}
-.bb-card-body{{padding:20px 24px;display:flex;flex-direction:column;justify-content:center}}
-.bb-kicker{{font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:700}}
-.bb-card-title{{font-size:23px;font-weight:900;line-height:1.3;margin:8px 0}}
-.bb-card--lead .bb-card-title{{font-size:30px}}
-.bb-card-desc{{font-size:14px;color:rgba(243,239,228,.66);line-height:1.6}}
-.bb-card-meta{{font-size:12.5px;color:rgba(243,239,228,.45);margin-top:10px;font-variant-numeric:tabular-nums}}
-.foot{{margin-top:54px;padding-top:24px;border-top:1px solid var(--line);
-  font-size:12.5px;color:rgba(243,239,228,.45);line-height:1.8}}
-@media(max-width:640px){{.bb-card{{grid-template-columns:1fr}}}}
-</style>
-</head>
+    grid_block = f'<div class="bb-sec"><h2>最新文章</h2><span class="ln"></span></div>\n    <div class="bb-grid">\n      {grid}\n    </div>' if grid else ""
+    return f"""{_bb_head(site, site['website_name'], f"{sport_label}數據深度分析、里程碑特刊、戰績排行——繁體中文 / 台北時間。", f"{base}/", jsonld)}
 <body>
-<div class="wrap">
-  <div class="brand"><b>{html_lib.escape(site['org_name'])}</b><span>{sport_label} · 數據深度</span></div>
-  <nav class="bb-nav"><a href="/teams/">球隊資料</a><a href="/articles/">深度文章</a></nav>
-  <div class="lede">{sport_label}的數據深度分析、里程碑特刊與戰績排行。繁體中文、台北時間，為看門道的球迷而寫。</div>
-  <a class="bb-teams-cta" href="/teams/"><span class="t">⚾ MLB 30 隊球隊資料</span><span class="d">戰績 · 主客場 · 球員名冊 · 逐隊一頁</span></a>
-  {cards}
-  <div class="foot">{html_lib.escape(site['org_name'])} · {base.replace('https://','')}<br>
-  本站為獨立內容站，與各職業聯盟、球團無官方關聯；數據引自公開官方來源並標註。</div>
+<div class="bb-shell">{site_header_html("home", site)}
+  <section class="bb-hero">
+    <h1>看門道的{sport_label}，<br>用數據說話。</h1>
+    <p>中職 CPBL 與大聯盟 MLB 的數據深度分析、里程碑特刊與比賽戰報。每篇 5,000 字以上、附排行與統計表，每個數字標註官方來源。繁體中文、台北時間。</p>
+  </section>
+  <a class="bb-teams" href="/teams/"><span class="ic">⚾</span>
+    <span><span class="t">MLB 30 隊球隊資料</span><br><span class="d">戰績 · 主客場拆分 · 球員名冊 · 逐隊一頁</span></span>
+    <span class="go">看球隊 →</span></a>
+  <div class="bb-sec"><h2>編輯精選</h2><span class="ln"></span></div>
+  {lead}
+  {grid_block}
+{_bb_footer(site)}
+</div>
+</body>
+</html>
+"""
+
+
+def render_sport_articles_index(articles: list, site: dict, sport_label: str) -> str:
+    """The real /articles/ index (distinct from home — no teams hero, article-focused list).
+    Fixes the earlier hole where /articles/ was a byte-identical clone of the homepage."""
+    base = site["base"]
+    lead = _bb_lead_card(articles[0]) if articles else ""
+    grid = "\n      ".join(_bb_grid_card(a) for a in articles[1:]) if len(articles) > 1 else ""
+    item_list = {"@type": "ItemList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "url": f"{base}/articles/{a['slug']}/",
+         "name": a["meta"].get("title", a["slug"])} for i, a in enumerate(articles)]}
+    coll = {"@type": "CollectionPage", "@id": f"{base}/articles/", "url": f"{base}/articles/",
+            "name": f"{site['org_name']} 深度文章", "inLanguage": "zh-Hant",
+            "isPartOf": {"@id": f"{base}/#website"}, "mainEntity": item_list}
+    jsonld = graph_ld([org_node(site), website_node(site), coll,
+                       breadcrumb_node([("首頁", f"{base}/"), ("文章", f"{base}/articles/")])])
+    grid_block = f'\n    <div class="bb-grid">\n      {grid}\n    </div>' if grid else ""
+    return f"""{_bb_head(site, f"深度文章 ｜ {site['org_name']}", f"{sport_label} CPBL 與 MLB 的數據深度分析、里程碑特刊與比賽戰報，共 {len(articles)} 篇。", f"{base}/articles/", jsonld)}
+<body>
+<div class="bb-shell">{site_header_html("articles", site)}
+  <section class="bb-hero" style="padding-bottom:6px">
+    <h1>深度文章</h1>
+    <p>中職 CPBL 與大聯盟 MLB 的數據深度分析、里程碑特刊與比賽戰報。每篇 5,000 字以上、附排行與統計表，每個數字標註官方來源。</p>
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:1px;color:var(--faint);margin-top:10px">共 {len(articles)} 篇 · 最新在前</div>
+  </section>
+  {lead}{grid_block}
+{_bb_footer(site)}
 </div>
 </body>
 </html>
@@ -1376,9 +1440,10 @@ def _build_sport_site(articles: list, sport: str):
     pub = ROOT / f"public-{sport}"
     pub.mkdir(parents=True, exist_ok=True)
     (pub / "index.html").write_text(render_sport_index(articles, site, label), encoding="utf-8")
-    # 文章列表頁：nav「文章」→ /articles/ 指向此頁（沿用 landing 的全文列表，避免死連結 404）
+    # 真正的文章列表頁（nav「文章」→ /articles/），與首頁區隔、文章導向，非首頁克隆
     (pub / "articles").mkdir(parents=True, exist_ok=True)
-    (pub / "articles" / "index.html").write_text(render_sport_index(articles, site, label), encoding="utf-8")
+    (pub / "articles" / "index.html").write_text(
+        render_sport_articles_index(articles, site, label), encoding="utf-8")
     (pub / "sitemap.xml").write_text(render_sport_sitemap(articles, site), encoding="utf-8")
     (pub / "feed.xml").write_text(render_feed(articles, site), encoding="utf-8")
     print(f"⚾ {sport} site: index + sitemap + feed ({len(articles)} articles) → {pub}/")
