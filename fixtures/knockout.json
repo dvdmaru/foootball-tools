@@ -18,7 +18,7 @@
     "stadium": "Gillette Stadium",
     "city": "Boston",
     "country": "USA",
-    "home_team": "Winner Group E",
+    "home_team": "德國",
     "away_team": "Best 3rd (Groups A/B/C/D/F)"
   },
   {
@@ -29,7 +29,7 @@
     "stadium": "Estadio BBVA",
     "city": "Monterrey",
     "country": "Mexico",
-    "home_team": "Winner Group F",
+    "home_team": "荷蘭",
     "away_team": "摩洛哥"
   },
   {
@@ -41,7 +41,7 @@
     "city": "Houston",
     "country": "USA",
     "home_team": "巴西",
-    "away_team": "Runner-up Group F"
+    "away_team": "日本"
   },
   {
     "match_number": 77,
@@ -62,7 +62,7 @@
     "stadium": "AT&T Stadium",
     "city": "Dallas",
     "country": "USA",
-    "home_team": "Runner-up Group E",
+    "home_team": "象牙海岸",
     "away_team": "Runner-up Group I"
   },
   {
@@ -95,7 +95,7 @@
     "stadium": "Levi's Stadium",
     "city": "San Francisco Bay Area",
     "country": "USA",
-    "home_team": "Winner Group D",
+    "home_team": "美國",
     "away_team": "Best 3rd (Groups B/E/F/I/J)"
   },
   {
@@ -172,7 +172,7 @@
     "stadium": "AT&T Stadium",
     "city": "Dallas",
     "country": "USA",
-    "home_team": "Runner-up Group D",
+    "home_team": "澳洲",
     "away_team": "Runner-up Group G"
   },
   {
