@@ -1,0 +1,69 @@
+<!-- @dsCard group="Foundations" name="Color & Type Tokens" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@baseball · Tokens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* brand */
+  --navy:#0a1f3c; --navy-2:#061222; --navy-soft:#0e2547;
+  --gold:#e8b84b; --gold-ink:#0a1f3c; --red:#c8472f;
+  --cream:#f3efe4;
+  /* text on navy */
+  --fg:#f3efe4; --fg-soft:rgba(243,239,228,.78); --fg-mute:rgba(243,239,228,.5); --fg-dim:rgba(243,239,228,.34);
+  --line:rgba(243,239,228,.14); --line-strong:rgba(232,184,75,.4);
+  --surface:rgba(255,255,255,.03);
+  /* type */
+  --font:"Noto Sans TC","PingFang TC",sans-serif;
+  --t-display:clamp(30px,5vw,46px); --t-h1:30px; --t-h2:23px; --t-lead:17px; --t-body:15px; --t-small:12.5px;
+  /* radius / space */
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --space:22px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);color:var(--fg);
+  background:radial-gradient(1200px 760px at 80% -10%,rgba(232,184,75,.10),transparent 60%),
+  linear-gradient(160deg,var(--navy-soft),var(--navy) 55%,var(--navy-2));min-height:100vh}
+.wrap{max-width:920px;margin:0 auto;padding:48px 24px 80px}
+h1.title{font-size:26px;font-weight:900;color:var(--gold);letter-spacing:1px;margin-bottom:4px}
+.sub{color:var(--fg-mute);font-size:14px;margin-bottom:34px;letter-spacing:1px}
+.sec{font-size:12px;letter-spacing:2px;color:var(--fg-mute);text-transform:uppercase;margin:34px 0 14px;font-weight:700}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.sw{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface)}
+.sw .chip{height:74px}
+.sw .meta{padding:10px 12px;font-size:12px}
+.sw .meta b{display:block;font-size:13px;margin-bottom:2px}
+.sw .meta code{color:var(--fg-mute);font-family:ui-monospace,monospace;font-size:11.5px}
+.type-row{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding:14px 0}
+.type-row .lbl{width:120px;color:var(--fg-mute);font-size:12px;flex:none}
+.scale{font-weight:900}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="title">@baseball Design Tokens</h1>
+  <div class="sub">球場深藍 × 暖金 · navy/gold · 單一真相源</div>
+
+  <div class="sec">Brand colors</div>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#0a1f3c"></div><div class="meta"><b>Navy</b><code>--navy #0a1f3c</code></div></div>
+    <div class="sw"><div class="chip" style="background:#061222"></div><div class="meta"><b>Navy 2</b><code>--navy-2 #061222</code></div></div>
+    <div class="sw"><div class="chip" style="background:#0e2547"></div><div class="meta"><b>Navy soft</b><code>--navy-soft #0e2547</code></div></div>
+    <div class="sw"><div class="chip" style="background:#e8b84b"></div><div class="meta"><b>Gold</b><code>--gold #e8b84b</code></div></div>
+    <div class="sw"><div class="chip" style="background:#c8472f"></div><div class="meta"><b>Red accent</b><code>--red #c8472f</code></div></div>
+    <div class="sw"><div class="chip" style="background:#f3efe4"></div><div class="meta"><b>Cream</b><code>--cream #f3efe4</code></div></div>
+  </div>
+
+  <div class="sec">Type scale · Noto Sans TC</div>
+  <div class="type-row"><span class="lbl">Display 900</span><span class="scale" style="font-size:40px">投不了球的那一年</span></div>
+  <div class="type-row"><span class="lbl">H1 900</span><span class="scale" style="font-size:30px">2026 球季過半總覽</span></div>
+  <div class="type-row"><span class="lbl">H2 900</span><span class="scale" style="font-size:23px">道奇稱霸全聯盟</span></div>
+  <div class="type-row"><span class="lbl">Lead 500</span><span style="font-size:17px;font-weight:500;color:var(--fg-soft)">為看門道的球迷而寫的數據深度</span></div>
+  <div class="type-row"><span class="lbl">Body 400</span><span style="font-size:15px;color:var(--fg-soft)">繁體中文、台北時間，每個數字標註官方來源。</span></div>
+  <div class="type-row"><span class="lbl">Small 500</span><span style="font-size:12.5px;color:var(--fg-mute)">2026-06-26 · 賽季進行中</span></div>
+</div>
+</body>
+</html>

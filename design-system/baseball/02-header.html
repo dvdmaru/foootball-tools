@@ -1,0 +1,78 @@
+<!-- @dsCard group="Components" name="Site Header / Nav" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@baseball · Header</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1f3c;--navy-2:#061222;--navy-soft:#0e2547;--gold:#e8b84b;--red:#c8472f;--cream:#f3efe4;
+  --fg:#f3efe4;--fg-soft:rgba(243,239,228,.78);--fg-mute:rgba(243,239,228,.5);--line:rgba(243,239,228,.14);
+  --font:"Noto Sans TC","PingFang TC",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);color:var(--fg);
+  background:linear-gradient(160deg,var(--navy-soft),var(--navy) 55%,var(--navy-2));min-height:100vh}
+/* ---- the component ---- */
+.bb-header{position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);
+  background:rgba(8,24,46,.82);border-bottom:1px solid var(--line)}
+.bb-header .inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:26px;
+  padding:13px 22px}
+.bb-brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;flex:none}
+.bb-brand b{font-size:20px;font-weight:900;letter-spacing:1px;color:var(--gold)}
+.bb-brand .tag{font-size:12px;color:var(--fg-mute);letter-spacing:1.5px}
+.bb-nav{display:flex;gap:6px;margin-left:auto}
+.bb-nav a{color:var(--fg-soft);text-decoration:none;font-size:14.5px;font-weight:600;
+  padding:7px 14px;border-radius:999px;transition:color .15s,background .15s}
+.bb-nav a:hover{color:var(--gold);background:rgba(232,184,75,.08)}
+.bb-nav a[aria-current]{color:var(--gold-ink,#0a1f3c);background:var(--gold)}
+/* demo page body */
+.demo{max-width:1040px;margin:0 auto;padding:40px 22px;color:var(--fg-mute);font-size:14px}
+.note{font-size:12px;color:var(--fg-mute);max-width:1040px;margin:0 auto;padding:0 22px 30px}
+.variants{max-width:1040px;margin:30px auto 0;padding:0 22px}
+.variants h3{font-size:12px;letter-spacing:2px;color:var(--fg-mute);text-transform:uppercase;margin:24px 0 10px}
+</style>
+</head>
+<body>
+<!-- variant A: 文章 active -->
+<header class="bb-header">
+  <div class="inner">
+    <a class="bb-brand" href="/"><b>@BASEBALL</b><span class="tag">中職 + MLB · 數據深度</span></a>
+    <nav class="bb-nav">
+      <a href="/">首頁</a>
+      <a href="/teams/">球隊</a>
+      <a href="/articles/" aria-current="page">文章</a>
+    </nav>
+  </div>
+</header>
+<div class="demo">↑ 統一站台 header（sticky、毛玻璃）。一套取代原本首頁/文章/球隊三種不一致的頂部導覽。膠囊式 nav，active 用實心金底。</div>
+
+<div class="variants">
+  <h3>Variant · 首頁 active</h3>
+  <header class="bb-header" style="position:static">
+    <div class="inner">
+      <a class="bb-brand" href="/"><b>@BASEBALL</b><span class="tag">中職 + MLB · 數據深度</span></a>
+      <nav class="bb-nav">
+        <a href="/" aria-current="page">首頁</a>
+        <a href="/teams/">球隊</a>
+        <a href="/articles/">文章</a>
+      </nav>
+    </div>
+  </header>
+
+  <h3>Variant · 球隊 active</h3>
+  <header class="bb-header" style="position:static">
+    <div class="inner">
+      <a class="bb-brand" href="/"><b>@BASEBALL</b><span class="tag">中職 + MLB · 數據深度</span></a>
+      <nav class="bb-nav">
+        <a href="/">首頁</a>
+        <a href="/teams/" aria-current="page">球隊</a>
+        <a href="/articles/">文章</a>
+      </nav>
+    </div>
+  </header>
+</div>
+<div class="note">＊取代散在 build-articles（landing 自帶 .brand+.bb-nav）、site_header_html、gen-team-pages 三處的不一致 header。</div>
+</body>
+</html>
