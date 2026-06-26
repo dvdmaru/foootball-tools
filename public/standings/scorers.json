@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-25",
+ "updated": "2026-06-26",
  "scorers": [
   {
    "rank": 1,
@@ -31,44 +31,44 @@
   },
   {
    "rank": 5,
-   "player": "Deniz Undav",
-   "team_code": "GER",
-   "goals": 3,
-   "assists": 2
-  },
-  {
-   "rank": 6,
-   "player": "Matheus Cunha",
-   "team_code": "BRA",
-   "goals": 3,
-   "assists": null
-  },
-  {
-   "rank": 7,
    "player": "Jonathan David",
    "team_code": "CAN",
    "goals": 3,
    "assists": null
   },
   {
+   "rank": 6,
+   "player": "Deniz Undav",
+   "team_code": "GER",
+   "goals": 3,
+   "assists": 2
+  },
+  {
+   "rank": 7,
+   "player": "Matheus Cunha",
+   "team_code": "BRA",
+   "goals": 3,
+   "assists": null
+  },
+  {
    "rank": 8,
-   "player": "Harry Kane",
-   "team_code": "ENG",
-   "goals": 2,
+   "player": "Johan Manzambi",
+   "team_code": "SUI",
+   "goals": 3,
    "assists": null
   },
   {
    "rank": 9,
-   "player": "Kai Havertz",
-   "team_code": "GER",
-   "goals": 2,
+   "player": "Ismael Saibari",
+   "team_code": "MAR",
+   "goals": 3,
    "assists": null
   },
   {
    "rank": 10,
-   "player": "Cristiano Ronaldo",
-   "team_code": "POR",
-   "goals": 2,
+   "player": "Brian Brobbey",
+   "team_code": "NED",
+   "goals": 3,
    "assists": null
   },
   {
@@ -80,29 +80,134 @@
   },
   {
    "rank": 12,
-   "player": "Mikel Oyarzabal",
-   "team_code": "ESP",
+   "player": "Kai Havertz",
+   "team_code": "GER",
    "goals": 2,
    "assists": null
   },
   {
    "rank": 13,
+   "player": "Harry Kane",
+   "team_code": "ENG",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 14,
+   "player": "Cristiano Ronaldo",
+   "team_code": "POR",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 15,
    "player": "Cody Gakpo",
    "team_code": "NED",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 14,
-   "player": "Youssef En-Nesyri",
-   "team_code": "MAR",
+   "rank": 16,
+   "player": "Crysencio Summerville",
+   "team_code": "NED",
    "goals": 2,
    "assists": null
   },
   {
-   "rank": 15,
-   "player": "Victor Gyökeres",
+   "rank": 17,
+   "player": "Cyle Larin",
+   "team_code": "CAN",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 18,
+   "player": "Mikel Oyarzabal",
+   "team_code": "ESP",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 19,
+   "player": "Daichi Kamada",
+   "team_code": "JPN",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 20,
+   "player": "Ayase Ueda",
+   "team_code": "JPN",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 21,
+   "player": "Maxi Araújo",
+   "team_code": "URU",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 22,
+   "player": "Ismaïla Sarr",
+   "team_code": "SEN",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 23,
+   "player": "Rubén Vargas",
+   "team_code": "SUI",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 24,
+   "player": "Ermin Mahmić",
+   "team_code": "BIH",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 25,
+   "player": "Julián Quiñones",
+   "team_code": "MEX",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 26,
+   "player": "Yasin Ayari",
    "team_code": "SWE",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 27,
+   "player": "Elijah Just",
+   "team_code": "NZL",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 28,
+   "player": "Nicolas Pépé",
+   "team_code": "CIV",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 29,
+   "player": "Anthony Elanga",
+   "team_code": "SWE",
+   "goals": 2,
+   "assists": null
+  },
+  {
+   "rank": 30,
+   "player": "Daniel Muñoz",
+   "team_code": "COL",
    "goals": 2,
    "assists": null
   }

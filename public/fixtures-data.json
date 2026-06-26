@@ -1324,7 +1324,9 @@
       "home_code": "CUW",
       "away_team": "Ivory Coast",
       "away_iso": "ci",
-      "away_code": "CIV"
+      "away_code": "CIV",
+      "home_score": 0,
+      "away_score": 2
     },
     {
       "match_no": 56,
@@ -1340,7 +1342,9 @@
       "home_code": "ECU",
       "away_team": "Germany",
       "away_iso": "de",
-      "away_code": "GER"
+      "away_code": "GER",
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "match_no": 57,
@@ -1356,7 +1360,9 @@
       "home_code": "JPN",
       "away_team": "Sweden",
       "away_iso": "se",
-      "away_code": "SWE"
+      "away_code": "SWE",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "match_no": 58,
@@ -1372,7 +1378,9 @@
       "home_code": "TUN",
       "away_team": "Netherlands",
       "away_iso": "nl",
-      "away_code": "NED"
+      "away_code": "NED",
+      "home_score": 1,
+      "away_score": 3
     },
     {
       "match_no": 59,
