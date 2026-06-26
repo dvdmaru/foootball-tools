@@ -6,7 +6,15 @@
     <atom:link href="https://foootball.twtools.cc/feed.xml" rel="self" type="application/rss+xml" />
     <description>2026 FIFA 世界盃每日戰報、規則解析與專題文章。</description>
     <language>zh-Hant</language>
-    <lastBuildDate>Thu, 25 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <item>
+      <title>德國輸球仍奪 E 組頭名、象牙海岸寫隊史首進淘汰賽；D／E／F 三組末輪同日收官</title>
+      <link>https://foootball.twtools.cc/articles/daily-2026-06-26/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/daily-2026-06-26/</guid>
+      <pubDate>Fri, 26 Jun 2026 08:00:00 +0800</pubDate>
+      <category>每日戰報</category>
+      <description>2026 世界盃 D、E、F 三組末輪同日收官。德國末戰雖 1-2 不敵厄瓜多，仍靠淨勝球力壓象牙海岸奪下 E 組頭名晉級，象牙海岸則以小組第二寫下隊史首度闖進世界盃淘汰賽；美國早已鎖定 D 組首名，土耳其靠艾漢第 90+8 分鐘絕殺拿下本屆唯一一勝卻仍墊底出局。F 組荷蘭 3-1 勝突尼西亞奪冠，日本以次名出線、淘汰賽首輪將對上巴西。</description>
+    </item>
     <item>
       <title>從伯納烏到世界盃：安切洛蒂與維尼修斯，能否把巴西重新帶回王座？</title>
       <link>https://foootball.twtools.cc/articles/worldcup-special-2026-06-25-vinicius/</link>
@@ -238,14 +246,6 @@
       <pubDate>Tue, 16 Jun 2026 08:00:00 +0800</pubDate>
       <category>每日戰報</category>
       <description>2026 世界盃 6/15 G、H 兩組首輪四場全部和局：維德角靠 40 歲門將 Vozinha 撲掉西班牙全部 7 次射正、處女秀 0-0 逼平歐洲冠軍；比利時、沙烏地、伊朗也各被對手逼平，兩組八隊賽後全部 1 分並列。</description>
-    </item>
-    <item>
-      <title>西班牙開鑼、烏拉圭與比利時壓陣：G、H 兩組首輪賽前數據前瞻</title>
-      <link>https://foootball.twtools.cc/articles/worldcup-preview-2026-06-16-group-g-h/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/worldcup-preview-2026-06-16-group-g-h/</guid>
-      <pubDate>Tue, 16 Jun 2026 08:00:00 +0800</pubDate>
-      <category>專題</category>
-      <description>台北時間 6/16 凌晨到上午，G、H 兩組首輪四場接力登場。歐國盃冠軍西班牙在亞特蘭大巨蛋對世界盃新軍維德角，是本日市場與模型最一致看好的對決；另外三場——比利時對埃及、烏拉圭對沙烏地阿拉伯、伊朗對紐西蘭——則普遍指向強隊小勝、低比分劇本。這篇綜合公開賠率、預測市場、模型模擬、傷停、近況、歷史交手與場館條件，客觀拆解四場的賽前訊號與看點。本文為賽事數據分析，非投注建議。</description>
     </item>
   </channel>
 </rss>

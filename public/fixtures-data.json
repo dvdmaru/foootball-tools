@@ -1396,7 +1396,9 @@
       "home_code": "TUR",
       "away_team": "United States",
       "away_iso": "us",
-      "away_code": "USA"
+      "away_code": "USA",
+      "home_score": 3,
+      "away_score": 2
     },
     {
       "match_no": 60,
@@ -1412,7 +1414,9 @@
       "home_code": "PAR",
       "away_team": "Australia",
       "away_iso": "au",
-      "away_code": "AUS"
+      "away_code": "AUS",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "match_no": 61,
