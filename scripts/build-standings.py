@@ -195,9 +195,73 @@ def clinched_top2(code, group_codes, gmatches, tbl):
     return worst <= 1
 
 
+def _worst_rivals_ge(code, group_codes, gmatches, tbl):
+    """列舉該組剩餘賽程所有結果（code 剩餘固定落敗＝對 code 最壞），
+    回傳『最壞情境下積分 ≥ code 現有積分的同組對手數』。worst≤1→鎖前2、worst≤2→鎖前3。"""
+    from itertools import product
+    floor = tbl[code]["Pts"]
+    base = {c: tbl[c]["Pts"] for c in group_codes}
+    remaining = [m for m in gmatches if not has_score(m)
+                 and m["home_code"] in group_codes and m["away_code"] in group_codes]
+    fixed = [m for m in remaining if code in (m["home_code"], m["away_code"])]
+    enum_ms = [m for m in remaining if code not in (m["home_code"], m["away_code"])]
+    worst = 0
+    for combo in product(("H", "D", "A"), repeat=len(enum_ms)):
+        pts = dict(base)
+        for m in fixed:
+            opp = m["away_code"] if m["home_code"] == code else m["home_code"]
+            pts[opp] += 3
+        for m, r in zip(enum_ms, combo):
+            h, a = m["home_code"], m["away_code"]
+            if r == "H":
+                pts[h] += 3
+            elif r == "A":
+                pts[a] += 3
+            else:
+                pts[h] += 1
+                pts[a] += 1
+        cnt = sum(1 for y in group_codes if y != code and pts[y] >= floor)
+        worst = max(worst, cnt)
+    return worst
+
+
+def _remaining_games(code, gmatches):
+    return sum(1 for m in gmatches if not has_score(m)
+               and code in (m["home_code"], m["away_code"]))
+
+
+def _max_third_pts(gcodes, gmatches, tbl):
+    """該組『第三名最終積分』的 sound 上界：整組踢完＝實際第三名積分；
+    未踢完＝各隊 ceiling(現有+3×剩餘場)的第 3 高（第三名最終分必 ≤ 第 3 高 ceiling）。"""
+    if all(has_score(m) for m in gmatches):
+        return tbl[group_sort(gcodes, tbl)[2]]["Pts"]
+    ceilings = sorted((tbl[c]["Pts"] + 3 * _remaining_games(c, gmatches)
+                       for c in gcodes), reverse=True)
+    return ceilings[2] if len(ceilings) >= 3 else (ceilings[-1] if ceilings else 0)
+
+
+def clinched_qualification(code, own_g, groups, tbl):
+    """數學鎖定晉級 32 強——即使在最壞情境下掉到小組第 3，也保證搶進 8 個最佳第三名：
+      ① 保證至少小組第 3（最壞情境同組 ≥ 我積分者 ≤2）；
+      ② 其餘 11 組中『第三名最終積分有可能 ≥ 我保底積分』的組數 ≤7
+         → 至多 7 隊第三名能壓過我，我至差排第 8 名最佳第三名（8 取 8）仍晉級。
+    上界皆取保守值（max third / 我用現有積分為保底），故只會漏報、不會錯報。"""
+    gcodes = groups[own_g]["teams"]
+    gmatches = groups[own_g]["matches"]
+    if _worst_rivals_ge(code, gcodes, gmatches, tbl) > 2:   # 不保證前 3
+        return False
+    floor_pts = tbl[code]["Pts"]
+    threats = sum(
+        1 for g in groups if g != own_g
+        and _max_third_pts(groups[g]["teams"], groups[g]["matches"], tbl) >= floor_pts
+    )
+    return threats <= 7
+
+
 def compute_qualified(groups, tbl):
     """回傳 (adv_codes, lead_codes)：
     - adv_codes：掛實心『晉級』徽章 — 已鎖定前 2（in-progress 用 clinch、整組踢完用最終前 2），
+      已鎖定最佳第三名（clinched_qualification：保證前 3＋保底分保證進最佳第三前 8），
       以及全 12 組踢完後算出的 8 個最佳第三名。
     - lead_codes：小組賽進行中『目前居晉級區』的當前前 2（未鎖定），只給淡色 highlight、不放字；
       未開賽(該組 0 場)的組不給，避免照種子序假標。"""
@@ -215,7 +279,8 @@ def compute_qualified(groups, tbl):
             adv.update(order[:2])
         else:
             for c in gcodes:
-                if clinched_top2(c, gcodes, gmatches, tbl):
+                if (clinched_top2(c, gcodes, gmatches, tbl)
+                        or clinched_qualification(c, g, groups, tbl)):
                     adv.add(c)
             if played:
                 for c in order[:2]:
