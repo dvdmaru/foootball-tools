@@ -279,13 +279,19 @@ def compute_qualified(groups, tbl):
             adv.update(order[:2])
         else:
             for c in gcodes:
-                if (clinched_top2(c, gcodes, gmatches, tbl)
-                        or clinched_qualification(c, g, groups, tbl)):
+                if clinched_top2(c, gcodes, gmatches, tbl):
                     adv.add(c)
             if played:
                 for c in order[:2]:
                     if c not in adv:
                         lead.add(c)
+        # 最佳第三名 clinch 對「所有組」一致成立（含已完賽組的第 3 名）。
+        # 原本只在未完賽分支呼叫 clinched_qualification，導致不對稱：
+        # 未完賽組第三（如 ENG/GHA）被標、已完賽組同為保底分第三（如 ECU/SWE/PAR/BIH）
+        # 卻漏標。clinched_qualification 已含「保證前 3」與保底分上界檢查，sound、只漏不錯。
+        for c in gcodes:
+            if c not in adv and clinched_qualification(c, g, groups, tbl):
+                adv.add(c)
     # 8 個最佳第三名：全部小組踢完才算得出
     if all_complete and groups:
         thirds = [group_sort(groups[g]["teams"], tbl)[2] for g in groups

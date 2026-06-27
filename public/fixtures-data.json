@@ -1432,7 +1432,9 @@
       "home_code": "NOR",
       "away_team": "France",
       "away_iso": "fr",
-      "away_code": "FRA"
+      "away_code": "FRA",
+      "home_score": 1,
+      "away_score": 4
     },
     {
       "match_no": 62,
@@ -1448,7 +1450,9 @@
       "home_code": "SEN",
       "away_team": "Iraq",
       "away_iso": "iq",
-      "away_code": "IRQ"
+      "away_code": "IRQ",
+      "home_score": 5,
+      "away_score": 0
     },
     {
       "match_no": 63,
@@ -1464,7 +1468,9 @@
       "home_code": "EGY",
       "away_team": "Iran",
       "away_iso": "ir",
-      "away_code": "IRN"
+      "away_code": "IRN",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "match_no": 64,
@@ -1480,7 +1486,9 @@
       "home_code": "NZL",
       "away_team": "Belgium",
       "away_iso": "be",
-      "away_code": "BEL"
+      "away_code": "BEL",
+      "home_score": 1,
+      "away_score": 5
     },
     {
       "match_no": 65,
@@ -1496,7 +1504,9 @@
       "home_code": "CPV",
       "away_team": "Saudi Arabia",
       "away_iso": "sa",
-      "away_code": "KSA"
+      "away_code": "KSA",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "match_no": 66,
@@ -1512,7 +1522,9 @@
       "home_code": "URU",
       "away_team": "Spain",
       "away_iso": "es",
-      "away_code": "ESP"
+      "away_code": "ESP",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "match_no": 67,
