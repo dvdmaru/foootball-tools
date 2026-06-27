@@ -51,7 +51,7 @@
     "stadium": "MetLife Stadium",
     "city": "New York/New Jersey",
     "country": "USA",
-    "home_team": "Winner Group I",
+    "home_team": "法國",
     "away_team": "Best 3rd (Groups C/D/F/G/H)"
   },
   {
@@ -63,7 +63,7 @@
     "city": "Dallas",
     "country": "USA",
     "home_team": "象牙海岸",
-    "away_team": "Runner-up Group I"
+    "away_team": "挪威"
   },
   {
     "match_number": 79,
@@ -106,7 +106,7 @@
     "stadium": "Lumen Field",
     "city": "Seattle",
     "country": "USA",
-    "home_team": "Winner Group G",
+    "home_team": "比利時",
     "away_team": "Best 3rd (Groups A/E/H/I/J)"
   },
   {
@@ -128,7 +128,7 @@
     "stadium": "SoFi Stadium",
     "city": "Los Angeles",
     "country": "USA",
-    "home_team": "Winner Group H",
+    "home_team": "西班牙",
     "away_team": "Runner-up Group J"
   },
   {
@@ -151,7 +151,7 @@
     "city": "Miami",
     "country": "USA",
     "home_team": "Winner Group J",
-    "away_team": "Runner-up Group H"
+    "away_team": "維德角"
   },
   {
     "match_number": 87,
@@ -173,7 +173,7 @@
     "city": "Dallas",
     "country": "USA",
     "home_team": "澳洲",
-    "away_team": "Runner-up Group G"
+    "away_team": "埃及"
   },
   {
     "match_number": 89,
