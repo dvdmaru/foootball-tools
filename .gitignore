@@ -27,3 +27,7 @@ editorial/
 
 # 本機 Claude session 狀態（worktrees / local settings）
 .claude/
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
