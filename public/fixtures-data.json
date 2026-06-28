@@ -79,7 +79,7 @@
     },
     {
       "code": "SCO",
-      "iso": "gb",
+      "iso": "gb-sct",
       "name_zh": "蘇格蘭",
       "name_en": "Scotland",
       "group": "C"
@@ -317,7 +317,7 @@
     },
     {
       "code": "ENG",
-      "iso": "gb",
+      "iso": "gb-eng",
       "name_zh": "英格蘭",
       "name_en": "England",
       "group": "L"
@@ -423,7 +423,7 @@
       "home_iso": "ht",
       "home_code": "HAI",
       "away_team": "Scotland",
-      "away_iso": "gb",
+      "away_iso": "gb-sct",
       "away_code": "SCO",
       "home_score": 0,
       "away_score": 1
@@ -726,7 +726,7 @@
       "country_host": "USA",
       "group": "L",
       "home_team": "England",
-      "home_iso": "gb",
+      "home_iso": "gb-eng",
       "home_code": "ENG",
       "away_team": "Croatia",
       "away_iso": "hr",
@@ -870,7 +870,7 @@
       "country_host": "USA",
       "group": "C",
       "home_team": "Scotland",
-      "home_iso": "gb",
+      "home_iso": "gb-sct",
       "home_code": "SCO",
       "away_team": "Morocco",
       "away_iso": "ma",
@@ -1140,7 +1140,7 @@
       "country_host": "USA",
       "group": "L",
       "home_team": "England",
-      "home_iso": "gb",
+      "home_iso": "gb-eng",
       "home_code": "ENG",
       "away_team": "Ghana",
       "away_iso": "gh",
@@ -1212,7 +1212,7 @@
       "country_host": "USA",
       "group": "C",
       "home_team": "Scotland",
-      "home_iso": "gb",
+      "home_iso": "gb-sct",
       "home_code": "SCO",
       "away_team": "Brazil",
       "away_iso": "br",
@@ -1539,7 +1539,7 @@
       "home_iso": "pa",
       "home_code": "PAN",
       "away_team": "England",
-      "away_iso": "gb",
+      "away_iso": "gb-eng",
       "away_code": "ENG",
       "home_score": 0,
       "away_score": 2
