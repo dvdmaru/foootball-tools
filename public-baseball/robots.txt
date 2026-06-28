@@ -1,0 +1,30 @@
+# baseball.twtools.cc — 開放給搜尋與 AI 答案引擎（AEO/GEO）
+User-agent: *
+Allow: /
+
+# 明確歡迎主要 AI 答案引擎（讓內容可被引用 / 摘要）
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://baseball.twtools.cc/sitemap.xml
