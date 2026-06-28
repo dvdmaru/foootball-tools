@@ -37,6 +37,7 @@
     "feed_channel_title": "@baseball — 中職 + MLB 數據深度",
     "feed_channel_desc": "中華職棒 CPBL 與美國職棒 MLB 的數據深度分析、里程碑特刊與戰績排行。",
     "default_theme": "navy",
+    "ga_id": "G-Z0F06P2HXB",
     "nav": [
       { "label": "首頁", "href": "/", "key": "home" },
       { "label": "球隊", "href": "/teams/", "key": "teams" },

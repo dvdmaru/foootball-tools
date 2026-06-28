@@ -139,14 +139,23 @@ def effective_status(comp: dict, today: datetime.date = None) -> str:
 
 
 # ---------- site-wide GA4 (同步 public/index.html) ----------
-GA_SNIPPET = """<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V12JQHW84K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-V12JQHW84K');
-</script>"""
+def ga_snippet(site: dict = None) -> str:
+    """Per-site GA4 tag. Defaults to the soccer/world-cup property so legacy
+    public/ output stays byte-identical; baseball passes its own ga_id (sites.json)."""
+    gid = (site or {}).get("ga_id") or "G-V12JQHW84K"
+    return (
+        "<!-- Google tag (gtag.js) -->\n"
+        f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>\n'
+        "<script>\n"
+        "  window.dataLayer = window.dataLayer || [];\n"
+        "  function gtag(){dataLayer.push(arguments);}\n"
+        "  gtag('js', new Date());\n"
+        f"  gtag('config', '{gid}');\n"
+        "</script>"
+    )
+
+
+GA_SNIPPET = ga_snippet()
 
 
 # ---------- shared design tokens (與 public/index.html 同步) ----------
@@ -1015,7 +1024,7 @@ def render_article(meta: dict, body_html: str, slug: str, excerpt: str = "",
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-{GA_SNIPPET}
+{ga_snippet(site)}
 <style>
 {SHARED_TOKENS_CSS}{extra_theme_css(site)}
 {THEME_SWITCH_CSS}
@@ -1339,7 +1348,7 @@ def _bb_head(site: dict, title: str, desc: str, url: str, jsonld: str) -> str:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-{GA_SNIPPET}
+{ga_snippet(site)}
 <style>
 {SHARED_TOKENS_CSS}{extra_theme_css(site)}
 {SITE_HEADER_CSS}

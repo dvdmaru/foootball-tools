@@ -84,7 +84,7 @@ def _shell(title, desc, canonical, jsonld, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-{ba.GA_SNIPPET}
+{ba.ga_snippet(SITE)}
 <style>
 {ba.SHARED_TOKENS_CSS}{ba.extra_theme_css(SITE)}
 {ba.THEME_SWITCH_CSS}
