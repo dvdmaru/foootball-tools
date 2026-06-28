@@ -8,7 +8,11 @@
     "city": "Los Angeles",
     "country": "USA",
     "home_team": "南非",
-    "away_team": "加拿大"
+    "away_team": "加拿大",
+    "home_score": 0,
+    "away_score": 1,
+    "winner": "加拿大",
+    "goals_note": "Eustáquio 90+2'"
   },
   {
     "match_number": 74,

@@ -388,6 +388,35 @@ def render_bracket(ko):
     """淘汰賽對照表 — 已確定的對位填真隊（帶國旗），其餘待小組收官。"""
     zh2iso = {ZH[c]: ISO[c] for c in ZH if c in ISO}
 
+    import re as _re
+    by_num = {m["match_number"]: m for m in ko if "match_number" in m}
+    resolved = {m["match_number"]: {"home": m["home_team"], "away": m["away_team"]}
+                for m in ko if "match_number" in m}
+
+    def _winner(mn):
+        m = by_num.get(mn)
+        if not m or not has_score(m):
+            return None
+        if m.get("winner"):
+            return m["winner"]
+        if m["home_score"] > m["away_score"]:
+            return resolved[mn]["home"]
+        if m["away_score"] > m["home_score"]:
+            return resolved[mn]["away"]
+        return None  # 平手待 PK：請在該場填 winner 欄
+
+    _chg = True
+    while _chg:
+        _chg = False
+        for _mn, _r in resolved.items():
+            for _side in ("home", "away"):
+                _mm = _re.match(r"Winner Match (\d+)$", _r[_side])
+                if _mm:
+                    _w = _winner(int(_mm.group(1)))
+                    if _w and _w != _r[_side]:
+                        _r[_side] = _w
+                        _chg = True
+
     def ko_team(name, side):
         iso = zh2iso.get(name)
         fl = flag(iso) if iso else ""
@@ -411,12 +440,19 @@ def render_bracket(ko):
         for m in ms:
             tp = datetime.strptime(m["date"], "%Y-%m-%d")
             when = f"{tp.month}/{tp.day}（{WK[tp.weekday()]}）"
+            _r = resolved.get(m.get("match_number"),
+                              {"home": m["home_team"], "away": m["away_team"]})
+            if has_score(m):
+                mid = (f'<span class="std-ko-score">{m["home_score"]}'
+                       f'<span class="std-dash">-</span>{m["away_score"]}</span>')
+            else:
+                mid = '<span class="std-vs">vs</span>'
             rows.append(
                 '<li class="std-ko-row">'
                 f'<span class="std-ko-when">{when}</span>'
-                f'{ko_team(m["home_team"], "home")}'
-                '<span class="std-vs">vs</span>'
-                f'{ko_team(m["away_team"], "away")}'
+                f'{ko_team(_r["home"], "home")}'
+                f'{mid}'
+                f'{ko_team(_r["away"], "away")}'
                 f'<span class="std-ko-venue">{m.get("city","")}</span>'
                 "</li>"
             )
@@ -671,6 +707,7 @@ PAGE_CSS = """
 .std-away { justify-content: flex-start; text-align: left; }
 .std-vs { font-family: var(--font-mono); font-size: 10px; color: var(--faint); letter-spacing: 1px; }
 .std-score { font-family: var(--font-display); font-size: 17px; color: var(--fg); letter-spacing: 1px; }
+.std-ko-score { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--fg); letter-spacing: 1px; white-space: nowrap; }
 .std-dash { color: var(--faint); margin: 0 2px; }
 .std-venue { font-size: 11px; color: var(--dim); text-align: center; }
 
