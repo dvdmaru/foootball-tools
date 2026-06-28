@@ -1,0 +1,565 @@
+{
+  "_type": "cpbl-standings-leaders-snapshot",
+  "league": "CPBL",
+  "league_zh": "中華職棒",
+  "season": 2026,
+  "season_phase": "上半季",
+  "asof_taipei_date": "2026-06-28",
+  "fetched_at_taipei": "2026-06-28T14:07:41+08:00",
+  "source": {
+    "primary_url": "https://www.cpbl.com.tw/",
+    "source_kind": "official_html_snapshot",
+    "raw_html_tmp_path": "/private/tmp/cpbl_home_2026-06-28.html",
+    "official_sections": [
+      "球隊戰績",
+      "投手TOP5",
+      "打擊TOP5"
+    ],
+    "notes": [
+      "CPBL 首頁 HTML 直接包含目前 2026 上半季戰績與投打 TOP5。",
+      "首頁 JS 裡的 /home/gettop5players AJAX 區塊目前在 return 後方，前端實際不呼叫。",
+      "實測 /home/gettop5players POST 回 HiNetCDN 307，/Stats/RecordAll?... 以 curl 會遇到自我 308 redirect loop，因此本 snapshot 不標為穩定 API。",
+      "既有專案記憶指出 api-baseball 的 CPBL standings endpoint 不可靠且沒有球員資料；CPBL 球員資料仍需 scrape cpbl.com.tw。"
+    ]
+  },
+  "api_assessment": {
+    "official_public_json_api_found": false,
+    "usable_for_this_snapshot": "official_html_fetch",
+    "confidence": "medium",
+    "risk_notes": [
+      "HTML 結構若改版，解析器需重寫。",
+      "首頁 TOP5 只有各指標前 5 名，不是完整 RecordAll 榜。",
+      "榜單與戰績會隨賽事結果變動；後續施工前應重新抓一次 snapshot。"
+    ]
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "team_id": "AAA011",
+      "team": "味全龍",
+      "games": 58,
+      "wins": 38,
+      "losses": 20,
+      "ties": 0,
+      "winning_percentage": "0.655",
+      "games_behind": null,
+      "streak": "敗2"
+    },
+    {
+      "rank": 2,
+      "team_id": "AEO011",
+      "team": "富邦悍將",
+      "games": 58,
+      "wins": 32,
+      "losses": 26,
+      "ties": 0,
+      "winning_percentage": "0.552",
+      "games_behind": "6",
+      "streak": "勝1"
+    },
+    {
+      "rank": 3,
+      "team_id": "AKP011",
+      "team": "台鋼雄鷹",
+      "games": 60,
+      "wins": 30,
+      "losses": 29,
+      "ties": 1,
+      "winning_percentage": "0.508",
+      "games_behind": "8.5",
+      "streak": "敗2"
+    },
+    {
+      "rank": 4,
+      "team_id": "ADD011",
+      "team": "統一7-ELEVEn獅",
+      "games": 57,
+      "wins": 28,
+      "losses": 28,
+      "ties": 1,
+      "winning_percentage": "0.5",
+      "games_behind": "9",
+      "streak": "勝1"
+    },
+    {
+      "rank": 5,
+      "team_id": "AJL011",
+      "team": "樂天桃猿",
+      "games": 57,
+      "wins": 22,
+      "losses": 33,
+      "ties": 2,
+      "winning_percentage": "0.4",
+      "games_behind": "14.5",
+      "streak": "敗1"
+    },
+    {
+      "rank": 6,
+      "team_id": "ACN011",
+      "team": "中信兄弟",
+      "games": 56,
+      "wins": 20,
+      "losses": 34,
+      "ties": 2,
+      "winning_percentage": "0.37",
+      "games_behind": "16",
+      "streak": "勝4"
+    }
+  ],
+  "leaders": {
+    "pitching": {
+      "era": {
+        "label_zh": "防禦率",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000006739",
+            "player": "李東洺",
+            "team_id": "AEO011",
+            "team": "富邦悍將",
+            "value": "1.66"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000006555",
+            "player": "梅賽鍶",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "1.73"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000006497",
+            "player": "鋼龍",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "1.92"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000007053",
+            "player": "艾速特",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "1.97"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000002274",
+            "player": "黃子鵬",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "2.11"
+          }
+        ]
+      },
+      "wins": {
+        "label_zh": "勝投",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000006739",
+            "player": "李東洺",
+            "team_id": "AEO011",
+            "team": "富邦悍將",
+            "value": "10"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000006555",
+            "player": "梅賽鍶",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "8"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000007053",
+            "player": "艾速特",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "6"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000007228",
+            "player": "鈴木駿輔",
+            "team_id": "AEO011",
+            "team": "富邦悍將",
+            "value": "5"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000007597",
+            "player": "獅帝芬",
+            "team_id": "ADD011",
+            "team": "統一7-ELEVEn獅",
+            "value": "5"
+          }
+        ]
+      },
+      "saves": {
+        "label_zh": "救援成功",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000007293",
+            "player": "鍾允華",
+            "team_id": "ADD011",
+            "team": "統一7-ELEVEn獅",
+            "value": "15"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000006227",
+            "player": "曾峻岳",
+            "team_id": "AEO011",
+            "team": "富邦悍將",
+            "value": "15"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000005788",
+            "player": "林凱威",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "15"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000006949",
+            "player": "林詩翔",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "13"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000000128",
+            "player": "朱承洋",
+            "team_id": "AJL011",
+            "team": "樂天桃猿",
+            "value": "9"
+          }
+        ]
+      },
+      "holds": {
+        "label_zh": "中繼成功",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000003639",
+            "player": "呂彥青",
+            "team_id": "ACN011",
+            "team": "中信兄弟",
+            "value": "15"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000006832",
+            "player": "陳柏清",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "14"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000005790",
+            "player": "張奕",
+            "team_id": "AEO011",
+            "team": "富邦悍將",
+            "value": "13"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000005555",
+            "player": "陳冠偉",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "12"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000006818",
+            "player": "髙塩將樹",
+            "team_id": "ADD011",
+            "team": "統一7-ELEVEn獅",
+            "value": "11"
+          }
+        ]
+      },
+      "strikeouts": {
+        "label_zh": "奪三振",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000006497",
+            "player": "鋼龍",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "78"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000007053",
+            "player": "艾速特",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "70"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000005151",
+            "player": "羅戈",
+            "team_id": "ACN011",
+            "team": "中信兄弟",
+            "value": "67"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000007790",
+            "player": "魔爾曼",
+            "team_id": "AJL011",
+            "team": "樂天桃猿",
+            "value": "63"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000005604",
+            "player": "勝騎士",
+            "team_id": "ACN011",
+            "team": "中信兄弟",
+            "value": "57"
+          }
+        ]
+      }
+    },
+    "batting": {
+      "batting_average": {
+        "label_zh": "打擊率",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000006888",
+            "player": "張育成",
+            "team_id": "AEO011",
+            "team": "富邦悍將",
+            "value": "0.331"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000005549",
+            "player": "郭天信",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "0.305"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000003649",
+            "player": "吳念庭",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "0.299"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000006927",
+            "player": "曾子祐",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "0.293"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000000772",
+            "player": "陳文杰",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "0.287"
+          }
+        ]
+      },
+      "hits": {
+        "label_zh": "安打",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000005549",
+            "player": "郭天信",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "68"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000006927",
+            "player": "曾子祐",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "63"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000007239",
+            "player": "魔鷹",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "61"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000003649",
+            "player": "吳念庭",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "59"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000001474",
+            "player": "蘇智傑",
+            "team_id": "ADD011",
+            "team": "統一7-ELEVEn獅",
+            "value": "56"
+          }
+        ]
+      },
+      "home_runs": {
+        "label_zh": "全壘打",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000006888",
+            "player": "張育成",
+            "team_id": "AEO011",
+            "team": "富邦悍將",
+            "value": "11"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000002352",
+            "player": "范國宸",
+            "team_id": "AEO011",
+            "team": "富邦悍將",
+            "value": "9"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000007239",
+            "player": "魔鷹",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "9"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000001318",
+            "player": "朱育賢",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "8"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000001474",
+            "player": "蘇智傑",
+            "team_id": "ADD011",
+            "team": "統一7-ELEVEn獅",
+            "value": "7"
+          }
+        ]
+      },
+      "runs_batted_in": {
+        "label_zh": "打點",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000007239",
+            "player": "魔鷹",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "52"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000003649",
+            "player": "吳念庭",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "31"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000001318",
+            "player": "朱育賢",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "30"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000000935",
+            "player": "王柏融",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "29"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000001474",
+            "player": "蘇智傑",
+            "team_id": "ADD011",
+            "team": "統一7-ELEVEn獅",
+            "value": "29"
+          }
+        ]
+      },
+      "stolen_bases": {
+        "label_zh": "盜壘",
+        "rows": [
+          {
+            "rank": 1,
+            "player_id": "0000005542",
+            "player": "張政禹",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "15"
+          },
+          {
+            "rank": 2,
+            "player_id": "0000005549",
+            "player": "郭天信",
+            "team_id": "AAA011",
+            "team": "味全龍",
+            "value": "15"
+          },
+          {
+            "rank": 3,
+            "player_id": "0000004633",
+            "player": "陳晨威",
+            "team_id": "AJL011",
+            "team": "樂天桃猿",
+            "value": "15"
+          },
+          {
+            "rank": 4,
+            "player_id": "0000001618",
+            "player": "林子偉",
+            "team_id": "AJL011",
+            "team": "樂天桃猿",
+            "value": "13"
+          },
+          {
+            "rank": 5,
+            "player_id": "0000005340",
+            "player": "王博玄",
+            "team_id": "AKP011",
+            "team": "台鋼雄鷹",
+            "value": "10"
+          }
+        ]
+      }
+    }
+  }
+}

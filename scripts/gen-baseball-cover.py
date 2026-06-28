@@ -46,6 +46,9 @@ COVERS = [
     ("mlb-padres-1-0-braves-2026-06-22", "1-0 投手戰",
      "一發<br>定生死",
      "教士完封勇士　·　King 7 局無失分　·　Machado 致勝砲"),
+    ("mlb-dustin-may-one-hitter-2026-06-15", "生涯首見 · 完投完封",
+     "一安打<br>封鎖教士",
+     "梅伊 2026.06.15　·　9 局 1 安打　·　9K　·　前六局完全比賽"),
 ]
 
 HTML = """<!doctype html><html><head><meta charset="utf-8"><style>
