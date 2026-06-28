@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-021@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260618T070000
 DTEND;TZID=Asia/Taipei:20260618T090000
 SUMMARY:🇬🇭 迦納 vs 🇵🇦 巴拿馬 (Group L)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/GHA/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-045@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260624T040000
 DTEND;TZID=Asia/Taipei:20260624T060000
 SUMMARY:🇬🇧 英格蘭 vs 🇬🇭 迦納 (Group L)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/ENG/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-068@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260628T050000
 DTEND;TZID=Asia/Taipei:20260628T070000
 SUMMARY:🇭🇷 克羅埃西亞 vs 🇬🇭 迦納 (Group L)
 LOCATION:Lincoln Financial Field\, Philadelphia
 DESCRIPTION:Match #68 | Group L | 2026 FIFA World Cup\n開球：台北 2026-06-28 05:00（北美 2026-06-27 17:00 ET）\n場館：Lincoln Financial Field, Philadelphia\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/CRO/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-087@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260704T093000
+DTEND;TZID=Asia/Taipei:20260704T113000
+SUMMARY:🇨🇴 哥倫比亞 vs 🇬🇭 迦納 (32強)
+LOCATION:GEHA Field at Arrowhead Stadium\, Kansas City
+DESCRIPTION:Match #87 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-04 09:30（北美 2026-07-03 21:30 ET）\n場館：GEHA Field at Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/COL/
 END:VEVENT
 END:VCALENDAR

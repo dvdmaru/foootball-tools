@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-018@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260617T060000
 DTEND;TZID=Asia/Taipei:20260617T080000
 SUMMARY:🇮🇶 伊拉克 vs 🇳🇴 挪威 (Group I)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/IRQ/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-041@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260623T080000
 DTEND;TZID=Asia/Taipei:20260623T100000
 SUMMARY:🇳🇴 挪威 vs 🇸🇳 塞內加爾 (Group I)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/NOR/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-061@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260627T030000
 DTEND;TZID=Asia/Taipei:20260627T050000
 SUMMARY:🇳🇴 挪威 vs 🇫🇷 法國 (Group I)
 LOCATION:Gillette Stadium\, Foxborough
 DESCRIPTION:Match #61 | Group I | 2026 FIFA World Cup\n開球：台北 2026-06-27 03:00（北美 2026-06-26 15:00 ET）\n場館：Gillette Stadium, Foxborough\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/NOR/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-078@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260701T010000
+DTEND;TZID=Asia/Taipei:20260701T030000
+SUMMARY:🇨🇮 象牙海岸 vs 🇳🇴 挪威 (32強)
+LOCATION:AT&T Stadium\, Dallas
+DESCRIPTION:Match #78 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-01 01:00（北美 2026-06-30 13:00 ET）\n場館：AT&T Stadium, Dallas\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/CIV/
 END:VEVENT
 END:VCALENDAR

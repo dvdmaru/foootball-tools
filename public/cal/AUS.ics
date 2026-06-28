@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-006@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260613T120000
 DTEND;TZID=Asia/Taipei:20260613T140000
 SUMMARY:🇦🇺 澳洲 vs 🇹🇷 土耳其 (Group D)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/AUS/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-032@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260620T030000
 DTEND;TZID=Asia/Taipei:20260620T050000
 SUMMARY:🇺🇸 美國 vs 🇦🇺 澳洲 (Group D)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/USA/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-060@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260626T100000
 DTEND;TZID=Asia/Taipei:20260626T120000
 SUMMARY:🇵🇾 巴拉圭 vs 🇦🇺 澳洲 (Group D)
 LOCATION:Levi's Stadium\, Santa Clara
 DESCRIPTION:Match #60 | Group D | 2026 FIFA World Cup\n開球：台北 2026-06-26 10:00（北美 2026-06-25 22:00 ET）\n場館：Levi's Stadium, Santa Clara\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/PAR/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-088@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260704T020000
+DTEND;TZID=Asia/Taipei:20260704T040000
+SUMMARY:🇦🇺 澳洲 vs 🇪🇬 埃及 (32強)
+LOCATION:AT&T Stadium\, Dallas
+DESCRIPTION:Match #88 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-04 02:00（北美 2026-07-03 14:00 ET）\n場館：AT&T Stadium, Dallas\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/AUS/
 END:VEVENT
 END:VCALENDAR

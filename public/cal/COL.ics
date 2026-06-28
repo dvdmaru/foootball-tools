@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-024@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260618T100000
 DTEND;TZID=Asia/Taipei:20260618T120000
 SUMMARY:🇺🇿 烏茲別克 vs 🇨🇴 哥倫比亞 (Group K)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/UZB/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-048@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260624T100000
 DTEND;TZID=Asia/Taipei:20260624T120000
 SUMMARY:🇨🇴 哥倫比亞 vs 🇨🇩 民主剛果 (Group K)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/COL/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-071@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260628T073000
 DTEND;TZID=Asia/Taipei:20260628T093000
 SUMMARY:🇨🇴 哥倫比亞 vs 🇵🇹 葡萄牙 (Group K)
 LOCATION:Hard Rock Stadium\, Miami Gardens
 DESCRIPTION:Match #71 | Group K | 2026 FIFA World Cup\n開球：台北 2026-06-28 07:30（北美 2026-06-27 19:30 ET）\n場館：Hard Rock Stadium, Miami Gardens\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/COL/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-087@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260704T093000
+DTEND;TZID=Asia/Taipei:20260704T113000
+SUMMARY:🇨🇴 哥倫比亞 vs 🇬🇭 迦納 (32強)
+LOCATION:GEHA Field at Arrowhead Stadium\, Kansas City
+DESCRIPTION:Match #87 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-04 09:30（北美 2026-07-03 21:30 ET）\n場館：GEHA Field at Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/COL/
 END:VEVENT
 END:VCALENDAR

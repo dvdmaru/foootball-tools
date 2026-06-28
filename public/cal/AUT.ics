@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-020@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260616T120000
 DTEND;TZID=Asia/Taipei:20260616T140000
 SUMMARY:🇦🇹 奧地利 vs 🇯🇴 約旦 (Group J)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/AUT/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-043@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260623T010000
 DTEND;TZID=Asia/Taipei:20260623T030000
 SUMMARY:🇦🇷 阿根廷 vs 🇦🇹 奧地利 (Group J)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/ARG/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-069@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260628T100000
 DTEND;TZID=Asia/Taipei:20260628T120000
 SUMMARY:🇩🇿 阿爾及利亞 vs 🇦🇹 奧地利 (Group J)
 LOCATION:Arrowhead Stadium\, Kansas City
 DESCRIPTION:Match #69 | Group J | 2026 FIFA World Cup\n開球：台北 2026-06-28 10:00（北美 2026-06-27 22:00 ET）\n場館：Arrowhead Stadium, Kansas City\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/ALG/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-084@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260703T030000
+DTEND;TZID=Asia/Taipei:20260703T050000
+SUMMARY:🇪🇸 西班牙 vs 🇦🇹 奧地利 (32強)
+LOCATION:SoFi Stadium\, Los Angeles
+DESCRIPTION:Match #84 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-03 03:00（北美 2026-07-02 15:00 ET）\n場館：SoFi Stadium, Los Angeles\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/ESP/
 END:VEVENT
 END:VCALENDAR

@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-012@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260615T100000
 DTEND;TZID=Asia/Taipei:20260615T120000
 SUMMARY:🇸🇪 瑞典 vs 🇹🇳 突尼西亞 (Group F)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/SWE/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-035@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260621T010000
 DTEND;TZID=Asia/Taipei:20260621T030000
 SUMMARY:🇳🇱 荷蘭 vs 🇸🇪 瑞典 (Group F)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/NED/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-057@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260626T070000
 DTEND;TZID=Asia/Taipei:20260626T090000
 SUMMARY:🇯🇵 日本 vs 🇸🇪 瑞典 (Group F)
 LOCATION:AT&T Stadium\, Arlington
 DESCRIPTION:Match #57 | Group F | 2026 FIFA World Cup\n開球：台北 2026-06-26 07:00（北美 2026-06-25 19:00 ET）\n場館：AT&T Stadium, Arlington\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/JPN/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-077@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260701T050000
+DTEND;TZID=Asia/Taipei:20260701T070000
+SUMMARY:🇫🇷 法國 vs 🇸🇪 瑞典 (32強)
+LOCATION:MetLife Stadium\, New York/New Jersey
+DESCRIPTION:Match #77 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-01 05:00（北美 2026-06-30 17:00 ET）\n場館：MetLife Stadium, New York/New Jersey\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/FRA/
 END:VEVENT
 END:VCALENDAR

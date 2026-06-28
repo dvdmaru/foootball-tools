@@ -19,6 +19,7 @@ from collections import defaultdict
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "fixtures"
+PUBLIC = ROOT / "public"
 OUT = ROOT / "public" / "cal"
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -76,6 +77,12 @@ def fmt_dt(dt: datetime.datetime) -> str:
     return dt.strftime("%Y%m%dT%H%M%S")
 
 
+_KO_ROUND_LABEL = {
+    "R32": "32強", "R16": "16強", "QF": "8強",
+    "SF": "4強", "3rd": "季軍戰", "Final": "決賽",
+}
+
+
 def build_vevent(match: dict, dtstamp: str) -> str:
     start = parse_kickoff(match["date"], match["kickoff_taipei"])
     end = start + datetime.timedelta(hours=2)  # 90min + HT + 補時 ≈ 2h
@@ -83,12 +90,19 @@ def build_vevent(match: dict, dtstamp: str) -> str:
     away_emoji = flag_emoji(match["away_iso"])
     home_zh = TEAM_ZH.get(match["home_code"], match["home_team"])
     away_zh = TEAM_ZH.get(match["away_code"], match["away_team"])
-    summary = f"{home_emoji} {home_zh} vs {away_emoji} {away_zh} (Group {match['group']})"
+    group_or_round = match.get("group") or match.get("round", "")
+    if group_or_round in _KO_ROUND_LABEL:
+        stage_label = _KO_ROUND_LABEL[group_or_round]
+        summary = f"{home_emoji} {home_zh} vs {away_emoji} {away_zh} ({stage_label})"
+        desc_prefix = f"Match #{match['match_no']} | {stage_label} | 2026 FIFA World Cup"
+    else:
+        summary = f"{home_emoji} {home_zh} vs {away_emoji} {away_zh} (Group {group_or_round})"
+        desc_prefix = f"Match #{match['match_no']} | Group {group_or_round} | 2026 FIFA World Cup"
     location = f"{match['stadium']}, {match['city']}"
     taipei_disp = start.strftime("%Y-%m-%d %H:%M")
     et_disp = f"{match['date']} {match['kickoff_et']}"
     description = (
-        f"Match #{match['match_no']} | Group {match['group']} | 2026 FIFA World Cup\\n"
+        f"{desc_prefix}\\n"
         f"開球：台北 {taipei_disp}（北美 {et_disp} ET）\\n"
         f"場館：{location}\\n"
         f"\\n"
@@ -144,12 +158,52 @@ def build_vcalendar(matches: list, calname: str, caldesc: str, dtstamp: str) -> 
     return "\r\n".join(parts) + "\r\n"
 
 
+def _edt_to_taipei(time_edt: str) -> str:
+    """Convert HH:MM EDT to Taipei kickoff string (EDT + 12h). Returns e.g. '03:00+1'."""
+    hh, mm = time_edt.split(":")
+    hour = int(hh) + 12
+    if hour >= 24:
+        return f"{hour - 24:02d}:{mm}+1"
+    return f"{hour:02d}:{mm}"
+
+
+def _enrich_knockout(matches: list, zh_to_code: dict, code_to_iso: dict) -> list:
+    """Add derived fields (home_code, away_code, home_iso, away_iso, kickoff_taipei,
+    match_no, kickoff_et) to knockout entries that have Chinese team names but lack codes."""
+    result = []
+    for m in matches:
+        if m.get("home_code"):
+            result.append(m)
+            continue
+        home_zh = m.get("home_team", "")
+        away_zh = m.get("away_team", "")
+        home_code = zh_to_code.get(home_zh, "")
+        away_code = zh_to_code.get(away_zh, "")
+        if not (home_code and away_code):
+            result.append(m)
+            continue
+        enriched = dict(m)
+        enriched["match_no"] = m.get("match_number", m.get("match_no", 0))
+        enriched["home_code"] = home_code
+        enriched["away_code"] = away_code
+        enriched["home_iso"] = code_to_iso.get(home_code, "")
+        enriched["away_iso"] = code_to_iso.get(away_code, "")
+        enriched["kickoff_et"] = m.get("time_edt", m.get("kickoff_et", ""))
+        enriched["kickoff_taipei"] = _edt_to_taipei(enriched["kickoff_et"])
+        result.append(enriched)
+    return result
+
+
 def main():
     fixtures_path = FIXTURES / "group-stage.json"
     all_matches = json.loads(fixtures_path.read_text(encoding="utf-8"))
     knockout_path = FIXTURES / "knockout.json"
     if knockout_path.exists():
-        all_matches += json.loads(knockout_path.read_text(encoding="utf-8"))
+        ko_raw = json.loads(knockout_path.read_text(encoding="utf-8"))
+        fd = json.loads((PUBLIC / "fixtures-data.json").read_text(encoding="utf-8"))
+        zh_to_code = {t["name_zh"]: t["code"] for t in fd["teams"]}
+        code_to_iso = {t["code"]: t["iso"] for t in fd["teams"]}
+        all_matches += _enrich_knockout(ko_raw, zh_to_code, code_to_iso)
 
     # 依 ISO 8601 timestamp（fetch 當下，hardcode 進每個 VEVENT DTSTAMP）
     # 為了 deterministic build（Cloudflare Pages re-deploy 不會變 DTSTAMP），用 fixtures.json mtime

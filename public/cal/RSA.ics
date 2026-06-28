@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-001@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260612T030000
 DTEND;TZID=Asia/Taipei:20260612T050000
 SUMMARY:🇲🇽 墨西哥 vs 🇿🇦 南非 (Group A)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/MEX/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-025@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260619T000000
 DTEND;TZID=Asia/Taipei:20260619T020000
 SUMMARY:🇨🇿 捷克 vs 🇿🇦 南非 (Group A)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/CZE/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-054@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260625T090000
 DTEND;TZID=Asia/Taipei:20260625T110000
 SUMMARY:🇿🇦 南非 vs 🇰🇷 南韓 (Group A)
 LOCATION:Estadio BBVA\, Monterrey
 DESCRIPTION:Match #54 | Group A | 2026 FIFA World Cup\n開球：台北 2026-06-25 09:00（北美 2026-06-24 21:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/RSA/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-073@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260629T030000
+DTEND;TZID=Asia/Taipei:20260629T050000
+SUMMARY:🇿🇦 南非 vs 🇨🇦 加拿大 (32強)
+LOCATION:SoFi Stadium\, Los Angeles
+DESCRIPTION:Match #73 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-06-29 03:00（北美 2026-06-28 15:00 ET）\n場館：SoFi Stadium, Los Angeles\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/RSA/
 END:VEVENT
 END:VCALENDAR

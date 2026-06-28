@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-007@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260614T060000
 DTEND;TZID=Asia/Taipei:20260614T080000
 SUMMARY:🇧🇷 巴西 vs 🇲🇦 摩洛哥 (Group C)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/BRA/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-030@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260620T060000
 DTEND;TZID=Asia/Taipei:20260620T080000
 SUMMARY:🇬🇧 蘇格蘭 vs 🇲🇦 摩洛哥 (Group C)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/SCO/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-050@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260625T060000
 DTEND;TZID=Asia/Taipei:20260625T080000
 SUMMARY:🇲🇦 摩洛哥 vs 🇭🇹 海地 (Group C)
 LOCATION:Mercedes-Benz Stadium\, Atlanta
 DESCRIPTION:Match #50 | Group C | 2026 FIFA World Cup\n開球：台北 2026-06-25 06:00（北美 2026-06-24 18:00 ET）\n場館：Mercedes-Benz Stadium, Atlanta\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/MAR/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-075@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260630T090000
+DTEND;TZID=Asia/Taipei:20260630T110000
+SUMMARY:🇳🇱 荷蘭 vs 🇲🇦 摩洛哥 (32強)
+LOCATION:Estadio BBVA\, Monterrey
+DESCRIPTION:Match #75 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-06-30 09:00（北美 2026-06-29 21:00 ET）\n場館：Estadio BBVA, Monterrey\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/NED/
 END:VEVENT
 END:VCALENDAR

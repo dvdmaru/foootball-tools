@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-003@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260613T030000
 DTEND;TZID=Asia/Taipei:20260613T050000
 SUMMARY:🇨🇦 加拿大 vs 🇧🇦 波士尼亞 (Group B)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/CAN/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-026@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260619T000000
 DTEND;TZID=Asia/Taipei:20260619T020000
 SUMMARY:🇨🇭 瑞士 vs 🇧🇦 波士尼亞 (Group B)
@@ -37,12 +37,22 @@ URL:https://foootball.twtools.cc/teams/SUI/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-052@foootball.twtools.cc
-DTSTAMP:20260603T144928Z
+DTSTAMP:20260628T060025Z
 DTSTART;TZID=Asia/Taipei:20260625T030000
 DTEND;TZID=Asia/Taipei:20260625T050000
 SUMMARY:🇧🇦 波士尼亞 vs 🇶🇦 卡達 (Group B)
 LOCATION:Lumen Field\, Seattle
 DESCRIPTION:Match #52 | Group B | 2026 FIFA World Cup\n開球：台北 2026-06-25 03:00（北美 2026-06-24 15:00 ET）\n場館：Lumen Field, Seattle\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/BIH/
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-match-081@foootball.twtools.cc
+DTSTAMP:20260628T060025Z
+DTSTART;TZID=Asia/Taipei:20260702T080000
+DTEND;TZID=Asia/Taipei:20260702T100000
+SUMMARY:🇺🇸 美國 vs 🇧🇦 波士尼亞 (32強)
+LOCATION:Levi's Stadium\, San Francisco Bay Area
+DESCRIPTION:Match #81 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-02 08:00（北美 2026-07-01 20:00 ET）\n場館：Levi's Stadium, San Francisco Bay Area\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+URL:https://foootball.twtools.cc/teams/USA/
 END:VEVENT
 END:VCALENDAR
