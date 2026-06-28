@@ -1576,7 +1576,9 @@
       "home_code": "ALG",
       "away_team": "Austria",
       "away_iso": "at",
-      "away_code": "AUT"
+      "away_code": "AUT",
+      "home_score": 3,
+      "away_score": 3
     },
     {
       "match_no": 70,
@@ -1592,7 +1594,9 @@
       "home_code": "JOR",
       "away_team": "Argentina",
       "away_iso": "ar",
-      "away_code": "ARG"
+      "away_code": "ARG",
+      "home_score": 1,
+      "away_score": 3
     },
     {
       "match_no": 71,
