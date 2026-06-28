@@ -1540,7 +1540,9 @@
       "home_code": "PAN",
       "away_team": "England",
       "away_iso": "gb",
-      "away_code": "ENG"
+      "away_code": "ENG",
+      "home_score": 0,
+      "away_score": 2
     },
     {
       "match_no": 68,
@@ -1556,7 +1558,9 @@
       "home_code": "CRO",
       "away_team": "Ghana",
       "away_iso": "gh",
-      "away_code": "GHA"
+      "away_code": "GHA",
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "match_no": 69,
@@ -1604,7 +1608,9 @@
       "home_code": "COL",
       "away_team": "Portugal",
       "away_iso": "pt",
-      "away_code": "POR"
+      "away_code": "POR",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "match_no": 72,
@@ -1620,7 +1626,9 @@
       "home_code": "COD",
       "away_team": "Uzbekistan",
       "away_iso": "uz",
-      "away_code": "UZB"
+      "away_code": "UZB",
+      "home_score": 3,
+      "away_score": 1
     }
   ],
   "team_zh": {
