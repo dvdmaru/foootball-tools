@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-019@foootball.twtools.cc
-DTSTAMP:20260628T060025Z
+DTSTAMP:20260603T144928Z
 DTSTART;TZID=Asia/Taipei:20260617T090000
 DTEND;TZID=Asia/Taipei:20260617T110000
 SUMMARY:🇦🇷 阿根廷 vs 🇩🇿 阿爾及利亞 (Group J)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/ARG/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-044@foootball.twtools.cc
-DTSTAMP:20260628T060025Z
+DTSTAMP:20260603T144928Z
 DTSTART;TZID=Asia/Taipei:20260623T110000
 DTEND;TZID=Asia/Taipei:20260623T130000
 SUMMARY:🇯🇴 約旦 vs 🇩🇿 阿爾及利亞 (Group J)
@@ -37,7 +37,7 @@ URL:https://foootball.twtools.cc/teams/JOR/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-069@foootball.twtools.cc
-DTSTAMP:20260628T060025Z
+DTSTAMP:20260603T144928Z
 DTSTART;TZID=Asia/Taipei:20260628T100000
 DTEND;TZID=Asia/Taipei:20260628T120000
 SUMMARY:🇩🇿 阿爾及利亞 vs 🇦🇹 奧地利 (Group J)
@@ -47,12 +47,12 @@ URL:https://foootball.twtools.cc/teams/ALG/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-085@foootball.twtools.cc
-DTSTAMP:20260628T060025Z
-DTSTART;TZID=Asia/Taipei:20260703T090000
-DTEND;TZID=Asia/Taipei:20260703T110000
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260703T110000
+DTEND;TZID=Asia/Taipei:20260703T130000
 SUMMARY:🇨🇭 瑞士 vs 🇩🇿 阿爾及利亞 (32強)
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match #85 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-03 09:00（北美 2026-07-02 21:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #85 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-07-03 11:00（北美 2026-07-02 23:00 ET）\n場館：BC Place, Vancouver\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/SUI/
 END:VEVENT
 END:VCALENDAR

@@ -17,7 +17,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:wc2026-match-004@foootball.twtools.cc
-DTSTAMP:20260628T060025Z
+DTSTAMP:20260603T144928Z
 DTSTART;TZID=Asia/Taipei:20260613T090000
 DTEND;TZID=Asia/Taipei:20260613T110000
 SUMMARY:🇺🇸 美國 vs 🇵🇾 巴拉圭 (Group D)
@@ -27,7 +27,7 @@ URL:https://foootball.twtools.cc/teams/USA/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-031@foootball.twtools.cc
-DTSTAMP:20260628T060025Z
+DTSTAMP:20260603T144928Z
 DTSTART;TZID=Asia/Taipei:20260620T110000
 DTEND;TZID=Asia/Taipei:20260620T130000
 SUMMARY:🇹🇷 土耳其 vs 🇵🇾 巴拉圭 (Group D)
@@ -37,7 +37,7 @@ URL:https://foootball.twtools.cc/teams/TUR/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-060@foootball.twtools.cc
-DTSTAMP:20260628T060025Z
+DTSTAMP:20260603T144928Z
 DTSTART;TZID=Asia/Taipei:20260626T100000
 DTEND;TZID=Asia/Taipei:20260626T120000
 SUMMARY:🇵🇾 巴拉圭 vs 🇦🇺 澳洲 (Group D)
@@ -47,12 +47,12 @@ URL:https://foootball.twtools.cc/teams/PAR/
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-match-074@foootball.twtools.cc
-DTSTAMP:20260628T060025Z
-DTSTART;TZID=Asia/Taipei:20260630T040000
-DTEND;TZID=Asia/Taipei:20260630T060000
+DTSTAMP:20260603T144928Z
+DTSTART;TZID=Asia/Taipei:20260630T043000
+DTEND;TZID=Asia/Taipei:20260630T063000
 SUMMARY:🇩🇪 德國 vs 🇵🇾 巴拉圭 (32強)
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match #74 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-06-30 04:00（北美 2026-06-29 16:00 ET）\n場館：Gillette Stadium, Boston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
+DESCRIPTION:Match #74 | 32強 | 2026 FIFA World Cup\n開球：台北 2026-06-30 04:30（北美 2026-06-29 16:30 ET）\n場館：Gillette Stadium, Boston\n\n📺 台灣直播：愛爾達 https://eltaott.tv／中華電信 MOD 200-203（愛爾達體育 1-4 台）／Hami Video\n🎁 部分場次 華視 12 免費播（開幕前公布逐場 schedule）\n🌏 海外觀眾請查當地轉播平台
 URL:https://foootball.twtools.cc/teams/GER/
 END:VEVENT
 END:VCALENDAR
