@@ -28,7 +28,7 @@
   "baseball": {
     "base": "https://baseball.twtools.cc",
     "org_name": "@baseball",
-    "org_same_as": [],
+    "org_same_as": ["https://www.facebook.com/profile.php?id=61591259651756"],
     "website_name": "@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報",
     "brand_mark": "@BASEBALL",
     "brand_tag": "中職 + MLB · 數據深度",
@@ -45,7 +45,7 @@
       { "label": "中職", "href": "/cpbl/", "key": "cpbl" },
       { "label": "文章", "href": "/articles/", "key": "articles" }
     ],
-    "external_link": null,
+    "external_link": { "label": "Facebook ↗", "href": "https://www.facebook.com/profile.php?id=61591259651756" },
     "footer_cta": null,
     "footer_links": [
       { "label": "所有文章", "href": "/articles/" },

@@ -1372,8 +1372,11 @@ def _bb_head(site: dict, title: str, desc: str, url: str, jsonld: str) -> str:
 
 
 def _bb_footer(site: dict) -> str:
+    ext = site.get("external_link")
+    social = (f'　·　<a href="{ext["href"]}" target="_blank" rel="noopener" '
+              f'style="color:var(--accent)">{ext["label"]}</a>') if ext else ""
     return (f'  <footer class="bb-foot">{html_lib.escape(site["org_name"])} · '
-            f'{site["base"].replace("https://","")}<br>'
+            f'{site["base"].replace("https://","")}{social}<br>'
             '本站為獨立內容站，與 MLB、中華職棒（CPBL）等職業聯盟、球團無官方關聯；'
             '數據引自公開官方來源並標註。</footer>')
 
