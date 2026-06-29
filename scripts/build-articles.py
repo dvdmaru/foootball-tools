@@ -1305,6 +1305,10 @@ BB_LANDING_CSS = """
 .card .kk{font-family:var(--font-mono);font-size:10.5px;letter-spacing:1.5px;color:var(--accent);font-weight:700;text-transform:uppercase}
 .card .tt{font-size:16px;font-weight:900;line-height:1.36;margin:6px 0 0;color:var(--fg)}
 .card .mm{font-size:11.5px;color:var(--faint);margin-top:9px;font-variant-numeric:tabular-nums}
+.bb-faq{margin-top:14px;display:grid;gap:12px}
+.bb-faq .qa{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 20px}
+.bb-faq .faq-q{font-size:16px;font-weight:800;color:var(--fg);margin:0 0 6px;line-height:1.45}
+.bb-faq .faq-a{font-size:14px;color:var(--fg-soft);line-height:1.72;margin:0}
 .bb-foot{margin-top:52px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--faint);line-height:1.85}
 @media(max-width:680px){.bb-grid{grid-template-columns:1fr}.card{grid-template-columns:120px 1fr}}
 """
@@ -1339,9 +1343,19 @@ def _bb_head(site: dict, title: str, desc: str, url: str, jsonld: str) -> str:
 <meta property="og:description" content="{html_lib.escape(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url}">
+<meta property="og:image" content="{site['base']}/og-home.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
 <meta property="og:site_name" content="{html_lib.escape(site['org_name'])}">
 <meta property="og:locale" content="zh_TW">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html_lib.escape(title)}">
+<meta name="twitter:description" content="{html_lib.escape(desc)}">
+<meta name="twitter:image" content="{site['base']}/og-home.png">
+<meta name="theme-color" content="#0a1f3c">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="canonical" href="{url}">
 <link rel="alternate" type="application/rss+xml" title="{site['feed_title']}" href="{site['base']}/feed.xml">
 {jsonld}
@@ -1364,6 +1378,31 @@ def _bb_footer(site: dict) -> str:
             '數據引自公開官方來源並標註。</footer>')
 
 
+# 首頁可見 FAQ（＝站台事實，非杜撰；同時餵 FAQPage schema 與可見問句式標題，
+# 對應測評 AEO 的「FAQ 結構 / 問句式標題 / PAA 友善」三項）。問句一律以「？」收尾。
+BB_HOME_FAQ = [
+    ("@baseball 的數據多久更新一次？",
+     "MLB 戰績與排名每日更新，資料來自官方 MLB StatsAPI 與 api-sports；中華職棒（CPBL）隊伍與賽果同步官方公開數據。每篇文章的數字都標註來源與截止日期。"),
+    ("@baseball 涵蓋哪些聯盟？",
+     "目前以美國職棒大聯盟（MLB，30 隊）與中華職棒（CPBL）為主，提供球隊戰績、主客場拆分、球員名冊與里程碑特刊；日韓職棒（NPB／KBO）規劃中。"),
+    ("這個網站和 MLB、中華職棒官方有關係嗎？",
+     "沒有。@baseball 是獨立的繁體中文數據內容站，與 MLB、CPBL 等職業聯盟及球團無任何官方關聯；所有數據引自公開官方來源並於文中標註。"),
+    ("文章的數據可信嗎？要怎麼查證？",
+     "每篇深度文以結構化事實（facts pack）為基礎撰寫，數字逐筆對照 MLB StatsAPI／api-sports 官方來源，並經獨立第二來源交叉核對後才發佈。文中關鍵數據附截止日期，方便讀者自行查證。"),
+    ("為什麼看 @baseball，而不是直接查比分？",
+     "即時比分各家都有；@baseball 專注「看門道」——用排行榜、主客場拆分、淨勝分與里程碑脈絡把數字背後的故事說清楚，每篇 5,000 字以上、附統計表，為深度理解而非即時速報而寫。"),
+]
+
+
+def _bb_faq_html() -> str:
+    qa = "\n".join(
+        f'    <div class="qa"><h3 class="faq-q">{html_lib.escape(q)}</h3>'
+        f'<p class="faq-a">{html_lib.escape(a)}</p></div>'
+        for q, a in BB_HOME_FAQ)
+    return ('<div class="bb-sec"><h2>常見問題</h2><span class="ln"></span></div>\n'
+            f'  <section class="bb-faq">\n{qa}\n  </section>')
+
+
 def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
     """Dark navy/gold landing for a non-soccer site (baseball.twtools.cc): unified site header,
     hero, teams entry, featured lead article + recent grid. Shares the SHARED_TOKENS_CSS system
@@ -1379,11 +1418,13 @@ def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
                   "name": site["website_name"], "inLanguage": "zh-Hant",
                   "isPartOf": {"@id": f"{base}/#website"}, "mainEntity": item_list}
     jsonld = graph_ld([org_node(site), website_node(site), collection,
-                       breadcrumb_node([("首頁", f"{base}/")])])
+                       breadcrumb_node([("首頁", f"{base}/")]),
+                       faq_node(BB_HOME_FAQ, f"{base}/")])
     grid_block = f'<div class="bb-sec"><h2>最新文章</h2><span class="ln"></span></div>\n    <div class="bb-grid">\n      {grid}\n    </div>' if grid else ""
     return f"""{_bb_head(site, site['website_name'], f"{sport_label}數據深度分析、里程碑特刊、戰績排行——繁體中文 / 台北時間。", f"{base}/", jsonld)}
 <body>
 <div class="bb-shell">{site_header_html("home", site)}
+  <main>
   <section class="bb-hero">
     <h1>看門道的{sport_label}，<br>用數據說話。</h1>
     <p>中職 CPBL 與大聯盟 MLB 的數據深度分析、里程碑特刊與比賽戰報。每篇 5,000 字以上、附排行與統計表，每個數字標註官方來源。繁體中文、台北時間。</p>
@@ -1394,6 +1435,8 @@ def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
   <div class="bb-sec"><h2>編輯精選</h2><span class="ln"></span></div>
   {lead}
   {grid_block}
+  {_bb_faq_html()}
+  </main>
 {_bb_footer(site)}
 </div>
 </body>
@@ -1419,12 +1462,14 @@ def render_sport_articles_index(articles: list, site: dict, sport_label: str) ->
     return f"""{_bb_head(site, f"深度文章 ｜ {site['org_name']}", f"{sport_label} CPBL 與 MLB 的數據深度分析、里程碑特刊與比賽戰報，共 {len(articles)} 篇。", f"{base}/articles/", jsonld)}
 <body>
 <div class="bb-shell">{site_header_html("articles", site)}
+  <main>
   <section class="bb-hero" style="padding-bottom:6px">
     <h1>深度文章</h1>
     <p>中職 CPBL 與大聯盟 MLB 的數據深度分析、里程碑特刊與比賽戰報。每篇 5,000 字以上、附排行與統計表，每個數字標註官方來源。</p>
     <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:1px;color:var(--faint);margin-top:10px">共 {len(articles)} 篇 · 最新在前</div>
   </section>
   {lead}{grid_block}
+  </main>
 {_bb_footer(site)}
 </div>
 </body>

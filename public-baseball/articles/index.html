@@ -9,9 +9,19 @@
 <meta property="og:description" content="棒球 CPBL 與 MLB 的數據深度分析、里程碑特刊與比賽戰報，共 8 篇。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://baseball.twtools.cc/articles/">
+<meta property="og:image" content="https://baseball.twtools.cc/og-home.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
 <meta property="og:site_name" content="@baseball">
 <meta property="og:locale" content="zh_TW">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="深度文章 ｜ @baseball">
+<meta name="twitter:description" content="棒球 CPBL 與 MLB 的數據深度分析、里程碑特刊與比賽戰報，共 8 篇。">
+<meta name="twitter:image" content="https://baseball.twtools.cc/og-home.png">
+<meta name="theme-color" content="#0a1f3c">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="canonical" href="https://baseball.twtools.cc/articles/">
 <link rel="alternate" type="application/rss+xml" title="@baseball 最新文章" href="https://baseball.twtools.cc/feed.xml">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://baseball.twtools.cc/#org","name":"@baseball","url":"https://baseball.twtools.cc/","sameAs":[]},{"@type":"WebSite","@id":"https://baseball.twtools.cc/#website","name":"@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報","url":"https://baseball.twtools.cc/","inLanguage":"zh-Hant","publisher":{"@id":"https://baseball.twtools.cc/#org"}},{"@type":"CollectionPage","@id":"https://baseball.twtools.cc/articles/","url":"https://baseball.twtools.cc/articles/","name":"@baseball 深度文章","inLanguage":"zh-Hant","isPartOf":{"@id":"https://baseball.twtools.cc/#website"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://baseball.twtools.cc/articles/mlb-2026-home-run-race/","name":"長打狂潮：2026 大聯盟全壘打競賽賽季過半檢視"},{"@type":"ListItem","position":2,"url":"https://baseball.twtools.cc/articles/mlb-brewers-2026-misiorowski/","name":"防禦率 1.45，得失分淨值 +123：密爾瓦基釀酒人 2026 的小市場方程式"},{"@type":"ListItem","position":3,"url":"https://baseball.twtools.cc/articles/mlb-dustin-may-one-hitter-2026-06-15/","name":"101 球、1 安打、9 K：杜斯汀・梅伊 71 場先發等來的生涯首張完投完封"},{"@type":"ListItem","position":4,"url":"https://baseball.twtools.cc/articles/mlb-padres-1-0-braves-2026-06-22/","name":"1-0 投手戰：金恩七局完封，馬查多一轟定生死，勇士七安打一分未得"},{"@type":"ListItem","position":5,"url":"https://baseball.twtools.cc/articles/mlb-2026-midseason-report/","name":"2026 大聯盟球季過半總覽：道奇稱霸全聯盟、白襪意外領跑、分區戰況全盤點"},{"@type":"ListItem","position":6,"url":"https://baseball.twtools.cc/articles/mlb-ohtani-2026-two-way/","name":"二刀流完全體：大谷翔平 2026，用 ERA 1.58 宣告投手回歸"},{"@type":"ListItem","position":7,"url":"https://baseball.twtools.cc/articles/mlb-special-ohtani-2024-50-50/","name":"投不了球的那一年：大谷翔平 2024，與棒球史上第一個 50-50"},{"@type":"ListItem","position":8,"url":"https://baseball.twtools.cc/articles/mlb-white-sox-2026-turnaround/","name":"從 41 勝 121 敗到美聯中區第一：芝加哥白襪的兩年落差"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://baseball.twtools.cc/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://baseball.twtools.cc/articles/"}]}]}</script>
@@ -163,6 +173,10 @@ body::before {
 .card .kk{font-family:var(--font-mono);font-size:10.5px;letter-spacing:1.5px;color:var(--accent);font-weight:700;text-transform:uppercase}
 .card .tt{font-size:16px;font-weight:900;line-height:1.36;margin:6px 0 0;color:var(--fg)}
 .card .mm{font-size:11.5px;color:var(--faint);margin-top:9px;font-variant-numeric:tabular-nums}
+.bb-faq{margin-top:14px;display:grid;gap:12px}
+.bb-faq .qa{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 20px}
+.bb-faq .faq-q{font-size:16px;font-weight:800;color:var(--fg);margin:0 0 6px;line-height:1.45}
+.bb-faq .faq-a{font-size:14px;color:var(--fg-soft);line-height:1.72;margin:0}
 .bb-foot{margin-top:52px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--faint);line-height:1.85}
 @media(max-width:680px){.bb-grid{grid-template-columns:1fr}.card{grid-template-columns:120px 1fr}}
 
@@ -184,6 +198,7 @@ body::before {
     </nav>
   </header>
 
+  <main>
   <section class="bb-hero" style="padding-bottom:6px">
     <h1>深度文章</h1>
     <p>中職 CPBL 與大聯盟 MLB 的數據深度分析、里程碑特刊與比賽戰報。每篇 5,000 字以上、附排行與統計表，每個數字標註官方來源。</p>
@@ -223,6 +238,7 @@ body::before {
       <div class="body"><span class="kk">FEATURE</span>
         <div class="tt">從 41 勝 121 敗到美聯中區第一：芝加哥白襪的兩年落差</div><div class="mm">2026/06/25 · 週四</div></div></a>
     </div>
+  </main>
   <footer class="bb-foot">@baseball · baseball.twtools.cc<br>本站為獨立內容站，與 MLB、中華職棒（CPBL）等職業聯盟、球團無官方關聯；數據引自公開官方來源並標註。</footer>
 </div>
 </body>
