@@ -23,7 +23,11 @@
     "city": "Boston",
     "country": "USA",
     "home_team": "德國",
-    "away_team": "巴拉圭"
+    "away_team": "巴拉圭",
+    "home_score": 1,
+    "away_score": 1,
+    "winner": "巴拉圭",
+    "goals_note": "十二碼 4-3（巴拉圭晉級）"
   },
   {
     "match_number": 75,
@@ -45,7 +49,11 @@
     "city": "Houston",
     "country": "USA",
     "home_team": "巴西",
-    "away_team": "日本"
+    "away_team": "日本",
+    "home_score": 2,
+    "away_score": 1,
+    "winner": "巴西",
+    "goals_note": "Sano 29'｜Casemiro、Martinelli 90+"
   },
   {
     "match_number": 77,
