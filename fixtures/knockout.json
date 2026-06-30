@@ -38,7 +38,11 @@
     "city": "Monterrey",
     "country": "Mexico",
     "home_team": "荷蘭",
-    "away_team": "摩洛哥"
+    "away_team": "摩洛哥",
+    "home_score": 1,
+    "away_score": 1,
+    "winner": "摩洛哥",
+    "goals_note": "Gakpo 72'｜Diop 91'｜十二碼 3-2（摩洛哥晉級）"
   },
   {
     "match_number": 76,
