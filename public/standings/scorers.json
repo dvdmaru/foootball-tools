@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28",
+  "updated": "2026-06-30",
   "scorers": [
     {
       "rank": 1,
@@ -9,32 +9,32 @@
       "assists": null
     },
     {
-      "rank": 2,
+      "rank": 1,
       "player": "Kylian Mbappé",
       "team_code": "FRA",
-      "goals": 4,
+      "goals": 6,
       "assists": null
     },
     {
-      "rank": 2,
+      "rank": 3,
+      "player": "Erling Haaland",
+      "team_code": "NOR",
+      "goals": 5,
+      "assists": null
+    },
+    {
+      "rank": 4,
       "player": "Ousmane Dembélé",
       "team_code": "FRA",
       "goals": 4,
       "assists": null
     },
     {
-      "rank": 2,
+      "rank": 4,
       "player": "Vinícius Júnior",
       "team_code": "BRA",
       "goals": 4,
       "assists": 1
-    },
-    {
-      "rank": 2,
-      "player": "Erling Haaland",
-      "team_code": "NOR",
-      "goals": 4,
-      "assists": null
     },
     {
       "rank": 6,

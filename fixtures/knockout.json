@@ -68,7 +68,11 @@
     "city": "New York/New Jersey",
     "country": "USA",
     "home_team": "法國",
-    "away_team": "瑞典"
+    "away_team": "瑞典",
+    "home_score": 3,
+    "away_score": 0,
+    "winner": "法國",
+    "goals_note": "Mbappé 45+'、74'｜Barcola 53'"
   },
   {
     "match_number": 78,
@@ -79,7 +83,11 @@
     "city": "Dallas",
     "country": "USA",
     "home_team": "象牙海岸",
-    "away_team": "挪威"
+    "away_team": "挪威",
+    "home_score": 1,
+    "away_score": 2,
+    "winner": "挪威",
+    "goals_note": "Nusa 39'（NOR）｜Diallo 75'｜Haaland 86'（NOR）"
   },
   {
     "match_number": 79,
