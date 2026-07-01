@@ -216,5 +216,41 @@
     "coverage": { "games": true, "standings": true },
     "index": { "section_label": "MLB 台將／里程碑", "landing": "/leagues/mlb/" },
     "schema": { "type": "SportsLeague", "sport": "Baseball", "organizer": { "name": "Major League Baseball" }, "location": [{ "@type": "Country", "name": "United States" }] }
+  },
+  "npb": {
+    "id": "npb",
+    "sport": "baseball",
+    "schema_id": "#league-npb",
+    "name_zh": "日本職棒",
+    "name_en": "Nippon Professional Baseball",
+    "format": "league-with-playoffs",
+    "season": "2026",
+    "start_date": "",
+    "end_date": "",
+    "status": "live",
+    "home_priority": 3,
+    "cadence": "daily",
+    "data_source": { "type": "api-baseball", "league_id": 2, "season": 2026 },
+    "coverage": { "games": true, "standings": true },
+    "index": { "section_label": "日職 NPB 戰績", "landing": "/leagues/npb/" },
+    "schema": { "type": "SportsLeague", "sport": "Baseball", "organizer": { "name": "Nippon Professional Baseball" }, "location": [{ "@type": "Country", "name": "Japan" }] }
+  },
+  "kbo": {
+    "id": "kbo",
+    "sport": "baseball",
+    "schema_id": "#league-kbo",
+    "name_zh": "韓國職棒",
+    "name_en": "KBO League",
+    "format": "league-with-playoffs",
+    "season": "2026",
+    "start_date": "",
+    "end_date": "",
+    "status": "live",
+    "home_priority": 4,
+    "cadence": "daily",
+    "data_source": { "type": "api-baseball", "league_id": 5, "season": 2026 },
+    "coverage": { "games": true, "standings": true },
+    "index": { "section_label": "韓職 KBO 戰績", "landing": "/leagues/kbo/" },
+    "schema": { "type": "SportsLeague", "sport": "Baseball", "organizer": { "name": "Korea Baseball Organization" }, "location": [{ "@type": "Country", "name": "South Korea" }] }
   }
 }

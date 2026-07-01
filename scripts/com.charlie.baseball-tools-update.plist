@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  baseball.twtools.cc 每日自動重建（dashboard living-page）。範本 — 安裝步驟：
+    1. baseball-engine 併入 main 後（automation 要跑在 launchd 指到的 checkout 上）
+    2. 取得 Cloudflare API Token（dashboard → My Profile → API Tokens，需 Workers Scripts:Edit）
+    3. 把下面 __SET_CLOUDFLARE_API_TOKEN__ 換成真 token（⚠️ 別把真 token commit 進 git）
+    4. cp 到 ~/Library/LaunchAgents/ 後： launchctl load ~/Library/LaunchAgents/com.charlie.baseball-tools-update.plist
+  時段：台灣 09:00（接住美國 MLB 夜場賽果）+ 21:30（CPBL/NPB/KBO 當日收工）。可自行增減。
+  CPBL 是人工快照、本流程不刷新；過期由頁面 as-of/stale badge 誠實呈現，需手動重抓官方首頁。
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.charlie.baseball-tools-update</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Frameworks/Python.framework/Versions/3.13/bin/python3</string>
+        <string>/Users/charlie.chien/Github-Repo/foootball-tools/scripts/update-baseball.py</string>
+        <string>--deploy</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>CLOUDFLARE_API_TOKEN</key>
+        <string>__SET_CLOUDFLARE_API_TOKEN__</string>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key><integer>9</integer>
+            <key>Minute</key><integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key><integer>21</integer>
+            <key>Minute</key><integer>30</integer>
+        </dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/baseball-tools-update.stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/baseball-tools-update.stderr.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/charlie.chien/Github-Repo/foootball-tools</string>
+</dict>
+</plist>

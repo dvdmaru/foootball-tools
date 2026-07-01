@@ -40,9 +40,7 @@
     "ga_id": "G-Z0F06P2HXB",
     "nav": [
       { "label": "首頁", "href": "/", "key": "home" },
-      { "label": "球隊", "href": "/teams/", "key": "teams" },
-      { "label": "排名", "href": "/standings/", "key": "standings" },
-      { "label": "中職", "href": "/cpbl/", "key": "cpbl" },
+      { "label": "數據", "href": "/data/", "key": "data" },
       { "label": "文章", "href": "/articles/", "key": "articles" }
     ],
     "external_link": { "label": "Facebook ↗", "href": "https://www.facebook.com/profile.php?id=61591259651756" },

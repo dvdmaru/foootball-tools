@@ -43,6 +43,8 @@ import shutil
 import sys
 import datetime
 import json
+import glob
+import unicodedata
 import html as html_lib
 
 import markdown as md_lib
@@ -69,6 +71,26 @@ def load_competitions() -> dict:
 
 
 COMPETITIONS = load_competitions()
+
+
+# ---------- draft exclusion (build-side pending-review gate) ----------
+# Slugs listed in config/draft-exclude.json are treated as drafts pending review and are
+# skipped entirely at discovery -> they never enter any article index, feed, sitemap, sport
+# landing, or get an individual page rendered. This keeps unreviewed articles that already
+# live in the shared articles/ pool off the public site WITHOUT touching the author's source
+# files (frontmatter stays untouched, so the author's later "reviewed" commit won't conflict).
+# Remove a slug here once its cross-check passes to publish it. Empty by default -> zero
+# effect (output byte-identical), so shipping it dormant is safe.
+def load_draft_excludes() -> set:
+    p = ROOT / "config" / "draft-exclude.json"
+    if not p.exists():
+        return set()
+    data = json.loads(p.read_text(encoding="utf-8"))
+    slugs = data.get("exclude", []) if isinstance(data, dict) else data
+    return {str(s) for s in (slugs or [])}
+
+
+DRAFT_EXCLUDE = load_draft_excludes()
 
 
 # ---------- per-sport site identity (multi-sport single source of truth) ----------
@@ -1313,6 +1335,60 @@ BB_LANDING_CSS = """
 @media(max-width:680px){.bb-grid{grid-template-columns:1fr}.card{grid-template-columns:120px 1fr}}
 """
 
+# Dashboard-specific CSS for the baseball homepage (今日賽事 / 戰績 / 領先者 / 數據總覽).
+# Var-driven (navy theme) + CSS-only tabs (radio + :checked ~ .panel) so every league's data is
+# in the DOM (GEO/AEO-safe, no JS data fetch). Reuses the component vocabulary from the standings
+# generators (.std-table / .lb-grid).
+BB_DASH_CSS = """
+.dash-asof{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--font-mono);
+  font-size:12px;color:var(--dim);border:1px solid var(--line-2);border-radius:999px;padding:6px 14px}
+.dash-asof b{color:var(--accent);font-weight:700}
+.bb-sec .tg{font-family:var(--font-mono);font-size:11px;color:var(--faint);letter-spacing:1px}
+.tabs>input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.tablabels{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;border-bottom:1px solid var(--line)}
+.tablabels label{cursor:pointer;padding:9px 16px;font-size:14px;font-weight:700;color:var(--dim);
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s}
+.tablabels label:hover{color:var(--fg)}
+.tabs .panel{display:none}
+.gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(218px,1fr));gap:10px}
+.gc{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}
+.gc-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;color:var(--fg-soft);font-size:14.5px}
+.gc-row.win{color:var(--fg);font-weight:800}
+.gc-row.win .gc-s{color:var(--accent)}
+.gc-s{font-family:var(--font-mono);font-weight:700}
+.dv-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
+.div-name{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:14px 0 6px}
+.std-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.std-table th,.std-table td{padding:7px 6px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+.std-table th{color:var(--faint);font-size:11px;font-weight:700}
+.std-table td.l,.std-table th.l{text-align:left}
+.std-table td.rk{color:var(--dim);font-family:var(--font-mono)}
+.std-table tr.lead td.tm{font-weight:800;color:var(--fg)}
+.std-pts{color:var(--accent);font-weight:800;font-family:var(--font-mono)}
+.rd-pos,.stk-pos{color:#5fb878}.rd-neg,.stk-neg{color:#d98a8a}
+.lb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:10px 22px}
+.lb-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px 8px;background:var(--surface)}
+.lb-card h3{font-size:14px;color:var(--accent);margin-bottom:6px;font-weight:800;letter-spacing:1px}
+.lb-card table{width:100%;border-collapse:collapse}
+.lb-card td{padding:4px 2px;font-size:13.5px;border-bottom:1px solid var(--line)}
+.lb-card td.rk{color:var(--dim);font-family:var(--font-mono);width:20px}
+.lb-card td.nm{text-align:left}
+.lb-card td.tm{color:var(--faint);font-size:11px;text-align:right}
+.lb-card td.vl{text-align:right;color:var(--accent);font-weight:800;font-family:var(--font-mono);width:52px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{display:flex;align-items:center;gap:14px;background:var(--accent-soft);border:1px solid var(--accent-line);
+  border-radius:var(--radius-sm);padding:16px 20px;text-decoration:none;color:var(--fg);transition:border-color .15s,transform .15s}
+.tile:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tile .ic{font-size:24px}
+.tile .tt{font-weight:800;font-size:15px}
+.tile .ds{color:var(--dim);font-size:12px;margin-top:2px;display:block}
+.tile .go{margin-left:auto;color:var(--accent);font-weight:800}
+.dash-note{color:var(--faint);font-size:12px;margin-top:10px;line-height:1.6}
+.stale-badge{display:inline-block;font-family:var(--font-mono);font-size:11px;color:#d98a8a;
+  border:1px solid #d98a8a;border-radius:6px;padding:1px 8px;margin-left:8px}
+@media(max-width:680px){.dv-grid{grid-template-columns:1fr}.tiles{grid-template-columns:1fr}}
+"""
+
 
 def _bb_lead_card(a: dict) -> str:
     title = html_lib.escape(a["meta"].get("title", a["slug"]))
@@ -1367,6 +1443,7 @@ def _bb_head(site: dict, title: str, desc: str, url: str, jsonld: str) -> str:
 {SHARED_TOKENS_CSS}{extra_theme_css(site)}
 {SITE_HEADER_CSS}
 {BB_LANDING_CSS}
+{BB_DASH_CSS}
 </style>
 </head>"""
 
@@ -1385,9 +1462,9 @@ def _bb_footer(site: dict) -> str:
 # 對應測評 AEO 的「FAQ 結構 / 問句式標題 / PAA 友善」三項）。問句一律以「？」收尾。
 BB_HOME_FAQ = [
     ("@baseball 的數據多久更新一次？",
-     "MLB 戰績與排名每日更新，資料來自官方 MLB StatsAPI 與 api-sports；中華職棒（CPBL）隊伍與賽果同步官方公開數據。每篇文章的數字都標註來源與截止日期。"),
+     "首頁儀表板的 MLB、日職（NPB）、韓職（KBO）戰績與賽果每日自動更新，資料來自官方 MLB StatsAPI 與 api-sports；中華職棒（CPBL）為人工擷取官方公開數據的快照，頁面會標註擷取日期。每篇文章的數字也都標註來源與截止日期。"),
     ("@baseball 涵蓋哪些聯盟？",
-     "目前以美國職棒大聯盟（MLB，30 隊）與中華職棒（CPBL）為主，提供球隊戰績、主客場拆分、球員名冊與里程碑特刊；日韓職棒（NPB／KBO）規劃中。"),
+     "美國職棒大聯盟（MLB，30 隊）、中華職棒（CPBL）、日本職棒（NPB）與韓國職棒（KBO）。首頁提供四聯盟的今日賽事、戰績排行與數據領先者；MLB 另有 30 隊球隊頁、主客場拆分、球員名冊與里程碑特刊。"),
     ("這個網站和 MLB、中華職棒官方有關係嗎？",
      "沒有。@baseball 是獨立的繁體中文數據內容站，與 MLB、CPBL 等職業聯盟及球團無任何官方關聯；所有數據引自公開官方來源並於文中標註。"),
     ("文章的數據可信嗎？要怎麼查證？",
@@ -1406,14 +1483,315 @@ def _bb_faq_html() -> str:
             f'  <section class="bb-faq">\n{qa}\n  </section>')
 
 
+# ---------- baseball homepage dashboard ----------
+
+def _dash_norm(s):
+    s = unicodedata.normalize("NFKD", s or "")
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return s.casefold().strip()
+
+
+_DASH_TEAM_ZH = None
+
+
+def _dash_zh(name):
+    """team-zh.json fuzzy lookup (NFKD + casefold), mirrors build-standings._norm_name."""
+    global _DASH_TEAM_ZH
+    if _DASH_TEAM_ZH is None:
+        p = ROOT / "scripts" / "team-zh.json"
+        raw = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+        _DASH_TEAM_ZH = {_dash_norm(k): v for k, v in raw.items() if not k.startswith("_")}
+    return _DASH_TEAM_ZH.get(_dash_norm(name), name)
+
+
+def _dash_latest(pattern):
+    files = sorted(glob.glob(str(ROOT / "leagues" / pattern)))
+    return json.loads(pathlib.Path(files[-1]).read_text(encoding="utf-8")) if files else None
+
+
+def _dash_json(name):
+    p = ROOT / "leagues" / name
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
+
+
+def _dash_slate_from_games(games):
+    """api-baseball games[] -> (latest_date, [{away,home,ar,hr}]) for finished games only."""
+    scored = [g for g in (games or []) if "home_score" in g and "away_score" in g]
+    if not scored:
+        return "", []
+    scored.sort(key=lambda g: g.get("date", ""))
+    latest = scored[-1]["date"]
+    return latest, [{"away": g["away_name"], "home": g["home_name"],
+                     "ar": g["away_score"], "hr": g["home_score"]}
+                    for g in scored if g["date"] == latest]
+
+
+_CAT_ZH_DASH = {"homeRuns": "全壘打", "runsBattedIn": "打點", "battingAverage": "打擊率",
+                "stolenBases": "盜壘", "onBasePlusSlugging": "OPS", "hits": "安打",
+                "earnedRunAverage": "防禦率", "strikeouts": "三振", "wins": "勝投", "saves": "救援"}
+
+
+def _dash_game_cards(games, zh=True):
+    def card(a, h, ar, hr):
+        az = _dash_zh(a) if zh else a
+        hz = _dash_zh(h) if zh else h
+        aw = "win" if (ar is not None and hr is not None and ar > hr) else ""
+        hw = "win" if (ar is not None and hr is not None and hr > ar) else ""
+        return (f'<div class="gc"><div class="gc-row {aw}"><span>{html_lib.escape(az)}</span>'
+                f'<span class="gc-s">{ar if ar is not None else "–"}</span></div>'
+                f'<div class="gc-row {hw}"><span>{html_lib.escape(hz)}</span>'
+                f'<span class="gc-s">{hr if hr is not None else "–"}</span></div></div>')
+    cells = "".join(card(g["away"], g["home"], g["ar"], g["hr"]) for g in games[:12])
+    return f'<div class="gc-grid">{cells}</div>'
+
+
+def _dash_mlb_divisions(standings):
+    order = ["美聯東區", "美聯中區", "美聯西區", "國聯東區", "國聯中區", "國聯西區"]
+    by = {}
+    for t in standings:
+        by.setdefault(t["division_zh"], []).append(t)
+    blocks = []
+    for dv in order:
+        rows = sorted(by.get(dv, []), key=lambda r: int(r["division_rank"]))
+        trs = ""
+        for r in rows:
+            lead = ' class="lead"' if str(r["division_rank"]) == "1" else ""
+            rd = r.get("run_diff", 0)
+            rdc = "rd-pos" if rd > 0 else ("rd-neg" if rd < 0 else "")
+            trs += (f'<tr{lead}><td class="rk">{r["division_rank"]}</td>'
+                    f'<td class="l tm">{html_lib.escape(r["name_zh"])}</td>'
+                    f'<td class="std-pts">{r["wins"]}</td><td>{r["losses"]}</td>'
+                    f'<td>{r["pct"]}</td><td>{r["games_back"]}</td>'
+                    f'<td class="{rdc}">{"+" if rd > 0 else ""}{rd}</td></tr>')
+        blocks.append(f'<div class="dv"><div class="div-name">{dv}</div>'
+                      f'<table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th>'
+                      f'<th>勝</th><th>敗</th><th>勝率</th><th>勝差</th><th>淨分</th></tr></thead>'
+                      f'<tbody>{trs}</tbody></table></div>')
+    return f'<div class="dv-grid">{"".join(blocks)}</div>'
+
+
+def _dash_simple_standings(rows):
+    trs = ""
+    for r in rows:
+        lead = ' class="lead"' if r.get("rank") == 1 else ""
+        nm = _dash_zh(r.get("team_name", ""))
+        pct = str(r.get("pct", "")).lstrip("0") or "0"
+        trs += (f'<tr{lead}><td class="rk">{r.get("rank")}</td>'
+                f'<td class="l tm">{html_lib.escape(nm)}</td>'
+                f'<td class="std-pts">{r.get("win")}</td><td>{r.get("lose")}</td>'
+                f'<td>{pct}</td><td>{r.get("games_behind")}</td></tr>')
+    return ('<table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th>'
+            f'<th>敗</th><th>勝率</th><th>勝差</th></tr></thead><tbody>{trs}</tbody></table>')
+
+
+# 日本職棒分中央聯盟（セ・リーグ）與太平洋聯盟（パ・リーグ），各 6 隊，戰績分聯盟排。
+# api-baseball 的 compute_standings 不帶聯盟分組 → 用球隊名（_dash_norm key）硬對映。
+_NPB_LEAGUE = {
+    "yomiuri giants": "中央聯盟", "hanshin tigers": "中央聯盟", "yokohama baystars": "中央聯盟",
+    "hiroshima carp": "中央聯盟", "yakult swallows": "中央聯盟", "chunichi dragons": "中央聯盟",
+    "fukuoka s. hawks": "太平洋聯盟", "nippon ham fighters": "太平洋聯盟", "orix buffaloes": "太平洋聯盟",
+    "rakuten gold. eagles": "太平洋聯盟", "seibu lions": "太平洋聯盟", "chiba lotte marines": "太平洋聯盟",
+}
+
+
+def _dash_npb_standings(rows):
+    """NPB 拆成中央 / 太平洋兩張表，各自重新排名 + 重算聯盟內勝差（rows 的 games_behind 是對全 12 隊
+    龍頭算的，分聯盟後不適用）。未對映到的隊歸『其他』（理論上不會有）。"""
+    groups = {"中央聯盟": [], "太平洋聯盟": [], "其他": []}
+    for r in rows:
+        lg = _NPB_LEAGUE.get(_dash_norm(r.get("team_name", "")), "其他")
+        groups[lg].append(r)
+    blocks = []
+    for lg in ("中央聯盟", "太平洋聯盟", "其他"):
+        grp = sorted(groups[lg], key=lambda r: (-r.get("win", 0), r.get("lose", 0)))
+        if not grp:
+            continue
+        lw, ll = grp[0].get("win", 0), grp[0].get("lose", 0)
+        trs = ""
+        for i, r in enumerate(grp):
+            lead = ' class="lead"' if i == 0 else ""
+            nm = _dash_zh(r.get("team_name", ""))
+            pct = str(r.get("pct", "")).lstrip("0") or "0"
+            gb = ((lw - r.get("win", 0)) + (r.get("lose", 0) - ll)) / 2
+            gb_disp = "—" if gb <= 0 else (f"{gb:.1f}".rstrip("0").rstrip("."))
+            trs += (f'<tr{lead}><td class="rk">{i + 1}</td>'
+                    f'<td class="l tm">{html_lib.escape(nm)}</td>'
+                    f'<td class="std-pts">{r.get("win")}</td><td>{r.get("lose")}</td>'
+                    f'<td>{pct}</td><td>{gb_disp}</td></tr>')
+        blocks.append(f'<div class="dv"><div class="div-name">{lg}</div>'
+                      '<table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th>'
+                      '<th>勝</th><th>敗</th><th>勝率</th><th>勝差</th></tr></thead>'
+                      f'<tbody>{trs}</tbody></table></div>')
+    return f'<div class="dv-grid">{"".join(blocks)}</div>'
+
+
+def _dash_cpbl_standings(cpbl):
+    trs = ""
+    for r in cpbl["standings"]:
+        lead = ' class="lead"' if r["rank"] == 1 else ""
+        gb = r["games_behind"] or "—"
+        stk = r["streak"]
+        sc = "stk-pos" if stk.startswith("勝") else ("stk-neg" if stk.startswith("敗") else "")
+        trs += (f'<tr{lead}><td class="rk">{r["rank"]}</td>'
+                f'<td class="l tm">{html_lib.escape(r["team"])}</td>'
+                f'<td class="std-pts">{r["wins"]}</td><td>{r["losses"]}</td><td>{r["ties"]}</td>'
+                f'<td>{str(r["winning_percentage"]).lstrip("0")}</td><td>{gb}</td>'
+                f'<td class="{sc}">{html_lib.escape(stk)}</td></tr>')
+    return ('<table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th>'
+            f'<th>和</th><th>勝率</th><th>勝差</th><th>近況</th></tr></thead><tbody>{trs}</tbody></table>')
+
+
+def _dash_mlb_leaders(leaders):
+    def cards(board, cats):
+        out = ""
+        for c in cats:
+            rows = (board.get(c) or [])[:5]
+            if not rows:
+                continue
+            trs = "".join(
+                f'<tr><td class="rk">{r["rank"]}</td><td class="nm">{html_lib.escape(r["name"])}</td>'
+                f'<td class="tm">{html_lib.escape(_dash_zh(r["team"]))}</td>'
+                f'<td class="vl">{r["value"]}</td></tr>' for r in rows)
+            out += (f'<div class="lb-card"><h3>{_CAT_ZH_DASH.get(c, c)}</h3>'
+                    f'<table><tbody>{trs}</tbody></table></div>')
+        return out
+    bat = cards(leaders.get("hitting", {}), ["homeRuns", "runsBattedIn", "battingAverage", "stolenBases"])
+    pit = cards(leaders.get("pitching", {}), ["earnedRunAverage", "strikeouts", "wins", "saves"])
+    return f'<div class="lb-grid">{bat}</div><div style="height:10px"></div><div class="lb-grid">{pit}</div>'
+
+
+def _dash_cpbl_leaders(cpbl):
+    out = ""
+    for grp in ("batting", "pitching"):
+        for cat, board in cpbl.get("leaders", {}).get(grp, {}).items():
+            rows = (board.get("rows") or [])[:5]
+            if not rows:
+                continue
+            trs = "".join(
+                f'<tr><td class="rk">{r["rank"]}</td><td class="nm">{html_lib.escape(r["player"])}</td>'
+                f'<td class="tm">{html_lib.escape(r.get("team", ""))}</td>'
+                f'<td class="vl">{r["value"]}</td></tr>' for r in rows)
+            out += (f'<div class="lb-card"><h3>{html_lib.escape(board.get("label_zh", cat))}</h3>'
+                    f'<table><tbody>{trs}</tbody></table></div>')
+    return f'<div class="lb-grid">{out}</div>'
+
+
+def _dash_tabgroup(group, tabs):
+    """tabs = [(id, label, body_html, note_html_or_empty)]; first is the default-checked panel.
+    Emits CSS-only tabs (radio + general-sibling :checked) — all panels are in the DOM (GEO-safe)."""
+    inputs = "".join(
+        f'<input type="radio" name="{group}" id="{group}-{tid}"{" checked" if i == 0 else ""}>'
+        for i, (tid, _, _, _) in enumerate(tabs))
+    labels = "".join(f'<label for="{group}-{tid}">{lbl}</label>' for tid, lbl, _, _ in tabs)
+    rules = "".join(
+        f'#{group}-{tid}:checked~.tablabels label[for="{group}-{tid}"]'
+        '{color:var(--accent);border-bottom-color:var(--accent)}'
+        f'#{group}-{tid}:checked~.panel-{group}-{tid}{{display:block}}'
+        for tid, _, _, _ in tabs)
+    panels = "".join(
+        f'<div class="panel panel-{group}-{tid}">{body}'
+        f'{("<div class=" + chr(34) + "dash-note" + chr(34) + ">" + note + "</div>") if note else ""}</div>'
+        for tid, _, body, note in tabs)
+    return f'<style>{rules}</style><div class="tabs">{inputs}<div class="tablabels">{labels}</div>{panels}</div>'
+
+
+def _dash_build_date(mlb_today, mlb_st, cpbl, npb_date, kbo_date):
+    cands = [d for d in [(mlb_today or {}).get("date"), (mlb_st or {}).get("asof"),
+                         (cpbl or {}).get("asof_taipei_date"), npb_date, kbo_date] if d]
+    return max(cands) if cands else ""
+
+
 def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
-    """Dark navy/gold landing for a non-soccer site (baseball.twtools.cc): unified site header,
-    hero, teams entry, featured lead article + recent grid. Shares the SHARED_TOKENS_CSS system
-    (dark navy via extra_theme_css) so landing / articles index / article body / team pages are
-    one coherent design. Kept separate from soccer render_index (soccer stays byte-identical)."""
+    """Navy/gold DASHBOARD landing for baseball.twtools.cc — cross-league live data (今日賽事 /
+    戰績速覽 / 數據領先者) over CSS-only tabs, drill-down tiles into /data/, then latest deep
+    articles + FAQ. All data server-rendered from leagues/*.json snapshots (GEO/AEO-safe, no JS
+    fetch). Degrades gracefully when a league's data file is absent. Kept separate from soccer
+    render_index (soccer stays byte-identical)."""
     base = site["base"]
+    # ----- data -----
+    mlb_st = _dash_latest("mlb-standings-*.json")
+    mlb_ld = _dash_latest("mlb-leaders-2*.json")
+    cpbl = _dash_latest("cpbl-standings-leaders-*.json")
+    npb = _dash_json("npb.json")
+    kbo = _dash_json("kbo.json")
+    mlb_today = _dash_json("mlb-today.json")
+    npb_date, npb_slate = _dash_slate_from_games((npb or {}).get("games"))
+    kbo_date, kbo_slate = _dash_slate_from_games((kbo or {}).get("games"))
+    build_date = _dash_build_date(mlb_today, mlb_st, cpbl, npb_date, kbo_date)
+
+    # ----- 今日賽事 -----
+    gtabs = []
+    if mlb_today and mlb_today.get("games"):
+        g = [{"away": x["away_name"], "home": x["home_name"], "ar": x["away_r"], "hr": x["home_r"]}
+             for x in mlb_today["games"]]
+        gtabs.append(("mlb", "MLB", _dash_game_cards(g),
+                      f'美國時間 {mlb_today.get("date","")} · 來源 MLB 官方 StatsAPI'))
+    if npb_slate:
+        gtabs.append(("npb", "日職 NPB", _dash_game_cards(npb_slate),
+                      f'{npb_date} · 來源 api-baseball'))
+    if kbo_slate:
+        gtabs.append(("kbo", "韓職 KBO", _dash_game_cards(kbo_slate),
+                      f'{kbo_date} · 來源 api-baseball'))
+    games_sec = ""
+    if gtabs:
+        games_sec = ('<div class="bb-sec"><h2>今日賽事</h2><span class="ln"></span>'
+                     '<span class="tg">最新一輪</span></div>' + _dash_tabgroup("gt", gtabs))
+
+    # ----- 戰績速覽 -----
+    stabs = []
+    if mlb_st:
+        stabs.append(("mlb", "MLB 六分區", _dash_mlb_divisions(mlb_st["standings"]),
+                      f'截至 {mlb_st.get("asof","")} · MLB 官方 StatsAPI'))
+    if cpbl:
+        badge = '<span class="stale-badge">手動更新 · 非即時</span>'
+        stabs.append(("cpbl", "中職 CPBL", _dash_cpbl_standings(cpbl),
+                      f'人工擷取快照（{cpbl.get("asof_taipei_date","")}）{badge}'))
+    if npb and npb.get("standings"):
+        stabs.append(("npb", "日職 NPB", _dash_npb_standings(npb["standings"]),
+                      '中央聯盟 / 太平洋聯盟 · 由賽果自算 · 來源 api-baseball'))
+    if kbo and kbo.get("standings"):
+        stabs.append(("kbo", "韓職 KBO", _dash_simple_standings(kbo["standings"]),
+                      '由賽果自算 · 來源 api-baseball'))
+    stand_sec = ""
+    if stabs:
+        stand_sec = ('<div class="bb-sec"><h2>戰績速覽</h2><span class="ln"></span>'
+                     '<span class="tg">分區 / 排名</span></div>' + _dash_tabgroup("st", stabs))
+
+    # ----- 數據領先者 -----
+    ltabs = []
+    if mlb_ld:
+        ltabs.append(("mlb", "MLB", _dash_mlb_leaders(mlb_ld), '打擊 / 投手 TOP 5 · MLB 官方 StatsAPI'))
+    if cpbl and cpbl.get("leaders"):
+        ltabs.append(("cpbl", "中職 CPBL", _dash_cpbl_leaders(cpbl), '人工快照 TOP5（非完整排行榜）'))
+    lead_sec = ""
+    if ltabs:
+        lead_sec = ('<div class="bb-sec"><h2>數據領先者</h2><span class="ln"></span>'
+                    '<span class="tg">打擊 / 投手 TOP 5</span></div>' + _dash_tabgroup("lt", ltabs))
+
+    # ----- 數據總覽 tiles -----
+    tiles = ('<div class="bb-sec"><h2>數據總覽 · 深入查詢</h2><span class="ln"></span></div>'
+             '<div class="tiles">'
+             '<a class="tile" href="/data/"><span class="ic">📊</span>'
+             '<span><span class="tt">排名與排行</span><span class="ds">MLB 六分區 · 打投排行榜</span></span><span class="go">→</span></a>'
+             '<a class="tile" href="/teams/"><span class="ic">⚾</span>'
+             '<span><span class="tt">球隊資料</span><span class="ds">MLB 30 隊 · 戰績 · 名冊</span></span><span class="go">→</span></a>'
+             '<a class="tile" href="/cpbl/"><span class="ic">🇹🇼</span>'
+             '<span><span class="tt">中職 CPBL</span><span class="ds">戰績 · 投打 TOP5</span></span><span class="go">→</span></a>'
+             '</div>')
+
+    # ----- 最新文章 -----
     lead = _bb_lead_card(articles[0]) if articles else ""
     grid = "\n      ".join(_bb_grid_card(a) for a in articles[1:]) if len(articles) > 1 else ""
+    art_sec = ""
+    if lead:
+        grid_block = f'\n    <div class="bb-grid">\n      {grid}\n    </div>' if grid else ""
+        art_sec = ('<div class="bb-sec"><h2>最新深度文章</h2><span class="ln"></span></div>\n  '
+                   + lead + grid_block)
+
+    asof_chip = (f'<div class="dash-asof">⏱ 資料截至 <b>{build_date}</b>　·　每日自動更新（MLB／NPB／KBO）</div>'
+                 if build_date else "")
+
+    # ----- JSON-LD -----
     item_list = {"@type": "ItemList", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "url": f"{base}/articles/{a['slug']}/",
          "name": a["meta"].get("title", a["slug"])} for i, a in enumerate(articles)]}
@@ -1423,21 +1801,21 @@ def render_sport_index(articles: list, site: dict, sport_label: str) -> str:
     jsonld = graph_ld([org_node(site), website_node(site), collection,
                        breadcrumb_node([("首頁", f"{base}/")]),
                        faq_node(BB_HOME_FAQ, f"{base}/")])
-    grid_block = f'<div class="bb-sec"><h2>最新文章</h2><span class="ln"></span></div>\n    <div class="bb-grid">\n      {grid}\n    </div>' if grid else ""
-    return f"""{_bb_head(site, site['website_name'], f"{sport_label}數據深度分析、里程碑特刊、戰績排行——繁體中文 / 台北時間。", f"{base}/", jsonld)}
+    desc = "中職 CPBL × 大聯盟 MLB × 日職 NPB × 韓職 KBO 的即時數據儀表板：今日賽事、戰績排行、數據領先者，以及深度特刊。繁體中文 / 台北時間。"
+    return f"""{_bb_head(site, site['website_name'], desc, f"{base}/", jsonld)}
 <body>
 <div class="bb-shell">{site_header_html("home", site)}
   <main>
   <section class="bb-hero">
-    <h1>看門道的{sport_label}，<br>用數據說話。</h1>
-    <p>中職 CPBL 與大聯盟 MLB 的數據深度分析、里程碑特刊與比賽戰報。每篇 5,000 字以上、附排行與統計表，每個數字標註官方來源。繁體中文、台北時間。</p>
+    <h1>四聯盟即時數據，<br>用數據看門道。</h1>
+    <p>中職 CPBL × 大聯盟 MLB × 日職 NPB × 韓職 KBO —— 今日賽事、戰績排行、數據領先者，一頁掌握。深度特刊在「文章」。</p>
+    {asof_chip}
   </section>
-  <a class="bb-teams" href="/teams/"><span class="ic">⚾</span>
-    <span><span class="t">MLB 30 隊球隊資料</span><br><span class="d">戰績 · 主客場拆分 · 球員名冊 · 逐隊一頁</span></span>
-    <span class="go">看球隊 →</span></a>
-  <div class="bb-sec"><h2>編輯精選</h2><span class="ln"></span></div>
-  {lead}
-  {grid_block}
+  {games_sec}
+  {stand_sec}
+  {lead_sec}
+  {tiles}
+  {art_sec}
   {_bb_faq_html()}
   </main>
 {_bb_footer(site)}
@@ -1527,6 +1905,12 @@ def build():
         # implicitly belong to wc2026. New league articles set it explicitly.
         meta.setdefault("competition", "wc2026")
         slug = meta["slug"]
+
+        # build-side draft gate: slugs in config/draft-exclude.json are pending review and
+        # excluded from ALL output (index/feed/sitemap/landing/page). Empty list -> no-op.
+        if slug in DRAFT_EXCLUDE:
+            print(f"⏭  skip draft (pending review, excluded): {slug}")
+            continue
 
         if meta.get("type") == "daily":
             body = strip_medium_guide(body)

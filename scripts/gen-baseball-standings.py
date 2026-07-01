@@ -118,7 +118,7 @@ def _shell(title, desc, canonical, jsonld, body):
 </head>
 <body>
 {ba.theme_switch_html(SITE)}
-<div class="container">{ba.site_header_html('standings', SITE)}
+<div class="container">{ba.site_header_html('data', SITE)}
 {body}
 {ba.site_footer_html(SITE)}
 </div>

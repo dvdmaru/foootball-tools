@@ -172,6 +172,26 @@ def linescores(date):
     return out
 
 
+def today_slate(ref_date, lookback=5):
+    """Find the most recent date (scanning back from ref_date, up to `lookback` days) that has at
+    least one MLB game with a score, and return {date, games:[...]}. Used by the dashboard's
+    今日賽事 panel so it is never empty during off-days / sim edge. ref_date passed in (no Date.now
+    in build). Each game: away/home name + runs (final or in-progress)."""
+    import datetime
+    d0 = datetime.date.fromisoformat(ref_date)
+    for back in range(lookback + 1):
+        day = (d0 - datetime.timedelta(days=back)).isoformat()
+        rows = linescores(day)
+        scored = [g for g in rows
+                  if g["away"]["r"] is not None and g["home"]["r"] is not None]
+        if scored:
+            return {"date": day, "games": [
+                {"away_name": g["away_name"], "home_name": g["home_name"],
+                 "away_r": g["away"]["r"], "home_r": g["home"]["r"]} for g in scored]}
+        time.sleep(0.5)
+    return {"date": ref_date, "games": []}
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -179,6 +199,7 @@ def main():
     pp = sub.add_parser("player"); pp.add_argument("person_id", type=int); pp.add_argument("--season", type=int, required=True)
     pr = sub.add_parser("roster"); pr.add_argument("team_id", type=int); pr.add_argument("--season", type=int, required=True)
     pls = sub.add_parser("linescore"); pls.add_argument("--date", required=True)
+    pt = sub.add_parser("today"); pt.add_argument("--date", required=True); pt.add_argument("--lookback", type=int, default=5)
     args = ap.parse_args()
 
     if args.cmd == "leaders":
@@ -214,6 +235,13 @@ def main():
             a, h = g["away"], g["home"]
             print(f"{g['away_name']} {a['r']}-{a['h']}-{a['e']} @ "
                   f"{g['home_name']} {h['r']}-{h['h']}-{h['e']}  ({len(g['innings'])} inn)")
+
+    elif args.cmd == "today":
+        data = today_slate(args.date, args.lookback)
+        OUT_DIR.mkdir(exist_ok=True)
+        outp = OUT_DIR / "mlb-today.json"
+        outp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"✅ {outp.relative_to(ROOT)} · slate {data['date']} · {len(data['games'])} games")
 
 
 if __name__ == "__main__":
