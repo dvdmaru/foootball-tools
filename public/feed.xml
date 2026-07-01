@@ -6,7 +6,15 @@
     <atom:link href="https://foootball.twtools.cc/feed.xml" rel="self" type="application/rss+xml" />
     <description>2026 FIFA 世界盃每日戰報、規則解析與專題文章。</description>
     <language>zh-Hant</language>
-    <lastBuildDate>Tue, 30 Jun 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 08:00:00 +0800</lastBuildDate>
+    <item>
+      <title>法國 3-0 橫掃瑞典晉 16 強：姆巴佩梅開二度追平梅西；哈蘭德 86 分鐘絕殺，挪威隊史首奪淘汰賽勝利；墨西哥終結 40 年魔咒</title>
+      <link>https://foootball.twtools.cc/articles/daily-2026-07-01/</link>
+      <guid isPermaLink="true">https://foootball.twtools.cc/articles/daily-2026-07-01/</guid>
+      <pubDate>Wed, 01 Jul 2026 08:00:00 +0800</pubDate>
+      <category>每日戰報</category>
+      <description>2026 世界盃 32 強淘汰賽 6/30 三場賽事全部踢完：法國 3-0 橫掃瑞典晉級，姆巴佩梅開二度追平梅西本屆進球數；挪威哈蘭德 86 分鐘絕殺 2-1 逆轉象牙海岸，隊史首奪世界盃淘汰賽勝利、將對陣巴西；地主墨西哥 2-0 擊退厄瓜多，終結近 40 年世界盃淘汰賽魔咒。</description>
+    </item>
     <item>
       <title>巴西 2-1 日本：安切洛蒂的邊路修正，與 95 分鐘的森巴救贖</title>
       <link>https://foootball.twtools.cc/articles/worldcup-special-2026-06-30-brazil-japan/</link>
@@ -238,14 +246,6 @@
       <pubDate>Sat, 20 Jun 2026 08:00:00 +0800</pubDate>
       <category>專題</category>
       <description>2026 世界盃 C 組次輪，巴西在費城 3-0 完勝海地。前鋒庫尼亞（Matheus Cunha）上半場第 23、36 分鐘雙響砲，維尼修斯（Vinícius Júnior）在上半場補時第 48 分鐘再下一城，巴西半場就鎖定大局。對首輪被摩洛哥逼平、被指慢熱的巴西而言，這是一場及時的釋放。這篇特刊，把三顆球、巴西的調整軌跡，與海地 52 年的歸途，逐項拆開來講。</description>
-    </item>
-    <item>
-      <title>巴西踩下油門：庫尼亞雙響、維尼修斯破門，3-0 海地與摩洛哥同分領跑 C 組</title>
-      <link>https://foootball.twtools.cc/articles/daily-2026-06-20/</link>
-      <guid isPermaLink="true">https://foootball.twtools.cc/articles/daily-2026-06-20/</guid>
-      <pubDate>Sat, 20 Jun 2026 08:00:00 +0800</pubDate>
-      <category>每日戰報</category>
-      <description>2026 世界盃 C 組次輪，被摩洛哥逼平後被指慢熱的巴西踩下油門，3-0 完勝海地：庫尼亞上半場雙響砲、維尼修斯補時破門。巴西與摩洛哥同積 4 分並列領跑 C 組，海地兩戰全敗、確定無緣小組前二。D 組地主美國 2-0 澳洲、二連勝提前晉級淘汰賽。</description>
     </item>
   </channel>
 </rss>
