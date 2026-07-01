@@ -1,0 +1,50 @@
+# baseball.twtools.cc 每日自動更新（Layer 1 · GitHub Actions cron）
+#
+# 每天台灣 12:00（= 04:00 UTC）在 GitHub 雲端跑 update-baseball.py --deploy：
+#   抓 MLB（官方 StatsAPI，免金鑰）+ NPB/KBO（api-baseball）→ 重建全站 → wrangler 部署。
+# 走 Actions 而非本機 launchd → 不依賴 Charlie 的 Mac 開機（見 dvdmaru 同款教訓）。
+# CPBL 是人工快照、本流程不碰（由 Layer 2 CoWork/Sonnet 週更 + 頁面 as-of 誠實標注）。
+#
+# 需要的 repo secrets（Settings → Secrets and variables → Actions）：
+#   CLOUDFLARE_API_TOKEN   = ~/.config/cloudflare/foootball-tools-2019.token 的值（含 Workers Scripts:Edit，2019 帳號）
+#   CLOUDFLARE_ACCOUNT_ID  = 2f123fdee05d453c8a077b6ba541c45d（2019 帳號；wrangler-baseball.jsonc 未釘，必帶）
+#   API_FOOTBALL_KEY       = api-sports 金鑰（NPB/KBO 用；MLB 走 StatsAPI 不需要）
+#
+# ⚠️ schedule 只會從「預設分支（main）」上的 workflow 檔觸發 → 本檔須併入 main 才會定時跑。
+#    手動測試：Actions 分頁 → 這個 workflow → Run workflow（workflow_dispatch）。
+
+name: baseball daily update
+
+on:
+  schedule:
+    - cron: '0 4 * * *'   # 04:00 UTC = 12:00 台灣
+  workflow_dispatch: {}
+
+concurrency:
+  group: baseball-daily
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install Python deps
+        run: pip install markdown
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch → rebuild → deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python scripts/update-baseball.py --deploy

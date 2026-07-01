@@ -21,6 +21,7 @@ Usage:
 import argparse
 import datetime
 import json
+import os
 import pathlib
 import subprocess
 import sys
@@ -47,6 +48,10 @@ def _is_club(name):
 
 
 def load_key():
+    # env var wins (CI / GitHub Actions has no Dropbox .env); fall back to local .env files.
+    env_key = os.environ.get("API_FOOTBALL_KEY", "").strip()
+    if env_key:
+        return env_key
     for f in ENV_FILES:
         if not f.exists():
             continue

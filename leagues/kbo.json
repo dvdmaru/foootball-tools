@@ -5880,40 +5880,46 @@
       "round": "2026",
       "date": "2026-06-30",
       "first_pitch_taipei": "17:30",
-      "status": "NS",
+      "status": "FT",
       "home_code": "95",
       "away_code": "97",
       "home_name": "NC Dinos",
-      "away_name": "Samsung Lions"
+      "away_name": "Samsung Lions",
+      "home_score": 7,
+      "away_score": 13
     },
     {
       "id": 181808,
       "round": "2026",
       "date": "2026-06-30",
       "first_pitch_taipei": "17:30",
-      "status": "NS",
+      "status": "FT",
       "home_code": "92",
       "away_code": "93",
       "home_name": "Kiwoom Heroes",
-      "away_name": "LG Twins"
+      "away_name": "LG Twins",
+      "home_score": 6,
+      "away_score": 0
     },
     {
       "id": 181809,
       "round": "2026",
       "date": "2026-06-30",
       "first_pitch_taipei": "17:30",
-      "status": "NS",
+      "status": "FT",
       "home_code": "90",
       "away_code": "647",
       "home_name": "KIA Tigers",
-      "away_name": "SSG Landers"
+      "away_name": "SSG Landers",
+      "home_score": 10,
+      "away_score": 3
     },
     {
       "id": 181810,
       "round": "2026",
       "date": "2026-06-30",
       "first_pitch_taipei": "17:30",
-      "status": "NS",
+      "status": "ABD",
       "home_code": "89",
       "away_code": "91",
       "home_name": "Hanwha Eagles",
@@ -5924,11 +5930,13 @@
       "round": "2026",
       "date": "2026-06-30",
       "first_pitch_taipei": "17:30",
-      "status": "NS",
+      "status": "FT",
       "home_code": "88",
       "away_code": "94",
       "home_name": "Doosan Bears",
-      "away_name": "Lotte Giants"
+      "away_name": "Lotte Giants",
+      "home_score": 5,
+      "away_score": 0
     },
     {
       "id": 181812,
@@ -8080,7 +8088,7 @@
       "round": "2026",
       "date": "2026-08-21",
       "first_pitch_taipei": "17:30",
-      "status": "CANC",
+      "status": "NS",
       "home_code": "647",
       "away_code": "91",
       "home_name": "SSG Landers",
@@ -8091,7 +8099,7 @@
       "round": "2026",
       "date": "2026-08-21",
       "first_pitch_taipei": "17:30",
-      "status": "CANC",
+      "status": "NS",
       "home_code": "95",
       "away_code": "97",
       "home_name": "NC Dinos",
@@ -8102,7 +8110,7 @@
       "round": "2026",
       "date": "2026-08-21",
       "first_pitch_taipei": "17:30",
-      "status": "CANC",
+      "status": "NS",
       "home_code": "92",
       "away_code": "90",
       "home_name": "Kiwoom Heroes",
@@ -8113,7 +8121,7 @@
       "round": "2026",
       "date": "2026-08-21",
       "first_pitch_taipei": "17:30",
-      "status": "CANC",
+      "status": "NS",
       "home_code": "89",
       "away_code": "93",
       "home_name": "Hanwha Eagles",
@@ -8124,7 +8132,7 @@
       "round": "2026",
       "date": "2026-08-21",
       "first_pitch_taipei": "17:30",
-      "status": "CANC",
+      "status": "NS",
       "home_code": "88",
       "away_code": "94",
       "home_name": "Doosan Bears",
@@ -8906,23 +8914,23 @@
       "team_code": "93",
       "team_name": "LG Twins",
       "win": 47,
-      "lose": 29,
-      "played": 76,
+      "lose": 30,
+      "played": 77,
       "group": "",
-      "pct": "0.618",
+      "pct": "0.610",
       "rank": 1,
       "games_behind": 0.0
     },
     {
       "team_code": "97",
       "team_name": "Samsung Lions",
-      "win": 43,
+      "win": 44,
       "lose": 30,
-      "played": 73,
+      "played": 74,
       "group": "",
-      "pct": "0.589",
+      "pct": "0.595",
       "rank": 2,
-      "games_behind": 2.5
+      "games_behind": 1.5
     },
     {
       "team_code": "91",
@@ -8933,18 +8941,29 @@
       "group": "",
       "pct": "0.581",
       "rank": 3,
-      "games_behind": 3.0
+      "games_behind": 2.5
     },
     {
       "team_code": "90",
       "team_name": "KIA Tigers",
-      "win": 41,
+      "win": 42,
       "lose": 35,
+      "played": 77,
+      "group": "",
+      "pct": "0.545",
+      "rank": 4,
+      "games_behind": 5.0
+    },
+    {
+      "team_code": "88",
+      "team_name": "Doosan Bears",
+      "win": 38,
+      "lose": 38,
       "played": 76,
       "group": "",
-      "pct": "0.539",
-      "rank": 4,
-      "games_behind": 6.0
+      "pct": "0.500",
+      "rank": 5,
+      "games_behind": 8.5
     },
     {
       "team_code": "89",
@@ -8954,28 +8973,17 @@
       "played": 73,
       "group": "",
       "pct": "0.507",
-      "rank": 5,
-      "games_behind": 8.5
-    },
-    {
-      "team_code": "88",
-      "team_name": "Doosan Bears",
-      "win": 37,
-      "lose": 38,
-      "played": 75,
-      "group": "",
-      "pct": "0.493",
       "rank": 6,
-      "games_behind": 9.5
+      "games_behind": 8.0
     },
     {
       "team_code": "95",
       "team_name": "NC Dinos",
       "win": 34,
-      "lose": 39,
-      "played": 73,
+      "lose": 40,
+      "played": 74,
       "group": "",
-      "pct": "0.466",
+      "pct": "0.459",
       "rank": 7,
       "games_behind": 11.5
     },
@@ -8983,10 +8991,10 @@
       "team_code": "94",
       "team_name": "Lotte Giants",
       "win": 33,
-      "lose": 40,
-      "played": 73,
+      "lose": 41,
+      "played": 74,
       "group": "",
-      "pct": "0.452",
+      "pct": "0.446",
       "rank": 8,
       "games_behind": 12.5
     },
@@ -8994,23 +9002,23 @@
       "team_code": "647",
       "team_name": "SSG Landers",
       "win": 30,
-      "lose": 44,
-      "played": 74,
+      "lose": 45,
+      "played": 75,
       "group": "",
-      "pct": "0.405",
+      "pct": "0.400",
       "rank": 9,
       "games_behind": 16.0
     },
     {
       "team_code": "92",
       "team_name": "Kiwoom Heroes",
-      "win": 27,
+      "win": 28,
       "lose": 50,
-      "played": 77,
+      "played": 78,
       "group": "",
-      "pct": "0.351",
+      "pct": "0.359",
       "rank": 10,
-      "games_behind": 20.5
+      "games_behind": 19.5
     }
   ]
 }
