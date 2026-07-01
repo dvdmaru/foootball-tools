@@ -40,17 +40,23 @@ def _norm_name(s):
     return s.casefold().strip()
 
 
-def load_player_zh():
-    """讀 scripts/player-zh.json（curated 射手中文譯名，台媒/維基慣用）。回 normalized-key dict。
-    未收錄者射手榜顯示英文名；新射手出現時補一行即可（fetch 不碰此檔，不會被覆寫）。"""
-    p = ROOT / "scripts" / "player-zh.json"
+def load_zh(filename):
+    """讀 scripts/<filename>（curated 中文譯名 dict）→ normalized-key dict，用 _norm_name 對齊
+    重音/大小寫。未收錄者顯示原文；新名出現時補一行即可（fetch 不碰這些檔，不會被覆寫）。
+    player-zh.json = 射手中文譯名；team-zh.json = CPBL/MLB 隊名中文。"""
+    p = ROOT / "scripts" / filename
     if not p.exists():
         return {}
     raw = json.loads(p.read_text(encoding="utf-8"))
     return {_norm_name(k): v for k, v in raw.items() if not k.startswith("_")}
 
 
-PLAYER_ZH = load_player_zh()
+def load_player_zh():  # back-compat alias (importlib re-exports may reference it)
+    return load_zh("player-zh.json")
+
+
+PLAYER_ZH = load_zh("player-zh.json")
+TEAM_ZH = load_zh("team-zh.json")
 
 # ---- 沿用 build-articles 的共用 design tokens（單一來源，避免 drift）----
 _spec = importlib.util.spec_from_file_location(
@@ -360,6 +366,92 @@ def render_group_block(grp, teams, matches, tbl, adv_codes, lead_codes):
         f"{standings_table}{match_list}"
         "</section>"
     )
+
+
+def render_league_table(rows, logos=None):
+    """Single standings table for a round-robin / per-conference league. `rows`: the
+    normalized standings dicts from leagues/<comp>.json (rank/team_name/played/win/draw/
+    lose/gf/ga/gd/points/team_code). Source-agnostic — reuses the WC std-table markup,
+    no groups, no bracket. `logos`: optional team_code -> club-logo url (leagues use club
+    crests, not country flags). Used by the league standings path; WC path is untouched."""
+    logos = logos or {}
+    body = []
+    for r in rows:
+        code = str(r.get("team_code", ""))
+        logo = logos.get(code)
+        crest = f'<img class="std-flag" src="{logo}" alt="" loading="lazy">' if logo else ""
+        body.append(
+            "<tr>"
+            f'<td class="std-rank">{r.get("rank", "")}</td>'
+            f'<td class="std-team">{crest}<span class="std-name">{r.get("team_name", "")}</span></td>'
+            f'<td>{r.get("played", 0)}</td><td>{r.get("win", 0)}</td>'
+            f'<td>{r.get("draw", 0)}</td><td>{r.get("lose", 0)}</td>'
+            f'<td>{r.get("gf", 0)}</td><td>{r.get("ga", 0)}</td>'
+            f'<td class="std-gd">{gd_str(r.get("gd", 0))}</td>'
+            f'<td class="std-pts">{r.get("points", 0)}</td>'
+            "</tr>"
+        )
+    return (
+        '<table class="std-table"><thead><tr>'
+        '<th class="std-rank">#</th><th class="std-team-h">球隊</th>'
+        '<th title="出賽">賽</th><th title="勝">勝</th><th title="和">和</th><th title="負">負</th>'
+        '<th title="進球">進</th><th title="失球">失</th><th title="淨勝球">差</th>'
+        '<th class="std-pts" title="積分">分</th>'
+        "</tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+    )
+
+
+def render_baseball_table(rows, logos=None):
+    """Single standings table for a baseball league (CPBL/MLB). `rows`: normalized standings
+    from leagues/<comp>.json (rank/team_name/win/lose/pct/games_behind/group/team_code).
+    Baseball columns: #/球隊/勝/負/勝率/勝差 — no draw, no run-difference, no points (reuses the
+    std-table markup). Team names localized via team-zh.json (TEAM_ZH, _norm_name fuzzy). A
+    split-season (CPBL 上/下半季) renders one sub-table per group. WC/soccer paths untouched."""
+    logos = logos or {}
+    groups, seen = [], {}
+    for r in rows:
+        g = r.get("group", "") or ""
+        if g not in seen:
+            seen[g] = []
+            groups.append(g)
+        seen[g].append(r)
+
+    def _one(grp_rows):
+        body = []
+        for r in grp_rows:
+            code = str(r.get("team_code", ""))
+            logo = logos.get(code)
+            crest = f'<img class="std-flag" src="{logo}" alt="" loading="lazy">' if logo else ""
+            name = TEAM_ZH.get(_norm_name(r.get("team_name", "")), r.get("team_name", ""))
+            gb = r.get("games_behind", 0) or 0
+            gb_disp = "—" if gb <= 0 else f"{gb:g}"
+            body.append(
+                "<tr>"
+                f'<td class="std-rank">{r.get("rank", "")}</td>'
+                f'<td class="std-team">{crest}<span class="std-name">{name}</span></td>'
+                f'<td>{r.get("win", 0)}</td><td>{r.get("lose", 0)}</td>'
+                f'<td>{r.get("pct", "")}</td>'
+                f'<td class="std-gd">{gb_disp}</td>'
+                "</tr>"
+            )
+        return (
+            '<table class="std-table"><thead><tr>'
+            '<th class="std-rank">#</th><th class="std-team-h">球隊</th>'
+            '<th title="勝">勝</th><th title="負">負</th>'
+            '<th title="勝率">勝率</th><th title="勝差">勝差</th>'
+            "</tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+        )
+
+    if len(groups) <= 1:
+        return _one(rows)
+    out = []
+    for g in groups:
+        out.append(
+            '<section class="std-group">'
+            f'<h3 class="std-group-h"><span class="std-group-tag">分區</span>{g or "戰績"}</h3>'
+            f"{_one(seen[g])}</section>"
+        )
+    return "".join(out)
 
 
 def zh_placeholder(name):

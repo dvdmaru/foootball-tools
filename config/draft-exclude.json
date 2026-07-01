@@ -1,0 +1,4 @@
+{
+  "_comment": "草稿排除清單（build 端 pending-review gate）。列在 exclude 裡的文章 slug 會被 build-articles.py 在探索階段完全跳過 → 不進任何 index / feed / sitemap / 聯盟首頁 / 個別頁。用途：讓 articles/ 共用池裡『尚未 cross-check 完』的稿子不上站，且不必改動作者原始 frontmatter（作者審完後的 commit 不會衝突）。審核通過後把該 slug 從 exclude 移除即可發布。預設空清單 = 零效果（輸出逐 byte 不變）。",
+  "exclude": []
+}

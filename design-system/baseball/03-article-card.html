@@ -1,0 +1,97 @@
+<!-- @dsCard group="Components" name="Article Card (lead + grid)" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@baseball · Article Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1f3c;--navy-2:#061222;--navy-soft:#0e2547;--gold:#e8b84b;--red:#c8472f;--cream:#f3efe4;
+  --fg:#f3efe4;--fg-soft:rgba(243,239,228,.78);--fg-mute:rgba(243,239,228,.5);--fg-dim:rgba(243,239,228,.34);
+  --line:rgba(243,239,228,.14);--surface:rgba(255,255,255,.03);--font:"Noto Sans TC","PingFang TC",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);color:var(--fg);
+  background:linear-gradient(160deg,var(--navy-soft),var(--navy) 55%,var(--navy-2));min-height:100vh}
+.wrap{max-width:1040px;margin:0 auto;padding:44px 22px 80px}
+.sec{font-size:12px;letter-spacing:2px;color:var(--fg-mute);text-transform:uppercase;margin:0 0 16px;font-weight:700}
+/* cover placeholder (text-only, IP-safe — same as real covers) */
+.cov{position:relative;background:
+  radial-gradient(700px 400px at 80% -20%,rgba(232,184,75,.18),transparent 60%),
+  linear-gradient(135deg,#0e2547,#0a1f3c 60%,#061222);
+  display:flex;align-items:flex-end;color:var(--cream)}
+.cov .k{position:absolute;top:16px;left:18px;font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:700;
+  border:1px solid rgba(232,184,75,.5);border-radius:999px;padding:4px 11px}
+.cov .ct{padding:18px;font-weight:900;line-height:1.12;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+
+/* lead card — full width, big cover on top */
+.card-lead{display:block;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .15s,transform .15s}
+.card-lead:hover{border-color:rgba(232,184,75,.5);transform:translateY(-2px)}
+.card-lead .cov{aspect-ratio:1200/500}
+.card-lead .cov .ct{font-size:34px}
+.card-lead .body{padding:22px 26px}
+.card-lead .kk{font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:700}
+.card-lead .tt{font-size:28px;font-weight:900;line-height:1.28;margin:9px 0}
+.card-lead .dd{font-size:14.5px;color:var(--fg-soft);line-height:1.65;max-width:60ch}
+.card-lead .mm{font-size:12.5px;color:var(--fg-dim);margin-top:12px;font-variant-numeric:tabular-nums}
+
+/* grid cards — 2 col, cover left */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.card{display:grid;grid-template-columns:170px 1fr;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .15s,transform .15s}
+.card:hover{border-color:rgba(232,184,75,.5);transform:translateY(-2px)}
+.card .cov{aspect-ratio:auto}
+.card .cov .ct{font-size:18px}
+.card .cov .k{font-size:9.5px;padding:3px 8px;top:10px;left:10px}
+.card .body{padding:15px 17px;display:flex;flex-direction:column;justify-content:center}
+.card .kk{font-size:11px;letter-spacing:1.5px;color:var(--gold);font-weight:700}
+.card .tt{font-size:16.5px;font-weight:900;line-height:1.35;margin:6px 0 0}
+.card .mm{font-size:11.5px;color:var(--fg-dim);margin-top:9px;font-variant-numeric:tabular-nums}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.card{grid-template-columns:130px 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="sec">Lead card</div>
+  <a class="card-lead" href="#">
+    <div class="cov"><span class="k">50-50 · 史上第一</span><span class="ct">投不了球的<br>那一年</span></div>
+    <div class="body">
+      <span class="kk">MLB 特刊 · 里程碑</span>
+      <div class="tt">投不了球的那一年：大谷翔平 2024 的 50-50 神話</div>
+      <div class="dd">手肘手術後整季沒投一球，他用「半個自己」打出棒球史上第一個單季 50 轟 50 盜、全票拿下 MVP。誠實拆解這份史上級成績單。</div>
+      <div class="mm">2026-06-25 · 5,134 字 · 9 表</div>
+    </div>
+  </a>
+
+  <div class="sec" style="margin-top:34px">Grid cards</div>
+  <div class="grid">
+    <a class="card" href="#">
+      <div class="cov"><span class="k">球季過半</span><span class="ct">2026<br>戰況總覽</span></div>
+      <div class="body"><span class="kk">數據總覽</span>
+        <div class="tt">2026 大聯盟球季過半總覽：道奇稱霸、白襪意外領跑、六分區全盤點</div>
+        <div class="mm">2026-06-25</div></div>
+    </a>
+    <a class="card" href="#">
+      <div class="cov"><span class="k">二刀流 · 完全體</span><span class="ct">投手大谷<br>回來了</span></div>
+      <div class="body"><span class="kk">球員特寫</span>
+        <div class="tt">二刀流完全體：大谷翔平 2026，用 ERA 1.58 宣告投手回歸</div>
+        <div class="mm">2026-06-25</div></div>
+    </a>
+    <a class="card" href="#">
+      <div class="cov"><span class="k">1-0 投手戰</span><span class="ct">一發<br>定生死</span></div>
+      <div class="body"><span class="kk">比賽分析</span>
+        <div class="tt">1-0 投手戰：金恩七局完封，馬查多一轟定生死</div>
+        <div class="mm">2026-06-22</div></div>
+    </a>
+    <a class="card" href="#">
+      <div class="cov"><span class="k">從谷底翻身</span><span class="ct">41–121<br>之後</span></div>
+      <div class="body"><span class="kk">球隊特寫</span>
+        <div class="tt">從 41 勝 121 敗到美聯中區並列第一：芝加哥白襪的兩年落差</div>
+        <div class="mm">2026-06-25</div></div>
+    </a>
+  </div>
+</div>
+</body>
+</html>

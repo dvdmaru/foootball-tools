@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="navy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報</title>
+<meta name="description" content="中職 CPBL × 大聯盟 MLB × 日職 NPB × 韓職 KBO 的即時數據儀表板：今日賽事、戰績排行、數據領先者，以及深度特刊。繁體中文 / 台北時間。">
+<meta property="og:title" content="@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報">
+<meta property="og:description" content="中職 CPBL × 大聯盟 MLB × 日職 NPB × 韓職 KBO 的即時數據儀表板：今日賽事、戰績排行、數據領先者，以及深度特刊。繁體中文 / 台北時間。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://baseball.twtools.cc/">
+<meta property="og:image" content="https://baseball.twtools.cc/og-home.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:site_name" content="@baseball">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報">
+<meta name="twitter:description" content="中職 CPBL × 大聯盟 MLB × 日職 NPB × 韓職 KBO 的即時數據儀表板：今日賽事、戰績排行、數據領先者，以及深度特刊。繁體中文 / 台北時間。">
+<meta name="twitter:image" content="https://baseball.twtools.cc/og-home.png">
+<meta name="theme-color" content="#0a1f3c">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://baseball.twtools.cc/">
+<link rel="alternate" type="application/rss+xml" title="@baseball 最新文章" href="https://baseball.twtools.cc/feed.xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://baseball.twtools.cc/#org","name":"@baseball","url":"https://baseball.twtools.cc/","sameAs":["https://www.facebook.com/profile.php?id=61591259651756"]},{"@type":"WebSite","@id":"https://baseball.twtools.cc/#website","name":"@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報","url":"https://baseball.twtools.cc/","inLanguage":"zh-Hant","publisher":{"@id":"https://baseball.twtools.cc/#org"}},{"@type":"CollectionPage","@id":"https://baseball.twtools.cc/","url":"https://baseball.twtools.cc/","name":"@baseball — 中職 CPBL ＋ 大聯盟 MLB 深度戰報","inLanguage":"zh-Hant","isPartOf":{"@id":"https://baseball.twtools.cc/#website"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://baseball.twtools.cc/articles/mlb-2026-home-run-race/","name":"長打狂潮：2026 大聯盟全壘打競賽賽季過半檢視"},{"@type":"ListItem","position":2,"url":"https://baseball.twtools.cc/articles/mlb-brewers-2026-misiorowski/","name":"防禦率 1.45，得失分淨值 +123：密爾瓦基釀酒人 2026 的小市場方程式"},{"@type":"ListItem","position":3,"url":"https://baseball.twtools.cc/articles/mlb-dustin-may-one-hitter-2026-06-15/","name":"101 球、1 安打、9 K：杜斯汀・梅伊 71 場先發等來的生涯首張完投完封"},{"@type":"ListItem","position":4,"url":"https://baseball.twtools.cc/articles/mlb-padres-1-0-braves-2026-06-22/","name":"1-0 投手戰：金恩七局完封，馬查多一轟定生死，勇士七安打一分未得"},{"@type":"ListItem","position":5,"url":"https://baseball.twtools.cc/articles/mlb-2026-midseason-report/","name":"2026 大聯盟球季過半總覽：道奇稱霸全聯盟、白襪意外領跑、分區戰況全盤點"},{"@type":"ListItem","position":6,"url":"https://baseball.twtools.cc/articles/mlb-ohtani-2026-two-way/","name":"二刀流完全體：大谷翔平 2026，用 ERA 1.58 宣告投手回歸"},{"@type":"ListItem","position":7,"url":"https://baseball.twtools.cc/articles/mlb-special-ohtani-2024-50-50/","name":"投不了球的那一年：大谷翔平 2024，與棒球史上第一個 50-50"},{"@type":"ListItem","position":8,"url":"https://baseball.twtools.cc/articles/mlb-white-sox-2026-turnaround/","name":"從 41 勝 121 敗到美聯中區第一：芝加哥白襪的兩年落差"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://baseball.twtools.cc/"}]},{"@type":"FAQPage","@id":"https://baseball.twtools.cc/#faq","inLanguage":"zh-Hant","mainEntity":[{"@type":"Question","name":"@baseball 的數據多久更新一次？","acceptedAnswer":{"@type":"Answer","text":"首頁儀表板的 MLB、日職（NPB）、韓職（KBO）戰績與賽果每日自動更新，資料來自官方 MLB StatsAPI 與 api-sports；中華職棒（CPBL）為人工擷取官方公開數據的快照，頁面會標註擷取日期。每篇文章的數字也都標註來源與截止日期。"}},{"@type":"Question","name":"@baseball 涵蓋哪些聯盟？","acceptedAnswer":{"@type":"Answer","text":"美國職棒大聯盟（MLB，30 隊）、中華職棒（CPBL）、日本職棒（NPB）與韓國職棒（KBO）。首頁提供四聯盟的今日賽事、戰績排行與數據領先者；MLB 另有 30 隊球隊頁、主客場拆分、球員名冊與里程碑特刊。"}},{"@type":"Question","name":"這個網站和 MLB、中華職棒官方有關係嗎？","acceptedAnswer":{"@type":"Answer","text":"沒有。@baseball 是獨立的繁體中文數據內容站，與 MLB、CPBL 等職業聯盟及球團無任何官方關聯；所有數據引自公開官方來源並於文中標註。"}},{"@type":"Question","name":"文章的數據可信嗎？要怎麼查證？","acceptedAnswer":{"@type":"Answer","text":"每篇深度文以結構化事實（facts pack）為基礎撰寫，數字逐筆對照 MLB StatsAPI／api-sports 官方來源，並經獨立第二來源交叉核對後才發佈。文中關鍵數據附截止日期，方便讀者自行查證。"}},{"@type":"Question","name":"為什麼看 @baseball，而不是直接查比分？","acceptedAnswer":{"@type":"Answer","text":"即時比分各家都有；@baseball 專注「看門道」——用排行榜、主客場拆分、淨勝分與里程碑脈絡把數字背後的故事說清楚，每篇 5,000 字以上、附統計表，為深度理解而非即時速報而寫。"}}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0F06P2HXB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z0F06P2HXB');
+</script>
+<style>
+
+:root {
+  --radius: 16px;
+  --radius-sm: 11px;
+  --font-display: 'Anton', 'Noto Sans TC', sans-serif;
+  --font-ui: 'Archivo', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+  --surface: #ffffff; --surface-2: #f8faf6; --surface-3: #eef1ec;
+  --fg: #1b211e; --fg-soft: #49534d; --dim: #6f7a73; --faint: #9aa39d;
+  --line: rgba(20,28,24,0.10); --line-2: rgba(20,28,24,0.17);
+  --sheet-shadow: rgba(20,28,24,0.16); --scrim: rgba(20,28,24,0.34);
+}
+:root[data-theme="grass"]    { --bg:#f1f4ed; --bg-glow:#e2efdc; --accent:#1f9d63; --accent-bright:#23b372; --accent-ink:#ffffff; --accent-soft:rgba(31,157,99,0.10);  --accent-line:rgba(31,157,99,0.30);  --accent-glow:rgba(31,157,99,0.26); }
+:root[data-theme="cobalt"]   { --bg:#eef1f7; --bg-glow:#e1e8f7; --accent:#2b5ce0; --accent-bright:#3a6bf0; --accent-ink:#ffffff; --accent-soft:rgba(43,92,224,0.10);  --accent-line:rgba(43,92,224,0.30);  --accent-glow:rgba(43,92,224,0.26); }
+:root[data-theme="tangerine"]{ --bg:#f7f1e9; --bg-glow:#f3e6d4; --accent:#d4622a; --accent-bright:#e8743a; --accent-ink:#ffffff; --accent-soft:rgba(212,98,42,0.10);  --accent-line:rgba(212,98,42,0.30);  --accent-glow:rgba(212,98,42,0.26); }
+:root[data-theme="berry"]    { --bg:#f6eef2; --bg-glow:#f2e1ea; --accent:#c0356f; --accent-bright:#d44a82; --accent-ink:#ffffff; --accent-soft:rgba(192,53,111,0.10); --accent-line:rgba(192,53,111,0.30); --accent-glow:rgba(192,53,111,0.26); }
+:root[data-theme="teal"]     { --bg:#ebf2f1; --bg-glow:#dcecea; --accent:#0f8a8a; --accent-bright:#14a3a0; --accent-ink:#ffffff; --accent-soft:rgba(15,138,138,0.10); --accent-line:rgba(15,138,138,0.30); --accent-glow:rgba(15,138,138,0.26); }
+:root[data-theme="plum"]     { --bg:#f1eef6; --bg-glow:#e6e1f3; --accent:#6c4bd1; --accent-bright:#7d5ee0; --accent-ink:#ffffff; --accent-soft:rgba(108,75,209,0.10); --accent-line:rgba(108,75,209,0.30); --accent-glow:rgba(108,75,209,0.26); }
+:root[data-theme="dark"] {
+  --surface: #143524; --surface-2: #1a4530; --surface-3: #1f4a36;
+  --fg: #e8f0e6; --fg-soft: #b8c5bb; --dim: #8a9c8d; --faint: #6a7a6e;
+  --line: rgba(232,240,230,0.10); --line-2: rgba(232,240,230,0.18);
+  --sheet-shadow: rgba(0,0,0,0.55); --scrim: rgba(0,0,0,0.55);
+  --bg: #0d2818; --bg-glow: #143a26; --accent: #d4af37; --accent-bright: #f0c850;
+  --accent-ink: #0d2818; --accent-soft: rgba(212,175,55,0.12); --accent-line: rgba(212,175,55,0.35); --accent-glow: rgba(212,175,55,0.30);
+}
+:root[data-theme="dark"] body::before { mix-blend-mode: screen; opacity: 0.22; }
+:root[data-theme="dark"] .theme-switch { box-shadow: 0 6px 22px rgba(0,0,0,0.45); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-ui);
+  line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+body {
+  min-height: 100vh; padding: 0 16px 110px; position: relative;
+  background: radial-gradient(130% 72% at 50% -12%, var(--bg-glow) 0%, transparent 56%), var(--bg);
+}
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+:root[data-theme="navy"] {
+  --surface:#10294a; --surface-2:#16335a; --surface-3:#1b3c69;
+  --fg:#f3efe4; --fg-soft:#c7cfdb; --dim:#94a0b4; --faint:#6c7a92;
+  --line:rgba(243,239,228,0.12); --line-2:rgba(243,239,228,0.20);
+  --sheet-shadow:rgba(0,0,0,0.5); --scrim:rgba(0,0,0,0.5);
+  --bg:#0a1f3c; --bg-glow:#0e2547;
+  --accent:#e8b84b; --accent-bright:#f3c860; --accent-ink:#0a1f3c;
+  --accent-soft:rgba(232,184,75,0.12); --accent-line:rgba(232,184,75,0.36); --accent-glow:rgba(232,184,75,0.30);
+}
+:root[data-theme="navy"] body::before { mix-blend-mode:screen; opacity:0.18; }
+:root[data-theme="navy"] .site-header { position:sticky; top:0; z-index:30; margin-bottom:34px;
+  padding:14px 0; background:rgba(8,24,46,0.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line); }
+:root[data-theme="navy"] .site-nav a { text-transform:none; letter-spacing:1px; font-size:13px;
+  padding:6px 13px; border-radius:999px; border-bottom:none; }
+:root[data-theme="navy"] .site-nav a:hover { color:var(--accent); background:var(--accent-soft); border-bottom:none; }
+:root[data-theme="navy"] .site-nav a.active { color:var(--accent-ink); background:var(--accent); border-bottom:none; }
+:root[data-theme="navy"] .brand-tag { color:var(--dim); }
+
+
+.site-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding: 36px 0 20px; margin-bottom: 44px;
+  border-bottom: 1px solid var(--line);
+  gap: 24px; flex-wrap: wrap;
+}
+.brand-block { display: flex; flex-direction: column; gap: 6px; }
+.brand-mark {
+  font-family: var(--font-display); font-size: 30px; line-height: 1;
+  color: var(--accent); letter-spacing: 1.2px;
+  text-decoration: none; transition: color 0.15s ease;
+}
+.brand-mark:hover { color: var(--accent-bright); }
+.brand-tag {
+  font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: 2.5px; color: var(--dim); text-transform: uppercase;
+}
+.site-nav {
+  display: flex; gap: 22px; align-items: center;
+  font-family: var(--font-mono); font-size: 11.5px;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.site-nav a {
+  color: var(--dim); text-decoration: none;
+  padding: 6px 0; border-bottom: 1.5px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.site-nav a:hover, .site-nav a.active {
+  color: var(--accent); border-bottom-color: var(--accent);
+}
+@media (max-width: 580px) {
+  .site-header { padding-top: 22px; gap: 16px; }
+  .brand-mark { font-size: 24px; }
+  .site-nav { gap: 16px; font-size: 11px; }
+}
+.site-disclaimer { font-size: 11px; color: var(--faint); line-height: 1.7; text-align: center; max-width: 600px; margin: 18px auto 0; }
+.site-disclaimer span { opacity: 0.75; }
+
+
+.bb-shell{max-width:1060px;margin:0 auto}
+.bb-hero{padding:30px 2px 26px}
+.bb-hero h1{font-family:var(--font-display);font-size:clamp(30px,5vw,48px);line-height:1.08;letter-spacing:.5px;color:var(--fg)}
+.bb-hero p{font-size:16.5px;color:var(--fg-soft);line-height:1.75;max-width:64ch;margin-top:14px}
+.bb-sec{display:flex;align-items:baseline;gap:12px;margin:36px 2px 16px}
+.bb-sec h2{font-family:var(--font-mono);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);font-weight:700}
+.bb-sec .ln{flex:1;height:1px;background:var(--line)}
+.bb-teams{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;
+  background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:var(--radius-sm);
+  padding:16px 22px;margin:8px 0 4px;transition:border-color .15s,transform .15s}
+.bb-teams:hover{border-color:var(--accent);transform:translateY(-2px)}
+.bb-teams .ic{font-size:26px}
+.bb-teams .t{font-size:17px;font-weight:800;color:var(--fg)}
+.bb-teams .d{font-size:12.5px;color:var(--dim);margin-top:2px}
+.bb-teams .go{margin-left:auto;color:var(--accent);font-weight:800;font-size:14px}
+.cov{position:relative;overflow:hidden;background:var(--surface-2)}
+.cov img{display:block;width:100%;height:100%;object-fit:cover}
+.card-lead{display:block;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:6px;transition:border-color .15s,transform .15s}
+.card-lead:hover{border-color:var(--accent-line);transform:translateY(-2px)}
+.card-lead .cov{aspect-ratio:1200/470}
+.card-lead .body{padding:22px 26px}
+.card-lead .kk{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;color:var(--accent);font-weight:700;text-transform:uppercase}
+.card-lead .tt{font-size:27px;font-weight:900;line-height:1.3;margin:9px 0;color:var(--fg)}
+.card-lead .dd{font-size:14.5px;color:var(--fg-soft);line-height:1.65;max-width:62ch}
+.card-lead .mm{font-size:12.5px;color:var(--faint);margin-top:12px;font-variant-numeric:tabular-nums}
+.bb-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.card{display:grid;grid-template-columns:165px 1fr;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent-line);transform:translateY(-2px)}
+.card .body{padding:15px 17px;display:flex;flex-direction:column;justify-content:center}
+.card .kk{font-family:var(--font-mono);font-size:10.5px;letter-spacing:1.5px;color:var(--accent);font-weight:700;text-transform:uppercase}
+.card .tt{font-size:16px;font-weight:900;line-height:1.36;margin:6px 0 0;color:var(--fg)}
+.card .mm{font-size:11.5px;color:var(--faint);margin-top:9px;font-variant-numeric:tabular-nums}
+.bb-faq{margin-top:14px;display:grid;gap:12px}
+.bb-faq .qa{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 20px}
+.bb-faq .faq-q{font-size:16px;font-weight:800;color:var(--fg);margin:0 0 6px;line-height:1.45}
+.bb-faq .faq-a{font-size:14px;color:var(--fg-soft);line-height:1.72;margin:0}
+.bb-foot{margin-top:52px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--faint);line-height:1.85}
+@media(max-width:680px){.bb-grid{grid-template-columns:1fr}.card{grid-template-columns:120px 1fr}}
+
+
+.dash-asof{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--font-mono);
+  font-size:12px;color:var(--dim);border:1px solid var(--line-2);border-radius:999px;padding:6px 14px}
+.dash-asof b{color:var(--accent);font-weight:700}
+.bb-sec .tg{font-family:var(--font-mono);font-size:11px;color:var(--faint);letter-spacing:1px}
+.tabs>input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.tablabels{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;border-bottom:1px solid var(--line)}
+.tablabels label{cursor:pointer;padding:9px 16px;font-size:14px;font-weight:700;color:var(--dim);
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s}
+.tablabels label:hover{color:var(--fg)}
+.tabs .panel{display:none}
+.gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(218px,1fr));gap:10px}
+.gc{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}
+.gc-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;color:var(--fg-soft);font-size:14.5px}
+.gc-row.win{color:var(--fg);font-weight:800}
+.gc-row.win .gc-s{color:var(--accent)}
+.gc-s{font-family:var(--font-mono);font-weight:700}
+.dv-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
+.div-name{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:14px 0 6px}
+.std-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.std-table th,.std-table td{padding:7px 6px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+.std-table th{color:var(--faint);font-size:11px;font-weight:700}
+.std-table td.l,.std-table th.l{text-align:left}
+.std-table td.rk{color:var(--dim);font-family:var(--font-mono)}
+.std-table tr.lead td.tm{font-weight:800;color:var(--fg)}
+.std-pts{color:var(--accent);font-weight:800;font-family:var(--font-mono)}
+.rd-pos,.stk-pos{color:#5fb878}.rd-neg,.stk-neg{color:#d98a8a}
+.lb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:10px 22px}
+.lb-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px 8px;background:var(--surface)}
+.lb-card h3{font-size:14px;color:var(--accent);margin-bottom:6px;font-weight:800;letter-spacing:1px}
+.lb-card table{width:100%;border-collapse:collapse}
+.lb-card td{padding:4px 2px;font-size:13.5px;border-bottom:1px solid var(--line)}
+.lb-card td.rk{color:var(--dim);font-family:var(--font-mono);width:20px}
+.lb-card td.nm{text-align:left}
+.lb-card td.tm{color:var(--faint);font-size:11px;text-align:right}
+.lb-card td.vl{text-align:right;color:var(--accent);font-weight:800;font-family:var(--font-mono);width:52px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{display:flex;align-items:center;gap:14px;background:var(--accent-soft);border:1px solid var(--accent-line);
+  border-radius:var(--radius-sm);padding:16px 20px;text-decoration:none;color:var(--fg);transition:border-color .15s,transform .15s}
+.tile:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tile .ic{font-size:24px}
+.tile .tt{font-weight:800;font-size:15px}
+.tile .ds{color:var(--dim);font-size:12px;margin-top:2px;display:block}
+.tile .go{margin-left:auto;color:var(--accent);font-weight:800}
+.dash-note{color:var(--faint);font-size:12px;margin-top:10px;line-height:1.6}
+.stale-badge{display:inline-block;font-family:var(--font-mono);font-size:11px;color:#d98a8a;
+  border:1px solid #d98a8a;border-radius:6px;padding:1px 8px;margin-left:8px}
+@media(max-width:680px){.dv-grid{grid-template-columns:1fr}.tiles{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<div class="bb-shell">
+  <header class="site-header">
+    <div class="brand-block">
+      <a href="/" class="brand-mark">@BASEBALL</a>
+      <div class="brand-tag">中職 + MLB · 數據深度</div>
+    </div>
+    <nav class="site-nav">
+      <a href="/" class="active">首頁</a>
+      <a href="/data/">數據</a>
+      <a href="/articles/">文章</a>
+      <a href="https://www.facebook.com/profile.php?id=61591259651756" target="_blank" rel="noopener">Facebook ↗</a>
+    </nav>
+  </header>
+
+  <main>
+  <section class="bb-hero">
+    <h1>四聯盟即時數據，<br>用數據看門道。</h1>
+    <p>中職 CPBL × 大聯盟 MLB × 日職 NPB × 韓職 KBO —— 今日賽事、戰績排行、數據領先者，一頁掌握。深度特刊在「文章」。</p>
+    <div class="dash-asof">⏱ 資料截至 <b>2026-07-01</b>　·　每日自動更新（MLB／NPB／KBO）</div>
+  </section>
+  <div class="bb-sec"><h2>今日賽事</h2><span class="ln"></span><span class="tg">最新一輪</span></div><style>#gt-mlb:checked~.tablabels label[for="gt-mlb"]{color:var(--accent);border-bottom-color:var(--accent)}#gt-mlb:checked~.panel-gt-mlb{display:block}#gt-npb:checked~.tablabels label[for="gt-npb"]{color:var(--accent);border-bottom-color:var(--accent)}#gt-npb:checked~.panel-gt-npb{display:block}#gt-kbo:checked~.tablabels label[for="gt-kbo"]{color:var(--accent);border-bottom-color:var(--accent)}#gt-kbo:checked~.panel-gt-kbo{display:block}</style><div class="tabs"><input type="radio" name="gt" id="gt-mlb" checked><input type="radio" name="gt" id="gt-npb"><input type="radio" name="gt" id="gt-kbo"><div class="tablabels"><label for="gt-mlb">MLB</label><label for="gt-npb">日職 NPB</label><label for="gt-kbo">韓職 KBO</label></div><div class="panel panel-gt-mlb"><div class="gc-grid"><div class="gc"><div class="gc-row win"><span>芝加哥白襪</span><span class="gc-s">9</span></div><div class="gc-row "><span>巴爾的摩金鶯</span><span class="gc-s">3</span></div></div><div class="gc"><div class="gc-row win"><span>德州遊騎兵</span><span class="gc-s">4</span></div><div class="gc-row "><span>克里夫蘭守護者</span><span class="gc-s">2</span></div></div><div class="gc"><div class="gc-row "><span>匹茲堡海盜</span><span class="gc-s">0</span></div><div class="gc-row win"><span>費城費城人</span><span class="gc-s">8</span></div></div><div class="gc"><div class="gc-row win"><span>底特律老虎</span><span class="gc-s">9</span></div><div class="gc-row "><span>紐約洋基</span><span class="gc-s">3</span></div></div><div class="gc"><div class="gc-row win"><span>紐約大都會</span><span class="gc-s">3</span></div><div class="gc-row "><span>多倫多藍鳥</span><span class="gc-s">0</span></div></div><div class="gc"><div class="gc-row win"><span>華盛頓國民</span><span class="gc-s">8</span></div><div class="gc-row "><span>波士頓紅襪</span><span class="gc-s">1</span></div></div><div class="gc"><div class="gc-row win"><span>聖路易紅雀</span><span class="gc-s">5</span></div><div class="gc-row "><span>亞特蘭大勇士</span><span class="gc-s">3</span></div></div><div class="gc"><div class="gc-row win"><span>坦帕灣光芒</span><span class="gc-s">10</span></div><div class="gc-row "><span>堪薩斯皇家</span><span class="gc-s">4</span></div></div><div class="gc"><div class="gc-row "><span>辛辛那提紅人</span><span class="gc-s">2</span></div><div class="gc-row win"><span>密爾瓦基釀酒人</span><span class="gc-s">7</span></div></div><div class="gc"><div class="gc-row "><span>聖地牙哥教士</span><span class="gc-s">7</span></div><div class="gc-row win"><span>芝加哥小熊</span><span class="gc-s">9</span></div></div><div class="gc"><div class="gc-row "><span>明尼蘇達雙城</span><span class="gc-s">4</span></div><div class="gc-row win"><span>休士頓太空人</span><span class="gc-s">6</span></div></div><div class="gc"><div class="gc-row win"><span>邁阿密馬林魚</span><span class="gc-s">14</span></div><div class="gc-row "><span>科羅拉多落磯</span><span class="gc-s">3</span></div></div></div><div class="dash-note">美國時間 2026-06-30 · 來源 MLB 官方 StatsAPI</div></div><div class="panel panel-gt-npb"><div class="gc-grid"><div class="gc"><div class="gc-row "><span>西武獅</span><span class="gc-s">0</span></div><div class="gc-row win"><span>福岡軟銀鷹</span><span class="gc-s">6</span></div></div><div class="gc"><div class="gc-row "><span>中日龍</span><span class="gc-s">2</span></div><div class="gc-row win"><span>阪神虎</span><span class="gc-s">3</span></div></div><div class="gc"><div class="gc-row "><span>歐力士猛牛</span><span class="gc-s">2</span></div><div class="gc-row win"><span>日本火腿鬥士</span><span class="gc-s">9</span></div></div><div class="gc"><div class="gc-row win"><span>千葉羅德海洋</span><span class="gc-s">5</span></div><div class="gc-row "><span>東北樂天金鷲</span><span class="gc-s">2</span></div></div><div class="gc"><div class="gc-row win"><span>廣島東洋鯉魚</span><span class="gc-s">7</span></div><div class="gc-row "><span>橫濱DeNA灣星</span><span class="gc-s">4</span></div></div><div class="gc"><div class="gc-row win"><span>養樂多燕子</span><span class="gc-s">4</span></div><div class="gc-row "><span>讀賣巨人</span><span class="gc-s">3</span></div></div></div><div class="dash-note">2026-06-30 · 來源 api-baseball</div></div><div class="panel panel-gt-kbo"><div class="gc-grid"><div class="gc"><div class="gc-row win"><span>三星獅</span><span class="gc-s">13</span></div><div class="gc-row "><span>NC 恐龍</span><span class="gc-s">7</span></div></div><div class="gc"><div class="gc-row "><span>LG 雙子</span><span class="gc-s">0</span></div><div class="gc-row win"><span>Kiwoom 英雄</span><span class="gc-s">6</span></div></div><div class="gc"><div class="gc-row "><span>SSG 登陸者</span><span class="gc-s">3</span></div><div class="gc-row win"><span>起亞虎</span><span class="gc-s">10</span></div></div><div class="gc"><div class="gc-row "><span>樂天巨人</span><span class="gc-s">0</span></div><div class="gc-row win"><span>斗山熊</span><span class="gc-s">5</span></div></div></div><div class="dash-note">2026-06-30 · 來源 api-baseball</div></div></div>
+  <div class="bb-sec"><h2>戰績速覽</h2><span class="ln"></span><span class="tg">分區 / 排名</span></div><style>#st-mlb:checked~.tablabels label[for="st-mlb"]{color:var(--accent);border-bottom-color:var(--accent)}#st-mlb:checked~.panel-st-mlb{display:block}#st-cpbl:checked~.tablabels label[for="st-cpbl"]{color:var(--accent);border-bottom-color:var(--accent)}#st-cpbl:checked~.panel-st-cpbl{display:block}#st-npb:checked~.tablabels label[for="st-npb"]{color:var(--accent);border-bottom-color:var(--accent)}#st-npb:checked~.panel-st-npb{display:block}#st-kbo:checked~.tablabels label[for="st-kbo"]{color:var(--accent);border-bottom-color:var(--accent)}#st-kbo:checked~.panel-st-kbo{display:block}</style><div class="tabs"><input type="radio" name="st" id="st-mlb" checked><input type="radio" name="st" id="st-cpbl"><input type="radio" name="st" id="st-npb"><input type="radio" name="st" id="st-kbo"><div class="tablabels"><label for="st-mlb">MLB 六分區</label><label for="st-cpbl">中職 CPBL</label><label for="st-npb">日職 NPB</label><label for="st-kbo">韓職 KBO</label></div><div class="panel panel-st-mlb"><div class="dv-grid"><div class="dv"><div class="div-name">美聯東區</div><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th><th>淨分</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">坦帕灣光芒</td><td class="std-pts">49</td><td>33</td><td>.598</td><td>-</td><td class="rd-pos">+30</td></tr><tr><td class="rk">2</td><td class="l tm">紐約洋基</td><td class="std-pts">48</td><td>37</td><td>.565</td><td>2.5</td><td class="rd-pos">+91</td></tr><tr><td class="rk">3</td><td class="l tm">多倫多藍鳥</td><td class="std-pts">40</td><td>46</td><td>.465</td><td>11.0</td><td class="rd-neg">-35</td></tr><tr><td class="rk">4</td><td class="l tm">巴爾的摩金鶯</td><td class="std-pts">39</td><td>48</td><td>.448</td><td>12.5</td><td class="rd-neg">-38</td></tr><tr><td class="rk">5</td><td class="l tm">波士頓紅襪</td><td class="std-pts">37</td><td>47</td><td>.440</td><td>13.0</td><td class="rd-pos">+1</td></tr></tbody></table></div><div class="dv"><div class="div-name">美聯中區</div><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th><th>淨分</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">芝加哥白襪</td><td class="std-pts">45</td><td>39</td><td>.536</td><td>-</td><td class="rd-pos">+30</td></tr><tr><td class="rk">2</td><td class="l tm">克里夫蘭守護者</td><td class="std-pts">44</td><td>42</td><td>.512</td><td>2.0</td><td class="rd-neg">-13</td></tr><tr><td class="rk">3</td><td class="l tm">明尼蘇達雙城</td><td class="std-pts">41</td><td>46</td><td>.471</td><td>5.5</td><td class="rd-neg">-31</td></tr><tr><td class="rk">4</td><td class="l tm">底特律老虎</td><td class="std-pts">37</td><td>49</td><td>.430</td><td>9.0</td><td class="rd-pos">+7</td></tr><tr><td class="rk">5</td><td class="l tm">堪薩斯皇家</td><td class="std-pts">35</td><td>51</td><td>.407</td><td>11.0</td><td class="rd-neg">-76</td></tr></tbody></table></div><div class="dv"><div class="div-name">美聯西區</div><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th><th>淨分</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">德州遊騎兵</td><td class="std-pts">44</td><td>42</td><td>.512</td><td>-</td><td class="rd-neg">-3</td></tr><tr><td class="rk">2</td><td class="l tm">西雅圖水手</td><td class="std-pts">44</td><td>43</td><td>.506</td><td>0.5</td><td class="rd-pos">+13</td></tr><tr><td class="rk">3</td><td class="l tm">休士頓太空人</td><td class="std-pts">43</td><td>45</td><td>.489</td><td>2.0</td><td class="rd-neg">-41</td></tr><tr><td class="rk">4</td><td class="l tm">運動家</td><td class="std-pts">40</td><td>46</td><td>.465</td><td>4.0</td><td class="rd-neg">-65</td></tr><tr><td class="rk">5</td><td class="l tm">洛杉磯天使</td><td class="std-pts">36</td><td>51</td><td>.414</td><td>8.5</td><td class="rd-neg">-45</td></tr></tbody></table></div><div class="dv"><div class="div-name">國聯東區</div><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th><th>淨分</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">亞特蘭大勇士</td><td class="std-pts">49</td><td>34</td><td>.590</td><td>-</td><td class="rd-pos">+86</td></tr><tr><td class="rk">2</td><td class="l tm">費城費城人</td><td class="std-pts">48</td><td>38</td><td>.558</td><td>2.5</td><td class="rd-pos">+6</td></tr><tr><td class="rk">3</td><td class="l tm">邁阿密馬林魚</td><td class="std-pts">46</td><td>40</td><td>.535</td><td>4.5</td><td class="rd-pos">+24</td></tr><tr><td class="rk">4</td><td class="l tm">華盛頓國民</td><td class="std-pts">44</td><td>43</td><td>.506</td><td>7.0</td><td class="rd-pos">+9</td></tr><tr><td class="rk">5</td><td class="l tm">紐約大都會</td><td class="std-pts">36</td><td>50</td><td>.419</td><td>14.5</td><td class="rd-neg">-43</td></tr></tbody></table></div><div class="dv"><div class="div-name">國聯中區</div><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th><th>淨分</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">密爾瓦基釀酒人</td><td class="std-pts">52</td><td>31</td><td>.627</td><td>-</td><td class="rd-pos">+127</td></tr><tr><td class="rk">2</td><td class="l tm">芝加哥小熊</td><td class="std-pts">48</td><td>38</td><td>.558</td><td>5.5</td><td class="rd-pos">+43</td></tr><tr><td class="rk">3</td><td class="l tm">聖路易紅雀</td><td class="std-pts">44</td><td>38</td><td>.537</td><td>7.5</td><td class="rd-neg">-6</td></tr><tr><td class="rk">4</td><td class="l tm">匹茲堡海盜</td><td class="std-pts">43</td><td>43</td><td>.500</td><td>10.5</td><td class="rd-pos">+24</td></tr><tr><td class="rk">5</td><td class="l tm">辛辛那提紅人</td><td class="std-pts">39</td><td>45</td><td>.464</td><td>13.5</td><td class="rd-neg">-58</td></tr></tbody></table></div><div class="dv"><div class="div-name">國聯西區</div><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th><th>淨分</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">洛杉磯道奇</td><td class="std-pts">56</td><td>30</td><td>.651</td><td>-</td><td class="rd-pos">+163</td></tr><tr><td class="rk">2</td><td class="l tm">聖地牙哥教士</td><td class="std-pts">43</td><td>41</td><td>.512</td><td>12.0</td><td class="rd-neg">-16</td></tr><tr><td class="rk">3</td><td class="l tm">亞利桑那響尾蛇</td><td class="std-pts">43</td><td>42</td><td>.506</td><td>12.5</td><td class="rd-neg">-24</td></tr><tr><td class="rk">4</td><td class="l tm">舊金山巨人</td><td class="std-pts">35</td><td>50</td><td>.412</td><td>20.5</td><td class="rd-neg">-57</td></tr><tr><td class="rk">5</td><td class="l tm">科羅拉多落磯</td><td class="std-pts">33</td><td>53</td><td>.384</td><td>23.0</td><td class="rd-neg">-103</td></tr></tbody></table></div></div><div class="dash-note">截至 2026-07-01 · MLB 官方 StatsAPI</div></div><div class="panel panel-st-cpbl"><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>和</th><th>勝率</th><th>勝差</th><th>近況</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">味全龍</td><td class="std-pts">38</td><td>20</td><td>0</td><td>.655</td><td>—</td><td class="stk-neg">敗2</td></tr><tr><td class="rk">2</td><td class="l tm">富邦悍將</td><td class="std-pts">32</td><td>26</td><td>0</td><td>.552</td><td>6</td><td class="stk-pos">勝1</td></tr><tr><td class="rk">3</td><td class="l tm">台鋼雄鷹</td><td class="std-pts">30</td><td>29</td><td>1</td><td>.508</td><td>8.5</td><td class="stk-neg">敗2</td></tr><tr><td class="rk">4</td><td class="l tm">統一7-ELEVEn獅</td><td class="std-pts">28</td><td>28</td><td>1</td><td>.5</td><td>9</td><td class="stk-pos">勝1</td></tr><tr><td class="rk">5</td><td class="l tm">樂天桃猿</td><td class="std-pts">22</td><td>33</td><td>2</td><td>.4</td><td>14.5</td><td class="stk-neg">敗1</td></tr><tr><td class="rk">6</td><td class="l tm">中信兄弟</td><td class="std-pts">20</td><td>34</td><td>2</td><td>.37</td><td>16</td><td class="stk-pos">勝4</td></tr></tbody></table><div class="dash-note">人工擷取快照（2026-06-28）<span class="stale-badge">手動更新 · 非即時</span></div></div><div class="panel panel-st-npb"><div class="dv-grid"><div class="dv"><div class="div-name">中央聯盟</div><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">阪神虎</td><td class="std-pts">43</td><td>32</td><td>.573</td><td>—</td></tr><tr><td class="rk">2</td><td class="l tm">養樂多燕子</td><td class="std-pts">43</td><td>36</td><td>.544</td><td>2</td></tr><tr><td class="rk">3</td><td class="l tm">讀賣巨人</td><td class="std-pts">40</td><td>34</td><td>.541</td><td>2.5</td></tr><tr><td class="rk">4</td><td class="l tm">橫濱DeNA灣星</td><td class="std-pts">32</td><td>44</td><td>.421</td><td>11.5</td></tr><tr><td class="rk">5</td><td class="l tm">中日龍</td><td class="std-pts">31</td><td>49</td><td>.388</td><td>14.5</td></tr><tr><td class="rk">6</td><td class="l tm">廣島東洋鯉魚</td><td class="std-pts">30</td><td>46</td><td>.395</td><td>13.5</td></tr></tbody></table></div><div class="dv"><div class="div-name">太平洋聯盟</div><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">日本火腿鬥士</td><td class="std-pts">48</td><td>34</td><td>.585</td><td>—</td></tr><tr><td class="rk">2</td><td class="l tm">西武獅</td><td class="std-pts">47</td><td>33</td><td>.588</td><td>—</td></tr><tr><td class="rk">3</td><td class="l tm">福岡軟銀鷹</td><td class="std-pts">46</td><td>30</td><td>.605</td><td>—</td></tr><tr><td class="rk">4</td><td class="l tm">歐力士猛牛</td><td class="std-pts">41</td><td>36</td><td>.532</td><td>4.5</td></tr><tr><td class="rk">5</td><td class="l tm">千葉羅德海洋</td><td class="std-pts">34</td><td>40</td><td>.459</td><td>10</td></tr><tr><td class="rk">6</td><td class="l tm">東北樂天金鷲</td><td class="std-pts">28</td><td>49</td><td>.364</td><td>17.5</td></tr></tbody></table></div></div><div class="dash-note">中央聯盟 / 太平洋聯盟 · 由賽果自算 · 來源 api-baseball</div></div><div class="panel panel-st-kbo"><table class="std-table"><thead><tr><th>#</th><th class="l">球隊</th><th>勝</th><th>敗</th><th>勝率</th><th>勝差</th></tr></thead><tbody><tr class="lead"><td class="rk">1</td><td class="l tm">LG 雙子</td><td class="std-pts">47</td><td>30</td><td>.610</td><td>0.0</td></tr><tr><td class="rk">2</td><td class="l tm">三星獅</td><td class="std-pts">44</td><td>30</td><td>.595</td><td>1.5</td></tr><tr><td class="rk">3</td><td class="l tm">KT巫師</td><td class="std-pts">43</td><td>31</td><td>.581</td><td>2.5</td></tr><tr><td class="rk">4</td><td class="l tm">起亞虎</td><td class="std-pts">42</td><td>35</td><td>.545</td><td>5.0</td></tr><tr><td class="rk">5</td><td class="l tm">斗山熊</td><td class="std-pts">38</td><td>38</td><td>.500</td><td>8.5</td></tr><tr><td class="rk">6</td><td class="l tm">韓華鷹</td><td class="std-pts">37</td><td>36</td><td>.507</td><td>8.0</td></tr><tr><td class="rk">7</td><td class="l tm">NC 恐龍</td><td class="std-pts">34</td><td>40</td><td>.459</td><td>11.5</td></tr><tr><td class="rk">8</td><td class="l tm">樂天巨人</td><td class="std-pts">33</td><td>41</td><td>.446</td><td>12.5</td></tr><tr><td class="rk">9</td><td class="l tm">SSG 登陸者</td><td class="std-pts">30</td><td>45</td><td>.400</td><td>16.0</td></tr><tr><td class="rk">10</td><td class="l tm">Kiwoom 英雄</td><td class="std-pts">28</td><td>50</td><td>.359</td><td>19.5</td></tr></tbody></table><div class="dash-note">由賽果自算 · 來源 api-baseball</div></div></div>
+  <div class="bb-sec"><h2>數據領先者</h2><span class="ln"></span><span class="tg">打擊 / 投手 TOP 5</span></div><style>#lt-mlb:checked~.tablabels label[for="lt-mlb"]{color:var(--accent);border-bottom-color:var(--accent)}#lt-mlb:checked~.panel-lt-mlb{display:block}#lt-cpbl:checked~.tablabels label[for="lt-cpbl"]{color:var(--accent);border-bottom-color:var(--accent)}#lt-cpbl:checked~.panel-lt-cpbl{display:block}</style><div class="tabs"><input type="radio" name="lt" id="lt-mlb" checked><input type="radio" name="lt" id="lt-cpbl"><div class="tablabels"><label for="lt-mlb">MLB</label><label for="lt-cpbl">中職 CPBL</label></div><div class="panel panel-lt-mlb"><div class="lb-grid"><div class="lb-card"><h3>全壘打</h3><table><tbody><tr><td class="rk">1</td><td class="nm">Kyle Schwarber</td><td class="tm">費城費城人</td><td class="vl">30</td></tr><tr><td class="rk">2</td><td class="nm">Yordan Alvarez</td><td class="tm">休士頓太空人</td><td class="vl">26</td></tr><tr><td class="rk">2</td><td class="nm">Hunter Goodman</td><td class="tm">科羅拉多落磯</td><td class="vl">26</td></tr><tr><td class="rk">4</td><td class="nm">Byron Buxton</td><td class="tm">明尼蘇達雙城</td><td class="vl">25</td></tr><tr><td class="rk">5</td><td class="nm">Junior Caminero</td><td class="tm">坦帕灣光芒</td><td class="vl">23</td></tr></tbody></table></div><div class="lb-card"><h3>打點</h3><table><tbody><tr><td class="rk">1</td><td class="nm">Nick Kurtz</td><td class="tm">運動家</td><td class="vl">64</td></tr><tr><td class="rk">2</td><td class="nm">CJ Abrams</td><td class="tm">華盛頓國民</td><td class="vl">60</td></tr><tr><td class="rk">2</td><td class="nm">Yordan Alvarez</td><td class="tm">休士頓太空人</td><td class="vl">60</td></tr><tr><td class="rk">2</td><td class="nm">Andy Pages</td><td class="tm">洛杉磯道奇</td><td class="vl">60</td></tr><tr><td class="rk">5</td><td class="nm">Pete Alonso</td><td class="tm">巴爾的摩金鶯</td><td class="vl">59</td></tr></tbody></table></div><div class="lb-card"><h3>打擊率</h3><table><tbody><tr><td class="rk">1</td><td class="nm">Yandy Díaz</td><td class="tm">坦帕灣光芒</td><td class="vl">.334</td></tr><tr><td class="rk">2</td><td class="nm">Otto Lopez</td><td class="tm">邁阿密馬林魚</td><td class="vl">.333</td></tr><tr><td class="rk">3</td><td class="nm">Luis Arraez</td><td class="tm">舊金山巨人</td><td class="vl">.331</td></tr><tr><td class="rk">4</td><td class="nm">Brandon Marsh</td><td class="tm">費城費城人</td><td class="vl">.317</td></tr><tr><td class="rk">5</td><td class="nm">Jung Hoo Lee</td><td class="tm">舊金山巨人</td><td class="vl">.316</td></tr></tbody></table></div><div class="lb-card"><h3>盜壘</h3><table><tbody><tr><td class="rk">1</td><td class="nm">Nasim Nuñez</td><td class="tm">華盛頓國民</td><td class="vl">32</td></tr><tr><td class="rk">2</td><td class="nm">Bobby Witt Jr.</td><td class="tm">堪薩斯皇家</td><td class="vl">28</td></tr><tr><td class="rk">3</td><td class="nm">Jazz Chisholm Jr.</td><td class="tm">紐約洋基</td><td class="vl">24</td></tr><tr><td class="rk">3</td><td class="nm">José Ramírez</td><td class="tm">克里夫蘭守護者</td><td class="vl">24</td></tr><tr><td class="rk">5</td><td class="nm">Oneil Cruz</td><td class="tm">匹茲堡海盜</td><td class="vl">21</td></tr></tbody></table></div></div><div style="height:10px"></div><div class="lb-grid"><div class="lb-card"><h3>防禦率</h3><table><tbody><tr><td class="rk">1</td><td class="nm">Jacob Misiorowski</td><td class="tm">密爾瓦基釀酒人</td><td class="vl">1.45</td></tr><tr><td class="rk">2</td><td class="nm">Cristopher Sánchez</td><td class="tm">費城費城人</td><td class="vl">2.00</td></tr><tr><td class="rk">3</td><td class="nm">Cam Schlittler</td><td class="tm">紐約洋基</td><td class="vl">2.08</td></tr><tr><td class="rk">4</td><td class="nm">Chris Sale</td><td class="tm">亞特蘭大勇士</td><td class="vl">2.10</td></tr><tr><td class="rk">5</td><td class="nm">Eduardo Rodriguez</td><td class="tm">亞利桑那響尾蛇</td><td class="vl">2.21</td></tr></tbody></table></div><div class="lb-card"><h3>三振</h3><table><tbody><tr><td class="rk">1</td><td class="nm">Jacob Misiorowski</td><td class="tm">密爾瓦基釀酒人</td><td class="vl">146</td></tr><tr><td class="rk">2</td><td class="nm">Cristopher Sánchez</td><td class="tm">費城費城人</td><td class="vl">136</td></tr><tr><td class="rk">3</td><td class="nm">Dylan Cease</td><td class="tm">多倫多藍鳥</td><td class="vl">128</td></tr><tr><td class="rk">4</td><td class="nm">Cam Schlittler</td><td class="tm">紐約洋基</td><td class="vl">123</td></tr><tr><td class="rk">5</td><td class="nm">Gavin Williams</td><td class="tm">克里夫蘭守護者</td><td class="vl">117</td></tr></tbody></table></div><div class="lb-card"><h3>勝投</h3><table><tbody><tr><td class="rk">1</td><td class="nm">Aaron Ashby</td><td class="tm">密爾瓦基釀酒人</td><td class="vl">11</td></tr><tr><td class="rk">2</td><td class="nm">Cristopher Sánchez</td><td class="tm">費城費城人</td><td class="vl">10</td></tr><tr><td class="rk">2</td><td class="nm">Justin Wrobleski</td><td class="tm">洛杉磯道奇</td><td class="vl">10</td></tr><tr><td class="rk">4</td><td class="nm">Sandy Alcantara</td><td class="tm">邁阿密馬林魚</td><td class="vl">9</td></tr><tr><td class="rk">4</td><td class="nm">Chase Burns</td><td class="tm">辛辛那提紅人</td><td class="vl">9</td></tr></tbody></table></div><div class="lb-card"><h3>救援</h3><table><tbody><tr><td class="rk">1</td><td class="nm">Cade Smith</td><td class="tm">克里夫蘭守護者</td><td class="vl">26</td></tr><tr><td class="rk">2</td><td class="nm">Bryan Baker</td><td class="tm">坦帕灣光芒</td><td class="vl">21</td></tr><tr><td class="rk">2</td><td class="nm">Jhoan Duran</td><td class="tm">費城費城人</td><td class="vl">21</td></tr><tr><td class="rk">2</td><td class="nm">Mason Miller</td><td class="tm">聖地牙哥教士</td><td class="vl">21</td></tr><tr><td class="rk">2</td><td class="nm">Riley O&#x27;Brien</td><td class="tm">聖路易紅雀</td><td class="vl">21</td></tr></tbody></table></div></div><div class="dash-note">打擊 / 投手 TOP 5 · MLB 官方 StatsAPI</div></div><div class="panel panel-lt-cpbl"><div class="lb-grid"><div class="lb-card"><h3>打擊率</h3><table><tbody><tr><td class="rk">1</td><td class="nm">張育成</td><td class="tm">富邦悍將</td><td class="vl">0.331</td></tr><tr><td class="rk">2</td><td class="nm">郭天信</td><td class="tm">味全龍</td><td class="vl">0.305</td></tr><tr><td class="rk">3</td><td class="nm">吳念庭</td><td class="tm">台鋼雄鷹</td><td class="vl">0.299</td></tr><tr><td class="rk">4</td><td class="nm">曾子祐</td><td class="tm">台鋼雄鷹</td><td class="vl">0.293</td></tr><tr><td class="rk">5</td><td class="nm">陳文杰</td><td class="tm">台鋼雄鷹</td><td class="vl">0.287</td></tr></tbody></table></div><div class="lb-card"><h3>安打</h3><table><tbody><tr><td class="rk">1</td><td class="nm">郭天信</td><td class="tm">味全龍</td><td class="vl">68</td></tr><tr><td class="rk">2</td><td class="nm">曾子祐</td><td class="tm">台鋼雄鷹</td><td class="vl">63</td></tr><tr><td class="rk">3</td><td class="nm">魔鷹</td><td class="tm">台鋼雄鷹</td><td class="vl">61</td></tr><tr><td class="rk">4</td><td class="nm">吳念庭</td><td class="tm">台鋼雄鷹</td><td class="vl">59</td></tr><tr><td class="rk">5</td><td class="nm">蘇智傑</td><td class="tm">統一7-ELEVEn獅</td><td class="vl">56</td></tr></tbody></table></div><div class="lb-card"><h3>全壘打</h3><table><tbody><tr><td class="rk">1</td><td class="nm">張育成</td><td class="tm">富邦悍將</td><td class="vl">11</td></tr><tr><td class="rk">2</td><td class="nm">范國宸</td><td class="tm">富邦悍將</td><td class="vl">9</td></tr><tr><td class="rk">3</td><td class="nm">魔鷹</td><td class="tm">台鋼雄鷹</td><td class="vl">9</td></tr><tr><td class="rk">4</td><td class="nm">朱育賢</td><td class="tm">味全龍</td><td class="vl">8</td></tr><tr><td class="rk">5</td><td class="nm">蘇智傑</td><td class="tm">統一7-ELEVEn獅</td><td class="vl">7</td></tr></tbody></table></div><div class="lb-card"><h3>打點</h3><table><tbody><tr><td class="rk">1</td><td class="nm">魔鷹</td><td class="tm">台鋼雄鷹</td><td class="vl">52</td></tr><tr><td class="rk">2</td><td class="nm">吳念庭</td><td class="tm">台鋼雄鷹</td><td class="vl">31</td></tr><tr><td class="rk">3</td><td class="nm">朱育賢</td><td class="tm">味全龍</td><td class="vl">30</td></tr><tr><td class="rk">4</td><td class="nm">王柏融</td><td class="tm">台鋼雄鷹</td><td class="vl">29</td></tr><tr><td class="rk">5</td><td class="nm">蘇智傑</td><td class="tm">統一7-ELEVEn獅</td><td class="vl">29</td></tr></tbody></table></div><div class="lb-card"><h3>盜壘</h3><table><tbody><tr><td class="rk">1</td><td class="nm">張政禹</td><td class="tm">味全龍</td><td class="vl">15</td></tr><tr><td class="rk">2</td><td class="nm">郭天信</td><td class="tm">味全龍</td><td class="vl">15</td></tr><tr><td class="rk">3</td><td class="nm">陳晨威</td><td class="tm">樂天桃猿</td><td class="vl">15</td></tr><tr><td class="rk">4</td><td class="nm">林子偉</td><td class="tm">樂天桃猿</td><td class="vl">13</td></tr><tr><td class="rk">5</td><td class="nm">王博玄</td><td class="tm">台鋼雄鷹</td><td class="vl">10</td></tr></tbody></table></div><div class="lb-card"><h3>防禦率</h3><table><tbody><tr><td class="rk">1</td><td class="nm">李東洺</td><td class="tm">富邦悍將</td><td class="vl">1.66</td></tr><tr><td class="rk">2</td><td class="nm">梅賽鍶</td><td class="tm">味全龍</td><td class="vl">1.73</td></tr><tr><td class="rk">3</td><td class="nm">鋼龍</td><td class="tm">味全龍</td><td class="vl">1.92</td></tr><tr><td class="rk">4</td><td class="nm">艾速特</td><td class="tm">台鋼雄鷹</td><td class="vl">1.97</td></tr><tr><td class="rk">5</td><td class="nm">黃子鵬</td><td class="tm">台鋼雄鷹</td><td class="vl">2.11</td></tr></tbody></table></div><div class="lb-card"><h3>勝投</h3><table><tbody><tr><td class="rk">1</td><td class="nm">李東洺</td><td class="tm">富邦悍將</td><td class="vl">10</td></tr><tr><td class="rk">2</td><td class="nm">梅賽鍶</td><td class="tm">味全龍</td><td class="vl">8</td></tr><tr><td class="rk">3</td><td class="nm">艾速特</td><td class="tm">台鋼雄鷹</td><td class="vl">6</td></tr><tr><td class="rk">4</td><td class="nm">鈴木駿輔</td><td class="tm">富邦悍將</td><td class="vl">5</td></tr><tr><td class="rk">5</td><td class="nm">獅帝芬</td><td class="tm">統一7-ELEVEn獅</td><td class="vl">5</td></tr></tbody></table></div><div class="lb-card"><h3>救援成功</h3><table><tbody><tr><td class="rk">1</td><td class="nm">鍾允華</td><td class="tm">統一7-ELEVEn獅</td><td class="vl">15</td></tr><tr><td class="rk">2</td><td class="nm">曾峻岳</td><td class="tm">富邦悍將</td><td class="vl">15</td></tr><tr><td class="rk">3</td><td class="nm">林凱威</td><td class="tm">味全龍</td><td class="vl">15</td></tr><tr><td class="rk">4</td><td class="nm">林詩翔</td><td class="tm">台鋼雄鷹</td><td class="vl">13</td></tr><tr><td class="rk">5</td><td class="nm">朱承洋</td><td class="tm">樂天桃猿</td><td class="vl">9</td></tr></tbody></table></div><div class="lb-card"><h3>中繼成功</h3><table><tbody><tr><td class="rk">1</td><td class="nm">呂彥青</td><td class="tm">中信兄弟</td><td class="vl">15</td></tr><tr><td class="rk">2</td><td class="nm">陳柏清</td><td class="tm">台鋼雄鷹</td><td class="vl">14</td></tr><tr><td class="rk">3</td><td class="nm">張奕</td><td class="tm">富邦悍將</td><td class="vl">13</td></tr><tr><td class="rk">4</td><td class="nm">陳冠偉</td><td class="tm">味全龍</td><td class="vl">12</td></tr><tr><td class="rk">5</td><td class="nm">髙塩將樹</td><td class="tm">統一7-ELEVEn獅</td><td class="vl">11</td></tr></tbody></table></div><div class="lb-card"><h3>奪三振</h3><table><tbody><tr><td class="rk">1</td><td class="nm">鋼龍</td><td class="tm">味全龍</td><td class="vl">78</td></tr><tr><td class="rk">2</td><td class="nm">艾速特</td><td class="tm">台鋼雄鷹</td><td class="vl">70</td></tr><tr><td class="rk">3</td><td class="nm">羅戈</td><td class="tm">中信兄弟</td><td class="vl">67</td></tr><tr><td class="rk">4</td><td class="nm">魔爾曼</td><td class="tm">樂天桃猿</td><td class="vl">63</td></tr><tr><td class="rk">5</td><td class="nm">勝騎士</td><td class="tm">中信兄弟</td><td class="vl">57</td></tr></tbody></table></div></div><div class="dash-note">人工快照 TOP5（非完整排行榜）</div></div></div>
+  <div class="bb-sec"><h2>數據總覽 · 深入查詢</h2><span class="ln"></span></div><div class="tiles"><a class="tile" href="/data/"><span class="ic">📊</span><span><span class="tt">排名與排行</span><span class="ds">MLB 六分區 · 打投排行榜</span></span><span class="go">→</span></a><a class="tile" href="/teams/"><span class="ic">⚾</span><span><span class="tt">球隊資料</span><span class="ds">MLB 30 隊 · 戰績 · 名冊</span></span><span class="go">→</span></a><a class="tile" href="/cpbl/"><span class="ic">🇹🇼</span><span><span class="tt">中職 CPBL</span><span class="ds">戰績 · 投打 TOP5</span></span><span class="go">→</span></a></div>
+  <div class="bb-sec"><h2>最新深度文章</h2><span class="ln"></span></div>
+  <a class="card-lead" href="/articles/mlb-2026-home-run-race/">
+    <div class="cov"><img src="/articles/mlb-2026-home-run-race/cover.png" alt="長打狂潮：2026 大聯盟全壘打競賽賽季過半檢視｜封面" loading="lazy"></div>
+    <div class="body"><span class="kk">FEATURE · 2026/06/26 · 週五</span>
+      <div class="tt">長打狂潮：2026 大聯盟全壘打競賽賽季過半檢視</div><div class="dd">六月，大聯盟走到了一個微妙的分水嶺。</div></div></a>
+    <div class="bb-grid">
+      <a class="card" href="/articles/mlb-brewers-2026-misiorowski/">
+      <div class="cov"><img src="/articles/mlb-brewers-2026-misiorowski/cover.png" alt="防禦率 1.45，得失分淨值 +123：密爾瓦基釀酒人 2026 的小市場方程式｜封面" loading="lazy"></div>
+      <div class="body"><span class="kk">FEATURE</span>
+        <div class="tt">防禦率 1.45，得失分淨值 +123：密爾瓦基釀酒人 2026 的小市場方程式</div><div class="mm">2026/06/26 · 週五</div></div></a>
+      <a class="card" href="/articles/mlb-dustin-may-one-hitter-2026-06-15/">
+      <div class="cov"><img src="/articles/mlb-dustin-may-one-hitter-2026-06-15/cover.png" alt="101 球、1 安打、9 K：杜斯汀・梅伊 71 場先發等來的生涯首張完投完封｜封面" loading="lazy"></div>
+      <div class="body"><span class="kk">FEATURE</span>
+        <div class="tt">101 球、1 安打、9 K：杜斯汀・梅伊 71 場先發等來的生涯首張完投完封</div><div class="mm">2026/06/26 · 週五</div></div></a>
+      <a class="card" href="/articles/mlb-padres-1-0-braves-2026-06-22/">
+      <div class="cov"><img src="/articles/mlb-padres-1-0-braves-2026-06-22/cover.png" alt="1-0 投手戰：金恩七局完封，馬查多一轟定生死，勇士七安打一分未得｜封面" loading="lazy"></div>
+      <div class="body"><span class="kk">FEATURE</span>
+        <div class="tt">1-0 投手戰：金恩七局完封，馬查多一轟定生死，勇士七安打一分未得</div><div class="mm">2026/06/26 · 週五</div></div></a>
+      <a class="card" href="/articles/mlb-2026-midseason-report/">
+      <div class="cov"><img src="/articles/mlb-2026-midseason-report/cover.png" alt="2026 大聯盟球季過半總覽：道奇稱霸全聯盟、白襪意外領跑、分區戰況全盤點｜封面" loading="lazy"></div>
+      <div class="body"><span class="kk">FEATURE</span>
+        <div class="tt">2026 大聯盟球季過半總覽：道奇稱霸全聯盟、白襪意外領跑、分區戰況全盤點</div><div class="mm">2026/06/25 · 週四</div></div></a>
+      <a class="card" href="/articles/mlb-ohtani-2026-two-way/">
+      <div class="cov"><img src="/articles/mlb-ohtani-2026-two-way/cover.png" alt="二刀流完全體：大谷翔平 2026，用 ERA 1.58 宣告投手回歸｜封面" loading="lazy"></div>
+      <div class="body"><span class="kk">FEATURE</span>
+        <div class="tt">二刀流完全體：大谷翔平 2026，用 ERA 1.58 宣告投手回歸</div><div class="mm">2026/06/25 · 週四</div></div></a>
+      <a class="card" href="/articles/mlb-special-ohtani-2024-50-50/">
+      <div class="cov"><img src="/articles/mlb-special-ohtani-2024-50-50/cover.png" alt="投不了球的那一年：大谷翔平 2024，與棒球史上第一個 50-50｜封面" loading="lazy"></div>
+      <div class="body"><span class="kk">FEATURE</span>
+        <div class="tt">投不了球的那一年：大谷翔平 2024，與棒球史上第一個 50-50</div><div class="mm">2026/06/25 · 週四</div></div></a>
+      <a class="card" href="/articles/mlb-white-sox-2026-turnaround/">
+      <div class="cov"><img src="/articles/mlb-white-sox-2026-turnaround/cover.png" alt="從 41 勝 121 敗到美聯中區第一：芝加哥白襪的兩年落差｜封面" loading="lazy"></div>
+      <div class="body"><span class="kk">FEATURE</span>
+        <div class="tt">從 41 勝 121 敗到美聯中區第一：芝加哥白襪的兩年落差</div><div class="mm">2026/06/25 · 週四</div></div></a>
+    </div>
+  <div class="bb-sec"><h2>常見問題</h2><span class="ln"></span></div>
+  <section class="bb-faq">
+    <div class="qa"><h3 class="faq-q">@baseball 的數據多久更新一次？</h3><p class="faq-a">首頁儀表板的 MLB、日職（NPB）、韓職（KBO）戰績與賽果每日自動更新，資料來自官方 MLB StatsAPI 與 api-sports；中華職棒（CPBL）為人工擷取官方公開數據的快照，頁面會標註擷取日期。每篇文章的數字也都標註來源與截止日期。</p></div>
+    <div class="qa"><h3 class="faq-q">@baseball 涵蓋哪些聯盟？</h3><p class="faq-a">美國職棒大聯盟（MLB，30 隊）、中華職棒（CPBL）、日本職棒（NPB）與韓國職棒（KBO）。首頁提供四聯盟的今日賽事、戰績排行與數據領先者；MLB 另有 30 隊球隊頁、主客場拆分、球員名冊與里程碑特刊。</p></div>
+    <div class="qa"><h3 class="faq-q">這個網站和 MLB、中華職棒官方有關係嗎？</h3><p class="faq-a">沒有。@baseball 是獨立的繁體中文數據內容站，與 MLB、CPBL 等職業聯盟及球團無任何官方關聯；所有數據引自公開官方來源並於文中標註。</p></div>
+    <div class="qa"><h3 class="faq-q">文章的數據可信嗎？要怎麼查證？</h3><p class="faq-a">每篇深度文以結構化事實（facts pack）為基礎撰寫，數字逐筆對照 MLB StatsAPI／api-sports 官方來源，並經獨立第二來源交叉核對後才發佈。文中關鍵數據附截止日期，方便讀者自行查證。</p></div>
+    <div class="qa"><h3 class="faq-q">為什麼看 @baseball，而不是直接查比分？</h3><p class="faq-a">即時比分各家都有；@baseball 專注「看門道」——用排行榜、主客場拆分、淨勝分與里程碑脈絡把數字背後的故事說清楚，每篇 5,000 字以上、附統計表，為深度理解而非即時速報而寫。</p></div>
+  </section>
+  </main>
+  <footer class="bb-foot">@baseball · baseball.twtools.cc　·　<a href="https://www.facebook.com/profile.php?id=61591259651756" target="_blank" rel="noopener" style="color:var(--accent)">Facebook ↗</a><br>本站為獨立內容站，與 MLB、中華職棒（CPBL）等職業聯盟、球團無官方關聯；數據引自公開官方來源並標註。</footer>
+</div>
+</body>
+</html>
